@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/photo/logo loctroi 2.png",
-    apple: "/photo/logo loctroi 2.png",
+    icon: "/photo/logo4.png?v=2",
+    apple: "/photo/logo4.png?v=2",
   },
 };
 

@@ -58,7 +58,7 @@ export const Navbar = () => {
         <a href="#hero" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 bg-white rounded-xl p-1 shadow-sm overflow-hidden group-hover:shadow-md transition-shadow">
             <Image
-              src="/photo/logo loctroi 2.png"
+              src="/photo/logo4.png"
               alt="Logo"
               fill
               className="object-contain p-1"
@@ -208,7 +208,7 @@ export const Footer = () => {
             className="flex flex-col items-center md:items-start"
           >
             <div className="w-16 h-16 bg-white rounded-xl p-2 mb-6 shadow-lg">
-              <Image src="/photo/logo loctroi 2.png" alt="Logo" width={64} height={64} className="object-contain" />
+              <Image src="/photo/logo4.png" alt="Logo" width={64} height={64} className="object-contain" />
             </div>
             <h3 className="font-black text-xl text-white mb-2">LỘC TRỜI CAMBODIA</h3>
             <p className="text-white/50 mb-6 max-w-xs">ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក ផ្តល់ជូនផលិតផលកសិកម្មគុណភាពខ្ពស់។</p>
