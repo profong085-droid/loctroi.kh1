@@ -6,6 +6,7 @@ import { LiveChat } from "@/components/LiveChat";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
 import { AuthProvider } from "@/context/AuthContext";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const kantumruyPro = Kantumruy_Pro({ 
@@ -63,6 +64,7 @@ export default function RootLayout({
           <Footer />
           <LiveChat />
           <ScrollToTop />
+          <Analytics />
         </AuthProvider>
       </body>
     </html>

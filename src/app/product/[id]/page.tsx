@@ -45,8 +45,24 @@ export default async function ProductPage({ params }: Props) {
     notFound();
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    image: `https://loctroi.online/${product.image}`,
+    description: `ផលិតផល ${product.name} - ${product.categoryKh}។ ${product.usage}`,
+    brand: {
+      '@type': 'Brand',
+      name: 'Loc Troi Cambodia'
+    }
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 pt-24 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="container mx-auto px-6 max-w-5xl">
         <Link 
           href="/#products" 
