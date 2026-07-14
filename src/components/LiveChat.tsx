@@ -119,7 +119,7 @@ export const LiveChat = () => {
                   <Bot size={24} />
                 </div>
                 <div>
-                  <h3 className="font-koulen text-xl tracking-wide">សួរពូថៅកែ (Bot)</h3>
+                  <h3 className="font-koulen text-xl tracking-wide">FONG-BOT</h3>
                   <div className="flex items-center gap-1.5 text-xs text-primary-100">
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                     កំពុងរង់ចាំតប

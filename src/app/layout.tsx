@@ -3,6 +3,7 @@ import { Inter, Kantumruy_Pro, Koulen } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/components/Layout";
 import { LiveChat } from "@/components/LiveChat";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 import { AuthProvider } from "@/context/AuthContext";
 
@@ -19,13 +20,14 @@ const koulen = Koulen({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://loctroi.online"),
   title: "Loc Troi Cambodia - ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក",
   description: "ក្រុមហ៊ុន Loc Troi Cambodia ផ្គត់ផ្គង់ថ្នាំការពារដំណាំ ជីកសិកម្ម និងពូជស្រូវគុណភាពខ្ពស់ ដើម្បីជួយកសិករកម្ពុជាបង្កើនទិន្នផល និងគុណភាពដំណាំ។",
   keywords: ["ថ្នាំកសិកម្ម", "ជីកសិកម្ម", "ពូជស្រូវ", "កសិកម្មកម្ពុជា", "Loc Troi Cambodia", "Lộc Trời", "ថ្នាំសម្លាប់សត្វល្អិត", "ជីបំប៉ន"],
   openGraph: {
     title: "Loc Troi Cambodia",
     description: "ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក ផ្គត់ផ្គង់ថ្នាំកសិកម្ម ជី និងពូជស្រូវ។",
-    url: "https://loctroi-kh.com",
+    url: "https://loctroi.online",
     siteName: "Loc Troi Cambodia",
     images: [
       {
@@ -60,6 +62,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <LiveChat />
+          <ScrollToTop />
         </AuthProvider>
       </body>
     </html>

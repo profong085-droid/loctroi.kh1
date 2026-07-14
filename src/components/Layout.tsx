@@ -27,20 +27,13 @@ export const Navbar = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const loggedInUser = result.user;
       
-      const token = "8830127171:AAFtTmKIrIvaLRuH7wkXvOrcEJ8BuX9dYCk";
-      const chatId = "8725769963";
-      const message = `🔔 *ចូលគណនីថ្មី (New Login)*\n\n*ឈ្មោះ (Name):* ${loggedInUser.displayName || "Unknown"}\n*អ៊ីមែល (Email):* ${loggedInUser.email || "Unknown"}\n*ម៉ោង (Time):* ${new Date().toLocaleString()}`;
-      
-      const url = `https://api.telegram.org/bot${token}/sendMessage`;
-      await fetch(url, {
+      await fetch("/api/send-telegram", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          chat_id: chatId,
-          text: message,
-          parse_mode: "Markdown",
+          type: "login",
+          name: loggedInUser.displayName || "Unknown",
+          message: loggedInUser.email || "Unknown",
         }),
       });
     } catch (error) {
@@ -112,9 +105,12 @@ export const Navbar = () => {
           ) : user ? (
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20">
-                <img 
+                <Image 
                   src={user.photoURL || "https://avatar.vercel.sh/guest"} 
                   alt={user.displayName || "User"} 
+                  width={28}
+                  height={28}
+                  unoptimized
                   className="w-7 h-7 rounded-full object-cover"
                 />
                 <span className={`text-sm font-semibold hidden lg:block ${scrolled ? "text-slate-800" : "text-white"}`}>
@@ -224,7 +220,7 @@ export const Footer = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <h4 className="font-bold text-white uppercase tracking-wider">ទំនាក់ទំនង</h4>
-              <img src="https://flagcdn.com/w40/kh.png" alt="Cambodia Flag" className="h-4 w-auto rounded-sm object-cover shadow-sm" />
+              <Image src="https://flagcdn.com/w40/kh.png" alt="Cambodia Flag" width={40} height={27} unoptimized className="h-4 w-auto rounded-sm object-cover shadow-sm" />
             </div>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">

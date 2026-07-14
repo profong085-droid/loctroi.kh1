@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo, useEffect, ElementType } from "react";
+import { useState, useMemo, ElementType, useRef } from "react";
 import Image from "next/image";
 import { Search, Tag, X, ChevronDown, ZoomIn } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { productsData, categories, Product } from "@/data/products";
 
@@ -56,29 +56,19 @@ export const Products = () => {
     setSelectedProduct(null);
     
     try {
-      const token = "8830127171:AAFtTmKIrIvaLRuH7wkXvOrcEJ8BuX9dYCk";
-      const chatId = "8725769963";
-      
-      const response = await fetch(`/${product.image}`);
-      const blob = await response.blob();
-      
-      const formData = new FormData();
-      formData.append("chat_id", chatId);
-      formData.append("photo", blob, "product.png");
-      
-      const caption = `🛒 *អតិថិជនចាប់អារម្មណ៍ផលិតផល*\n\n*ឈ្មោះផលិតផល:* ${product.name}\n*ប្រភេទ:* ${product.categoryKh}\n*ព័ត៌មានបន្ថែម:* ${product.usage}`;
-      formData.append("caption", caption);
-      formData.append("parse_mode", "Markdown");
-
-      const url = `https://api.telegram.org/bot${token}/sendPhoto`;
-      
-      await fetch(url, {
+      await fetch("/api/send-telegram", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "product-inquiry",
+          productName: product.name,
+          productCategory: product.categoryKh,
+          productUsage: product.usage,
+          productImage: product.image,
+        }),
       });
-      
     } catch (error) {
-      console.error("Failed to send product inquiry to Telegram", error);
+      console.error("Failed to send product inquiry", error);
     }
   };
 
@@ -157,39 +147,13 @@ export const Products = () => {
               {displayedProducts.map((product, i) => {
                 const categoryData = categories.find(c => c.id === product.category);
                 return (
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3, delay: i * 0.05 }}
-                    key={product.id}
-                    onClick={() => setSelectedProduct(product)}
-                    className="group bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl overflow-hidden cursor-pointer flex flex-col h-auto min-h-[250px] md:min-h-[400px] transition-all duration-500 hover:-translate-y-2 border border-slate-50 relative"
-                  >
-                    <div className="relative h-40 md:h-64 p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
-                      <div className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[9px] md:text-[10px] font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5">
-                        <Icon name={categoryData?.icon || "tag"} size={12} />
-                        {product.categoryKh}
-                      </div>
-                      <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary-800 opacity-0 transform scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg">
-                        <ZoomIn size={18} />
-                      </div>
-                      <div className="relative w-full h-full transform group-hover:scale-110 transition-transform duration-700">
-                        <Image
-                          src={`/${product.image}`}
-                          alt={product.name}
-                          fill
-                          className="object-contain drop-shadow-2xl"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        />
-                      </div>
-                    </div>
-                    <div className="p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20">
-                      <h4 className="font-black text-slate-800 text-sm md:text-xl truncate mb-1">{product.name}</h4>
-                      <p className="text-accent-500 text-[10px] md:text-sm font-bold">{product.categoryKh}</p>
-                    </div>
-                  </motion.div>
+                  <ProductCard 
+                    key={product.id} 
+                    product={product} 
+                    categoryData={categoryData} 
+                    onClick={() => setSelectedProduct(product)} 
+                    index={i} 
+                  />
                 );
               })}
             </motion.div>
@@ -234,16 +198,7 @@ export const Products = () => {
                 <X size={20} />
               </button>
               
-              <div className="w-full md:w-1/2 p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[200px] md:min-h-[300px]">
-                <div className="relative w-full h-[200px] md:h-[400px]">
-                  <Image 
-                    src={`/${selectedProduct.image}`} 
-                    alt={selectedProduct.name} 
-                    fill
-                    className="object-contain drop-shadow-2xl" 
-                  />
-                </div>
-              </div>
+              <ModalImage3D image={selectedProduct.image} alt={selectedProduct.name} />
               
               <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
                 <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-xs font-black rounded-full uppercase tracking-wider mb-6 w-max">
@@ -284,5 +239,192 @@ export const Products = () => {
         )}
       </AnimatePresence>
     </section>
+  );
+};
+
+// 3D Tilt Product Card
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ProductCard = ({ product, categoryData, onClick, index }: any) => {
+  const ref = useRef<HTMLDivElement>(null);
+  
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+  
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["0%", "100%"]);
+  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["0%", "100%"]);
+  const glareOpacity = useTransform(mouseYSpring, [-0.5, 0.5], [0.1, 0.5]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3, delay: index * 0.05 }}
+      style={{ perspective: 1000 }}
+      className="group"
+    >
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onClick={onClick}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="relative bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[250px] md:min-h-[400px] transition-shadow duration-500 border border-slate-50 overflow-hidden"
+      >
+        {/* Glare Effect */}
+        <motion.div
+          className="absolute inset-0 z-30 pointer-events-none rounded-2xl md:rounded-4xl mix-blend-overlay"
+          style={{
+            background: `radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%)`,
+            left: glareX,
+            top: glareY,
+            opacity: glareOpacity,
+            transform: "translate(-50%, -50%)",
+            width: "200%",
+            height: "200%",
+          }}
+        />
+
+        <div className="relative h-40 md:h-64 p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
+          <div 
+            style={{ transform: "translateZ(30px)" }}
+            className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[9px] md:text-[10px] font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
+          >
+            <Icon name={categoryData?.icon || "tag"} size={12} />
+            {product.categoryKh}
+          </div>
+          <div 
+            style={{ transform: "translateZ(40px)" }}
+            className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg"
+          >
+            <ZoomIn size={18} />
+          </div>
+          <motion.div 
+            style={{ transform: "translateZ(60px)" }}
+            className="relative w-full h-full group-hover:scale-110 transition-transform duration-700"
+          >
+            <Image
+              src={`/${product.image}`}
+              alt={product.name}
+              fill
+              className="object-contain drop-shadow-2xl pointer-events-none"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            />
+          </motion.div>
+        </div>
+        
+        <div 
+          style={{ transform: "translateZ(20px)" }}
+          className="p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20"
+        >
+          <h4 className="font-black text-slate-800 text-sm md:text-xl truncate mb-1">{product.name}</h4>
+          <p className="text-accent-500 text-[10px] md:text-sm font-bold">{product.categoryKh}</p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+// 3D Tilt Modal Image
+const ModalImage3D = ({ image, alt }: { image: string, alt: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+  
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["0%", "100%"]);
+  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["0%", "100%"]);
+  const glareOpacity = useTransform(mouseYSpring, [-0.5, 0.5], [0, 0.3]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <div className="w-full md:w-1/2 p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[200px] md:min-h-[300px]" style={{ perspective: 1000 }}>
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="relative w-full h-[200px] md:h-[400px] rounded-2xl group cursor-crosshair"
+      >
+        {/* Glare Effect */}
+        <motion.div
+          className="absolute inset-0 z-30 pointer-events-none mix-blend-overlay"
+          style={{
+            background: `radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%)`,
+            left: glareX,
+            top: glareY,
+            opacity: glareOpacity,
+            transform: "translate(-50%, -50%)",
+            width: "200%",
+            height: "200%",
+          }}
+        />
+        <motion.div 
+          style={{ transform: "translateZ(50px)" }}
+          className="relative w-full h-full group-hover:scale-105 transition-transform duration-500"
+        >
+          <Image 
+            src={`/${image}`} 
+            alt={alt} 
+            fill
+            className="object-contain drop-shadow-2xl pointer-events-none" 
+          />
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };

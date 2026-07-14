@@ -18,21 +18,14 @@ export const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const token = "8830127171:AAFtTmKIrIvaLRuH7wkXvOrcEJ8BuX9dYCk";
-      const chatId = "8725769963";
-      
-      const text = `📬 *សារថ្មីពីអតិថិជន (New Contact)*\n\n*ឈ្មោះ (Name):* ${formData.name}\n*លេខទូរស័ព្ទ (Phone):* ${formData.phone}\n*សារ (Message):* ${formData.message}`;
-      
-      const url = `https://api.telegram.org/bot${token}/sendMessage`;
-      await fetch(url, {
+      await fetch("/api/send-telegram", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          chat_id: chatId,
-          text: text,
-          parse_mode: "Markdown",
+          type: "contact",
+          name: formData.name,
+          phone: formData.phone,
+          message: formData.message,
         }),
       });
       
