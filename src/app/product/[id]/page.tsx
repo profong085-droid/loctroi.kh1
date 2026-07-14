@@ -2,7 +2,7 @@ import { productsData } from "@/data/products";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Tag } from "lucide-react";
+import { ArrowLeft, Tag, FlaskConical, CheckCircle2, Leaf, Microscope } from "lucide-react";
 import { Metadata } from "next";
 
 type Props = {
@@ -78,14 +78,60 @@ export default async function ProductPage({ params }: Props) {
               {product.name}
             </h1>
             
-            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 mb-8">
-              <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2 text-lg">
-                <Tag size={20} className="text-accent-500" />
-                ព័ត៌មានលម្អិត
-              </h4>
-              <p className="text-slate-600 leading-relaxed text-lg">
-                {product.usage}
-              </p>
+            <div className="space-y-6 mb-8">
+              {product.ingredients && (
+                <div className="bg-primary-50/50 p-6 rounded-2xl border border-primary-100">
+                  <h4 className="font-bold text-primary-900 mb-3 flex items-center gap-2 text-xl">
+                    <FlaskConical size={24} className="text-primary-600" />
+                    ធាតុកម្មសកម្ម (Active Ingredients)
+                  </h4>
+                  <p className="text-primary-800 font-semibold text-lg ml-8 mb-4 border-l-4 border-primary-300 pl-4 py-1">
+                    {product.ingredients}
+                  </p>
+                  
+                  {/* Detailed Information based on Active Ingredient */}
+                  {product.ingredientDetails && (
+                    <div className="ml-8 bg-white p-5 rounded-xl shadow-sm border border-primary-100">
+                      <h5 className="font-bold text-primary-800 mb-3 flex items-center gap-2">
+                        <Microscope size={20} className="text-accent-500" />
+                        ព័ត៌មានលម្អិតនៃធាតុកម្ម៖
+                      </h5>
+                      <div className="text-slate-600 leading-relaxed text-base space-y-2">
+                        {product.ingredientDetails.split('\n').map((line: string, i: number) => (
+                          <p key={i}>{line}</p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {product.benefits && product.benefits.length > 0 && (
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                  <h4 className="font-bold text-slate-800 mb-4 flex items-center gap-2 text-lg">
+                    <Leaf size={20} className="text-accent-500" />
+                    អត្ថប្រយោជន៍ (Benefits)
+                  </h4>
+                  <ul className="space-y-3 ml-1">
+                    {product.benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 size={20} className="text-green-500 shrink-0 mt-0.5" />
+                        <span className="text-slate-600 text-lg leading-relaxed">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2 text-lg">
+                  <Tag size={20} className="text-accent-500" />
+                  របៀបប្រើប្រាស់ (Usage)
+                </h4>
+                <p className="text-slate-600 leading-relaxed text-lg ml-7">
+                  {product.usage}
+                </p>
+              </div>
             </div>
             
             <Link 

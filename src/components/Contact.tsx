@@ -91,6 +91,7 @@ export const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="ឈ្មោះរបស់អ្នក"
+                    suppressHydrationWarning
                     className="w-full pl-12 pr-6 py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base shadow-sm"
                   />
                 </div>
@@ -106,6 +107,7 @@ export const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="លេខទូរស័ព្ទ"
+                    suppressHydrationWarning
                     className="w-full pl-12 pr-6 py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base shadow-sm"
                   />
                 </div>
@@ -122,6 +124,7 @@ export const Contact = () => {
                   onChange={handleChange}
                   placeholder="សរសេរសាររបស់អ្នកទីនេះ..."
                   rows={5}
+                  suppressHydrationWarning
                   className="w-full pl-12 pr-6 py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base shadow-sm resize-none"
                 />
               </div>
