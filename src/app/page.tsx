@@ -2,6 +2,7 @@
 
 import HeroBackground from "@/components/3d/HeroBackground";
 import { Products } from "@/components/Products";
+import { Partners } from "@/components/Partners";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { ArrowRight } from "lucide-react";
@@ -79,6 +80,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Partners Section */}
+      <Partners />
 
       {/* About Section */}
       <About />

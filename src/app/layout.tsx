@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Kantumruy_Pro, Koulen } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/components/Layout";
+import { LiveChat } from "@/components/LiveChat";
 
 import { AuthProvider } from "@/context/AuthContext";
 
@@ -58,6 +59,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <LiveChat />
         </AuthProvider>
       </body>
     </html>

@@ -153,7 +153,7 @@ export const Products = () => {
               <p className="text-slate-500">សូមសាកល្បងស្វែងរកពាក្យផ្សេង ឬជ្រើសរើសប្រភេទផ្សេង</p>
             </motion.div>
           ) : (
-            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
               {displayedProducts.map((product, i) => {
                 const categoryData = categories.find(c => c.id === product.category);
                 return (
@@ -165,10 +165,10 @@ export const Products = () => {
                     transition={{ duration: 0.3, delay: i * 0.05 }}
                     key={product.id}
                     onClick={() => setSelectedProduct(product)}
-                    className="group bg-white rounded-4xl shadow-sm hover:shadow-2xl overflow-hidden cursor-pointer flex flex-col h-[420px] transition-all duration-500 hover:-translate-y-2 border border-slate-50 relative"
+                    className="group bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl overflow-hidden cursor-pointer flex flex-col h-auto min-h-[250px] md:min-h-[400px] transition-all duration-500 hover:-translate-y-2 border border-slate-50 relative"
                   >
-                    <div className="relative h-64 p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
-                      <div className="absolute top-4 left-4 px-4 py-1.5 bg-primary-100/80 backdrop-blur text-primary-800 text-[10px] font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5">
+                    <div className="relative h-40 md:h-64 p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
+                      <div className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[9px] md:text-[10px] font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5">
                         <Icon name={categoryData?.icon || "tag"} size={12} />
                         {product.categoryKh}
                       </div>
@@ -185,9 +185,9 @@ export const Products = () => {
                         />
                       </div>
                     </div>
-                    <div className="p-6 flex-1 flex flex-col justify-end text-center bg-white z-20">
-                      <h4 className="font-black text-slate-800 text-xl truncate mb-1">{product.name}</h4>
-                      <p className="text-accent-500 text-sm font-bold">{product.categoryKh}</p>
+                    <div className="p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20">
+                      <h4 className="font-black text-slate-800 text-sm md:text-xl truncate mb-1">{product.name}</h4>
+                      <p className="text-accent-500 text-[10px] md:text-sm font-bold">{product.categoryKh}</p>
                     </div>
                   </motion.div>
                 );
@@ -225,7 +225,7 @@ export const Products = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative bg-white rounded-4xl shadow-2xl w-full max-w-4xl overflow-hidden flex flex-col md:flex-row"
+              className="relative bg-white rounded-2xl md:rounded-4xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row"
             >
               <button 
                 onClick={() => setSelectedProduct(null)}
@@ -234,8 +234,8 @@ export const Products = () => {
                 <X size={20} />
               </button>
               
-              <div className="w-full md:w-1/2 p-12 bg-slate-50 flex items-center justify-center min-h-[300px]">
-                <div className="relative w-full h-[400px]">
+              <div className="w-full md:w-1/2 p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[200px] md:min-h-[300px]">
+                <div className="relative w-full h-[200px] md:h-[400px]">
                   <Image 
                     src={`/${selectedProduct.image}`} 
                     alt={selectedProduct.name} 
@@ -245,11 +245,11 @@ export const Products = () => {
                 </div>
               </div>
               
-              <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
+              <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
                 <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-xs font-black rounded-full uppercase tracking-wider mb-6 w-max">
                   {selectedProduct.categoryKh}
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-slate-800 mb-6 leading-tight">
+                <h3 className="text-2xl md:text-4xl font-black text-slate-800 mb-4 md:mb-6 leading-tight">
                   {selectedProduct.name}
                 </h3>
                 
@@ -258,7 +258,7 @@ export const Products = () => {
                     <Tag size={18} className="text-accent-500" />
                     ព័ត៌មានលម្អិត
                   </h4>
-                  <p className="text-slate-600 leading-relaxed text-lg">
+                  <p className="text-slate-600 leading-relaxed text-base md:text-lg">
                     {selectedProduct.usage}
                   </p>
                 </div>
@@ -272,7 +272,7 @@ export const Products = () => {
                   </button>
                   <Link 
                     href={`/product/${selectedProduct.id}`}
-                    className="px-8 py-4 bg-white border-2 border-primary-800 text-primary-800 hover:bg-primary-50 rounded-full font-bold transition-all w-full text-center"
+                    className="px-6 md:px-8 py-3 md:py-4 bg-white border-2 border-primary-800 text-primary-800 hover:bg-primary-50 rounded-full font-bold transition-all w-full text-center"
                     onClick={() => setSelectedProduct(null)}
                   >
                     ចូលមើលទំព័រពេញ

@@ -61,6 +61,7 @@ export const Navbar = () => {
               src="/photo/logo4.png"
               alt="Logo"
               fill
+              sizes="48px"
               className="object-contain p-1"
             />
           </div>
@@ -232,7 +233,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-slate-300">
                 <Phone size={20} className="text-primary-500" />
-                <span>+855 71 777 3554</span>
+                <span>097 945 0831 | 071 777 3554</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-accent-500 shrink-0" size={18} />
