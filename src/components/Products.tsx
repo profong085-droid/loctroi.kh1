@@ -52,7 +52,6 @@ export const Products = () => {
   const displayedProducts = filteredProducts.slice(0, visibleCount);
 
   const handleInquireProduct = async (product: Product) => {
-    window.location.href = '#contact';
     setSelectedProduct(null);
     
     try {

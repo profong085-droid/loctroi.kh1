@@ -2,9 +2,10 @@
 
 import HeroBackground from "@/components/3d/HeroBackground";
 import { Products } from "@/components/Products";
+import { VideoSongs } from "@/components/VideoSongs";
+import { AgriVideos } from "@/components/AgriVideos";
 import { Partners } from "@/components/Partners";
 import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
 import { ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
@@ -98,8 +99,11 @@ export default function Home() {
       {/* Products Section */}
       <Products />
 
-      {/* Contact Section */}
-      <Contact />
+      {/* Video Songs Section */}
+      <VideoSongs />
+
+      {/* Agri Videos Section */}
+      <AgriVideos />
     </main>
   );
 }

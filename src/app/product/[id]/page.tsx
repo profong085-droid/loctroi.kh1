@@ -151,7 +151,7 @@ export default async function ProductPage({ params }: Props) {
             </div>
             
             <Link 
-              href="/#contact"
+              href="/"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-xl w-full text-lg"
             >
               សាកសួរព័ត៌មានបន្ថែម

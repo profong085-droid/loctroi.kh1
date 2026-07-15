@@ -93,12 +93,6 @@ export const Navbar = () => {
               {item.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="px-6 py-2.5 bg-accent-500 text-primary-950 rounded-full text-sm font-bold hover:bg-accent-400 transition-colors shadow-lg shadow-accent-500/30"
-          >
-            ទំនាក់ទំនង
-          </a>
           
           {loading ? (
             <div className="w-24 h-10 bg-white/20 animate-pulse rounded-full"></div>
@@ -162,7 +156,6 @@ export const Navbar = () => {
                 { id: "hero", label: "ទំព័រដើម" },
                 { id: "about", label: "អំពីយើង" },
                 { id: "products", label: "ផលិតផល" },
-                { id: "contact", label: "ទំនាក់ទំនង" },
               ].map((item) => (
                 <a
                   key={item.id}
