@@ -50,19 +50,22 @@ export async function POST(req: NextRequest) {
       if (productImage) {
         try {
           // 1. Get Base64 image for the receipt
-          const imagePath = path.join(process.cwd(), 'public', productImage);
+          const imagePath = path.join(process.cwd(), 'public', productImage.replace(/^https?:\/\/[^\/]+/, ''));
           let base64Image = '';
           if (fs.existsSync(imagePath)) {
             const fileBuffer = fs.readFileSync(imagePath);
             const ext = path.extname(imagePath).replace('.', '') || 'png';
             base64Image = `data:image/${ext};base64,${fileBuffer.toString('base64')}`;
+          } else {
+            // Fallback to URL if local file not found
+            base64Image = productImage;
           }
 
           // 2. Fetch Khmer Font (Suwannaphum)
           let fontData: ArrayBuffer | null = null;
           try {
             const cssRes = await fetch('https://fonts.googleapis.com/css2?family=Suwannaphum:wght@400', {
-              headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36' }
+              headers: { 'User-Agent': 'Mozilla/5.0' }
             });
             const css = await cssRes.text();
             const match = css.match(/url\((https:\/\/[^)]+\.ttf)\)/);
@@ -74,7 +77,7 @@ export async function POST(req: NextRequest) {
             console.error("Failed to load Khmer font", e);
           }
 
-          // 3. Generate Receipt Image
+          // 3. Generate Receipt Image (POS Style)
           const receiptElement = React.createElement('div', {
             style: {
               display: 'flex',
@@ -83,47 +86,65 @@ export async function POST(req: NextRequest) {
               height: '100%',
               backgroundColor: '#ffffff',
               padding: '40px',
-              borderTop: '16px solid #16a34a',
               fontFamily: '"Suwannaphum", sans-serif',
+              alignItems: 'center',
             }
           }, 
-            React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '2px solid #f1f5f9', paddingBottom: '20px', width: '100%' } },
-              React.createElement('h1', { style: { fontSize: '42px', color: '#16a34a', margin: 0 } }, 'LỘC TRỜI (លំអងមាស)'),
-              React.createElement('div', { style: { fontSize: '24px', color: '#64748b', display: 'flex' } }, 'សាកសួរព័ត៌មាន / Inquiry')
+            React.createElement('img', { src: 'https://loctroi.online/photo/logo4.png', width: 120, height: 120, style: { marginBottom: '20px' } }),
+            React.createElement('div', { style: { fontSize: '46px', fontWeight: 'bold', color: '#0f172a', marginBottom: '10px' } }, 'LOC TROI CAMBODIA'),
+            React.createElement('div', { style: { fontSize: '26px', color: '#64748b', marginBottom: '10px' } }, 'សាកសួរព័ត៌មានផលិតផល (Inquiry)'),
+            React.createElement('div', { style: { fontSize: '22px', color: '#64748b', marginBottom: '30px' } }, 'Phnom Penh, Cambodia'),
+            
+            React.createElement('div', { style: { borderBottom: '2px dashed #cbd5e1', width: '100%', marginBottom: '30px' } }),
+            
+            React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', width: '100%', marginBottom: '15px' } },
+              React.createElement('div', { style: { fontSize: '24px', color: '#64748b' } }, new Date().toLocaleString('en-GB')),
+              React.createElement('div', { style: { fontSize: '24px', color: '#64748b' } }, `ID #${Math.floor(Math.random() * 9000) + 1000}`)
             ),
-            React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flex: 1, width: '100%' } },
-              React.createElement('div', { style: { display: 'flex', flex: 1, flexDirection: 'column', paddingRight: '40px' } },
-                React.createElement('h2', { style: { fontSize: '36px', color: '#0f172a', margin: '0 0 10px 0' } }, `ផលិតផល: ${productName}`),
-                React.createElement('h3', { style: { fontSize: '28px', color: '#334155', margin: '0 0 20px 0' } }, `ប្រភេទ: ${productCategory}`),
-                React.createElement('div', { style: { display: 'flex', backgroundColor: '#f8fafc', padding: '20px', borderRadius: '12px', flexWrap: 'wrap' } },
-                   React.createElement('p', { style: { fontSize: '22px', color: '#475569', margin: 0, lineHeight: 1.5 } }, productUsage)
-                )
+            React.createElement('div', { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', marginBottom: '30px' } },
+              React.createElement('div', { style: { fontSize: '24px', color: '#64748b' } }, `From: ${name || 'Customer'} (${phone || 'N/A'})`)
+            ),
+            
+            React.createElement('div', { style: { borderBottom: '2px dashed #cbd5e1', width: '100%', marginBottom: '30px' } }),
+            
+            React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', width: '100%', marginBottom: '30px', color: '#94a3b8', fontSize: '22px', fontWeight: 'bold' } },
+              React.createElement('div', null, 'ITEM / PRODUCT'),
+              React.createElement('div', null, 'CATEGORY')
+            ),
+            
+            React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', width: '100%', marginBottom: '10px' } },
+              React.createElement('div', { style: { display: 'flex', flexDirection: 'column', maxWidth: '60%' } },
+                React.createElement('div', { style: { fontSize: '28px', fontWeight: 'bold', color: '#0f172a', marginBottom: '10px', lineHeight: 1.2 } }, productName),
+                React.createElement('div', { style: { fontSize: '24px', color: '#64748b', display: 'flex' } }, 'មើលព័ត៌មានបន្ថែមក្នុងប្រអប់សារ')
               ),
-              React.createElement('div', { style: { display: 'flex', width: '250px', height: '250px', backgroundColor: '#f8fafc', borderRadius: '16px', padding: '20px', justifyContent: 'center', alignItems: 'center' } },
-                base64Image ? React.createElement('img', { src: base64Image, style: { maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' } }) : null
-              )
+              React.createElement('div', { style: { fontSize: '24px', color: '#0f172a', fontWeight: 'bold' } }, productCategory)
             ),
-            React.createElement('div', { style: { display: 'flex', marginTop: 'auto', borderTop: '2px dashed #cbd5e1', paddingTop: '20px', justifyContent: 'space-between', color: '#94a3b8', fontSize: '20px', width: '100%' } },
-              React.createElement('span', null, `កាលបរិច្ឆេទ: ${new Date().toLocaleString('en-GB')}`),
-              React.createElement('span', null, 'បង្កើតដោយប្រព័ន្ធស្វ័យប្រវត្តិ')
-            )
+            
+            base64Image ? React.createElement('img', { src: base64Image, width: 250, height: 250, style: { marginTop: '30px', objectFit: 'contain' } }) : null,
+            
+            React.createElement('div', { style: { borderBottom: '2px dashed #cbd5e1', width: '100%', margin: '40px 0' } }),
+            
+            React.createElement('div', { style: { fontSize: '26px', color: '#64748b', marginBottom: '15px' } }, 'អរគុណសម្រាប់ការចាប់អារម្មណ៍!'),
+            React.createElement('div', { style: { fontSize: '26px', color: '#64748b', marginBottom: '20px' } }, 'ក្រុមការងារនឹងទាក់ទងទៅអ្នកឆាប់ៗនេះ'),
+            React.createElement('div', { style: { fontSize: '28px', fontWeight: 'bold', color: '#0f172a' } }, 'Thank You & See You Again!')
           );
 
           const fonts = fontData ? [{ name: 'Suwannaphum', data: fontData, weight: 400 as const, style: 'normal' as const }] : [];
           const imageResponse = new ImageResponse(receiptElement, {
-            width: 800,
-            height: 500,
+            width: 600,
+            height: 980,
             fonts,
           });
 
           // 4. Send to Telegram
           const imageBuffer = await imageResponse.arrayBuffer();
-          const blob = new Blob([imageBuffer]);
+          // Fix for Web FormData in Next.js
+          const file = new File([imageBuffer], "receipt.png", { type: "image/png" });
           
           const formData = new FormData();
           formData.append("chat_id", chatId);
-          formData.append("photo", blob, "receipt.png");
-          formData.append("caption", `📩 វិក្កយបត្រសាកសួរព័ត៌មានថ្មី:\n*${productName}*`);
+          formData.append("photo", file);
+          formData.append("caption", `📩 **វិក្កយបត្រសាកសួរព័ត៌មានថ្មី (Inquiry POS)**\n\n*ឈ្មោះអតិថិជន:* ${name}\n*លេខទូរស័ព្ទ:* ${phone}\n*ផលិតផល:* ${productName}\n*សារបន្ថែម:* ${message || 'គ្មាន'}`);
           formData.append("parse_mode", "Markdown");
 
           const url = `https://api.telegram.org/bot${token}/sendPhoto`;
@@ -137,7 +158,7 @@ export async function POST(req: NextRequest) {
           }
         } catch (err) {
           console.error("Failed to send generated receipt, falling back to text:", err);
-          const caption = `🛒 *អតិថិជនចាប់អារម្មណ៍ផលិតផល*\n\n*ឈ្មោះផលិតផល:* ${productName}\n*ប្រភេទ:* ${productCategory}\n*ព័ត៌មានបន្ថែម:* ${productUsage}`;
+          const caption = `🛒 *អតិថិជនចាប់អារម្មណ៍ផលិតផល (Fallback)*\n\n*ឈ្មោះអតិថិជន:* ${name}\n*លេខទូរស័ព្ទ:* ${phone}\n*ឈ្មោះផលិតផល:* ${productName}\n*ប្រភេទ:* ${productCategory}`;
           const url = `https://api.telegram.org/bot${token}/sendMessage`;
           await fetch(url, {
             method: "POST",
