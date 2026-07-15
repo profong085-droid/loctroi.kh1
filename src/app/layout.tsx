@@ -75,13 +75,11 @@ export default function RootLayout({
 
   return (
     <html lang="km" className="scroll-smooth">
-      <head>
+      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased`}>
         <AuthProvider>
           <Navbar />
           {children}
