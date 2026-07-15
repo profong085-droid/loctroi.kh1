@@ -22,7 +22,7 @@ const koulen = Koulen({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://loctroi.online"),
-  title: "Loc Troi Cambodia | កសិផលគុណភាពខ្ពស់បំផុត",
+  title: "Loc Troi Cambodia",
   description: "ក្រុមហ៊ុន Loc Troi Cambodia ផ្តល់ជូននូវកសិផលគុណភាពខ្ពស់ ថ្នាំកសិកម្ម ជី និងពូជស្រូវ ដើម្បីជួយកសិករកម្ពុជា។ Loc Troi is your best agricultural partner.",
   keywords: ["ថ្នាំកសិកម្ម", "ជីកសិកម្ម", "ពូជស្រូវ", "កសិកម្មកម្ពុជា", "Loc Troi Cambodia", "Lộc Trời", "ថ្នាំសម្លាប់សត្វល្អិត", "ជីបំប៉ន", "កសិផលគុណភាពខ្ពស់", "loc troi"],
   openGraph: {
