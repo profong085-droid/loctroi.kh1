@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Loc Troi Cambodia",
     images: [
       {
-        url: "/photo/banner 3.jpg",
+        url: "/photo/Loc Troi Icypro.jpg",
         width: 1200,
         height: 630,
         alt: "Loc Troi Cambodia Banner",
@@ -55,8 +55,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Loc Troi Cambodia",
+    "url": "https://loctroi.online",
+    "image": "https://loctroi.online/photo/Loc%20Troi%20Icypro.jpg"
+  };
+
   return (
     <html lang="km" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased`}>
         <AuthProvider>
           <Navbar />
