@@ -20,7 +20,7 @@ export const About = () => {
               <div className="absolute inset-0 bg-primary-100 rounded-[3rem] transform -rotate-3 scale-105 z-0"></div>
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl z-10 border-4 border-white aspect-4/3">
                 <Image 
-                  src="/photo/fong ២.jpg" 
+                  src="/photo/Loc Troi Icypro.jpg" 
                   alt="About Loc Troi" 
                   fill 
                   className="object-cover" 
