@@ -40,21 +40,32 @@ export default function Home() {
             
             <motion.h1 
               variants={itemVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-koulen font-black text-white leading-[1.1] mb-6 drop-shadow-2xl"
+              className="text-5xl md:text-7xl lg:text-8xl font-koulen font-black text-white leading-[1.1] mb-2 drop-shadow-2xl"
             >
               <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-300 to-accent-500">
-                Lộc Trời
+                Loc Troi
               </span>{" "}
               Cambodia
             </motion.h1>
             
-            <motion.p 
+            <motion.h2
               variants={itemVariants}
-              className="text-white/80 text-xl md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+              className="text-2xl md:text-3xl font-bold text-white mb-6 drop-shadow-lg"
             >
-              ផ្គត់ផ្គង់ថ្នាំការពារដំណាំ ជីកសិកម្ម និងពូជស្រូវគុណភាពខ្ពស់ ដើម្បីជួយកសិករកម្ពុជា
-              បង្កើនផលិតភាពដំណាំ។
-            </motion.p>
+              ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក ផ្តល់ជូនកសិផលគុណភាពខ្ពស់
+            </motion.h2>
+            
+            <motion.div 
+              variants={itemVariants}
+              className="text-white/90 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-light space-y-4"
+            >
+              <p>
+                សូមស្វាគមន៍មកកាន់ <strong className="text-white font-bold">Loc Troi Cambodia</strong> ដែលជាក្រុមហ៊ុនឈានមុខគេក្នុងការផ្គត់ផ្គង់<strong className="text-accent-400">កសិផលគុណភាពខ្ពស់</strong>នៅកម្ពុជា។ យើងផ្តល់ជូននូវថ្នាំការពារដំណាំ ជីកសិកម្ម និងពូជស្រូវលេខមួយ ដែលត្រូវបានស្រាវជ្រាវយ៉ាងយកចិត្តទុកដាក់ ដើម្បីជួយឱ្យដំណាំលូតលាស់ល្អ និងទទួលបានទិន្នផលខ្ពស់បំផុត។
+              </p>
+              <p>
+                ការជ្រើសរើសយក <strong className="text-white font-bold">Loc Troi</strong> គឺជាការជ្រើសរើសភាពជោគជ័យសម្រាប់កសិករគ្រប់រូប។ ផលិតផលកសិកម្មរបស់យើងជួយការពារដំណាំពីសត្វល្អិត និងធានាដល់និរន្តរភាពនៃដីស្រែចម្ការ ជួយឱ្យលោកអ្នកប្រមូលផលបានច្រើន និងចំណេញពេលវេលា។
+              </p>
+            </motion.div>
             
             <motion.div 
               variants={itemVariants}

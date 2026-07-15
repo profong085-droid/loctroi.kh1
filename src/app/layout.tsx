@@ -22,9 +22,9 @@ const koulen = Koulen({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://loctroi.online"),
-  title: "Loc Troi Cambodia",
-  description: "ក្រុមហ៊ុន Loc Troi Cambodia ផ្គត់ផ្គង់ថ្នាំការពារដំណាំ ជីកសិកម្ម និងពូជស្រូវគុណភាពខ្ពស់ ដើម្បីជួយកសិករកម្ពុជាបង្កើនទិន្នផល និងគុណភាពដំណាំ។",
-  keywords: ["ថ្នាំកសិកម្ម", "ជីកសិកម្ម", "ពូជស្រូវ", "កសិកម្មកម្ពុជា", "Loc Troi Cambodia", "Lộc Trời", "ថ្នាំសម្លាប់សត្វល្អិត", "ជីបំប៉ន"],
+  title: "Loc Troi Cambodia | កសិផលគុណភាពខ្ពស់បំផុត",
+  description: "ក្រុមហ៊ុន Loc Troi Cambodia ផ្តល់ជូននូវកសិផលគុណភាពខ្ពស់ ថ្នាំកសិកម្ម ជី និងពូជស្រូវ ដើម្បីជួយកសិករកម្ពុជា។ Loc Troi is your best agricultural partner.",
+  keywords: ["ថ្នាំកសិកម្ម", "ជីកសិកម្ម", "ពូជស្រូវ", "កសិកម្មកម្ពុជា", "Loc Troi Cambodia", "Lộc Trời", "ថ្នាំសម្លាប់សត្វល្អិត", "ជីបំប៉ន", "កសិផលគុណភាពខ្ពស់", "loc troi"],
   openGraph: {
     title: "Loc Troi Cambodia",
     description: "ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក ផ្គត់ផ្គង់ថ្នាំកសិកម្ម ជី និងពូជស្រូវ។",
@@ -55,13 +55,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Loc Troi Cambodia",
-    "url": "https://loctroi.online",
-    "image": "https://loctroi.online/photo/Loc%20Troi%20Icypro.jpg"
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Loc Troi Cambodia",
+      "url": "https://loctroi.online",
+      "image": "https://loctroi.online/photo/Loc%20Troi%20Icypro.jpg"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Loc Troi Cambodia",
+      "url": "https://loctroi.online",
+      "logo": "https://loctroi.online/photo/logo4.png?v=2",
+      "description": "ក្រុមហ៊ុន Loc Troi Cambodia ផ្តល់ជូននូវកសិផលគុណភាពខ្ពស់ ថ្នាំកសិកម្ម ជី និងពូជស្រូវ ដើម្បីជួយកសិករកម្ពុជា។"
+    }
+  ];
 
   return (
     <html lang="km" className="scroll-smooth">
