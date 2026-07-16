@@ -52,18 +52,18 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white relative">
+    <section id="contact" className="py-12 md:py-24 bg-white relative">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-koulen text-primary-950 mb-4 tracking-wide leading-relaxed">ទំនាក់ទំនងមកយើង</h2>
-          <p className="text-slate-500 text-lg">មានចម្ងល់ ឬត្រូវការប្រឹក្សាយោបល់អំពីកសិកម្ម? សូមបញ្ជូលព័ត៌មានរបស់អ្នកខាងក្រោម ក្រុមការងារយើងនឹងទាក់ទងទៅអ្នកវិញក្នុងពេលឆាប់ៗ!</p>
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-4 tracking-wide leading-relaxed">ទំនាក់ទំនងមកយើង</h2>
+          <p className="text-slate-500 text-sm md:text-lg">មានចម្ងល់ ឬត្រូវការប្រឹក្សាយោបល់អំពីកសិកម្ម? សូមបញ្ជូលព័ត៌មានរបស់អ្នកខាងក្រោម ក្រុមការងារយើងនឹងទាក់ទងទៅអ្នកវិញក្នុងពេលឆាប់ៗ!</p>
         </div>
 
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-50 p-8 md:p-12 rounded-4xl shadow-lg border border-slate-100"
+          className="bg-slate-50 p-6 md:p-12 rounded-4xl shadow-lg border border-slate-100"
         >
           {isSuccess ? (
             <motion.div 
@@ -71,18 +71,18 @@ export const Contact = () => {
               animate={{ scale: 1, opacity: 1 }}
               className="flex flex-col items-center justify-center py-12 text-center"
             >
-              <div className="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-6">
-                <CheckCircle2 size={40} />
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-4 md:mb-6">
+                <CheckCircle2 size={32} className="md:w-[40px] md:h-[40px]" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-2">ទទួលបានសារដោយជោគជ័យ!</h3>
-              <p className="text-slate-500">សូមអរគុណសម្រាប់ការទំនាក់ទំនង។ យើងនឹងទាក់ទងទៅអ្នកវិញក្នុងពេលឆាប់ៗ។</p>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">ទទួលបានសារដោយជោគជ័យ!</h3>
+              <p className="text-slate-500 text-sm md:text-base">សូមអរគុណសម្រាប់ការទំនាក់ទំនង។ យើងនឹងទាក់ទងទៅអ្នកវិញក្នុងពេលឆាប់ៗ។</p>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="relative group">
-                  <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-                    <User size={20} />
+                  <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
+                    <User size={18} className="md:w-[20px] md:h-[20px]" />
                   </div>
                   <input
                     type="text"
@@ -92,13 +92,13 @@ export const Contact = () => {
                     onChange={handleChange}
                     placeholder="ឈ្មោះរបស់អ្នក"
                     suppressHydrationWarning
-                    className="w-full pl-12 pr-6 py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base shadow-sm"
+                    className="w-full pl-10 md:pl-12 pr-4 md:pr-6 py-3 md:py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-sm md:text-base shadow-sm"
                   />
                 </div>
                 
                 <div className="relative group">
-                  <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-                    <Phone size={20} />
+                  <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
+                    <Phone size={18} className="md:w-[20px] md:h-[20px]" />
                   </div>
                   <input
                     type="tel"
@@ -108,38 +108,41 @@ export const Contact = () => {
                     onChange={handleChange}
                     placeholder="លេខទូរស័ព្ទ"
                     suppressHydrationWarning
-                    className="w-full pl-12 pr-6 py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base shadow-sm"
+                    className="w-full pl-10 md:pl-12 pr-4 md:pr-6 py-3 md:py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-sm md:text-base shadow-sm"
                   />
                 </div>
               </div>
               
               <div className="relative group">
-                <div className="absolute left-5 top-5 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-                  <MessageSquare size={20} />
+                <div className="absolute left-4 md:left-5 top-4 md:top-5 text-slate-400 group-focus-within:text-primary-500 transition-colors">
+                  <MessageSquare size={18} className="md:w-[20px] md:h-[20px]" />
                 </div>
                 <textarea
                   name="message"
                   required
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="សរសេរសាររបស់អ្នកទីនេះ..."
-                  rows={5}
+                  placeholder="សរសេរសាររបស់អ្នកនៅទីនេះ..."
                   suppressHydrationWarning
-                  className="w-full pl-12 pr-6 py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base shadow-sm resize-none"
+                  className="w-full pl-10 md:pl-12 pr-4 md:pr-6 py-3 md:py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-sm md:text-base resize-none shadow-sm"
                 />
               </div>
               
-              <button
+              <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="flex items-center justify-center gap-2 w-full py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-2xl font-bold transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+                className="w-full flex items-center justify-center gap-2 py-3 md:py-4 bg-primary-800 text-white rounded-2xl font-bold text-sm md:text-lg hover:bg-primary-900 transition-all shadow-md hover:shadow-lg disabled:opacity-70"
               >
                 {isSubmitting ? (
-                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span className="flex items-center gap-2">
+                    <span className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                    កំពុងបញ្ជូន...
+                  </span>
                 ) : (
                   <>
-                    <Send size={20} />
-                    ផ្ញើសារ
+                    <Send size={18} className="md:w-[20px] md:h-[20px]" />
+                    បញ្ជូនសារ
                   </>
                 )}
               </button>

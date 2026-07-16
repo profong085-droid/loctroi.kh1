@@ -197,11 +197,11 @@ export const Footer = () => {
             }}
             className="flex flex-col items-center md:items-start"
           >
-            <div className="w-32 h-32 mb-6">
+            <div className="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6">
               <Image src="/photo/logo loctroi 6.png" alt="Logo" width={128} height={128} className="object-contain" />
             </div>
             <h3 className="font-black text-xl text-white mb-2">LỘC TRỜI CAMBODIA</h3>
-            <p className="text-white/50 mb-6 max-w-xs">ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក ផ្តល់ជូនផលិតផលកសិកម្មគុណភាពខ្ពស់។</p>
+            <p className="text-white/50 mb-6 max-w-xs text-sm md:text-base">ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក ផ្តល់ជូនផលិតផលកសិកម្មគុណភាពខ្ពស់។</p>
           </motion.div>
           
           <motion.div 
@@ -212,10 +212,10 @@ export const Footer = () => {
             className="flex flex-col items-center md:items-start"
           >
             <div className="flex items-center gap-3 mb-6">
-              <h4 className="font-bold text-white uppercase tracking-wider">ទំនាក់ទំនង</h4>
+              <h4 className="font-bold text-white uppercase tracking-wider text-sm md:text-base">ទំនាក់ទំនង</h4>
               <Image src="https://flagcdn.com/w40/kh.png" alt="Cambodia Flag" width={40} height={27} unoptimized className="h-4 w-auto rounded-sm object-cover shadow-sm" />
             </div>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-sm md:text-base">
               <li className="flex items-start gap-3">
                 <MapPin className="text-accent-500 shrink-0 mt-1" size={18} />
                 <span>ភ្នំពេញ, ប្រទេសកម្ពុជា</span>
@@ -238,16 +238,16 @@ export const Footer = () => {
             }}
             className="flex flex-col items-center md:items-start"
           >
-            <h4 className="font-bold text-white mb-6 uppercase tracking-wider">បណ្តាញសង្គម</h4>
+            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">បណ្តាញសង្គម</h4>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
-                <FaFacebookF size={20} />
+              <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+                <FaFacebookF size={18} className="md:w-[20px] md:h-[20px]" />
               </a>
-              <a href="https://www.tiktok.com/@ifong168" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
-                <FaTiktok size={20} />
+              <a href="https://www.tiktok.com/@ifong168" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+                <FaTiktok size={18} className="md:w-[20px] md:h-[20px]" />
               </a>
-              <a href="https://t.me/Phochaifong" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
-                <FaTelegram size={22} className="-ml-0.5" />
+              <a href="https://t.me/Phochaifong" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+                <FaTelegram size={20} className="md:w-[22px] md:h-[22px] -ml-0.5" />
               </a>
             </div>
           </motion.div>

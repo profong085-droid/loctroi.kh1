@@ -49,19 +49,19 @@ export const About = () => {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2"
           >
-            <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-sm font-black rounded-full uppercase tracking-widest mb-6">
+            <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 bg-primary-100 text-primary-800 text-xs sm:text-sm font-black rounded-full uppercase tracking-widest mb-4 sm:mb-6">
               អំពី Lộc Trời
             </div>
-            <h2 className="text-4xl md:text-5xl font-koulen text-slate-800 mb-6 leading-[1.6] tracking-wide">
+            <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-4 sm:mb-6 leading-[1.4] sm:leading-[1.6] tracking-wide">
               ដៃគូដ៏គួរឱ្យទុកចិត្ត <br />
               <span className="text-primary-600">សម្រាប់កសិករកម្ពុជា</span>
             </h2>
-            <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
               Lộc Trời Cambodia ប្តេជ្ញាផ្តល់ជូននូវផលិតផលកសិកម្មដែលមានគុណភាពខ្ពស់បំផុត រួមមានថ្នាំការពារដំណាំ ជីកសិកម្ម និងពូជស្រូវ ដើម្បីជួយឱ្យកសិករទទួលបានទិន្នផលខ្ពស់ និងជីវភាពកាន់តែប្រសើរ។
             </p>
             
             <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -83,19 +83,19 @@ export const About = () => {
               ].map((feature, idx) => (
                 <motion.div 
                   key={idx} 
-                  className="flex gap-4"
+                  className="flex gap-3 sm:gap-4"
                   variants={{
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                   }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="w-14 h-14 bg-primary-50 rounded-full flex items-center justify-center shrink-0 shadow-sm border border-primary-100 transition-colors hover:bg-primary-100 hover:border-primary-200 cursor-pointer">
-                    <feature.icon className="text-primary-600 drop-shadow-sm" size={32} />
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-primary-50 rounded-full flex items-center justify-center shrink-0 shadow-sm border border-primary-100 transition-colors hover:bg-primary-100 hover:border-primary-200 cursor-pointer">
+                    <feature.icon className="text-primary-600 drop-shadow-sm w-[24px] h-[24px] md:w-[32px] md:h-[32px]" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-800 mb-1">{feature.title}</h4>
-                    <p className="text-sm text-slate-500">{feature.desc}</p>
+                  <div className="flex flex-col justify-center">
+                    <h4 className="font-bold text-slate-800 mb-0.5 sm:mb-1 text-sm sm:text-base">{feature.title}</h4>
+                    <p className="text-xs sm:text-sm text-slate-500">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}

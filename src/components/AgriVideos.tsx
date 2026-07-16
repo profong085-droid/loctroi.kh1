@@ -50,7 +50,7 @@ export function AgriVideos() {
   ];
 
   return (
-    <section id="agri-videos" className="pt-6 pb-2 md:pt-8 md:pb-4 bg-primary-950 px-4 md:px-8 relative overflow-hidden">
+    <section id="agri-videos" className="pt-6 pb-2 md:pt-10 md:pb-6 bg-primary-950 px-4 md:px-8 relative overflow-hidden">
       {/* JSON-LD for SEO */}
       <script
         type="application/ld+json"
@@ -63,14 +63,14 @@ export function AgriVideos() {
       <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-4 md:mb-6">
-          <h2 className="text-3xl md:text-5xl font-bold font-koulen text-white mb-2 tracking-wide drop-shadow-lg">
+        <div className="text-center mb-4 md:mb-8">
+          <h2 className="text-2xl md:text-5xl font-bold font-koulen text-white mb-2 tracking-wide drop-shadow-lg">
             វីដេអូចំណេះដឹង <span className="text-accent-500">កសិកម្ម</span>
           </h2>
         </div>
 
         {/* 3D Carousel Coverflow */}
-        <div className="relative w-full max-w-5xl h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] mx-auto flex items-center justify-center mt-4">
+        <div className="relative w-full max-w-5xl h-[220px] sm:h-[350px] md:h-[450px] lg:h-[500px] mx-auto flex items-center justify-center mt-2 md:mt-4">
           {agriVideos.map((link, index) => {
             let position = "hidden";
             if (index === activeIndex) position = "center";

@@ -95,7 +95,7 @@ export const Products = () => {
     <section id="products" className="py-6 md:py-16 bg-slate-50 relative">
       <div className="container mx-auto px-4 md:px-6">
         {/* Banner 3D Carousel */}
-        <div className="mb-6 md:mb-12 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
+        <div className="mb-12 md:mb-16 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
           <div className="relative w-full h-full flex items-center justify-center overflow-visible">
             {bannerImages.map((banner, index) => {
               let position = "hidden";
@@ -143,7 +143,7 @@ export const Products = () => {
 
 
           {/* Navigation Controls */}
-          <div className="absolute -bottom-8 md:-bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-50">
+          <div className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-50">
             <button 
               onClick={handlePrevBanner}
               className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
@@ -169,7 +169,7 @@ export const Products = () => {
           </div>
         </div>
 
-        <div className="text-center mb-8 md:mb-12 mt-12 md:mt-0">
+        <div className="text-center mb-8 md:mb-12 mt-16 md:mt-20">
           <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-6 tracking-wide leading-relaxed">ផលិតផលរបស់យើង</h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-lg">ស្វែងរកផលិតផលថ្នាំកសិកម្ម ជី និងពូជស្រូវគុណភាពខ្ពស់សម្រាប់ដំណាំគ្រប់ប្រភេទ</p>
         </div>
