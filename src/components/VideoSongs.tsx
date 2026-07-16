@@ -7,6 +7,7 @@ const videos = [
   {
     title: "ភាពរុងរឿង Loctroi Cambodia",
     src: encodeURI("/video song/ភាពរុងរឿង Loctroi Cambodia.mp4"),
+    poster: encodeURI("/photo/ភាពរុងរឿង Loctroi Cambodia-Cover.jpg"),
   },
   {
     title: "អនាគតបៃតង",
@@ -77,6 +78,7 @@ export function VideoSongs() {
             key={activeVideo.src}
             controls 
             autoPlay
+            poster={activeVideo.poster}
             className="w-full h-full object-cover"
           >
             <source src={activeVideo.src} type="video/mp4" />
