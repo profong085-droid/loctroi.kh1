@@ -1,9 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import { Play } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Play, Share2, Check } from "lucide-react";
 
 const videos = [
+  {
+    title: "ភាពរុងរឿង Loctroi Cambodia",
+    src: encodeURI("/video song/ភាពរុងរឿង Loctroi Cambodia.mp4"),
+  },
+  {
+    title: "អនាគតបៃតង",
+    src: encodeURI("/video song/អនាគតបៃតង.mp4"),
+  },
   {
     title: "ជោគជ័យក្នុងវាលស្រែ",
     src: encodeURI("/video song/ជោគជ័យក្នុងវាលស្រែ.mp4"),
@@ -24,6 +32,36 @@ const videos = [
 
 export function VideoSongs() {
   const [activeVideo, setActiveVideo] = useState(videos[0]);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    // Check if URL has ?song= index
+    const params = new URLSearchParams(window.location.search);
+    const songIndex = params.get("song");
+    if (songIndex !== null) {
+      const idx = parseInt(songIndex, 10);
+      if (!isNaN(idx) && idx >= 0 && idx < videos.length) {
+        setTimeout(() => setActiveVideo(videos[idx]), 0);
+        // Also scroll to the songs section if they came directly from a share link
+        setTimeout(() => {
+          const element = document.getElementById("songs");
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 500);
+      }
+    }
+  }, []);
+
+  const handleShare = () => {
+    const activeIndex = videos.findIndex(v => v.src === activeVideo.src);
+    const shareUrl = `${window.location.origin}${window.location.pathname}?song=${activeIndex}#songs`;
+    
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return (
     <section id="songs" className="py-12 bg-primary-950 flex justify-center px-4 relative overflow-hidden">
@@ -34,7 +72,7 @@ export function VideoSongs() {
       <div className="w-full max-w-3xl bg-white/5 border border-white/10 p-3 md:p-4 rounded-4xl backdrop-blur-xl shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 items-center relative z-10 hover:border-white/20 transition-colors">
         
         {/* Compact Video Player */}
-        <div className="w-full md:w-[55%] shrink-0 aspect-video bg-black rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div className="w-[80%] md:w-[40%] mx-auto shrink-0 aspect-square bg-black rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
           <video 
             key={activeVideo.src}
             controls 
@@ -47,17 +85,36 @@ export function VideoSongs() {
         </div>
 
         {/* Compact Playlist */}
-        <div className="w-full md:w-[45%] flex flex-col justify-center py-2 md:pr-2">
-          <div className="flex items-center gap-2 mb-4 px-1 border-b border-white/10 pb-3">
-            <div className="w-6 h-6 rounded-full bg-accent-500/20 flex items-center justify-center">
-              <Play className="w-3 h-3 text-accent-500 fill-current" />
+        <div className="w-full md:w-[60%] flex flex-col justify-center py-2 md:pr-2">
+          <div className="flex items-center justify-between mb-4 px-1 border-b border-white/10 pb-3">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-accent-500/20 flex items-center justify-center">
+                <Play className="w-3 h-3 text-accent-500 fill-current" />
+              </div>
+              <h2 className="text-xl font-bold text-white font-koulen tracking-wide">
+                វីដេអូចម្រៀង <span className="text-accent-500">LTC</span>
+              </h2>
             </div>
-            <h2 className="text-xl font-bold text-white font-koulen tracking-wide">
-              វីដេអូចម្រៀង <span className="text-accent-500">LTC</span>
-            </h2>
+            
+            {/* Share Button */}
+            <button 
+              onClick={handleShare}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-accent-500 hover:text-primary-950 text-white transition-colors text-xs font-bold shrink-0"
+              title="Copy video link"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3 h-3" /> បានចម្លង
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3 h-3" /> ចែករំលែក
+                </>
+              )}
+            </button>
           </div>
           
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 max-h-[180px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
             {videos.map((video, index) => {
               const isActive = activeVideo.src === video.src;
               return (

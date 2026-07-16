@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 const agriVideos = [
   "https://web.facebook.com/reel/989128403824307",
   "https://web.facebook.com/reel/896795882756422",
@@ -7,6 +9,10 @@ const agriVideos = [
 ];
 
 export function AgriVideos() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleNext = () => setActiveIndex((prev) => (prev + 1) % agriVideos.length);
+  const handlePrev = () => setActiveIndex((prev) => (prev - 1 + agriVideos.length) % agriVideos.length);
   const videoSchemas = [
     {
       "@context": "https://schema.org",
@@ -63,30 +69,79 @@ export function AgriVideos() {
           </h2>
         </div>
 
-        {/* 3-Column Grid of Facebook Iframes (16:9) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full justify-items-center">
-          {agriVideos.map((link, index) => (
-            <div 
-              key={index} 
-              className="w-full aspect-video bg-[#111] rounded-3xl md:rounded-4xl overflow-hidden shadow-2xl relative flex items-center justify-center group ring-2 ring-white/10 hover:ring-accent-500 hover:scale-[1.03] transition-all duration-500"
-            >
-              <iframe 
-                src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(link)}&show_text=false&width=auto`} 
-                style={{ border: "none", overflow: "hidden" }}
-                className="w-full h-full absolute inset-0 z-10"
-                scrolling="no" 
-                frameBorder="0" 
-                allowFullScreen={true} 
-                referrerPolicy="no-referrer"
-              ></iframe>
-              
-              {/* Loader Placeholder */}
-              <div className="absolute inset-0 bg-[#111] flex flex-col items-center justify-center gap-4">
-                <div className="w-10 h-10 border-4 border-accent-500 border-t-transparent rounded-full animate-spin"></div>
-                <span className="text-white/50 text-sm">កំពុងទាញយក...</span>
+        {/* 3D Carousel Coverflow */}
+        <div className="relative w-full max-w-5xl h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] mx-auto flex items-center justify-center mt-4">
+          {agriVideos.map((link, index) => {
+            let position = "hidden";
+            if (index === activeIndex) position = "center";
+            else if (index === (activeIndex - 1 + agriVideos.length) % agriVideos.length) position = "left";
+            else if (index === (activeIndex + 1) % agriVideos.length) position = "right";
+
+            return (
+              <div
+                key={index}
+                className={`absolute w-[85%] sm:w-[70%] md:w-[60%] aspect-video bg-[#111] rounded-3xl md:rounded-4xl overflow-hidden shadow-2xl transition-all duration-700 ease-out flex items-center justify-center ring-2 ring-white/10 ${
+                  position === "center"
+                    ? "translate-x-0 scale-100 z-30 opacity-100 ring-accent-500 shadow-[0_20px_50px_rgba(245,158,11,0.3)]"
+                    : position === "left"
+                    ? "translate-x-[-35%] sm:translate-x-[-50%] md:translate-x-[-60%] scale-75 z-20 opacity-40 md:opacity-50 cursor-pointer hover:opacity-80"
+                    : position === "right"
+                    ? "translate-x-[35%] sm:translate-x-[50%] md:translate-x-[60%] scale-75 z-20 opacity-40 md:opacity-50 cursor-pointer hover:opacity-80"
+                    : "opacity-0 z-10 pointer-events-none scale-50"
+                }`}
+                onClick={() => {
+                  if (position === "left") handlePrev();
+                  if (position === "right") handleNext();
+                }}
+              >
+                {/* Transparent overlay to prevent iframe clicks when on sides (allows click to navigate) */}
+                {position !== "center" && (
+                  <div className="absolute inset-0 z-20 bg-transparent" />
+                )}
+                
+                <iframe 
+                  src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(link)}&show_text=false&width=auto`} 
+                  style={{ border: "none", overflow: "hidden" }}
+                  className="w-full h-full absolute inset-0 z-10 pointer-events-auto"
+                  scrolling="no" 
+                  frameBorder="0" 
+                  allowFullScreen={true} 
+                  referrerPolicy="no-referrer"
+                ></iframe>
+                
+                {/* Loader Placeholder */}
+                <div className="absolute inset-0 bg-[#111] flex flex-col items-center justify-center gap-4 -z-10">
+                  <div className="w-10 h-10 border-4 border-accent-500 border-t-transparent rounded-full animate-spin"></div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="flex items-center gap-6 mt-10 md:mt-16 z-20">
+          <button 
+            onClick={handlePrev}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent-500 hover:text-primary-950 hover:scale-110 transition-all duration-300 shadow-lg group backdrop-blur-md"
+          >
+            <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 group-hover:-translate-x-1 transition-transform" />
+          </button>
+          
+          <div className="flex gap-2">
+            {agriVideos.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={`h-2 rounded-full transition-all duration-500 ${idx === activeIndex ? "w-10 bg-accent-500" : "w-2 bg-white/20"}`}
+              />
+            ))}
+          </div>
+
+          <button 
+            onClick={handleNext}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent-500 hover:text-primary-950 hover:scale-110 transition-all duration-300 shadow-lg group backdrop-blur-md"
+          >
+            <ChevronRight className="w-6 h-6 md:w-7 md:h-7 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
 
       </div>
