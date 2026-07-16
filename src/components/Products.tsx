@@ -92,8 +92,8 @@ export const Products = () => {
   };
 
   return (
-    <section id="products" className="py-8 md:py-16 bg-slate-50 relative">
-      <div className="container mx-auto px-6">
+    <section id="products" className="py-6 md:py-16 bg-slate-50 relative">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Banner 3D Carousel */}
         <div className="mb-6 md:mb-12 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
           <div className="relative w-full h-full flex items-center justify-center overflow-visible">
@@ -143,7 +143,7 @@ export const Products = () => {
 
 
           {/* Navigation Controls */}
-          <div className="flex items-center gap-4 md:gap-6 mt-16 sm:mt-12 relative z-60">
+          <div className="absolute -bottom-8 md:-bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-50">
             <button 
               onClick={handlePrevBanner}
               className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
@@ -151,7 +151,7 @@ export const Products = () => {
               <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
             </button>
             
-            <div className="flex gap-2">
+            <div className="hidden sm:flex gap-2">
               {baseBanners.map((_, idx) => (
                 <div 
                   key={idx} 
@@ -169,31 +169,31 @@ export const Products = () => {
           </div>
         </div>
 
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-koulen text-primary-950 mb-6 tracking-wide leading-relaxed">ផលិតផលរបស់យើង</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-lg">ស្វែងរកផលិតផលថ្នាំកសិកម្ម ជី និងពូជស្រូវគុណភាពខ្ពស់សម្រាប់ដំណាំគ្រប់ប្រភេទ</p>
+        <div className="text-center mb-8 md:mb-12 mt-12 md:mt-0">
+          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-6 tracking-wide leading-relaxed">ផលិតផលរបស់យើង</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-lg">ស្វែងរកផលិតផលថ្នាំកសិកម្ម ជី និងពូជស្រូវគុណភាពខ្ពស់សម្រាប់ដំណាំគ្រប់ប្រភេទ</p>
         </div>
 
         {/* Toolbar */}
-        <div className="flex flex-col gap-8 mb-12 max-w-5xl mx-auto">
+        <div className="flex flex-col gap-6 md:gap-8 mb-8 md:mb-12 max-w-5xl mx-auto">
           {/* Search */}
           <div className="relative max-w-xl mx-auto w-full group">
-            <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-              <Search size={22} />
+            <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
+              <Search size={20} className="md:w-[22px] md:h-[22px]" />
             </div>
             <input
               type="text"
               placeholder="ស្វែងរកផលិតផល..."
               value={search}
               onChange={(e) => { setSearch(e.target.value); setVisibleCount(12); }}
-              className="w-full pl-14 pr-6 py-4 bg-white border-2 border-slate-100 rounded-full focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-lg shadow-sm"
+              className="w-full pl-12 pr-4 py-3 md:pl-14 md:pr-6 md:py-4 bg-white border-2 border-slate-100 rounded-full focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base md:text-lg shadow-sm"
             />
             {search && (
               <button 
                 onClick={() => setSearch("")}
-                className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
+                className="absolute right-4 md:right-5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
               >
-                <X size={20} />
+                <X size={18} className="md:w-[20px] md:h-[20px]" />
               </button>
             )}
           </div>
@@ -391,7 +391,7 @@ const ProductCard = ({ product, categoryData, onClick, index }: any) => {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[250px] md:min-h-[400px] transition-shadow duration-500 border border-slate-50 overflow-hidden"
+        className="relative bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[400px] transition-shadow duration-500 border border-slate-50 overflow-hidden"
       >
         {/* Glare Effect */}
         <motion.div
@@ -407,19 +407,19 @@ const ProductCard = ({ product, categoryData, onClick, index }: any) => {
           }}
         />
 
-        <div className="relative h-40 md:h-64 p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
+        <div className="relative h-32 sm:h-40 md:h-56 lg:h-64 p-2 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
           <div 
             style={{ transform: "translateZ(30px)" }}
-            className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[9px] md:text-[10px] font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
+            className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
           >
-            <Icon name={categoryData?.icon || "tag"} size={12} />
+            <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-[12px] md:h-[12px]" />
             {product.categoryKh}
           </div>
           <div 
             style={{ transform: "translateZ(40px)" }}
-            className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg"
+            className="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg"
           >
-            <ZoomIn size={18} />
+            <ZoomIn size={16} className="md:w-[18px] md:h-[18px]" />
           </div>
           <motion.div 
             style={{ transform: "translateZ(60px)" }}
@@ -438,10 +438,10 @@ const ProductCard = ({ product, categoryData, onClick, index }: any) => {
         
         <div 
           style={{ transform: "translateZ(20px)" }}
-          className="p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20"
+          className="p-2 sm:p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20"
         >
-          <h4 className="font-black text-slate-800 text-sm md:text-xl truncate mb-1">{product.name}</h4>
-          <p className="text-accent-500 text-[10px] md:text-sm font-bold">{product.categoryKh}</p>
+          <h4 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{product.name}</h4>
+          <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{product.categoryKh}</p>
         </div>
       </motion.div>
     </motion.div>
