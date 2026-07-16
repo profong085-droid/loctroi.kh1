@@ -50,7 +50,7 @@ export function AgriVideos() {
   ];
 
   return (
-    <section id="agri-videos" className="py-24 bg-primary-950 px-4 md:px-8 relative overflow-hidden">
+    <section id="agri-videos" className="pt-6 pb-2 md:pt-8 md:pb-4 bg-primary-950 px-4 md:px-8 relative overflow-hidden">
       {/* JSON-LD for SEO */}
       <script
         type="application/ld+json"
@@ -63,7 +63,7 @@ export function AgriVideos() {
       <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-4 md:mb-6">
           <h2 className="text-3xl md:text-5xl font-bold font-koulen text-white mb-2 tracking-wide drop-shadow-lg">
             វីដេអូចំណេះដឹង <span className="text-accent-500">កសិកម្ម</span>
           </h2>
@@ -119,7 +119,7 @@ export function AgriVideos() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="flex items-center gap-6 mt-10 md:mt-16 z-20">
+        <div className="flex items-center gap-6 mt-6 md:mt-8 z-20">
           <button 
             onClick={handlePrev}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-accent-500 hover:text-primary-950 hover:scale-110 transition-all duration-300 shadow-lg group backdrop-blur-md"

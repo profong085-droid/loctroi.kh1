@@ -177,7 +177,7 @@ export const Navbar = () => {
 
 export const Footer = () => {
   return (
-    <footer id="footer-info" className="bg-primary-950 text-white/70 py-16 text-sm border-t border-white/10 relative overflow-hidden">
+    <footer id="footer-info" className="bg-primary-950 text-white/70 pt-8 pb-12 md:pt-10 md:pb-16 text-sm border-t border-white/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 

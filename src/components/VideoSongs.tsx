@@ -65,7 +65,7 @@ export function VideoSongs() {
   };
 
   return (
-    <section id="songs" className="py-12 bg-primary-950 flex justify-center px-4 relative overflow-hidden">
+    <section id="songs" className="py-4 md:py-6 bg-primary-950 flex justify-center px-4 relative overflow-hidden">
       {/* Background glow to make the small card look natural in the center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-500/10 blur-[100px] rounded-full pointer-events-none" />
 
