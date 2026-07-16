@@ -1,0 +1,192 @@
+{
+  "Navbar": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品",
+    "songs": "歌曲",
+    "videos": "视频",
+    "contact": "联系我们",
+    "login": "登录",
+    "logout": "退出登录"
+  },
+  "Hero": {
+    "title1": "农业的未来",
+    "title2": "柬埔寨",
+    "subtitle": "Lộc Trời 提供高品质的农产品、农药、肥料和种子，以支持柬埔寨农民。",
+    "cta": "立即购买",
+    "description": "欢迎来到 <strong>Loc Troi！</strong> 我们提供优质的作物保护产品、肥料和水稻种子，帮助柬埔寨农民提高产量并有效保护农作物免受病虫害。选择 <strong>Loc Troi</strong> 就是选择成功！",
+    "learnMore": "了解更多"
+  },
+  "About": {
+    "badge": "关于 Lộc Trời",
+    "title1": "值得信赖的合作伙伴",
+    "title2": "柬埔寨农民的",
+    "desc": "柬埔寨 Lộc Trời 致力于提供最优质的农产品，包括作物保护、肥料和种子，帮助农民获得高产和更好的生活。",
+    "feature1_title": "标准质量",
+    "feature1_desc": "正品，高品质的产品",
+    "feature2_title": "高产",
+    "feature2_desc": "帮助增加农作物产量",
+    "feature3_title": "优质服务",
+    "feature3_desc": "农业技术咨询",
+    "feature4_title": "值得信赖",
+    "feature4_desc": "所有产品均有保障",
+    "experience": "年经验",
+    "experienceDesc": "在农业领域"
+  },
+  "Products": {
+    "title": "我们的产品",
+    "subtitle": "探索适用于各类农作物的高品质农药、肥料和种子。",
+    "searchPlaceholder": "搜索产品...",
+    "categoryAll": "全部",
+    "category_molluscicide": "杀螺剂",
+    "category_herbicide": "除草剂",
+    "category_insecticide": "杀虫剂",
+    "category_fungicide": "杀菌剂",
+    "category_fertilizer": "肥料",
+    "category_seed": "种子",
+    "category_special": "特殊产品",
+    "btnDetail": "查看详情",
+    "noResults": "未找到产品...",
+    "noResultsDesc": "请尝试搜索其他词语或选择不同的分类",
+    "details": "详情",
+    "inquire": "咨询更多信息",
+    "viewFullPage": "查看完整页面",
+    "showing": "显示",
+    "of": "/",
+    "productsCount": "个产品",
+    "loadMore": "加载更多"
+  },
+  "ProductDetail": {
+    "benefits": "优点与特点：",
+    "usage": "使用说明：",
+    "ingredients": "有效成分：",
+    "ingredientDetails": "成分详情：",
+    "inquire": "咨询更多信息",
+    "back": "返回首页",
+    "btnBuy": "立即购买",
+    "btnBack": "返回",
+    "comingSoon": "敬请期待..."
+  },
+  "Contact": {
+    "title1": "联系",
+    "title2": "我们",
+    "subtitle": "有问题或需要技术建议吗？我们的团队随时欢迎您。",
+    "name": "您的姓名",
+    "phone": "电话号码",
+    "location": "位置（省/区）",
+    "question": "您有什么问题？",
+    "btnSend": "发送消息",
+    "btnSending": "发送中...",
+    "contactInfo": "联系信息",
+    "social": "社交媒体",
+    "successTitle": "消息接收成功！",
+    "successDesc": "感谢您联系我们。我们会尽快回复您。"
+  },
+  "Testimonials": {
+    "badge": "客户评价",
+    "title1": "我们的客户",
+    "title2": "怎么说？",
+    "desc": "选择柬埔寨 Lộc Trời 的农民和合作伙伴的心声",
+    "t1_name": "Sok Vannarith",
+    "t1_role": "稻农，马德望",
+    "t1_text": "我使用 Lộc Trời 的产品已经3年多了。我的水稻产量增加了30%以上。非常满意！",
+    "t2_name": "Chan Sophea",
+    "t2_role": "稻农，磅湛",
+    "t2_text": "Lộc Trời 的肥料质量很好，农作物长势良好，他们的技术团队提供了很好的建议。",
+    "t3_name": "Heng Sophal",
+    "t3_role": "农资店，波萝勉",
+    "t3_text": "最好的商业伙伴！高质量的产品，满意的客户，以及快速的交货。",
+    "t4_name": "Nuon Sarun",
+    "t4_role": "菜农，干丹",
+    "t4_text": "Lộc Trời 的作物保护产品非常有效。害虫死得很快，而且不会伤害农作物。"
+  },
+  "Statistics": {
+    "farmers": "触达农民",
+    "products": "优质产品",
+    "provinces": "省份覆盖",
+    "experience": "年经验"
+  },
+  "VideoSongs": {
+    "title": "音乐视频",
+    "copied": "已复制",
+    "share": "分享",
+    "v1": "柬埔寨 Lộc Trời 的荣耀",
+    "v2": "绿色的未来",
+    "v3": "田野上的成功",
+    "v4": "人间天堂",
+    "v5": "田野上的日出",
+    "v6": "农业新路径"
+  },
+  "Partners": {
+    "title": "我们的合作伙伴与顶级品牌"
+  },
+  "ShareButton": {
+    "title": "分享此产品",
+    "copied": "链接已复制",
+    "share": "分享"
+  },
+  "LiveChat": {
+    "welcome": "您好！感谢您访问柬埔寨 Lộc Trời。今天我能为您提供什么帮助？",
+    "reply_hi": "您好！请在下方输入数字以快速获取信息：\n1️⃣ 查看产品\n2️⃣ 查看地点\n3️⃣ 联系信息",
+    "reply_products": "我们的特色产品包括：\n\n🌱 NPK 20-20-15 肥料\n🦠 Vitako 农药\n🌾 Lộc Trời 123 水稻种子\n\n请访问我们的“产品”菜单了解更多。",
+    "reply_location": "我们的总部位于：\n📍 柬埔寨，金边\n\n如需了解省级分公司的更多信息，请联系我们的团队。",
+    "reply_contact": "您可以通过以下方式联系我们：\n📞 电话：012 345 678\n📧 邮箱：info@loctroi.online\n\n我们的团队将尽快回复。",
+    "reply_default": "抱歉，我不太明白您的意思。请回复数字 1、2 或 3 以选择一个选项，或者留下您的电话号码以便我们的团队联系您。",
+    "typing": "正在输入...",
+    "placeholder": "在此输入您的消息...",
+    "chat_with_us": "在线聊天"
+  },
+  "AgriVideos": {
+    "title1": "农业",
+    "title2": "知识视频"
+  },
+  "Footer": {
+    "linksTitle": "链接",
+    "aboutLink": "关于我们 (About)",
+    "contactLink": "联系我们 (Contact)",
+    "branchesLink": "分支机构 (Branches)",
+    "desc": "您最好的农业合作伙伴，提供高质量的农产品。",
+    "contactTitle": "联系方式",
+    "addressLabel": "柬埔寨金边",
+    "socialTitle": "社交媒体",
+    "copyright": "柬埔寨 Lộc Trời。Pho Chaifong 保留所有权利"
+  },
+  "FAQ": {
+    "badge": "常见问题",
+    "title1": "常见",
+    "title2": "问题解答",
+    "subtitle": "解答客户最常见的问题",
+    "q1": "Lộc Trời 送货到所有省份吗？",
+    "a1": "是的，我们送货到柬埔寨全国25个省份。对于大批量订单，我们提供免费送货服务。",
+    "q2": "我如何订购产品？",
+    "a2": "您可以通过拨打电话 097 945 0831 或 071 777 3554、通过我们的 Facebook 页面或填写本网站上的联系表格直接订购。",
+    "q3": "Lộc Trời 的产品有什么特别之处？",
+    "a3": "我们的产品由拥有10多年经验的越南领先农业公司 Lộc Trời 集团制造。所有产品均经过相关机构的测试和认证。",
+    "q4": "你们提供农业技术咨询吗？",
+    "a4": "是的！我们的技术团队随时准备为您提供免费咨询，包括产品使用、正确选择农药以及其他农业技术。",
+    "q5": "你们的作物保护产品安全吗？",
+    "a5": "我们所有的产品都经过合法注册，只要按照说明使用就是安全的。请仔细阅读标签并遵循使用说明。"
+  },
+  "DealerLocator": {
+    "title1": "经销商",
+    "title2": "地点",
+    "subtitle": "寻找距离您最近的仓库和分销商以便购买。",
+    "allProvinces": "所有地区",
+    "noDealers": "该省暂无经销商",
+    "selectedLocation": "选择的位置",
+    "callButton": "拨打",
+    "dealerPrefix": "Lộc Trời 仓库 - 分店",
+    "provincePrefix": "省会城市",
+    "country": "柬埔寨",
+    "PhnomPenh": "金边", "Kandal": "干丹", "Takeo": "茶胶", "KampongCham": "磅湛", "TboungKhmum": "特本克蒙",
+    "PreyVeng": "波萝勉", "SvayRieng": "柴桢", "KampongSpeu": "磅士卑", "Kampot": "贡布", "Kep": "白马",
+    "Sihanoukville": "西哈努克", "KohKong": "国公", "Battambang": "马德望", "BanteayMeanchey": "班迭棉吉", "Pailin": "拜林",
+    "Pursat": "菩萨", "KampongChhnang": "磅清扬", "KampongThom": "磅同", "SiemReap": "暹粒", "OddarMeanchey": "奥多棉吉",
+    "PreahVihear": "柏威夏", "Kratie": "桔井", "StungTreng": "上丁", "Ratanakiri": "腊塔纳基里", "Mondulkiri": "蒙多基里"
+  },
+  "Metadata": {
+    "title": "柬埔寨 Loc Troi",
+    "description": "柬埔寨 Loc Troi 提供高品质的农产品、农药、肥料和种子，以支持柬埔寨农民。",
+    "keywords": "Ta Sok, Ta Sok Agrochemicals, 农药, 肥料, 种子, 柬埔寨农业, 柬埔寨 Loc Troi, Lộc Trời, 高品质农业, loc troi"
+  }
+}

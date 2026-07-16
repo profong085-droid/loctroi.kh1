@@ -10,6 +10,7 @@ import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, googleProvider } from "@/lib/firebase";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
   const locale = useLocale();
@@ -20,7 +21,7 @@ const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
     // pathname might be /kh, /en, /vi or /kh/product/...
     // simple replace logic:
     const segments = pathname.split('/');
-    if (segments.length > 1 && ['kh', 'en', 'vi'].includes(segments[1])) {
+    if (segments.length > 1 && ['kh', 'en', 'vi', 'zh', 'hi', 'ja', 'ko', 'ar'].includes(segments[1])) {
       segments[1] = newLocale;
     } else {
       segments.splice(1, 0, newLocale);
@@ -34,7 +35,7 @@ const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
         scrolled ? "border-slate-200 text-slate-800" : "border-white/30 text-white"
       }`}>
         <Image 
-          src={locale === 'kh' ? "https://flagcdn.com/w40/kh.png" : locale === 'en' ? "https://flagcdn.com/w40/gb.png" : "https://flagcdn.com/w40/vn.png"} 
+          src={locale === 'kh' ? "https://flagcdn.com/w40/kh.png" : locale === 'en' ? "https://flagcdn.com/w40/gb.png" : locale === 'zh' ? "https://flagcdn.com/w40/cn.png" : locale === 'hi' ? "https://flagcdn.com/w40/in.png" : locale === 'ja' ? "https://flagcdn.com/w40/jp.png" : locale === 'ko' ? "https://flagcdn.com/w40/kr.png" : locale === 'ar' ? "https://flagcdn.com/w40/ae.png" : "https://flagcdn.com/w40/vn.png"} 
           alt={locale} 
           width={24} height={16} unoptimized 
           className="rounded-sm object-cover shadow-sm w-[24px] h-[16px]"
@@ -46,6 +47,11 @@ const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
           { code: 'kh', name: 'ភាសាខ្មែរ', flag: 'https://flagcdn.com/w40/kh.png' },
           { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/gb.png' },
           { code: 'vi', name: 'Tiếng Việt', flag: 'https://flagcdn.com/w40/vn.png' },
+          { code: 'zh', name: '中文', flag: 'https://flagcdn.com/w40/cn.png' },
+          { code: 'hi', name: 'हिन्दी', flag: 'https://flagcdn.com/w40/in.png' },
+          { code: 'ja', name: '日本語', flag: 'https://flagcdn.com/w40/jp.png' },
+          { code: 'ko', name: '한국어', flag: 'https://flagcdn.com/w40/kr.png' },
+          { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/w40/ae.png' },
         ].map(lang => (
           <div 
             key={lang.code}
@@ -263,17 +269,22 @@ export const Navbar = () => {
               {/* Mobile Language Switcher */}
               <div className="p-4">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 block">Language / ភាសា</span>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-4 md:grid-cols-8 gap-2">
                   {[
                     { code: 'kh', name: 'ខ្មែរ', flag: 'https://flagcdn.com/w40/kh.png' },
                     { code: 'en', name: 'EN', flag: 'https://flagcdn.com/w40/gb.png' },
                     { code: 'vi', name: 'VN', flag: 'https://flagcdn.com/w40/vn.png' },
+                    { code: 'zh', name: 'CN', flag: 'https://flagcdn.com/w40/cn.png' },
+                    { code: 'hi', name: 'IN', flag: 'https://flagcdn.com/w40/in.png' },
+                    { code: 'ja', name: 'JP', flag: 'https://flagcdn.com/w40/jp.png' },
+                    { code: 'ko', name: 'KR', flag: 'https://flagcdn.com/w40/kr.png' },
+                    { code: 'ar', name: 'AE', flag: 'https://flagcdn.com/w40/ae.png' },
                   ].map(lang => (
                     <button
                       key={lang.code}
                       onClick={() => {
                         const segments = window.location.pathname.split('/');
-                        if (segments.length > 1 && ['kh', 'en', 'vi'].includes(segments[1])) {
+                        if (segments.length > 1 && ['kh', 'en', 'vi', 'zh', 'hi', 'ja', 'ko', 'ar'].includes(segments[1])) {
                           segments[1] = lang.code;
                         } else {
                           segments.splice(1, 0, lang.code);
@@ -298,6 +309,7 @@ export const Navbar = () => {
 
 export const Footer = () => {
   const t = useTranslations("Footer");
+  const locale = useLocale();
   
   return (
     <footer id="footer-info" className="bg-primary-950 text-white/70 pt-8 pb-12 md:pt-10 md:pb-16 text-sm border-t border-white/10 relative overflow-hidden">
@@ -311,7 +323,7 @@ export const Footer = () => {
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
           }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left"
         >
           <motion.div 
             variants={{
@@ -325,6 +337,27 @@ export const Footer = () => {
             </div>
             <h3 className="font-black text-xl text-white mb-2">LỘC TRỜI CAMBODIA</h3>
             <p className="text-white/50 mb-6 max-w-xs text-sm md:text-base">{t("desc")}</p>
+          </motion.div>
+          
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+            }}
+            className="flex flex-col items-center md:items-start"
+          >
+            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("linksTitle")}</h4>
+            <ul className="space-y-4 text-sm md:text-base">
+              <li>
+                <Link href={`/${locale}/about`} className="text-slate-300 hover:text-accent-500 transition-colors">{t("aboutLink")}</Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/contact`} className="text-slate-300 hover:text-accent-500 transition-colors">{t("contactLink")}</Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/branches`} className="text-slate-300 hover:text-accent-500 transition-colors">{t("branchesLink")}</Link>
+              </li>
+            </ul>
           </motion.div>
           
           <motion.div 

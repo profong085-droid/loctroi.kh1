@@ -141,6 +141,10 @@
     "title2": "Nông Nghiệp"
   },
   "Footer": {
+    "linksTitle": "Liên kết",
+    "aboutLink": "Về chúng tôi (About)",
+    "contactLink": "Liên hệ (Contact)",
+    "branchesLink": "Chi nhánh (Branches)",
     "desc": "Đối tác nông nghiệp tốt nhất của bạn, cung cấp các sản phẩm nông nghiệp chất lượng cao.",
     "contactTitle": "Liên hệ",
     "addressLabel": "Phnom Penh, Campuchia",

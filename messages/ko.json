@@ -1,0 +1,192 @@
+{
+  "Navbar": {
+    "home": "홈",
+    "about": "회사 소개",
+    "products": "제품",
+    "songs": "노래",
+    "videos": "비디오",
+    "contact": "연락처",
+    "login": "로그인",
+    "logout": "로그아웃"
+  },
+  "Hero": {
+    "title1": "농업의 미래",
+    "title2": "캄보디아",
+    "subtitle": "Lộc Trời는 캄보디아 농부들을 지원하기 위해 고품질 농산물, 농약, 비료, 종자를 제공합니다.",
+    "cta": "지금 구매하기",
+    "description": "<strong>Loc Troi</strong>에 오신 것을 환영합니다! 저희는 캄보디아 농부들이 수확량을 늘리고 해충으로부터 작물을 효과적으로 보호할 수 있도록 고품질 작물 보호 제품, 비료 및 벼 종자를 공급합니다. <strong>Loc Troi</strong>를 선택하는 것은 성공을 선택하는 것입니다!",
+    "learnMore": "더 알아보기"
+  },
+  "About": {
+    "badge": "Lộc Trời 소개",
+    "title1": "신뢰할 수 있는 파트너",
+    "title2": "캄보디아 농부들을 위해",
+    "desc": "Lộc Trời 캄보디아는 농부들이 높은 수확량과 더 나은 삶을 달성할 수 있도록 작물 보호, 비료, 종자를 포함한 최고 품질의 농업 제품을 제공하기 위해 최선을 다하고 있습니다.",
+    "feature1_title": "표준 품질",
+    "feature1_desc": "정품 고품질 제품",
+    "feature2_title": "높은 수확량",
+    "feature2_desc": "작물 생산량 증가 지원",
+    "feature3_title": "최고의 서비스",
+    "feature3_desc": "농업 기술 컨설팅",
+    "feature4_title": "신뢰성",
+    "feature4_desc": "모든 제품에 대한 보증",
+    "experience": "수년간의 경험",
+    "experienceDesc": "농업 분야에서"
+  },
+  "Products": {
+    "title": "우리의 제품",
+    "subtitle": "모든 작물을 위한 고품질 농약, 비료 및 종자를 찾아보세요.",
+    "searchPlaceholder": "제품 검색...",
+    "categoryAll": "모두",
+    "category_molluscicide": "살연체동물제 (우렁이 구제)",
+    "category_herbicide": "제초제",
+    "category_insecticide": "살충제",
+    "category_fungicide": "살균제",
+    "category_fertilizer": "비료",
+    "category_seed": "종자",
+    "category_special": "특별",
+    "btnDetail": "자세히 보기",
+    "noResults": "제품을 찾을 수 없습니다...",
+    "noResultsDesc": "다른 키워드를 검색하거나 다른 카테고리를 선택해 보세요.",
+    "details": "세부 정보",
+    "inquire": "자세한 내용 문의하기",
+    "viewFullPage": "전체 페이지 보기",
+    "showing": "표시 중",
+    "of": "/",
+    "productsCount": "제품",
+    "loadMore": "더 불러오기"
+  },
+  "ProductDetail": {
+    "benefits": "이점 및 특징:",
+    "usage": "사용 방법:",
+    "ingredients": "활성 성분:",
+    "ingredientDetails": "성분 세부 정보:",
+    "inquire": "자세한 내용 문의하기",
+    "back": "홈으로 돌아가기",
+    "btnBuy": "지금 구매하기",
+    "btnBack": "뒤로 가기",
+    "comingSoon": "곧 출시됩니다..."
+  },
+  "Contact": {
+    "title1": "연락",
+    "title2": "처",
+    "subtitle": "질문이 있거나 기술적인 조언이 필요하신가요? 저희 팀은 언제나 여러분을 환영할 준비가 되어 있습니다.",
+    "name": "성함",
+    "phone": "전화번호",
+    "location": "위치(주/지역)",
+    "question": "질문이 무엇인가요?",
+    "btnSend": "메시지 보내기",
+    "btnSending": "전송 중...",
+    "contactInfo": "연락처 정보",
+    "social": "소셜 미디어",
+    "successTitle": "메시지가 성공적으로 전송되었습니다!",
+    "successDesc": "연락해 주셔서 감사합니다. 곧 답변해 드리겠습니다."
+  },
+  "Testimonials": {
+    "badge": "고객 후기",
+    "title1": "고객들의",
+    "title2": "의견은?",
+    "desc": "Lộc Trời 캄보디아를 선택한 농부 및 파트너들의 목소리",
+    "t1_name": "Sok Vannarith",
+    "t1_role": "벼 농부, Battambang",
+    "t1_text": "Lộc Trời 제품을 3년 넘게 사용하고 있습니다. 벼 수확량이 30% 이상 증가했습니다. 매우 만족합니다!",
+    "t2_name": "Chan Sophea",
+    "t2_role": "벼 농부, Kampong Cham",
+    "t2_text": "Lộc Trời의 비료는 품질이 뛰어나 작물이 잘 자라며, 기술 팀은 훌륭한 조언을 제공합니다.",
+    "t3_name": "Heng Sophal",
+    "t3_role": "농업 창고, Prey Veng",
+    "t3_text": "최고의 비즈니스 파트너! 품질 좋은 제품, 만족한 고객, 빠른 배송.",
+    "t4_name": "Nuon Sarun",
+    "t4_role": "채소 농부, Kandal",
+    "t4_text": "Lộc Trời의 작물 보호 제품은 매우 효과적입니다. 해충은 빨리 죽고 작물에는 손상을 주지 않습니다."
+  },
+  "Statistics": {
+    "farmers": "도달한 농부",
+    "products": "고품질 제품",
+    "provinces": "포함된 주",
+    "experience": "수년간의 경험"
+  },
+  "VideoSongs": {
+    "title": "뮤직 비디오",
+    "copied": "복사됨",
+    "share": "공유하기",
+    "v1": "Loc Troi 캄보디아의 영광",
+    "v2": "녹색 미래",
+    "v3": "들판에서의 성공",
+    "v4": "지상 낙원",
+    "v5": "들판 위의 일출",
+    "v6": "농업의 새로운 길"
+  },
+  "Partners": {
+    "title": "우리의 파트너 및 최고 브랜드"
+  },
+  "ShareButton": {
+    "title": "이 제품 공유하기",
+    "copied": "링크가 복사되었습니다",
+    "share": "공유하기"
+  },
+  "LiveChat": {
+    "welcome": "안녕하세요! Loc Troi 캄보디아에 오신 것을 환영합니다. 오늘 무엇을 도와드릴까요?",
+    "reply_hi": "안녕하세요! 정보를 빨리 얻으려면 아래 번호를 입력하세요:\n1️⃣ 제품 보기\n2️⃣ 위치 보기\n3️⃣ 연락처 정보",
+    "reply_products": "우리의 주요 제품은 다음과 같습니다:\n\n🌱 NPK 20-20-15 비료\n🦠 Vitako 살충제\n🌾 Lộc Trời 123 벼 종자\n\n자세한 내용은 '제품' 메뉴를 확인하세요.",
+    "reply_location": "본사 위치:\n📍 프놈펜, 캄보디아\n\n지사에 대한 자세한 내용은 우리 팀에 문의하세요.",
+    "reply_contact": "연락 방법:\n📞 전화: 012 345 678\n📧 이메일: info@loctroi.online\n\n우리 팀이 신속하게 답변해 드릴 것입니다.",
+    "reply_default": "죄송합니다, 이해하지 못했습니다. 옵션을 선택하려면 1, 2 또는 3을 입력하거나 저희 팀이 연락할 수 있도록 전화번호를 남겨주세요.",
+    "typing": "입력 중...",
+    "placeholder": "여기에 메시지를 입력하세요...",
+    "chat_with_us": "채팅하기"
+  },
+  "AgriVideos": {
+    "title1": "농업",
+    "title2": "지식 비디오"
+  },
+  "Footer": {
+    "linksTitle": "링크",
+    "aboutLink": "회사 소개",
+    "contactLink": "연락처",
+    "branchesLink": "지점",
+    "desc": "고품질 농산물을 제공하는 최고의 농업 파트너.",
+    "contactTitle": "연락처",
+    "addressLabel": "프놈펜, 캄보디아",
+    "socialTitle": "소셜 미디어",
+    "copyright": "Loc Troi Cambodia. Pho Chaifong의 모든 권리 보유"
+  },
+  "FAQ": {
+    "badge": "자주 묻는 질문",
+    "title1": "자주 묻는",
+    "title2": "질문",
+    "subtitle": "고객들이 가장 자주 묻는 질문에 대한 답변",
+    "q1": "Lộc Trời는 모든 주에 배송하나요?",
+    "a1": "네, 저희는 캄보디아 전역의 25개 주에 배송합니다. 대량 주문 시 무료 배송을 제공합니다.",
+    "q2": "제품을 어떻게 주문할 수 있나요?",
+    "a2": "097 945 0831 또는 071 777 3554로 전화하거나, Facebook 페이지를 통해 연락하거나, 이 웹사이트의 문의 양식을 작성하여 직접 주문할 수 있습니다.",
+    "q3": "Lộc Trời 제품의 특별한 점은 무엇인가요?",
+    "a3": "저희 제품은 10년 이상의 경험을 가진 베트남 최고의 농업 기업인 Lộc Trời Group에서 제조합니다. 모든 제품은 관련 당국의 테스트 및 인증을 거칩니다.",
+    "q4": "농업 기술 컨설팅을 제공하나요?",
+    "a4": "네! 저희 기술 팀은 제품 사용, 올바른 화학 물질 선택 및 기타 농업 기술에 대한 무료 컨설팅을 제공할 준비가 되어 있습니다.",
+    "q5": "작물 보호 제품은 안전한가요?",
+    "a5": "당사의 모든 제품은 합법적으로 등록되어 있으며 지시대로 사용하면 안전합니다. 라벨을 읽고 사용 지침을 주의 깊게 따르십시오."
+  },
+  "DealerLocator": {
+    "title1": "대리점",
+    "title2": "위치",
+    "subtitle": "쉽게 구매할 수 있도록 가장 가까운 창고 및 유통업체를 찾아보세요.",
+    "allProvinces": "모든 지역",
+    "noDealers": "이 주에는 아직 대리점이 없습니다.",
+    "selectedLocation": "선택한 위치",
+    "callButton": "전화하기",
+    "dealerPrefix": "Lộc Trời 창고 - 지점",
+    "provincePrefix": "주도",
+    "country": "캄보디아",
+    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
+    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+  },
+  "Metadata": {
+    "title": "Loc Troi 캄보디아",
+    "description": "Loc Troi 캄보디아는 농부들을 지원하기 위해 고품질 농산물, 농약, 비료, 종자를 제공합니다.",
+    "keywords": "Ta Sok, Ta Sok Agrochemicals, 농약, 비료, 종자, 캄보디아 농업, Loc Troi 캄보디아, Lộc Trời, 살충제, 고품질 농업, loc troi"
+  }
+}

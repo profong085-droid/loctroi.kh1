@@ -1,0 +1,192 @@
+{
+  "Navbar": {
+    "home": "ホーム",
+    "about": "私たちについて",
+    "products": "製品",
+    "songs": "曲",
+    "videos": "動画",
+    "contact": "お問い合わせ",
+    "login": "ログイン",
+    "logout": "ログアウト"
+  },
+  "Hero": {
+    "title1": "農業の未来",
+    "title2": "カンボジア",
+    "subtitle": "Lộc Trờiは、カンボジアの農家を支援するために、高品質の農産物、農薬、肥料、種子を提供しています。",
+    "cta": "今すぐ購入",
+    "description": "<strong>Loc Troi</strong>へようこそ！私たちはカンボジアの農家が収穫量を増やし、害虫から作物を効果的に保護できるよう、高品質の作物保護製品、肥料、稲の種子を提供しています。<strong>Loc Troi</strong>を選ぶことは、成功を選ぶことです！",
+    "learnMore": "もっと詳しく"
+  },
+  "About": {
+    "badge": "Lộc Trờiについて",
+    "title1": "信頼されるパートナー",
+    "title2": "カンボジアの農家のために",
+    "desc": "Lộc Trờiカンボジアは、農家が高い収穫量とより良い生活を実現できるよう、作物保護、肥料、種子など最高品質の農産物を提供することに尽力しています。",
+    "feature1_title": "標準品質",
+    "feature1_desc": "本物の高品質な製品",
+    "feature2_title": "高収穫量",
+    "feature2_desc": "作物の生産量増加を支援",
+    "feature3_title": "優れたサービス",
+    "feature3_desc": "農業技術コンサルティング",
+    "feature4_title": "信頼性",
+    "feature4_desc": "全製品の保証",
+    "experience": "長年の経験",
+    "experienceDesc": "農業分野で"
+  },
+  "Products": {
+    "title": "私たちの製品",
+    "subtitle": "すべての作物のための高品質な農薬、肥料、種子を見つけてください。",
+    "searchPlaceholder": "製品を検索...",
+    "categoryAll": "すべて",
+    "category_molluscicide": "殺貝剤（ジャンボタニシ駆除）",
+    "category_herbicide": "除草剤",
+    "category_insecticide": "殺虫剤",
+    "category_fungicide": "殺菌剤",
+    "category_fertilizer": "肥料",
+    "category_seed": "種子",
+    "category_special": "特別",
+    "btnDetail": "詳細を見る",
+    "noResults": "製品が見つかりません...",
+    "noResultsDesc": "別のキーワードで検索するか、別のカテゴリを選択してください",
+    "details": "詳細",
+    "inquire": "詳細について問い合わせる",
+    "viewFullPage": "フルページを見る",
+    "showing": "表示中",
+    "of": "/",
+    "productsCount": "製品",
+    "loadMore": "さらに読み込む"
+  },
+  "ProductDetail": {
+    "benefits": "利点と特徴:",
+    "usage": "使用方法:",
+    "ingredients": "有効成分:",
+    "ingredientDetails": "成分の詳細:",
+    "inquire": "詳細について問い合わせる",
+    "back": "ホームに戻る",
+    "btnBuy": "今すぐ購入",
+    "btnBack": "戻る",
+    "comingSoon": "近日公開..."
+  },
+  "Contact": {
+    "title1": "お問い",
+    "title2": "合わせ",
+    "subtitle": "質問や技術的なアドバイスが必要ですか？私たちのチームはいつでもあなたを歓迎する準備ができています。",
+    "name": "お名前",
+    "phone": "電話番号",
+    "location": "場所（州/地区）",
+    "question": "ご質問は何ですか？",
+    "btnSend": "メッセージを送信",
+    "btnSending": "送信中...",
+    "contactInfo": "連絡先情報",
+    "social": "ソーシャルメディア",
+    "successTitle": "メッセージが正常に送信されました！",
+    "successDesc": "お問い合わせありがとうございます。すぐにご連絡いたします。"
+  },
+  "Testimonials": {
+    "badge": "お客様の声",
+    "title1": "お客様の",
+    "title2": "ご意見は？",
+    "desc": "Lộc Trờiカンボジアを選んだ農家やパートナーの声",
+    "t1_name": "Sok Vannarith",
+    "t1_role": "稲作農家, バッタンバン",
+    "t1_text": "Lộc Trờiの製品を3年以上使用しています。稲の収穫量が30%以上増加しました。大満足です！",
+    "t2_name": "Chan Sophea",
+    "t2_role": "稲作農家, コンポンチャム",
+    "t2_text": "Lộc Trờiの肥料は高品質で作物がよく育ち、技術チームは素晴らしいアドバイスを提供してくれます。",
+    "t3_name": "Heng Sophal",
+    "t3_role": "農業デポ, プレイベン",
+    "t3_text": "最高のビジネスパートナーです！高品質な製品、満足のいく顧客、そして迅速な配達。",
+    "t4_name": "Nuon Sarun",
+    "t4_role": "野菜農家, カンダル",
+    "t4_text": "Lộc Trờiの作物保護製品は非常に効果的です。害虫はすぐに死に、作物にダメージを与えません。"
+  },
+  "Statistics": {
+    "farmers": "到達した農家",
+    "products": "高品質な製品",
+    "provinces": "カバーされた州",
+    "experience": "長年の経験"
+  },
+  "VideoSongs": {
+    "title": "ミュージックビデオ",
+    "copied": "コピーしました",
+    "share": "シェア",
+    "v1": "Loc Troiカンボジアの栄光",
+    "v2": "緑の未来",
+    "v3": "畑での成功",
+    "v4": "地上の楽園",
+    "v5": "畑の上の日の出",
+    "v6": "農業の新しい道"
+  },
+  "Partners": {
+    "title": "パートナーとトップブランド"
+  },
+  "ShareButton": {
+    "title": "この製品をシェアする",
+    "copied": "リンクをコピーしました",
+    "share": "シェア"
+  },
+  "LiveChat": {
+    "welcome": "こんにちは！Loc Troiカンボジアへようこそ。今日はどのようにお手伝いしましょうか？",
+    "reply_hi": "こんにちは！情報をすばやく取得するには、以下の番号を入力してください：\n1️⃣ 製品を見る\n2️⃣ 場所を見る\n3️⃣ 連絡先情報",
+    "reply_products": "注目の製品は次のとおりです：\n\n🌱 NPK 20-20-15 肥料\n🦠 Vitako 殺虫剤\n🌾 Lộc Trời 123 稲の種子\n\n詳細については、「製品」メニューをご覧ください。",
+    "reply_location": "本社はここにあります：\n📍 プノンペン、カンボジア\n\n州の支店について詳しくは、私たちのチームにお問い合わせください。",
+    "reply_contact": "お問い合わせ先：\n📞 電話: 012 345 678\n📧 メール: info@loctroi.online\n\nチームが迅速に対応いたします。",
+    "reply_default": "申し訳ありませんが、理解できませんでした。オプションを選択するには1、2、または3を入力するか、チームから連絡するために電話番号を残してください。",
+    "typing": "入力中...",
+    "placeholder": "ここにメッセージを入力してください...",
+    "chat_with_us": "チャットする"
+  },
+  "AgriVideos": {
+    "title1": "農業",
+    "title2": "知識動画"
+  },
+  "Footer": {
+    "linksTitle": "リンク",
+    "aboutLink": "私たちについて",
+    "contactLink": "お問い合わせ",
+    "branchesLink": "支店",
+    "desc": "高品質の農産物を提供する最高の農業パートナー。",
+    "contactTitle": "お問い合わせ",
+    "addressLabel": "プノンペン、カンボジア",
+    "socialTitle": "ソーシャルメディア",
+    "copyright": "Loc Troi Cambodia. Pho Chaifong がすべての権利を保有"
+  },
+  "FAQ": {
+    "badge": "よくある質問",
+    "title1": "よくある",
+    "title2": "ご質問",
+    "subtitle": "お客様から最もよく寄せられる質問への回答",
+    "q1": "Lộc Trờiはすべての州に配達しますか？",
+    "a1": "はい、カンボジア全土の25州に配達しています。一括注文の場合は送料無料を提供しています。",
+    "q2": "どのように製品を注文できますか？",
+    "a2": "097 945 0831または071 777 3554にお電話いただくか、Facebookページから、またはこのウェブサイトの問い合わせフォームにご記入いただくことで直接注文できます。",
+    "q3": "Lộc Trờiの製品の特別な点は何ですか？",
+    "a3": "当社の製品は、ベトナムの大手農業企業であるLộc Trờiグループ（10年以上の経験を持つ）によって製造されています。すべての製品は関連当局によってテストおよび認定されています。",
+    "q4": "農業技術のコンサルティングは提供していますか？",
+    "a4": "はい！当社の技術チームは、製品の使用、適切な化学物質の選択、およびその他の農業技術について無料でアドバイスを提供する準備ができています。",
+    "q5": "作物保護製品は安全ですか？",
+    "a5": "当社のすべての製品は法的に登録されており、指示通りに使用すれば安全です。ラベルを読み、使用説明書に注意深く従ってください。"
+  },
+  "DealerLocator": {
+    "title1": "ディーラー",
+    "title2": "の場所",
+    "subtitle": "簡単に購入できるように、最寄りのデポとディストリビューターを見つけてください。",
+    "allProvinces": "すべての場所",
+    "noDealers": "この州にはまだディーラーがいません",
+    "selectedLocation": "選択した場所",
+    "callButton": "電話する",
+    "dealerPrefix": "Lộc Trời デポ - 支店",
+    "provincePrefix": "州都",
+    "country": "カンボジア",
+    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
+    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+  },
+  "Metadata": {
+    "title": "Loc Troi カンボジア",
+    "description": "Loc Troi カンボジアは、農家を支援するために高品質の農産物、農薬、肥料、種子を提供しています。",
+    "keywords": "Ta Sok, Ta Sok Agrochemicals, 農薬, 肥料, 種子, カンボジア農業, Loc Troi カンボジア, Lộc Trời, 殺虫剤, 高品質農業, loc troi"
+  }
+}

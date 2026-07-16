@@ -141,6 +141,10 @@
     "title2": "Knowledge Videos"
   },
   "Footer": {
+    "linksTitle": "Links",
+    "aboutLink": "About Us",
+    "contactLink": "Contact Us",
+    "branchesLink": "Branches",
     "desc": "Your best agricultural partner, providing high-quality agricultural products.",
     "contactTitle": "Contact",
     "addressLabel": "Phnom Penh, Cambodia",
