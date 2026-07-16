@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Share2, Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface ShareButtonProps {
   title: string;
@@ -11,6 +12,7 @@ interface ShareButtonProps {
 
 export function ShareButton({ title, text, url }: ShareButtonProps) {
   const [copied, setCopied] = useState(false);
+  const t = useTranslations("ShareButton");
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -39,17 +41,17 @@ export function ShareButton({ title, text, url }: ShareButtonProps) {
     <button
       onClick={handleShare}
       className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full font-medium transition-colors border border-slate-200 shadow-sm"
-      title="ចែករំលែកផលិតផលនេះ (Share)"
+      title={t("title")}
     >
       {copied ? (
         <>
           <Check size={18} className="text-green-600" />
-          <span className="text-green-600">បានចម្លងលីង</span>
+          <span className="text-green-600">{t("copied")}</span>
         </>
       ) : (
         <>
           <Share2 size={18} />
-          <span>ចែករំលែក</span>
+          <span>{t("share")}</span>
         </>
       )}
     </button>

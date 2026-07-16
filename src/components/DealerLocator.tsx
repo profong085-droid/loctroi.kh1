@@ -4,48 +4,51 @@ import { useState } from "react";
 import { MapPin, Phone, Search, Store } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// List of all 25 provinces/capital of Cambodia
-const provinces = [
-  "គ្រប់ទីកន្លែង",
-  "ភ្នំពេញ", "កណ្តាល", "តាកែវ", "កំពង់ចាម", "ត្បូងឃ្មុំ", 
-  "ព្រៃវែង", "ស្វាយរៀង", "កំពង់ស្ពឺ", "កំពត", "កែប", 
-  "ព្រះសីហនុ", "កោះកុង", "បាត់ដំបង", "បន្ទាយមានជ័យ", "ប៉ៃលិន", 
-  "ពោធិ៍សាត់", "កំពង់ឆ្នាំង", "កំពង់ធំ", "សៀមរាប", "ឧត្តរមានជ័យ", 
-  "ព្រះវិហារ", "ក្រចេះ", "ស្ទឹងត្រែង", "រតនគិរី", "មណ្ឌលគិរី"
+import { useTranslations } from "next-intl";
+
+const provinceKeys = [
+  "allProvinces",
+  "PhnomPenh", "Kandal", "Takeo", "KampongCham", "TboungKhmum", 
+  "PreyVeng", "SvayRieng", "KampongSpeu", "Kampot", "Kep", 
+  "Sihanoukville", "KohKong", "Battambang", "BanteayMeanchey", "Pailin", 
+  "Pursat", "KampongChhnang", "KampongThom", "SiemReap", "OddarMeanchey", 
+  "PreahVihear", "Kratie", "StungTreng", "Ratanakiri", "Mondulkiri"
 ];
 
-const dealers = provinces.filter(p => p !== "គ្រប់ទីកន្លែង").map((province, index) => {
-  const address = `ទីរួមខេត្ត${province}, ប្រទេសកម្ពុជា`;
-  // Use index to make dummy data deterministic for SSR hydration
-  const phonePart1 = 100 + (index * 13 % 899);
-  const phonePart2 = 100 + (index * 29 % 899);
-  return {
-    id: index + 1,
-    name: `ដេប៉ូកសិកម្ម Lộc Trời - សាខា${province}`,
-    province: province,
-    address: address,
-    phone: `09${index % 10} ${phonePart1} ${phonePart2}`,
-    mapUrl: `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=m&z=14&ie=UTF8&iwloc=B&output=embed`
-  };
-});
-
 export const DealerLocator = () => {
-  const [selectedProvince, setSelectedProvince] = useState("គ្រប់ទីកន្លែង");
+  const t = useTranslations("DealerLocator");
+  const [selectedProvinceKey, setSelectedProvinceKey] = useState("allProvinces");
+
+  const dealers = provinceKeys.filter(p => p !== "allProvinces").map((provinceKey, index) => {
+    const province = t(provinceKey as Parameters<typeof t>[0]);
+    const address = `${t("provincePrefix")} ${province}, ${t("country")}`;
+    const phonePart1 = 100 + (index * 13 % 899);
+    const phonePart2 = 100 + (index * 29 % 899);
+    return {
+      id: index + 1,
+      name: `${t("dealerPrefix")} ${province}`,
+      provinceKey: provinceKey,
+      address: address,
+      phone: `09${index % 10} ${phonePart1} ${phonePart2}`,
+      mapUrl: `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=m&z=14&ie=UTF8&iwloc=B&output=embed`
+    };
+  });
+
   const [selectedDealer, setSelectedDealer] = useState(dealers[0]);
 
-  const filteredDealers = selectedProvince === "គ្រប់ទីកន្លែង" 
+  const filteredDealers = selectedProvinceKey === "allProvinces" 
     ? dealers 
-    : dealers.filter(d => d.province === selectedProvince);
+    : dealers.filter(d => d.provinceKey === selectedProvinceKey);
 
   return (
     <section id="dealers" className="py-24 bg-slate-50 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-6 tracking-wide leading-relaxed">
-            ទីតាំងតំណាងចែកចាយ <span className="text-primary-600">Lộc Trời</span>
+            {t("title1")} <span className="text-primary-600">{t("title2")}</span>
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-            ស្វែងរកដេប៉ូ និងតំណាងចែកចាយផលិតផលរបស់យើងដែលនៅជិតអ្នកបំផុត ដើម្បីងាយស្រួលក្នុងការជាវ។
+            {t("subtitle")}
           </p>
         </div>
 
@@ -59,11 +62,11 @@ export const DealerLocator = () => {
                 <Search className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
                 <select 
                   className="w-full pl-10 md:pl-12 pr-4 py-2 md:py-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 appearance-none font-bold text-slate-700 text-xs md:text-sm"
-                  value={selectedProvince}
-                  onChange={(e) => setSelectedProvince(e.target.value)}
+                  value={selectedProvinceKey}
+                  onChange={(e) => setSelectedProvinceKey(e.target.value)}
                 >
-                  {provinces.map(p => (
-                    <option key={p} value={p}>{p}</option>
+                  {provinceKeys.map(p => (
+                    <option key={p} value={p}>{t(p as Parameters<typeof t>[0])}</option>
                   ))}
                 </select>
                 <div className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[10px] md:text-xs">
@@ -114,7 +117,7 @@ export const DealerLocator = () => {
               {filteredDealers.length === 0 && (
                 <div className="p-4 md:p-6 text-center text-slate-400">
                   <MapPin className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 opacity-20" />
-                  <p className="text-xs md:text-sm">មិនទាន់មានតំណាងចែកចាយនៅខេត្តនេះទេ</p>
+                  <p className="text-xs md:text-sm">{t("noDealers")}</p>
                 </div>
               )}
             </div>
@@ -137,7 +140,7 @@ export const DealerLocator = () => {
             <div className="absolute bottom-3 left-3 right-3 md:bottom-4 md:left-4 md:right-4 bg-white/95 backdrop-blur-md p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50">
               <div className="flex items-center justify-between flex-wrap gap-2 md:gap-3">
                 <div className="flex-1">
-                  <div className="text-[9px] md:text-[10px] font-black text-primary-600 uppercase tracking-widest mb-0.5">ទីតាំងដែលបានជ្រើសរើស</div>
+                  <div className="text-[9px] md:text-[10px] font-black text-primary-600 uppercase tracking-widest mb-0.5">{t("selectedLocation")}</div>
                   <h3 className="font-bold text-sm md:text-lg text-slate-800 leading-tight line-clamp-1">{selectedDealer.name}</h3>
                   <p className="text-slate-600 text-[11px] md:text-xs mt-0.5 line-clamp-1">{selectedDealer.address}</p>
                 </div>
@@ -146,7 +149,7 @@ export const DealerLocator = () => {
                   className="px-4 md:px-5 py-2 md:py-2.5 bg-primary-800 text-white rounded-full font-bold shadow-lg shadow-primary-900/20 hover:bg-primary-900 transition-colors flex items-center gap-1.5 text-xs md:text-sm shrink-0"
                 >
                   <Phone size={14} />
-                  ខល
+                  {t("callButton")}
                 </a>
               </div>
             </div>

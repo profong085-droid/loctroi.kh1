@@ -4,27 +4,41 @@ import { productsData } from '@/data/products'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://loctroi.online';
   const currentDate = new Date();
+  const locales = ['kh', 'en', 'vi'];
 
-  // ១. ទំព័រដើម (Homepage) - អាទិភាពខ្ពស់បំផុត
-  const homeRoute: MetadataRoute.Sitemap[number] = {
-    url: baseUrl,
+  const getAlternates = (path: string) => ({
+    languages: {
+      'km-KH': `${baseUrl}/kh${path}`,
+      'en-US': `${baseUrl}/en${path}`,
+      'vi-VN': `${baseUrl}/vi${path}`,
+    }
+  });
+
+  // ១. ទំព័រដើម (Homepage) - សម្រាប់គ្រប់ភាសា
+  const homeRoutes: MetadataRoute.Sitemap = locales.map(locale => ({
+    url: `${baseUrl}/${locale}`,
     lastModified: currentDate,
     changeFrequency: 'daily',
     priority: 1.0,
-  };
-
-  // ២. ទំព័រផលិតផលទាំងអស់ (Product Pages) - អាទិភាពបន្ទាប់
-  const productRoutes: MetadataRoute.Sitemap = productsData.map((product) => ({
-    url: `${baseUrl}/product/${product.id}`,
-    lastModified: currentDate, // គួរដាក់កាលបរិច្ឆេទដែលផលិតផលនេះត្រូវកែប្រែចុងក្រោយ
-    changeFrequency: 'weekly',
-    priority: 0.8,
+    alternates: getAlternates(''),
   }));
 
-  // ប្រសិនបើថ្ងៃក្រោយអ្នកមានទំព័រផ្សេងៗទៀត ដូចជា /about, /contact, /blog អាចបន្ថែមនៅទីនេះបាន
+  // ២. ទំព័រផលិតផលទាំងអស់ (Product Pages) - សម្រាប់គ្រប់ភាសា
+  const productRoutes: MetadataRoute.Sitemap = [];
+  productsData.forEach((product) => {
+    locales.forEach(locale => {
+      productRoutes.push({
+        url: `${baseUrl}/${locale}/product/${product.id}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+        alternates: getAlternates(`/product/${product.id}`),
+      });
+    });
+  });
 
   return [
-    homeRoute,
+    ...homeRoutes,
     ...productRoutes,
   ];
 }

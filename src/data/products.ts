@@ -1,15 +1,23 @@
 export type CategoryType = 'all' | 'molluscicide' | 'herbicide' | 'insecticide' | 'fungicide' | 'fertilizer' | 'seed' | 'special';
 
+export type LocaleText = string | { kh: string; en: string; vi: string };
+
 export interface Product {
   id: string;
-  name: string;
+  name: LocaleText;
   image: string;
   category: string;
   categoryKh: string;
-  usage: string;
-  ingredients?: string;
-  ingredientDetails?: string;
-  benefits?: string[];
+  usage: LocaleText;
+  ingredients?: LocaleText;
+  ingredientDetails?: LocaleText;
+  benefits?: LocaleText[];
+}
+
+export function getLocalizedText(text: LocaleText | undefined, locale: string): string {
+  if (!text) return "";
+  if (typeof text === "string") return text;
+  return (text as any)[locale] || text.kh || "";
 }
 
 export const productsData: Product[] = [

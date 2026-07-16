@@ -2,35 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "សុខ វណ្ណារិទ្ធ",
-    role: "កសិករស្រូវ ខេត្តបាត់ដំបង",
-    text: "ខ្ញុំប្រើផលិតផលរបស់ Lộc Trời មកជាង ៣ ឆ្នាំហើយ។ ទិន្នផលស្រូវរបស់ខ្ញុំបានកើនឡើងជាង ៣០% ពិតជាពេញចិត្តខ្លាំង!",
-    rating: 5,
-  },
-  {
-    name: "ចាន់ សុភា",
-    role: "កសិករស្រូវ ខេត្តកំពង់ចាម",
-    text: "ជីកសិកម្មរបស់ Lộc Trời មានគុណភាពខ្ពស់ណាស់ ដំណាំលូតលាស់ល្អ ហើយក្រុមបច្ចេកទេសក៏ផ្តល់ការប្រឹក្សាយ៉ាងល្អដែរ។",
-    rating: 5,
-  },
-  {
-    name: "ហេង សុផល",
-    role: "ដេប៉ូកសិកម្ម ខេត្តព្រៃវែង",
-    text: "ជាដៃគូអាជីវកម្មដ៏ល្អបំផុត! ផលិតផលមានគុណភាព អតិថិជនពេញចិត្ត ហើយការដឹកជញ្ជូនក៏រហ័សទៀតផង។",
-    rating: 5,
-  },
-  {
-    name: "នួន សារុន",
-    role: "កសិករបន្លែ ខេត្តកណ្តាល",
-    text: "ថ្នាំការពារដំណាំរបស់ Lộc Trời ពិតជាមានប្រសិទ្ធភាពខ្ពស់ សត្វល្អិតស្លាប់ឆាប់ ហើយមិនប៉ះពាល់ដល់ដំណាំឡើយ។",
-    rating: 4,
-  },
-];
+import { useTranslations } from "next-intl";
 
 export const Testimonials = () => {
+  const t = useTranslations("Testimonials");
+
+  const testimonials = [
+    {
+      name: t("t1_name"),
+      role: t("t1_role"),
+      text: t("t1_text"),
+      rating: 5,
+    },
+    {
+      name: t("t2_name"),
+      role: t("t2_role"),
+      text: t("t2_text"),
+      rating: 5,
+    },
+    {
+      name: t("t3_name"),
+      role: t("t3_role"),
+      text: t("t3_text"),
+      rating: 5,
+    },
+    {
+      name: t("t4_name"),
+      role: t("t4_role"),
+      text: t("t4_text"),
+      rating: 4,
+    },
+  ];
+
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
@@ -40,18 +43,18 @@ export const Testimonials = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1.5 bg-accent-100 text-accent-600 text-sm font-black rounded-full uppercase tracking-widest mb-6">
-            មតិអតិថិជន
+            {t("badge")}
           </div>
           <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-6 tracking-wide leading-relaxed">
-            អតិថិជនរបស់យើង <span className="text-primary-600">និយាយអ្វី?</span>
+            {t("title1")} <span className="text-primary-600">{t("title2")}</span>
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-            សំឡេងពីកសិករ និងដៃគូអាជីវកម្មដែលបានជ្រើសរើសផលិតផល Lộc Trời Cambodia
+            {t("desc")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((t, idx) => (
+          {testimonials.map((testi, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
@@ -66,24 +69,24 @@ export const Testimonials = () => {
                   <Star
                     key={i}
                     size={16}
-                    className={i < t.rating ? "text-accent-500 fill-accent-500" : "text-slate-200"}
+                    className={i < testi.rating ? "text-accent-500 fill-accent-500" : "text-slate-200"}
                   />
                 ))}
               </div>
 
               {/* Text */}
               <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-6">
-                &ldquo;{t.text}&rdquo;
+                &ldquo;{testi.text}&rdquo;
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
                 <div className="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                  {t.name.charAt(0)}
+                  {testi.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-800 text-sm">{t.name}</h4>
-                  <p className="text-xs text-slate-400">{t.role}</p>
+                  <h4 className="font-bold text-slate-800 text-sm">{testi.name}</h4>
+                  <p className="text-xs text-slate-400">{testi.role}</p>
                 </div>
               </div>
             </motion.div>

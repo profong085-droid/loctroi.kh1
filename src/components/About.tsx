@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { PiCheckCircleDuotone, PiShieldCheckDuotone, PiLeafDuotone, PiUsersDuotone } from "react-icons/pi";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export const About = () => {
+  const t = useTranslations("About");
   return (
     <section id="about" className="py-12 md:py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -34,8 +36,8 @@ export const About = () => {
                     10+
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-800">ឆ្នាំបទពិសោធន៍</h4>
-                    <p className="text-sm text-slate-500">ក្នុងវិស័យកសិកម្ម</p>
+                    <h4 className="font-bold text-slate-800">{t("experience")}</h4>
+                    <p className="text-sm text-slate-500">{t("experienceDesc")}</p>
                   </div>
                 </div>
               </div>
@@ -50,14 +52,14 @@ export const About = () => {
             className="w-full lg:w-1/2"
           >
             <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 bg-primary-100 text-primary-800 text-xs sm:text-sm font-black rounded-full uppercase tracking-widest mb-4 sm:mb-6">
-              អំពី Lộc Trời
+              {t("badge")}
             </div>
             <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-4 sm:mb-6 leading-[1.4] sm:leading-[1.6] tracking-wide">
-              ដៃគូដ៏គួរឱ្យទុកចិត្ត <br />
-              <span className="text-primary-600">សម្រាប់កសិករកម្ពុជា</span>
+              {t("title1")} <br />
+              <span className="text-primary-600">{t("title2")}</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
-              Lộc Trời Cambodia ប្តេជ្ញាផ្តល់ជូននូវផលិតផលកសិកម្មដែលមានគុណភាពខ្ពស់បំផុត រួមមានថ្នាំការពារដំណាំ ជីកសិកម្ម និងពូជស្រូវ ដើម្បីជួយឱ្យកសិករទទួលបានទិន្នផលខ្ពស់ និងជីវភាពកាន់តែប្រសើរ។
+              {t("desc")}
             </p>
             
             <motion.div 
@@ -76,10 +78,10 @@ export const About = () => {
               }}
             >
               {[
-                { icon: PiShieldCheckDuotone, title: "គុណភាពស្តង់ដារ", desc: "ផលិតផលពិត គុណភាពខ្ពស់" },
-                { icon: PiLeafDuotone, title: "ទិន្នផលខ្ពស់", desc: "ជួយបង្កើនផលដំណាំ" },
-                { icon: PiUsersDuotone, title: "សេវាកម្មល្អ", desc: "ប្រឹក្សាយោបល់បច្ចេកទេសកសិកម្ម" },
-                { icon: PiCheckCircleDuotone, title: "ទំនុកចិត្ត", desc: "ការធានាលើគ្រប់ផលិតផល" }
+                { icon: PiShieldCheckDuotone, title: t("feature1_title"), desc: t("feature1_desc") },
+                { icon: PiLeafDuotone, title: t("feature2_title"), desc: t("feature2_desc") },
+                { icon: PiUsersDuotone, title: t("feature3_title"), desc: t("feature3_desc") },
+                { icon: PiCheckCircleDuotone, title: t("feature4_title"), desc: t("feature4_desc") }
               ].map((feature, idx) => (
                 <motion.div 
                   key={idx} 

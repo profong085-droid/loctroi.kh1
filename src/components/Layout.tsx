@@ -8,11 +8,64 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, googleProvider } from "@/lib/firebase";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
+
+const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  const switchLanguage = (newLocale: string) => {
+    // pathname might be /kh, /en, /vi or /kh/product/...
+    // simple replace logic:
+    const segments = pathname.split('/');
+    if (segments.length > 1 && ['kh', 'en', 'vi'].includes(segments[1])) {
+      segments[1] = newLocale;
+    } else {
+      segments.splice(1, 0, newLocale);
+    }
+    router.push(segments.join('/') || '/');
+  };
+
+  return (
+    <div className="relative group cursor-pointer ml-4">
+      <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-colors ${
+        scrolled ? "border-slate-200 text-slate-800" : "border-white/30 text-white"
+      }`}>
+        <Image 
+          src={locale === 'kh' ? "https://flagcdn.com/w40/kh.png" : locale === 'en' ? "https://flagcdn.com/w40/gb.png" : "https://flagcdn.com/w40/vn.png"} 
+          alt={locale} 
+          width={24} height={16} unoptimized 
+          className="rounded-sm object-cover shadow-sm w-[24px] h-[16px]"
+        />
+        <span className="text-sm font-bold uppercase">{locale}</span>
+      </div>
+      <div className="absolute top-full right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+        {[
+          { code: 'kh', name: 'ភាសាខ្មែរ', flag: 'https://flagcdn.com/w40/kh.png' },
+          { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/gb.png' },
+          { code: 'vi', name: 'Tiếng Việt', flag: 'https://flagcdn.com/w40/vn.png' },
+        ].map(lang => (
+          <div 
+            key={lang.code}
+            onClick={() => switchLanguage(lang.code)}
+            className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition-colors"
+          >
+            <Image src={lang.flag} alt={lang.name} width={24} height={16} unoptimized className="rounded-sm object-cover shadow-sm w-[24px] h-[16px]" />
+            <span className="text-sm font-semibold text-slate-700">{lang.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, loading } = useAuth();
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,9 +132,9 @@ export const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {[
-            { id: "hero", label: "ទំព័រដើម" },
-            { id: "about", label: "អំពីយើង" },
-            { id: "products", label: "ផលិតផល" },
+            { id: "hero", label: t("home") },
+            { id: "about", label: t("about") },
+            { id: "products", label: t("products") },
           ].map((item) => (
             <a
               key={item.id}
@@ -117,7 +170,7 @@ export const Navbar = () => {
                   scrolled ? "border-slate-200 text-slate-600 hover:bg-slate-50" : "border-white/30 text-white hover:bg-white/10"
                 }`}
               >
-                ចាកចេញ
+                {t("logout")}
               </button>
             </div>
           ) : (
@@ -126,9 +179,11 @@ export const Navbar = () => {
               className="flex items-center gap-2 px-5 py-2.5 bg-white text-slate-800 rounded-full text-sm font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-black/5 border border-slate-100"
             >
               <FaGoogle className="text-red-500" />
-              ចូលគណនី
+              {t("login")}
             </button>
           )}
+          
+          <LanguageSwitcher scrolled={scrolled} />
         </div>
         
         {/* Mobile Toggle */}
@@ -153,9 +208,9 @@ export const Navbar = () => {
           >
             <div className="flex flex-col p-4">
               {[
-                { id: "hero", label: "ទំព័រដើម" },
-                { id: "about", label: "អំពីយើង" },
-                { id: "products", label: "ផលិតផល" },
+                { id: "hero", label: t("home") },
+                { id: "about", label: t("about") },
+                { id: "products", label: t("products") },
               ].map((item) => (
                 <a
                   key={item.id}
@@ -176,6 +231,8 @@ export const Navbar = () => {
 };
 
 export const Footer = () => {
+  const t = useTranslations("Footer");
+  
   return (
     <footer id="footer-info" className="bg-primary-950 text-white/70 pt-8 pb-12 md:pt-10 md:pb-16 text-sm border-t border-white/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
@@ -201,7 +258,7 @@ export const Footer = () => {
               <Image src="/photo/logo loctroi 6.png" alt="Logo" width={128} height={128} className="object-contain" />
             </div>
             <h3 className="font-black text-xl text-white mb-2">LỘC TRỜI CAMBODIA</h3>
-            <p className="text-white/50 mb-6 max-w-xs text-sm md:text-base">ដៃគូកសិកម្មដ៏ល្អបំផុតរបស់អ្នក ផ្តល់ជូនផលិតផលកសិកម្មគុណភាពខ្ពស់។</p>
+            <p className="text-white/50 mb-6 max-w-xs text-sm md:text-base">{t("desc")}</p>
           </motion.div>
           
           <motion.div 
@@ -212,13 +269,13 @@ export const Footer = () => {
             className="flex flex-col items-center md:items-start"
           >
             <div className="flex items-center gap-3 mb-6">
-              <h4 className="font-bold text-white uppercase tracking-wider text-sm md:text-base">ទំនាក់ទំនង</h4>
+              <h4 className="font-bold text-white uppercase tracking-wider text-sm md:text-base">{t("contactTitle")}</h4>
               <Image src="https://flagcdn.com/w40/kh.png" alt="Cambodia Flag" width={40} height={27} unoptimized className="h-4 w-auto rounded-sm object-cover shadow-sm" />
             </div>
             <ul className="space-y-4 text-sm md:text-base">
               <li className="flex items-start gap-3">
                 <MapPin className="text-accent-500 shrink-0 mt-1" size={18} />
-                <span>ភ្នំពេញ, ប្រទេសកម្ពុជា</span>
+                <span>{t("addressLabel")}</span>
               </li>
               <li className="flex items-center gap-3 text-slate-300">
                 <Phone size={20} className="text-primary-500" />
@@ -238,7 +295,7 @@ export const Footer = () => {
             }}
             className="flex flex-col items-center md:items-start"
           >
-            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">បណ្តាញសង្គម</h4>
+            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("socialTitle")}</h4>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaFacebookF size={18} className="md:w-[20px] md:h-[20px]" />
@@ -260,7 +317,7 @@ export const Footer = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="mt-16 pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500"
         >
-          <p>© {new Date().getFullYear()} Loc Troi Cambodia. រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ Pho Chaifong</p>
+          <p>{t("copyright").replace("{year}", new Date().getFullYear().toString())}</p>
           <p>PHOCHAIFONG</p>
         </motion.div>
       </div>

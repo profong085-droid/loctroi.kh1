@@ -3,13 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Users, Package, MapPin, Award } from "lucide-react";
-
-const stats = [
-  { icon: Users, value: 10000, suffix: "+", label: "កសិករប្រើប្រាស់" },
-  { icon: Package, value: 70, suffix: "+", label: "ផលិតផលគុណភាព" },
-  { icon: MapPin, value: 25, suffix: "", label: "ខេត្តក្រុង" },
-  { icon: Award, value: 10, suffix: "+", label: "ឆ្នាំបទពិសោធន៍" },
-];
+import { useTranslations } from "next-intl";
 
 const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   const [count, setCount] = useState(0);
@@ -45,6 +39,15 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
 };
 
 export const Statistics = () => {
+  const t = useTranslations("Statistics");
+
+  const stats = [
+    { icon: Users, value: 10000, suffix: "+", label: t("farmers") },
+    { icon: Package, value: 70, suffix: "+", label: t("products") },
+    { icon: MapPin, value: 25, suffix: "", label: t("provinces") },
+    { icon: Award, value: 10, suffix: "+", label: t("experience") },
+  ];
+
   return (
     <section className="py-20 bg-primary-950 relative overflow-hidden">
       {/* Background pattern */}

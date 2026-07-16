@@ -3,45 +3,29 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const faqs = [
-  {
-    question: "តើផលិតផល Lộc Trời មានដឹកជញ្ជូនដល់គ្រប់ខេត្តក្រុងទេ?",
-    answer: "ចាស មានដឹកជញ្ជូនដល់គ្រប់ ២៥ ខេត្តក្រុង នៅទូទាំងព្រះរាជាណាចក្រកម្ពុជា។ សម្រាប់ការកម្ម៉ង់ចំនួនច្រើន យើងផ្តល់ជូនការដឹកជញ្ជូនដោយឥតគិតថ្លៃ។",
-  },
-  {
-    question: "តើធ្វើយ៉ាងម៉េចដើម្បីកម្ម៉ង់ផលិតផល?",
-    answer: "អ្នកអាចកម្ម៉ង់ផលិតផលបានតាមរយៈ៖ ទំនាក់ទំនងផ្ទាល់តាមលេខ 097 945 0831 ឬ 071 777 3554, តាមរយៈ Facebook Page របស់យើង, ឬបំពេញទម្រង់ទំនាក់ទំនងនៅលើវេបសាយនេះ។",
-  },
-  {
-    question: "តើផលិតផលរបស់ Lộc Trời មានគុណភាពអ្វីខ្លះដែលពិសេស?",
-    answer: "ផលិតផលរបស់យើងត្រូវបានផលិតពីក្រុមហ៊ុន Lộc Trời Group ដែលជាក្រុមហ៊ុនកសិកម្មឈានមុខគេនៅប្រទេសវៀតណាម មានបទពិសោធន៍ជាង ១០ ឆ្នាំ។ ផលិតផលគ្រប់មុខត្រូវបានធ្វើតេស្តគុណភាព និងបញ្ជាក់ដោយអាជ្ញាធរពាក់ព័ន្ធ។",
-  },
-  {
-    question: "តើមានការប្រឹក្សាយោបល់បច្ចេកទេសកសិកម្មដែរឬទេ?",
-    answer: "ចាស! ក្រុមបច្ចេកទេសរបស់យើងរួចរាល់ក្នុងការផ្តល់ការប្រឹក្សាយោបល់ពីរបៀបប្រើប្រាស់ផលិតផល ការជ្រើសរើសថ្នាំត្រឹមត្រូវ និងបច្ចេកទេសកសិកម្មផ្សេងៗដោយមិនគិតថ្លៃ។",
-  },
-  {
-    question: "តើថ្នាំការពារដំណាំមានសុវត្ថិភាពសម្រាប់ដំណាំទេ?",
-    answer: "ផលិតផលរបស់យើងគ្រប់មុខត្រូវបានចុះបញ្ជីស្របច្បាប់ និងមានសុវត្ថិភាពប្រសិនបើប្រើប្រាស់តាមការណែនាំ។ សូមអានស្លាកសញ្ញា និងធ្វើតាមការណែនាំលើការប្រើប្រាស់ឲ្យបានត្រឹមត្រូវ។",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export const FAQ = () => {
+  const t = useTranslations("FAQ");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [1, 2, 3, 4, 5].map(i => ({
+    question: t(`q${i}` as Parameters<typeof t>[0]),
+    answer: t(`a${i}` as Parameters<typeof t>[0])
+  }));
 
   return (
     <section className="py-24 bg-slate-50 relative">
       <div className="container mx-auto px-6 max-w-3xl">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-sm font-black rounded-full uppercase tracking-widest mb-6">
-            FAQ
+            {t("badge")}
           </div>
           <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-6 tracking-wide leading-relaxed">
-            សំណួរ<span className="text-primary-600">ញឹកញាប់</span>
+            {t("title1")}<span className="text-primary-600 ml-2">{t("title2")}</span>
           </h2>
           <p className="text-slate-500 text-lg">
-            ចម្លើយសម្រាប់សំណួរដែលអតិថិជនសួរញឹកញាប់បំផុត
+            {t("subtitle")}
           </p>
         </div>
 

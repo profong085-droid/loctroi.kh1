@@ -2,38 +2,43 @@
 
 import { useState, useEffect } from "react";
 import { Play, Share2, Check } from "lucide-react";
-
-const videos = [
-  {
-    title: "ភាពរុងរឿង Loctroi Cambodia",
-    src: encodeURI("/video song/ភាពរុងរឿង Loctroi Cambodia.mp4"),
-    poster: encodeURI("/photo/ភាពរុងរឿង Loctroi Cambodia-Cover.jpg"),
-  },
-  {
-    title: "អនាគតបៃតង",
-    src: encodeURI("/video song/អនាគតបៃតង.mp4"),
-  },
-  {
-    title: "ជោគជ័យក្នុងវាលស្រែ",
-    src: encodeURI("/video song/ជោគជ័យក្នុងវាលស្រែ.mp4"),
-  },
-  {
-    title: "ឋានសួគ៌នៅលើដី",
-    src: encodeURI("/video song/ឋានសួគ៌នៅលើដី.mp4"),
-  },
-  {
-    title: "ថ្ងៃរះលើវាលស្រែ",
-    src: encodeURI("/video song/ថ្ងៃរះលើវាលស្រែ.mp4"),
-  },
-  {
-    title: "មាគាថ្មីនៃកសិកម្ម",
-    src: encodeURI("/video song/មាគាថ្មីនៃកសិកម្ម.MP4"),
-  }
-];
+import { useTranslations } from "next-intl";
 
 export function VideoSongs() {
-  const [activeVideo, setActiveVideo] = useState(videos[0]);
+  const t = useTranslations("VideoSongs");
+
+  const videos = [
+    {
+      title: t("v1"),
+      src: encodeURI("/video song/ភាពរុងរឿង Loctroi Cambodia.mp4"),
+      poster: encodeURI("/photo/ភាពរុងរឿង Loctroi Cambodia-Cover.jpg"),
+    },
+    {
+      title: t("v2"),
+      src: encodeURI("/video song/អនាគតបៃតង.mp4"),
+    },
+    {
+      title: t("v3"),
+      src: encodeURI("/video song/ជោគជ័យក្នុងវាលស្រែ.mp4"),
+    },
+    {
+      title: t("v4"),
+      src: encodeURI("/video song/ឋានសួគ៌នៅលើដី.mp4"),
+    },
+    {
+      title: t("v5"),
+      src: encodeURI("/video song/ថ្ងៃរះលើវាលស្រែ.mp4"),
+    },
+    {
+      title: t("v6"),
+      src: encodeURI("/video song/មាគាថ្មីនៃកសិកម្ម.MP4"),
+    }
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
   const [copied, setCopied] = useState(false);
+
+  const activeVideo = videos[activeIndex] || videos[0];
 
   useEffect(() => {
     // Check if URL has ?song= index
@@ -42,7 +47,7 @@ export function VideoSongs() {
     if (songIndex !== null) {
       const idx = parseInt(songIndex, 10);
       if (!isNaN(idx) && idx >= 0 && idx < videos.length) {
-        setTimeout(() => setActiveVideo(videos[idx]), 0);
+        setTimeout(() => setActiveIndex(idx), 0);
         // Also scroll to the songs section if they came directly from a share link
         setTimeout(() => {
           const element = document.getElementById("songs");
@@ -52,10 +57,9 @@ export function VideoSongs() {
         }, 500);
       }
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleShare = () => {
-    const activeIndex = videos.findIndex(v => v.src === activeVideo.src);
     const shareUrl = `${window.location.origin}${window.location.pathname}?song=${activeIndex}#songs`;
     
     navigator.clipboard.writeText(shareUrl).then(() => {
@@ -94,7 +98,7 @@ export function VideoSongs() {
                 <Play className="w-3 h-3 text-accent-500 fill-current" />
               </div>
               <h2 className="text-xl font-bold text-white font-koulen tracking-wide">
-                វីដេអូចម្រៀង <span className="text-accent-500">LTC</span>
+                {t("title")} <span className="text-accent-500">LTC</span>
               </h2>
             </div>
             
@@ -102,15 +106,15 @@ export function VideoSongs() {
             <button 
               onClick={handleShare}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-accent-500 hover:text-primary-950 text-white transition-colors text-xs font-bold shrink-0"
-              title="Copy video link"
+              title={t("share")}
             >
               {copied ? (
                 <>
-                  <Check className="w-3 h-3" /> បានចម្លង
+                  <Check className="w-3 h-3" /> {t("copied")}
                 </>
               ) : (
                 <>
-                  <Share2 className="w-3 h-3" /> ចែករំលែក
+                  <Share2 className="w-3 h-3" /> {t("share")}
                 </>
               )}
             </button>
@@ -122,7 +126,7 @@ export function VideoSongs() {
               return (
                 <button
                   key={index}
-                  onClick={() => setActiveVideo(video)}
+                  onClick={() => setActiveIndex(index)}
                   className={`w-full text-left px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-between group ${
                     isActive 
                       ? 'bg-accent-500 text-primary-950 shadow-[0_4px_15px_rgba(245,158,11,0.3)] scale-[1.02]' 

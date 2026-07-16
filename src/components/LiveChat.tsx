@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, User, Bot } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface Message {
   id: string;
@@ -13,11 +14,12 @@ interface Message {
 }
 
 export const LiveChat = () => {
+  const t = useTranslations("LiveChat");
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      text: "សួស្តី! អរគុណដែលបានមកកាន់វេបសាយ Loc Troi Cambodia។ តើមានអ្វីឲ្យខ្ញុំជួយអ្នកទេថ្ងៃនេះ?",
+      text: "welcome", // placeholder, will be replaced in render
       sender: "bot",
       time: new Date(),
     }
@@ -53,12 +55,12 @@ export const LiveChat = () => {
       let replyElement: React.ReactNode = null;
       const text = userMessage.text.toLowerCase();
 
-      if (text.includes("សួស្តី") || text === "hi" || text === "hello") {
-        replyText = "សួស្តីបង! សូមវាយលេខខាងក្រោម ដើម្បីទទួលបានព័ត៌មានលឿន៖\n1️⃣ មើលបញ្ជីផលិតផល\n2️⃣ មើលទីតាំងហាង\n3️⃣ សួរពីលេខទូរស័ព្ទទំនាក់ទំនង";
-      } else if (text.includes("ផលិតផល") || text.includes("ជី") || text.includes("ថ្នាំ") || text === "1" || text === "1️⃣") {
-        replyText = "ផលិតផលលេចធ្លោរបស់យើងមានដូចជា:\n\n🌱 ជី NPK 20-20-15\n🦠 ថ្នាំការពារសត្វល្អិត Vitako\n🌾 ពូជស្រូវ Lộc Trời 123\n\nសូមចូលទៅកាន់មឺនុយ 'ផលិតផល' ដើម្បីមើលបន្ថែម។";
-      } else if (text.includes("ទីតាំង") || text.includes("នៅណា") || text === "2" || text === "2️⃣") {
-        replyText = "ទីតាំងហាងរបស់យើងគឺស្ថិតនៅរាជធានីភ្នំពេញ។ យើងមានសេវាដឹកជញ្ជូនទូទាំង ២៥ ខេត្តក្រុង ដល់មុខផ្ទះតែម្តង! \n\nខាងក្រោមនេះជាផែនទីទីតាំងរបស់យើង៖";
+      if (text.includes("សួស្តី") || text === "hi" || text === "hello" || text.includes("chào")) {
+        replyText = t("reply_hi");
+      } else if (text.includes("ផលិតផល") || text.includes("ជី") || text.includes("ថ្នាំ") || text === "1" || text === "1️⃣" || text.includes("product") || text.includes("sản phẩm")) {
+        replyText = t("reply_products");
+      } else if (text.includes("ទីតាំង") || text.includes("នៅណា") || text === "2" || text === "2️⃣" || text.includes("location") || text.includes("địa chỉ")) {
+        replyText = t("reply_location");
         replyElement = (
           <div className="mt-2 w-full h-40 rounded-xl overflow-hidden border border-slate-200">
             <iframe 
@@ -72,10 +74,10 @@ export const LiveChat = () => {
             ></iframe>
           </div>
         );
-      } else if (text.includes("លេខទូរស័ព្ទ") || text.includes("ទំនាក់ទំនង") || text === "3" || text === "3️⃣") {
-        replyText = "អ្នកអាចទាក់ទងមកយើងខ្ញុំបានតាមលេខ:\n📞 097 945 0831\n📞 071 777 3554\n(រៀងរាល់ម៉ោង ៨ព្រឹក ដល់ ៥ល្ងាច)";
+      } else if (text.includes("លេខទូរស័ព្ទ") || text.includes("ទំនាក់ទំនង") || text === "3" || text === "3️⃣" || text.includes("contact") || text.includes("liên hệ")) {
+        replyText = t("reply_contact");
       } else {
-        replyText = "សូមអភ័យទោស ប្រព័ន្ធស្វ័យប្រវត្តិរបស់យើងមិនយល់ពីសំណួរនេះទេ។ សូមរង់ចាំបន្តិច ក្រុមការងារនឹងមកឆ្លើយតបឆាប់ៗ។\n\nអ្នកអាចជ្រើសរើស:\n1️⃣ បញ្ជីផលិតផល\n2️⃣ ទីតាំង\n3️⃣ លេខទូរស័ព្ទ";
+        replyText = t("reply_default");
       }
 
       const botMessage: Message = {
@@ -122,7 +124,7 @@ export const LiveChat = () => {
                   <h3 className="font-koulen text-xl tracking-wide">FONG-BOT</h3>
                   <div className="flex items-center gap-1.5 text-xs text-primary-100">
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    កំពុងរង់ចាំតប
+                    {t("typing")}
                   </div>
                 </div>
               </div>
@@ -149,7 +151,7 @@ export const LiveChat = () => {
                       ? "bg-primary-500 text-white rounded-tr-sm" 
                       : "bg-white text-slate-700 rounded-tl-sm border border-slate-100"
                   }`}>
-                    {msg.text}
+                    {msg.id === "welcome" ? t("welcome") : msg.text}
                     {msg.element && msg.element}
                     <div className={`text-[10px] mt-1 text-right ${msg.sender === "user" ? "text-primary-100" : "text-slate-400"}`}>
                       {msg.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -164,7 +166,7 @@ export const LiveChat = () => {
             <div className="p-3 bg-white border-t border-slate-100 flex items-center gap-2">
               <input
                 type="text"
-                placeholder="សរសេរសារនៅទីនេះ..."
+                placeholder={t("placeholder")}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}

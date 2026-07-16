@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { Send, Phone, User, MessageSquare, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export const Contact = () => {
+  const t = useTranslations("Contact");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -55,8 +57,8 @@ export const Contact = () => {
     <section id="contact" className="py-12 md:py-24 bg-white relative">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-4 tracking-wide leading-relaxed">ទំនាក់ទំនងមកយើង</h2>
-          <p className="text-slate-500 text-sm md:text-lg">មានចម្ងល់ ឬត្រូវការប្រឹក្សាយោបល់អំពីកសិកម្ម? សូមបញ្ជូលព័ត៌មានរបស់អ្នកខាងក្រោម ក្រុមការងារយើងនឹងទាក់ទងទៅអ្នកវិញក្នុងពេលឆាប់ៗ!</p>
+          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-4 tracking-wide leading-relaxed">{t("title1")} {t("title2")}</h2>
+          <p className="text-slate-500 text-sm md:text-lg">{t("subtitle")}</p>
         </div>
 
         <motion.div 
@@ -74,8 +76,8 @@ export const Contact = () => {
               <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-4 md:mb-6">
                 <CheckCircle2 size={32} className="md:w-[40px] md:h-[40px]" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">ទទួលបានសារដោយជោគជ័យ!</h3>
-              <p className="text-slate-500 text-sm md:text-base">សូមអរគុណសម្រាប់ការទំនាក់ទំនង។ យើងនឹងទាក់ទងទៅអ្នកវិញក្នុងពេលឆាប់ៗ។</p>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">{t("successTitle")}</h3>
+              <p className="text-slate-500 text-sm md:text-base">{t("successDesc")}</p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
@@ -90,7 +92,7 @@ export const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="ឈ្មោះរបស់អ្នក"
+                    placeholder={t("name")}
                     suppressHydrationWarning
                     className="w-full pl-10 md:pl-12 pr-4 md:pr-6 py-3 md:py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-sm md:text-base shadow-sm"
                   />
@@ -106,7 +108,7 @@ export const Contact = () => {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="លេខទូរស័ព្ទ"
+                    placeholder={t("phone")}
                     suppressHydrationWarning
                     className="w-full pl-10 md:pl-12 pr-4 md:pr-6 py-3 md:py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-sm md:text-base shadow-sm"
                   />
@@ -123,7 +125,7 @@ export const Contact = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="សរសេរសាររបស់អ្នកនៅទីនេះ..."
+                  placeholder={t("question")}
                   suppressHydrationWarning
                   className="w-full pl-10 md:pl-12 pr-4 md:pr-6 py-3 md:py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-sm md:text-base resize-none shadow-sm"
                 />
@@ -137,12 +139,12 @@ export const Contact = () => {
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
                     <span className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                    កំពុងបញ្ជូន...
+                    {t("btnSending")}
                   </span>
                 ) : (
                   <>
                     <Send size={18} className="md:w-[20px] md:h-[20px]" />
-                    បញ្ជូនសារ
+                    {t("btnSend")}
                   </>
                 )}
               </button>

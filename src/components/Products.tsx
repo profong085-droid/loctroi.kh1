@@ -5,7 +5,8 @@ import Image from "next/image";
 import { Search, Tag, X, ChevronDown, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
-import { productsData, categories, Product } from "@/data/products";
+import { productsData, categories, Product, getLocalizedText } from "@/data/products";
+import { useTranslations, useLocale } from "next-intl";
 
 import { 
   PiSquaresFourDuotone, 
@@ -34,6 +35,9 @@ const Icon = ({ name, size = 20, className = "" }: { name: string; size?: number
 };
 
 export const Products = () => {
+  const t = useTranslations("Products");
+  const locale = useLocale() as "kh" | "en" | "vi";
+
   const [activeCat, setActiveCat] = useState("all");
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(12);
@@ -63,11 +67,11 @@ export const Products = () => {
     return productsData.filter((p) => {
       const matchCat = activeCat === "all" || p.category === activeCat;
       const matchSearch =
-        p.name.toLowerCase().includes(search.toLowerCase()) ||
+        getLocalizedText(p.name, locale).toLowerCase().includes(search.toLowerCase()) ||
         p.categoryKh.includes(search);
       return matchCat && matchSearch;
     });
-  }, [activeCat, search]);
+  }, [activeCat, search, locale]);
 
   const displayedProducts = filteredProducts.slice(0, visibleCount);
 
@@ -170,8 +174,8 @@ export const Products = () => {
         </div>
 
         <div className="text-center mb-8 md:mb-12 mt-16 md:mt-20">
-          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-6 tracking-wide leading-relaxed">ផលិតផលរបស់យើង</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-lg">ស្វែងរកផលិតផលថ្នាំកសិកម្ម ជី និងពូជស្រូវគុណភាពខ្ពស់សម្រាប់ដំណាំគ្រប់ប្រភេទ</p>
+          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-6 tracking-wide leading-relaxed">{t("title")}</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-lg">{t("subtitle")}</p>
         </div>
 
         {/* Toolbar */}
@@ -183,7 +187,7 @@ export const Products = () => {
             </div>
             <input
               type="text"
-              placeholder="ស្វែងរកផលិតផល..."
+              placeholder={t("searchPlaceholder")}
               value={search}
               onChange={(e) => { setSearch(e.target.value); setVisibleCount(12); }}
               className="w-full pl-12 pr-4 py-3 md:pl-14 md:pr-6 md:py-4 bg-white border-2 border-slate-100 rounded-full focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all text-base md:text-lg shadow-sm"
@@ -213,14 +217,14 @@ export const Products = () => {
                 }`}
               >
                 <Icon name={cat.icon} size={16} />
-                {cat.name}
+                {cat.id === "all" ? t("categoryAll") : t(`category_${cat.id}` as Parameters<typeof t>[0])}
               </motion.button>
             ))}
           </div>
         </div>
 
         <div className="text-sm text-slate-500 mb-8 font-medium text-center">
-          បង្ហាញ {displayedProducts.length} នៃ {filteredProducts.length} ផលិតផល
+          {t("showing")} {displayedProducts.length} {t("of")} {filteredProducts.length} {t("productsCount")}
         </div>
 
         {/* Grid */}
@@ -233,8 +237,8 @@ export const Products = () => {
               className="text-center py-24 bg-white rounded-3xl border border-slate-100"
             >
               <div className="flex justify-center mb-6 text-slate-300"><Search size={64} /></div>
-              <h3 className="text-2xl font-bold text-slate-700 mb-2">រកមិនឃើញផលិតផល</h3>
-              <p className="text-slate-500">សូមសាកល្បងស្វែងរកពាក្យផ្សេង ឬជ្រើសរើសប្រភេទផ្សេង</p>
+              <h3 className="text-2xl font-bold text-slate-700 mb-2">{t("noResults")}</h3>
+              <p className="text-slate-500">{t("noResultsDesc")}</p>
             </motion.div>
           ) : (
             <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
@@ -246,7 +250,8 @@ export const Products = () => {
                     product={product} 
                     categoryData={categoryData} 
                     onClick={() => setSelectedProduct(product)} 
-                    index={i} 
+                    index={i}
+                    locale={locale}
                   />
                 );
               })}
@@ -262,7 +267,7 @@ export const Products = () => {
               className="flex items-center gap-2 px-10 py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-full font-bold transition-all shadow-lg shadow-primary-900/20 hover:shadow-primary-900/40 hover:-translate-y-1"
             >
               <ChevronDown size={20} />
-              មើលបន្ថែមទៀត
+              {t("loadMore")}
             </button>
           </div>
         )}
@@ -292,23 +297,23 @@ export const Products = () => {
                 <X size={20} />
               </button>
               
-              <ModalImage3D image={selectedProduct.image} alt={selectedProduct.name} />
+              <ModalImage3D image={selectedProduct.image} alt={getLocalizedText(selectedProduct.name, locale)} />
               
               <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
                 <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-xs font-black rounded-full uppercase tracking-wider mb-6 w-max">
-                  {selectedProduct.categoryKh}
+                  {t(`category_${selectedProduct.category}` as Parameters<typeof t>[0])}
                 </div>
                 <h3 className="text-2xl md:text-4xl font-black text-slate-800 mb-4 md:mb-6 leading-tight">
-                  {selectedProduct.name}
+                  {getLocalizedText(selectedProduct.name, locale)}
                 </h3>
                 
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
                     <Tag size={18} className="text-accent-500" />
-                    ព័ត៌មានលម្អិត
+                    {t("details")}
                   </h4>
                   <p className="text-slate-600 leading-relaxed text-base md:text-lg">
-                    {selectedProduct.usage}
+                    {getLocalizedText(selectedProduct.usage, locale)}
                   </p>
                 </div>
                 
@@ -317,14 +322,14 @@ export const Products = () => {
                     className="px-8 py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-xl w-full"
                     onClick={() => handleInquireProduct(selectedProduct)}
                   >
-                    សាកសួរព័ត៌មានបន្ថែម
+                    {t("inquire")}
                   </button>
                   <Link 
-                    href={`/product/${selectedProduct.id}`}
+                    href={`/${locale}/product/${selectedProduct.id}`}
                     className="px-6 md:px-8 py-3 md:py-4 bg-white border-2 border-primary-800 text-primary-800 hover:bg-primary-50 rounded-full font-bold transition-all w-full text-center"
                     onClick={() => setSelectedProduct(null)}
                   >
-                    ចូលមើលទំព័រពេញ
+                    {t("viewFullPage")}
                   </Link>
                 </div>
               </div>
@@ -338,7 +343,7 @@ export const Products = () => {
 
 // 3D Tilt Product Card
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ProductCard = ({ product, categoryData, onClick, index }: any) => {
+const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => {
   const ref = useRef<HTMLDivElement>(null);
   
   const x = useMotionValue(0);
@@ -413,7 +418,7 @@ const ProductCard = ({ product, categoryData, onClick, index }: any) => {
             className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
           >
             <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-[12px] md:h-[12px]" />
-            {product.categoryKh}
+            {categoryData?.name || product.categoryKh}
           </div>
           <div 
             style={{ transform: "translateZ(40px)" }}
@@ -427,8 +432,8 @@ const ProductCard = ({ product, categoryData, onClick, index }: any) => {
           >
             <Image
               src={`/${product.image}`}
-              alt={`${product.name} | Loc Troi Cambodia`}
-              title={`${product.name} - Loc Troi Cambodia`}
+              alt={`${getLocalizedText(product.name, locale)} | Loc Troi Cambodia`}
+              title={`${getLocalizedText(product.name, locale)} - Loc Troi Cambodia`}
               fill
               className="object-contain drop-shadow-2xl pointer-events-none"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
@@ -440,8 +445,8 @@ const ProductCard = ({ product, categoryData, onClick, index }: any) => {
           style={{ transform: "translateZ(20px)" }}
           className="p-2 sm:p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20"
         >
-          <h4 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{product.name}</h4>
-          <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{product.categoryKh}</p>
+          <h4 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{getLocalizedText(product.name, locale)}</h4>
+          <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{categoryData?.name || product.categoryKh}</p>
         </div>
       </motion.div>
     </motion.div>

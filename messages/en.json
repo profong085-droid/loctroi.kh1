@@ -1,0 +1,188 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "songs": "Songs",
+    "videos": "Videos",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "Hero": {
+    "title1": "Future of Agriculture",
+    "title2": "Cambodia",
+    "subtitle": "Lộc Trời offers high-quality agricultural products, agrochemicals, fertilizers, and seeds to support Cambodian farmers.",
+    "cta": "Buy Now",
+    "description": "Welcome to <strong>Loc Troi!</strong> We supply high-quality crop protection products, fertilizers, and rice seeds to help Cambodian farmers increase yields and effectively protect crops from pests. Choosing <strong>Loc Troi</strong> means choosing success!",
+    "learnMore": "Learn More"
+  },
+  "About": {
+    "badge": "About Lộc Trời",
+    "title1": "A Trusted Partner",
+    "title2": "for Cambodian Farmers",
+    "desc": "Lộc Trời Cambodia is committed to providing the highest quality agricultural products, including crop protection, fertilizers, and seeds to help farmers achieve high yields and better livelihoods.",
+    "feature1_title": "Standard Quality",
+    "feature1_desc": "Genuine, high-quality products",
+    "feature2_title": "High Yield",
+    "feature2_desc": "Helps increase crop production",
+    "feature3_title": "Great Service",
+    "feature3_desc": "Agricultural technical consultation",
+    "feature4_title": "Trusted",
+    "feature4_desc": "Warranty on all products",
+    "experience": "Years Experience",
+    "experienceDesc": "In Agriculture"
+  },
+  "Products": {
+    "title": "Our Products",
+    "subtitle": "Discover high-quality agrochemicals, fertilizers, and seeds for all types of crops.",
+    "searchPlaceholder": "Search products...",
+    "categoryAll": "All",
+    "category_molluscicide": "Molluscicide",
+    "category_herbicide": "Herbicide",
+    "category_insecticide": "Insecticide",
+    "category_fungicide": "Fungicide",
+    "category_fertilizer": "Fertilizer",
+    "category_seed": "Seeds",
+    "category_special": "Special",
+    "btnDetail": "View Details",
+    "noResults": "No products found...",
+    "noResultsDesc": "Please try searching for other words or selecting a different category",
+    "details": "Details",
+    "inquire": "Inquire for more information",
+    "viewFullPage": "View Full Page",
+    "showing": "Showing",
+    "of": "of",
+    "productsCount": "products",
+    "loadMore": "Load More"
+  },
+  "ProductDetail": {
+    "benefits": "Benefits & Features:",
+    "usage": "Usage Instructions:",
+    "ingredients": "Active Ingredients:",
+    "ingredientDetails": "Ingredient Details:",
+    "inquire": "Inquire for more information",
+    "back": "Back to Home",
+    "btnBuy": "Buy Now",
+    "btnBack": "Go Back",
+    "comingSoon": "Coming soon..."
+  },
+  "Contact": {
+    "title1": "Contact",
+    "title2": "Us",
+    "subtitle": "Have questions or need technical advice? Our team is always ready to welcome you.",
+    "name": "Your Name",
+    "phone": "Phone Number",
+    "location": "Location (Province/District)",
+    "question": "What are your questions?",
+    "btnSend": "Send Message",
+    "btnSending": "Sending...",
+    "contactInfo": "Contact Information",
+    "social": "Social Media",
+    "successTitle": "Message Received Successfully!",
+    "successDesc": "Thank you for contacting us. We will get back to you shortly."
+  },
+  "Testimonials": {
+    "badge": "Testimonials",
+    "title1": "What Our Clients",
+    "title2": "Say?",
+    "desc": "Voices from farmers and partners who have chosen Lộc Trời Cambodia",
+    "t1_name": "Sok Vannarith",
+    "t1_role": "Rice Farmer, Battambang",
+    "t1_text": "I've been using Lộc Trời products for over 3 years. My rice yield increased by over 30%. Highly satisfied!",
+    "t2_name": "Chan Sophea",
+    "t2_role": "Rice Farmer, Kampong Cham",
+    "t2_text": "Lộc Trời's fertilizers are of high quality, crops grow well, and their technical team provides great advice.",
+    "t3_name": "Heng Sophal",
+    "t3_role": "Agri-Depot, Prey Veng",
+    "t3_text": "The best business partner! Quality products, satisfied customers, and fast delivery.",
+    "t4_name": "Nuon Sarun",
+    "t4_role": "Vegetable Farmer, Kandal",
+    "t4_text": "Lộc Trời's crop protection products are highly effective. Pests die quickly and it doesn't harm the crops."
+  },
+  "Statistics": {
+    "farmers": "Farmers Reached",
+    "products": "Quality Products",
+    "provinces": "Provinces",
+    "experience": "Years Experience"
+  },
+  "VideoSongs": {
+    "title": "Music Videos",
+    "copied": "Copied",
+    "share": "Share",
+    "v1": "Glory of Loc Troi Cambodia",
+    "v2": "Green Future",
+    "v3": "Success in the Fields",
+    "v4": "Paradise on Earth",
+    "v5": "Sunrise over the Fields",
+    "v6": "New Path of Agriculture"
+  },
+  "Partners": {
+    "title": "Our Partners & Top Brands"
+  },
+  "ShareButton": {
+    "title": "Share this product",
+    "copied": "Link copied",
+    "share": "Share"
+  },
+  "LiveChat": {
+    "welcome": "Hello! Thank you for visiting Loc Troi Cambodia. How can I help you today?",
+    "reply_hi": "Hello! Please type a number below to get info quickly:\n1️⃣ View Products\n2️⃣ View Locations\n3️⃣ Contact Info",
+    "reply_products": "Our featured products include:\n\n🌱 NPK 20-20-15 Fertilizer\n🦠 Vitako Pesticide\n🌾 Lộc Trời 123 Rice Seed\n\nPlease visit our 'Products' menu for more.",
+    "reply_location": "Our head office is located in:\n📍 Phnom Penh, Cambodia\n\nFor more info on provincial branches, please contact our team.",
+    "reply_contact": "You can reach us via:\n📞 Phone: 012 345 678\n📧 Email: info@loctroi.online\n\nOur team will respond quickly.",
+    "reply_default": "Sorry, I didn't quite understand that. Please type 1, 2, or 3 to choose an option, or leave your phone number for our team to contact you.",
+    "typing": "Typing...",
+    "placeholder": "Type your message here...",
+    "chat_with_us": "Chat with us"
+  },
+  "AgriVideos": {
+    "title1": "Agricultural",
+    "title2": "Knowledge Videos"
+  },
+  "Footer": {
+    "desc": "Your best agricultural partner, providing high-quality agricultural products.",
+    "contactTitle": "Contact",
+    "addressLabel": "Phnom Penh, Cambodia",
+    "socialTitle": "Social Media",
+    "copyright": "Loc Troi Cambodia. All rights reserved by Pho Chaifong"
+  },
+  "FAQ": {
+    "badge": "FAQ",
+    "title1": "Frequently",
+    "title2": "Asked Questions",
+    "subtitle": "Answers to our customers' most common questions",
+    "q1": "Does Lộc Trời deliver to all provinces?",
+    "a1": "Yes, we deliver to all 25 provinces across Cambodia. We offer free delivery for bulk orders.",
+    "q2": "How can I order products?",
+    "a2": "You can order directly by calling 097 945 0831 or 071 777 3554, through our Facebook Page, or by filling out the contact form on this website.",
+    "q3": "What is special about Lộc Trời products?",
+    "a3": "Our products are manufactured by Lộc Trời Group, a leading agricultural company in Vietnam with over 10 years of experience. All products are tested and certified by relevant authorities.",
+    "q4": "Do you provide agricultural technical consultation?",
+    "a4": "Yes! Our technical team is ready to provide free consultation on product usage, choosing the right chemicals, and other agricultural techniques.",
+    "q5": "Are your crop protection products safe?",
+    "a5": "All our products are legally registered and safe when used as directed. Please read labels and follow usage instructions carefully."
+  },
+  "DealerLocator": {
+    "title1": "Dealer",
+    "title2": "Locations",
+    "subtitle": "Find depots and distributors closest to you for easy purchasing.",
+    "allProvinces": "Everywhere",
+    "noDealers": "No dealers available in this province yet",
+    "selectedLocation": "Selected Location",
+    "callButton": "Call",
+    "dealerPrefix": "Lộc Trời Depot - Branch",
+    "provincePrefix": "Provincial town of",
+    "country": "Cambodia",
+    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
+    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+  },
+  "Metadata": {
+    "title": "Loc Troi Cambodia",
+    "description": "Loc Troi Cambodia offers high-quality agricultural products, agrochemicals, fertilizers, and seeds to support Cambodian farmers.",
+    "keywords": "Ta Sok, Ta Sok Agrochemicals, Agrochemicals, Fertilizers, Seeds, Cambodian Agriculture, Loc Troi Cambodia, Lộc Trời, Pesticides, High-quality Agriculture, loc troi"
+  }
+}

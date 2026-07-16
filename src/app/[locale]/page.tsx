@@ -6,7 +6,10 @@ import { AgriVideos } from "@/components/AgriVideos";
 import { Partners } from "@/components/Partners";
 import { About } from "@/components/About";
 
+import { setRequestLocale } from 'next-intl/server';
+
 type Props = {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
@@ -14,11 +17,20 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const params = await searchParams;
   const songParam = params.song;
   
+  const alternates = {
+    languages: {
+      'km-KH': '/kh',
+      'en-US': '/en',
+      'vi-VN': '/vi',
+    }
+  };
+
   // Dynamic OpenGraph image if sharing a specific song
   if (songParam && !Array.isArray(songParam)) {
     const idx = parseInt(songParam, 10);
     if (idx === 0) {
       return {
+        alternates,
         openGraph: {
           title: "ភាពរុងរឿង Loctroi Cambodia",
           images: [
@@ -34,10 +46,13 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     }
   }
 
-  return {};
+  return { alternates };
 }
 
-export default function Home() {
+export default async function Home({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}

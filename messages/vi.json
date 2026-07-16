@@ -1,0 +1,188 @@
+{
+  "Navbar": {
+    "home": "Trang Chủ",
+    "about": "Giới Thiệu",
+    "products": "Sản Phẩm",
+    "songs": "Bài Hát",
+    "videos": "Video",
+    "contact": "Liên Hệ",
+    "login": "Đăng Nhập",
+    "logout": "Đăng xuất"
+  },
+  "Hero": {
+    "title1": "Tương Lai Nông Nghiệp",
+    "title2": "Campuchia",
+    "subtitle": "Tập đoàn Lộc Trời cung cấp nông sản, thuốc bảo vệ thực vật, phân bón và hạt giống chất lượng cao nhằm hỗ trợ nông dân Campuchia.",
+    "cta": "Mua Ngay",
+    "description": "Chào mừng đến với <strong>Lộc Trời!</strong> Chúng tôi cung cấp các sản phẩm bảo vệ thực vật, phân bón và hạt giống lúa chất lượng cao nhằm giúp nông dân Campuchia tăng năng suất và bảo vệ mùa màng hiệu quả khỏi sâu bệnh. Chọn <strong>Lộc Trời</strong> là chọn sự thành công!",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "About": {
+    "badge": "Về Lộc Trời",
+    "title1": "Đối Tác Đáng Tin Cậy",
+    "title2": "Của Nông Dân Campuchia",
+    "desc": "Lộc Trời Cambodia cam kết cung cấp các sản phẩm nông nghiệp chất lượng cao nhất, bao gồm thuốc bảo vệ thực vật, phân bón và lúa giống để giúp nông dân đạt năng suất cao và cuộc sống tốt đẹp hơn.",
+    "feature1_title": "Chất Lượng Tiêu Chuẩn",
+    "feature1_desc": "Sản phẩm chính hãng, chất lượng cao",
+    "feature2_title": "Năng Suất Cao",
+    "feature2_desc": "Giúp tăng sản lượng cây trồng",
+    "feature3_title": "Dịch Vụ Tốt",
+    "feature3_desc": "Tư vấn kỹ thuật nông nghiệp",
+    "feature4_title": "Đáng Tin Cậy",
+    "feature4_desc": "Bảo hành tất cả sản phẩm",
+    "experience": "Năm Kinh Nghiệm",
+    "experienceDesc": "Trong Nông nghiệp"
+  },
+  "Products": {
+    "title": "Sản Phẩm Của Chúng Tôi",
+    "subtitle": "Khám phá các loại thuốc bảo vệ thực vật, phân bón và hạt giống chất lượng cao cho mọi loại cây trồng.",
+    "searchPlaceholder": "Tìm kiếm sản phẩm...",
+    "categoryAll": "Tất cả",
+    "category_molluscicide": "Thuốc trừ ốc",
+    "category_herbicide": "Thuốc trừ cỏ",
+    "category_insecticide": "Thuốc trừ sâu",
+    "category_fungicide": "Thuốc trừ bệnh",
+    "category_fertilizer": "Phân bón",
+    "category_seed": "Hạt giống",
+    "category_special": "Khác",
+    "btnDetail": "Xem chi tiết",
+    "noResults": "Không tìm thấy sản phẩm nào...",
+    "noResultsDesc": "Vui lòng thử tìm kiếm từ khác hoặc chọn danh mục khác",
+    "details": "Chi tiết",
+    "inquire": "Hỏi thông tin thêm",
+    "viewFullPage": "Xem trang đầy đủ",
+    "showing": "Hiển thị",
+    "of": "trong số",
+    "productsCount": "sản phẩm",
+    "loadMore": "Xem thêm"
+  },
+  "ProductDetail": {
+    "benefits": "Lợi ích & Đặc điểm:",
+    "usage": "Hướng dẫn sử dụng:",
+    "ingredients": "Thành phần hoạt tính:",
+    "ingredientDetails": "Chi tiết thành phần:",
+    "inquire": "Hỏi thông tin thêm",
+    "back": "Trở về Trang chủ",
+    "btnBuy": "Mua ngay",
+    "btnBack": "Quay lại",
+    "comingSoon": "Sắp ra mắt..."
+  },
+  "Contact": {
+    "title1": "Liên Hệ",
+    "title2": "Với Chúng Tôi",
+    "subtitle": "Bạn có thắc mắc hoặc cần tư vấn kỹ thuật? Đội ngũ của chúng tôi luôn sẵn sàng chào đón bạn.",
+    "name": "Tên Của Bạn",
+    "phone": "Số Điện Thoại",
+    "location": "Vị Trí (Tỉnh/Huyện)",
+    "question": "Bạn có câu hỏi gì?",
+    "btnSend": "Gửi Tin Nhắn",
+    "btnSending": "Đang gửi...",
+    "contactInfo": "Thông Tin Liên Hệ",
+    "social": "Mạng Xã Hội",
+    "successTitle": "Nhận tin nhắn thành công!",
+    "successDesc": "Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi lại sớm nhất có thể."
+  },
+  "Testimonials": {
+    "badge": "Khách Hàng Nói Gì",
+    "title1": "Khách Hàng",
+    "title2": "Nhận Xét Gì?",
+    "desc": "Những chia sẻ từ bà con nông dân và đối tác đã tin chọn Lộc Trời Cambodia",
+    "t1_name": "Sok Vannarith",
+    "t1_role": "Nông Dân, Battambang",
+    "t1_text": "Tôi dùng sản phẩm của Lộc Trời hơn 3 năm nay. Năng suất lúa tăng hơn 30%. Rất hài lòng!",
+    "t2_name": "Chan Sophea",
+    "t2_role": "Nông Dân, Kampong Cham",
+    "t2_text": "Phân bón của Lộc Trời chất lượng cao, cây phát triển tốt, đội ngũ kỹ thuật tư vấn nhiệt tình.",
+    "t3_name": "Heng Sophal",
+    "t3_role": "Đại Lý, Prey Veng",
+    "t3_text": "Đối tác kinh doanh tốt nhất! Sản phẩm chất lượng, khách hàng ưng ý, giao hàng nhanh chóng.",
+    "t4_name": "Nuon Sarun",
+    "t4_role": "Nông Dân, Kandal",
+    "t4_text": "Thuốc bảo vệ thực vật của Lộc Trời rất hiệu quả. Sâu bệnh chết nhanh, không ảnh hưởng đến cây trồng."
+  },
+  "Statistics": {
+    "farmers": "Nông Dân Tin Dùng",
+    "products": "Sản Phẩm Chất Lượng",
+    "provinces": "Tỉnh Thành",
+    "experience": "Năm Kinh Nghiệm"
+  },
+  "VideoSongs": {
+    "title": "Video Ca Nhạc",
+    "copied": "Đã sao chép",
+    "share": "Chia sẻ",
+    "v1": "Vinh quang Lộc Trời Cambodia",
+    "v2": "Tương lai xanh",
+    "v3": "Thành công trên cánh đồng",
+    "v4": "Thiên đường trên mặt đất",
+    "v5": "Bình minh trên đồng lúa",
+    "v6": "Con đường mới của nông nghiệp"
+  },
+  "Partners": {
+    "title": "Đối Tác & Thương Hiệu Hàng Đầu"
+  },
+  "ShareButton": {
+    "title": "Chia sẻ sản phẩm này",
+    "copied": "Đã sao chép",
+    "share": "Chia sẻ"
+  },
+  "LiveChat": {
+    "welcome": "Xin chào! Cảm ơn bạn đã ghé thăm Lộc Trời Cambodia. Hôm nay tôi có thể giúp gì cho bạn?",
+    "reply_hi": "Xin chào! Vui lòng chọn số bên dưới để nhận thông tin nhanh:\n1️⃣ Xem danh sách sản phẩm\n2️⃣ Xem địa chỉ cửa hàng\n3️⃣ Thông tin liên hệ",
+    "reply_products": "Các sản phẩm nổi bật của chúng tôi:\n\n🌱 Phân bón NPK 20-20-15\n🦠 Thuốc trừ sâu Vitako\n🌾 Giống lúa Lộc Trời 123\n\nVui lòng truy cập menu 'Sản phẩm' để xem thêm.",
+    "reply_location": "Trụ sở chính của chúng tôi tại:\n📍 Phnom Penh, Campuchia\n\nĐể biết thêm chi nhánh tỉnh, vui lòng liên hệ đội ngũ của chúng tôi.",
+    "reply_contact": "Bạn có thể liên hệ với chúng tôi qua:\n📞 Điện thoại: 012 345 678\n📧 Email: info@loctroi.online\n\nĐội ngũ của chúng tôi sẽ phản hồi sớm nhất.",
+    "reply_default": "Xin lỗi, tôi chưa hiểu yêu cầu. Vui lòng nhập 1, 2, hoặc 3, hoặc để lại số điện thoại để chúng tôi liên hệ lại.",
+    "typing": "Đang soạn tin...",
+    "placeholder": "Nhập tin nhắn của bạn...",
+    "chat_with_us": "Chat với chúng tôi"
+  },
+  "AgriVideos": {
+    "title1": "Video Kiến Thức",
+    "title2": "Nông Nghiệp"
+  },
+  "Footer": {
+    "desc": "Đối tác nông nghiệp tốt nhất của bạn, cung cấp các sản phẩm nông nghiệp chất lượng cao.",
+    "contactTitle": "Liên hệ",
+    "addressLabel": "Phnom Penh, Campuchia",
+    "socialTitle": "Mạng xã hội",
+    "copyright": "Loc Troi Cambodia. Bản quyền thuộc về Pho Chaifong"
+  },
+  "FAQ": {
+    "badge": "FAQ",
+    "title1": "Câu Hỏi",
+    "title2": "Thường Gặp",
+    "subtitle": "Giải đáp những thắc mắc phổ biến của khách hàng",
+    "q1": "Sản phẩm Lộc Trời có giao hàng toàn quốc không?",
+    "a1": "Có, chúng tôi giao hàng đến 25 tỉnh thành trên toàn Campuchia. Chúng tôi miễn phí giao hàng cho đơn hàng số lượng lớn.",
+    "q2": "Làm thế nào để đặt hàng?",
+    "a2": "Bạn có thể đặt hàng trực tiếp qua số 097 945 0831 hoặc 071 777 3554, qua Trang Facebook của chúng tôi, hoặc điền vào biểu mẫu liên hệ trên trang web này.",
+    "q3": "Chất lượng sản phẩm Lộc Trời có gì đặc biệt?",
+    "a3": "Sản phẩm của chúng tôi được sản xuất bởi Tập đoàn Lộc Trời, công ty nông nghiệp hàng đầu Việt Nam với hơn 10 năm kinh nghiệm. Tất cả sản phẩm đều được kiểm nghiệm và chứng nhận bởi cơ quan có thẩm quyền.",
+    "q4": "Có tư vấn kỹ thuật nông nghiệp không?",
+    "a4": "Có! Đội ngũ kỹ thuật của chúng tôi sẵn sàng tư vấn miễn phí về cách sử dụng sản phẩm, chọn thuốc phù hợp và các kỹ thuật canh tác.",
+    "q5": "Thuốc bảo vệ thực vật có an toàn không?",
+    "a5": "Tất cả sản phẩm của chúng tôi đều được đăng ký hợp pháp và an toàn khi sử dụng đúng hướng dẫn. Vui lòng đọc nhãn và làm theo hướng dẫn sử dụng cẩn thận."
+  },
+  "DealerLocator": {
+    "title1": "Hệ thống",
+    "title2": "Đại lý",
+    "subtitle": "Tìm kiếm các đại lý và nhà phân phối gần bạn nhất để dễ dàng mua sắm.",
+    "allProvinces": "Mọi nơi",
+    "noDealers": "Chưa có đại lý tại tỉnh này",
+    "selectedLocation": "Vị trí đã chọn",
+    "callButton": "Gọi",
+    "dealerPrefix": "Đại lý Lộc Trời - Chi nhánh",
+    "provincePrefix": "Tỉnh lị",
+    "country": "Campuchia",
+    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
+    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+  },
+  "Metadata": {
+    "title": "Lộc Trời Campuchia",
+    "description": "Lộc Trời Campuchia cung cấp các sản phẩm nông nghiệp, thuốc bảo vệ thực vật, phân bón và hạt giống chất lượng cao nhằm hỗ trợ nông dân Campuchia.",
+    "keywords": "Ta Sok, Thuốc bảo vệ thực vật Ta Sok, Nông nghiệp, Phân bón, Hạt giống, Nông nghiệp Campuchia, Loc Troi Cambodia, Lộc Trời, Thuốc trừ sâu, Nông sản chất lượng cao, loc troi"
+  }
+}
