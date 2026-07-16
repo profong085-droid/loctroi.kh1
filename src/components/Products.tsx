@@ -427,7 +427,8 @@ const ProductCard = ({ product, categoryData, onClick, index }: any) => {
           >
             <Image
               src={`/${product.image}`}
-              alt={product.name}
+              alt={`${product.name} | Loc Troi Cambodia`}
+              title={`${product.name} - Loc Troi Cambodia`}
               fill
               className="object-contain drop-shadow-2xl pointer-events-none"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

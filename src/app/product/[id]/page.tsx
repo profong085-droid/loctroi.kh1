@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Tag, FlaskConical, CheckCircle2, Leaf, Microscope } from "lucide-react";
 import { Metadata } from "next";
+import { ShareButton } from "@/components/ShareButton";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -25,14 +26,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${product.name} | Loc Troi Cambodia`,
       description: `ផលិតផល ${product.name} - ${product.categoryKh}`,
+      url: `https://loctroi.online/product/${product.id}`,
+      siteName: 'Loc Troi Cambodia',
       images: [
         {
-          url: `/${product.image}`,
+          url: `https://loctroi.online/${product.image}`,
           width: 800,
           height: 800,
-          alt: product.name,
+          alt: `${product.name} | Loc Troi Cambodia`,
         },
       ],
+      locale: 'km_KH',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | Loc Troi Cambodia`,
+      description: `ផលិតផល ${product.name} - ${product.categoryKh}`,
+      images: [`https://loctroi.online/${product.image}`],
     },
   };
 }
@@ -64,20 +75,28 @@ export default async function ProductPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="container mx-auto px-6 max-w-5xl">
-        <Link 
-          href="/#products" 
-          className="inline-flex items-center gap-2 text-slate-500 hover:text-primary-600 mb-8 transition-colors font-medium"
-        >
-          <ArrowLeft size={20} />
-          ត្រឡប់ទៅទំព័រដើម
-        </Link>
+        <div className="flex items-center justify-between mb-8">
+          <Link 
+            href="/#products" 
+            className="inline-flex items-center gap-2 text-slate-500 hover:text-primary-600 transition-colors font-medium"
+          >
+            <ArrowLeft size={20} />
+            ត្រឡប់ទៅទំព័រដើម
+          </Link>
+          <ShareButton 
+            title={`${product.name} | Loc Troi Cambodia`}
+            text={`ផលិតផល ${product.name} - ${product.categoryKh} របស់ក្រុមហ៊ុន ឡុក ត្រើយ`}
+            url={`https://loctroi.online/product/${product.id}`}
+          />
+        </div>
         
         <div className="bg-white rounded-4xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
           <div className="w-full md:w-1/2 p-12 bg-slate-50 flex items-center justify-center min-h-[400px]">
             <div className="relative w-full h-[500px]">
               <Image 
                 src={`/${product.image}`} 
-                alt={product.name} 
+                alt={`${product.name} | Loc Troi Cambodia`} 
+                title={`${product.name} - Loc Troi Cambodia`}
                 fill
                 priority
                 className="object-contain drop-shadow-2xl" 
