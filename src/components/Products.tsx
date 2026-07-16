@@ -84,9 +84,9 @@ export const Products = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "product-inquiry",
-          productName: product.name,
+          productName: getLocalizedText(product.name, locale),
           productCategory: product.categoryKh,
-          productUsage: product.usage,
+          productUsage: getLocalizedText(product.usage, locale),
           productImage: product.image,
         }),
       });
