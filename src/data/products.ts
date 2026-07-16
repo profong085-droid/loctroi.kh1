@@ -17,7 +17,7 @@ export interface Product {
 export function getLocalizedText(text: LocaleText | undefined, locale: string): string {
   if (!text) return "";
   if (typeof text === "string") return text;
-  return (text as any)[locale] || text.kh || "";
+  return (text as Record<string, string>)[locale] || text.kh || "";
 }
 
 export const productsData: Product[] = [

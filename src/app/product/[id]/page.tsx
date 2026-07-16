@@ -1,4 +1,4 @@
-import { productsData } from "@/data/products";
+import { productsData, getLocalizedText } from "@/data/products";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,12 +20,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const productName = getLocalizedText(product.name, 'kh');
+  const productUsage = getLocalizedText(product.usage, 'kh');
+
   return {
-    title: `${product.name} | Loc Troi Cambodia`,
-    description: `ផលិតផល ${product.name} - ${product.categoryKh}។ ${product.usage}`,
+    title: `${productName} | Loc Troi Cambodia`,
+    description: `ផលិតផល ${productName} - ${product.categoryKh}។ ${productUsage}`,
     openGraph: {
-      title: `${product.name} | Loc Troi Cambodia`,
-      description: `ផលិតផល ${product.name} - ${product.categoryKh}`,
+      title: `${productName} | Loc Troi Cambodia`,
+      description: `ផលិតផល ${productName} - ${product.categoryKh}`,
       url: `https://loctroi.online/product/${product.id}`,
       siteName: 'Loc Troi Cambodia',
       images: [
@@ -33,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: `https://loctroi.online/${product.image}`,
           width: 800,
           height: 800,
-          alt: `${product.name} | Loc Troi Cambodia`,
+          alt: `${productName} | Loc Troi Cambodia`,
         },
       ],
       locale: 'km_KH',
@@ -41,8 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.name} | Loc Troi Cambodia`,
-      description: `ផលិតផល ${product.name} - ${product.categoryKh}`,
+      title: `${productName} | Loc Troi Cambodia`,
+      description: `ផលិតផល ${productName} - ${product.categoryKh}`,
       images: [`https://loctroi.online/${product.image}`],
     },
   };
@@ -56,12 +59,17 @@ export default async function ProductPage({ params }: Props) {
     notFound();
   }
 
+  const productName = getLocalizedText(product.name, 'kh');
+  const productUsage = getLocalizedText(product.usage, 'kh');
+  const productIngredients = getLocalizedText(product.ingredients, 'kh');
+  const productIngredientDetails = getLocalizedText(product.ingredientDetails, 'kh');
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: product.name,
+    name: productName,
     image: `https://loctroi.online/${product.image}`,
-    description: `ផលិតផល ${product.name} - ${product.categoryKh}។ ${product.usage}`,
+    description: `ផលិតផល ${productName} - ${product.categoryKh}។ ${productUsage}`,
     brand: {
       '@type': 'Brand',
       name: 'Loc Troi Cambodia'
@@ -84,8 +92,8 @@ export default async function ProductPage({ params }: Props) {
             ត្រឡប់ទៅទំព័រដើម
           </Link>
           <ShareButton 
-            title={`${product.name} | Loc Troi Cambodia`}
-            text={`ផលិតផល ${product.name} - ${product.categoryKh} របស់ក្រុមហ៊ុន ឡុក ត្រើយ`}
+            title={`${productName} | Loc Troi Cambodia`}
+            text={`ផលិតផល ${productName} - ${product.categoryKh} របស់ក្រុមហ៊ុន ឡុក ត្រើយ`}
             url={`https://loctroi.online/product/${product.id}`}
           />
         </div>
@@ -95,8 +103,8 @@ export default async function ProductPage({ params }: Props) {
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
               <Image 
                 src={`/${product.image}`} 
-                alt={`${product.name} | Loc Troi Cambodia`} 
-                title={`${product.name} - Loc Troi Cambodia`}
+                alt={`${productName} | Loc Troi Cambodia`} 
+                title={`${productName} - Loc Troi Cambodia`}
                 fill
                 priority
                 className="object-contain drop-shadow-2xl" 
@@ -110,7 +118,7 @@ export default async function ProductPage({ params }: Props) {
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 mb-4 sm:mb-6 leading-tight">
-              {product.name}
+              {productName}
             </h1>
             
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
@@ -121,7 +129,7 @@ export default async function ProductPage({ params }: Props) {
                     ធាតុកម្មសកម្ម (Active Ingredients)
                   </h4>
                   <p className="text-primary-800 font-semibold text-sm sm:text-base md:text-lg ml-4 sm:ml-8 mb-4 border-l-4 border-primary-300 pl-4 py-1">
-                    {product.ingredients}
+                    {productIngredients}
                   </p>
                   
                   {/* Detailed Information based on Active Ingredient */}
@@ -132,7 +140,7 @@ export default async function ProductPage({ params }: Props) {
                         ព័ត៌មានលម្អិតនៃធាតុកម្ម៖
                       </h5>
                       <div className="text-slate-600 leading-relaxed text-sm sm:text-base space-y-2">
-                        {product.ingredientDetails.split('\n').map((line: string, i: number) => (
+                        {productIngredientDetails.split('\n').map((line: string, i: number) => (
                           <p key={i}>{line}</p>
                         ))}
                       </div>
@@ -151,7 +159,7 @@ export default async function ProductPage({ params }: Props) {
                     {product.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-2 sm:gap-3">
                         <CheckCircle2 size={18} className="text-green-500 shrink-0 mt-0.5 sm:w-[20px] sm:h-[20px]" />
-                        <span className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">{benefit}</span>
+                        <span className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">{getLocalizedText(benefit, 'kh')}</span>
                       </li>
                     ))}
                   </ul>
@@ -164,7 +172,7 @@ export default async function ProductPage({ params }: Props) {
                   របៀបប្រើប្រាស់ (Usage)
                 </h4>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base md:text-lg ml-4 sm:ml-7">
-                  {product.usage}
+                  {productUsage}
                 </p>
               </div>
             </div>
