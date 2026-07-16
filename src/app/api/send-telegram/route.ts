@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
               alignItems: 'center',
             }
           }, 
-            React.createElement('img', { src: 'https://loctroi.online/photo/logo4.png', width: 120, height: 120, style: { marginBottom: '20px' } }),
+            React.createElement('img', { src: 'https://loctroi.online/photo/logo%20loctroi%206.png', width: 120, height: 120, style: { marginBottom: '20px' } }),
             React.createElement('div', { style: { fontSize: '46px', fontWeight: 'bold', color: '#0f172a', marginBottom: '10px' } }, 'LOC TROI CAMBODIA'),
             React.createElement('div', { style: { fontSize: '26px', color: '#64748b', marginBottom: '10px' } }, 'សាកសួរព័ត៌មានផលិតផល (Inquiry)'),
             React.createElement('div', { style: { fontSize: '22px', color: '#64748b', marginBottom: '30px' } }, 'Phnom Penh, Cambodia'),

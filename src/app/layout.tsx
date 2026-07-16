@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/photo/logo4.png?v=2",
-    apple: "/photo/logo4.png?v=2",
+    icon: "/photo/logo%20loctroi%206.png?v=6",
+    apple: "/photo/logo%20loctroi%206.png?v=6",
   },
   verification: {
     google: "uemO56pZRbhi7Fe_74xIzAmZ_K5bKYMvwOfN2ppAMiw",
@@ -68,7 +68,7 @@ export default function RootLayout({
       "@type": "Organization",
       "name": "Loc Troi Cambodia",
       "url": "https://loctroi.online",
-      "logo": "https://loctroi.online/photo/logo4.png?v=2",
+      "logo": "https://loctroi.online/photo/logo%20loctroi%206.png?v=6",
       "description": "ក្រុមហ៊ុន Loc Troi Cambodia ផ្តល់ជូននូវកសិផលគុណភាពខ្ពស់ ថ្នាំកសិកម្ម ជី និងពូជស្រូវ ដើម្បីជួយកសិករកម្ពុជា។"
     }
   ];

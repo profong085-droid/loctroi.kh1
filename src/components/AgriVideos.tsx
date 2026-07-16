@@ -77,7 +77,7 @@ export function AgriVideos() {
                 scrolling="no" 
                 frameBorder="0" 
                 allowFullScreen={true} 
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                referrerPolicy="no-referrer"
               ></iframe>
               
               {/* Loader Placeholder */}

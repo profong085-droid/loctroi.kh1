@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
             alignItems: 'center',
           }
         }, 
-          React.createElement('img', { src: 'https://loctroi.online/photo/logo4.png', width: 150, height: 150, style: { marginBottom: '20px' } }),
+          React.createElement('img', { src: 'https://loctroi.online/photo/logo%20loctroi%206.png', width: 150, height: 150, style: { marginBottom: '20px' } }),
           React.createElement('div', { style: { fontSize: '46px', fontWeight: 'bold', color: '#111827', marginBottom: '10px' } }, 'LOC TROI CAMBODIA'),
           
           React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', width: '100%', marginTop: '50px', marginBottom: '15px' } },
@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
             React.createElement('div', { style: { fontSize: '26px', color: '#111827', fontWeight: 'bold' } }, 'ថ្នាំសម្លាប់សត្វល្អិត')
           ),
           
-          React.createElement('img', { src: 'https://loctroi.online/photo/logo4.png', width: 280, height: 280, style: { marginTop: '40px', objectFit: 'contain' } }),
+          React.createElement('img', { src: 'https://loctroi.online/photo/logo%20loctroi%206.png', width: 280, height: 280, style: { marginTop: '40px', objectFit: 'contain' } }),
           
           React.createElement('div', { style: { borderBottom: '2px dashed #d1d5db', width: '100%', margin: '40px 0' } }),
           
