@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export const About = () => {
   return (
-    <section id="about" className="py-24 bg-white relative overflow-hidden">
+    <section id="about" className="py-12 md:py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <motion.div 

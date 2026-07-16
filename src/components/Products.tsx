@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useMemo, ElementType, useRef } from "react";
+import { useState, useMemo, ElementType, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Search, Tag, X, ChevronDown, ZoomIn } from "lucide-react";
+import { Search, Tag, X, ChevronDown, ZoomIn, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { productsData, categories, Product } from "@/data/products";
@@ -39,6 +39,26 @@ export const Products = () => {
   const [visibleCount, setVisibleCount] = useState(12);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  const baseBanners = [
+    "/banner តាសុខ/តាសុខខ្លាំង.jpg",
+    "/banner តាសុខ/តាសុខ.jpg",
+    "/banner តាសុខ/កុំលេងមួយតាសុខ.jpg",
+    "/banner តាសុខ/តាសុខកានពូជ.jpg",
+    "/banner តាសុខ/តាសុខបំប៉ន.jpg"
+  ];
+  const bannerImages = [...baseBanners, ...baseBanners];
+  const [currentBanner, setCurrentBanner] = useState(0);
+
+  const handleNextBanner = () => setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
+  const handlePrevBanner = () => setCurrentBanner((prev) => (prev - 1 + bannerImages.length) % bannerImages.length);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [bannerImages.length]);
+
   const filteredProducts = useMemo(() => {
     return productsData.filter((p) => {
       const matchCat = activeCat === "all" || p.category === activeCat;
@@ -72,8 +92,82 @@ export const Products = () => {
   };
 
   return (
-    <section id="products" className="py-24 bg-slate-50 relative">
+    <section id="products" className="py-8 md:py-16 bg-slate-50 relative">
       <div className="container mx-auto px-6">
+        {/* Banner 3D Carousel */}
+        <div className="mb-6 md:mb-12 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
+          <div className="relative w-full h-full flex items-center justify-center overflow-visible">
+            {bannerImages.map((src, index) => {
+              let position = "hidden";
+              if (index === currentBanner) position = "center";
+              else if (index === (currentBanner - 1 + bannerImages.length) % bannerImages.length) position = "left1";
+              else if (index === (currentBanner + 1) % bannerImages.length) position = "right1";
+              else if (index === (currentBanner - 2 + bannerImages.length) % bannerImages.length) position = "left2";
+              else if (index === (currentBanner + 2) % bannerImages.length) position = "right2";
+
+              return (
+                <div
+                  key={index}
+                  className={`absolute w-[50%] sm:w-[45%] md:w-[40%] lg:w-[35%] aspect-3/2 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out flex items-center justify-center ring-2 ring-black/5 ${
+                    position === "center"
+                      ? "translate-x-0 scale-100 z-50 opacity-100 ring-primary-500 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                      : position === "left1"
+                      ? "translate-x-[-50%] sm:translate-x-[-60%] md:translate-x-[-70%] lg:translate-x-[-80%] scale-[0.75] z-40 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
+                      : position === "right1"
+                      ? "translate-x-[50%] sm:translate-x-[60%] md:translate-x-[70%] lg:translate-x-[80%] scale-[0.75] z-40 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
+                      : position === "left2"
+                      ? "translate-x-[-90%] sm:translate-x-[-110%] md:translate-x-[-125%] lg:translate-x-[-140%] scale-[0.55] z-30 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
+                      : position === "right2"
+                      ? "translate-x-[90%] sm:translate-x-[110%] md:translate-x-[125%] lg:translate-x-[140%] scale-[0.55] z-30 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
+                      : "opacity-0 z-10 pointer-events-none scale-[0.4]"
+                  }`}
+                  onClick={() => {
+                    if (position !== "center" && position !== "hidden") {
+                      setCurrentBanner(index);
+                    }
+                  }}
+                >
+                  <Image
+                    src={src}
+                    alt={`Tasok Banner ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    priority={index === currentBanner}
+                  />
+                </div>
+              );
+            })}
+          </div>
+
+
+
+          {/* Navigation Controls */}
+          <div className="flex items-center gap-4 md:gap-6 mt-16 sm:mt-12 relative z-60">
+            <button 
+              onClick={handlePrevBanner}
+              className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
+            >
+              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+            
+            <div className="flex gap-2">
+              {baseBanners.map((_, idx) => (
+                <div 
+                  key={idx} 
+                  className={`h-2 rounded-full transition-all duration-500 ${idx === (currentBanner % baseBanners.length) ? "w-8 bg-primary-600" : "w-2 bg-slate-300"}`}
+                />
+              ))}
+            </div>
+
+            <button 
+              onClick={handleNextBanner}
+              className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
+            >
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
+        </div>
+
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-koulen text-primary-950 mb-6 tracking-wide leading-relaxed">ផលិតផលរបស់យើង</h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg">ស្វែងរកផលិតផលថ្នាំកសិកម្ម ជី និងពូជស្រូវគុណភាពខ្ពស់សម្រាប់ដំណាំគ្រប់ប្រភេទ</p>
