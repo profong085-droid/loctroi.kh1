@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Loc Troi Cambodia",
     images: [
       {
-        url: "/photo/Loc Troi Icypro.jpg",
+        url: "/photo/Loc%20Troi%20Icypro.jpg",
         width: 1200,
         height: 630,
         alt: "Loc Troi Cambodia Banner",
