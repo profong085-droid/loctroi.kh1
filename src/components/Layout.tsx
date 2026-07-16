@@ -222,6 +222,72 @@ export const Navbar = () => {
                   <ArrowRight size={16} className="text-slate-300 group-hover:text-primary-500 transition-colors" />
                 </a>
               ))}
+              
+              {/* Mobile Authentication */}
+              <div className="p-4 border-b border-slate-50">
+                {loading ? (
+                  <div className="w-full h-10 bg-slate-100 animate-pulse rounded-full"></div>
+                ) : user ? (
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-3 px-2">
+                      <Image 
+                        src={user.photoURL || "https://avatar.vercel.sh/guest"} 
+                        alt={user.displayName || "User"} 
+                        width={32}
+                        height={32}
+                        unoptimized
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                      <span className="text-sm font-bold text-slate-800">
+                        {user.displayName}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => { signOut(auth); setMobileMenuOpen(false); }}
+                      className="w-full text-sm font-bold px-4 py-2.5 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors text-center"
+                    >
+                      {t("logout")}
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => { handleLogin(); setMobileMenuOpen(false); }}
+                    className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-slate-100 text-slate-800 rounded-full text-sm font-bold hover:bg-slate-200 transition-colors shadow-sm"
+                  >
+                    <FaGoogle className="text-red-500" />
+                    {t("login")}
+                  </button>
+                )}
+              </div>
+
+              {/* Mobile Language Switcher */}
+              <div className="p-4">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 block">Language / ភាសា</span>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { code: 'kh', name: 'ខ្មែរ', flag: 'https://flagcdn.com/w40/kh.png' },
+                    { code: 'en', name: 'EN', flag: 'https://flagcdn.com/w40/gb.png' },
+                    { code: 'vi', name: 'VN', flag: 'https://flagcdn.com/w40/vn.png' },
+                  ].map(lang => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        const segments = window.location.pathname.split('/');
+                        if (segments.length > 1 && ['kh', 'en', 'vi'].includes(segments[1])) {
+                          segments[1] = lang.code;
+                        } else {
+                          segments.splice(1, 0, lang.code);
+                        }
+                        window.location.href = segments.join('/') || '/';
+                      }}
+                      className="flex flex-col items-center gap-1.5 p-2 rounded-lg border border-slate-100 bg-slate-50 hover:bg-slate-100 transition-colors"
+                    >
+                      <Image src={lang.flag} alt={lang.name} width={24} height={16} unoptimized className="rounded-sm object-cover shadow-sm w-[24px] h-[16px]" />
+                      <span className="text-[10px] font-bold text-slate-600">{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
