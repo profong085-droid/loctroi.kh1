@@ -5,13 +5,14 @@ import Image from "next/image";
 export default function HeroBackground() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-primary-950">
-      {/* Background Image Banner */}
-      <Image 
-        src="/photo/banner 3.jpg" 
-        alt="Hero Banner" 
-        fill
-        priority
-        className="object-cover opacity-70" 
+      {/* Background Video Banner */}
+      <video 
+        src="/photo/banner1.mp4" 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        className="object-cover w-full h-full opacity-70 absolute inset-0"
       />
       
       {/* Subtle overlay gradient to make text readable */}
