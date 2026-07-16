@@ -2,7 +2,7 @@
 
 import { useState, useMemo, ElementType, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Search, Tag, X, ChevronDown, ZoomIn, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
+import { Search, Tag, X, ChevronDown, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { productsData, categories, Product } from "@/data/products";
@@ -40,11 +40,11 @@ export const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const baseBanners = [
-    "/banner តាសុខ/តាសុខខ្លាំង.jpg",
-    "/banner តាសុខ/តាសុខ.jpg",
-    "/banner តាសុខ/កុំលេងមួយតាសុខ.jpg",
-    "/banner តាសុខ/តាសុខកានពូជ.jpg",
-    "/banner តាសុខ/តាសុខបំប៉ន.jpg"
+    { src: "/banner តាសុខ/តាសុខខ្លាំង.jpg", alt: "ថ្នាំកសិកម្ម តាសុខខ្លាំង លេខមួយពីក្រុមហ៊ុន Lộc Trời Cambodia ជួយការពារនិងកម្ចាត់រោគសត្វល្អិត" },
+    { src: "/banner តាសុខ/តាសុខ.jpg", alt: "ផលិតផលថ្នាំកសិកម្ម តាសុខ គុណភាពខ្ពស់ ផ្តល់ទំនុកចិត្តដល់កសិករ" },
+    { src: "/banner តាសុខ/កុំលេងមួយតាសុខ.jpg", alt: "កុំលេងមួយតាសុខ ដំណោះស្រាយកសិកម្មដ៏មានប្រសិទ្ធភាពសម្រាប់ដំណាំគ្រប់ប្រភេទ" },
+    { src: "/banner តាសុខ/តាសុខកានពូជ.jpg", alt: "តាសុខកានពូជ ជំនាញថែរក្សានិងការពារគ្រាប់ពូជស្រូវឲ្យដុះលូតលាស់ល្អ" },
+    { src: "/banner តាសុខ/តាសុខបំប៉ន.jpg", alt: "តាសុខបំប៉ន ជីបំប៉នដំណាំឲ្យលូតលាស់លឿន ដើមថ្លោស ទទួលបានទិន្នផលខ្ពស់" }
   ];
   const bannerImages = [...baseBanners, ...baseBanners];
   const [currentBanner, setCurrentBanner] = useState(0);
@@ -97,7 +97,7 @@ export const Products = () => {
         {/* Banner 3D Carousel */}
         <div className="mb-6 md:mb-12 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
           <div className="relative w-full h-full flex items-center justify-center overflow-visible">
-            {bannerImages.map((src, index) => {
+            {bannerImages.map((banner, index) => {
               let position = "hidden";
               if (index === currentBanner) position = "center";
               else if (index === (currentBanner - 1 + bannerImages.length) % bannerImages.length) position = "left1";
@@ -128,8 +128,9 @@ export const Products = () => {
                   }}
                 >
                   <Image
-                    src={src}
-                    alt={`Tasok Banner ${index + 1}`}
+                    src={banner.src}
+                    alt={banner.alt}
+                    title={banner.alt}
                     fill
                     className="object-cover"
                     priority={index === currentBanner}
