@@ -23,4 +23,14 @@ const nextConfig: NextConfig = {
   }
 };
 
-export default withNextIntl(nextConfig);
+const finalConfig = withNextIntl(nextConfig);
+
+// Remove experimental.turbo injected by next-intl to prevent Next.js warnings/errors
+if (finalConfig && typeof finalConfig === 'object' && finalConfig.experimental && 'turbo' in finalConfig.experimental) {
+  delete finalConfig.experimental.turbo;
+  if (Object.keys(finalConfig.experimental).length === 0) {
+    delete finalConfig.experimental;
+  }
+}
+
+export default finalConfig;
