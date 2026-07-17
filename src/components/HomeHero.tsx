@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-const HeroBackground = dynamic(() => import("@/components/3d/HeroBackground"), { ssr: false });
+import HeroBackground from "@/components/3d/HeroBackground";
 import { ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
