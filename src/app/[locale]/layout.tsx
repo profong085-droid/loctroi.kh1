@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Kantumruy_Pro, Koulen } from "next/font/google";
 import "../globals.css";
 import { Navbar, Footer } from "@/components/Layout";
-import { LiveChat } from "@/components/LiveChat";
-import { ScrollToTop } from "@/components/ScrollToTop";
+import dynamic from "next/dynamic";
+import { FloatingComponents } from "@/components/FloatingComponents";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
 
@@ -99,8 +99,7 @@ export default async function RootLayout({
             <Navbar />
             {children}
             <Footer />
-            <LiveChat />
-            <ScrollToTop />
+            <FloatingComponents />
             <Analytics />
             <SpeedInsights />
           </AuthProvider>
