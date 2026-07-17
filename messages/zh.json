@@ -57,6 +57,7 @@
     "loadMore": "加载更多"
   },
   "ProductDetail": {
+    "details": "详情：",
     "benefits": "优点与特点：",
     "usage": "使用说明：",
     "ingredients": "有效成分：",
