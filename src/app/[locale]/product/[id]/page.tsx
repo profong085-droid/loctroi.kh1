@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${productName} | Loc Troi Cambodia`,
     description: `ផលិតផល ${productName} - ${product.categoryKh}។ ${productUsage}`,
     alternates: {
+      canonical: `/${locale}/product/${product.id}`,
       languages: {
         'km-KH': `/kh/product/${product.id}`,
         'en-US': `/en/product/${product.id}`,
@@ -72,6 +73,7 @@ export default async function ProductPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: "ProductDetail" });
   const tCat = await getTranslations({ locale, namespace: "Products" });
+  const tNav = await getTranslations({ locale, namespace: "Navbar" });
 
   const productName = getLocalizedText(product.name, locale);
   const productUsage = getLocalizedText(product.usage, locale);
@@ -96,11 +98,40 @@ export default async function ProductPage({ params }: Props) {
     }
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: tNav("home"),
+        item: `https://loctroi.online/${locale}`
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: tNav("products"),
+        item: `https://loctroi.online/${locale}#products`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: productName,
+        item: `https://loctroi.online/${locale}/product/${product.id}`
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 pt-24 pb-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="flex items-center justify-between mb-8">

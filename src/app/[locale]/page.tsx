@@ -13,11 +13,14 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-  const params = await searchParams;
-  const songParam = params.song;
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+  const sParams = await searchParams;
+  const songParam = sParams.song;
   
   const alternates = {
+    canonical: `/${locale}`,
     languages: {
       'km-KH': '/kh',
       'en-US': '/en',
