@@ -9,6 +9,7 @@ import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server
 
 import { AuthProvider } from "@/context/AuthContext";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const kantumruyPro = Kantumruy_Pro({ 
@@ -101,6 +102,7 @@ export default async function RootLayout({
             <LiveChat />
             <ScrollToTop />
             <Analytics />
+            <SpeedInsights />
           </AuthProvider>
         </NextIntlClientProvider>
       </body>
