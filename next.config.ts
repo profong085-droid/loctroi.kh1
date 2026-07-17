@@ -22,8 +22,23 @@ const nextConfig: NextConfig = {
     }
   },
   images: {
-    qualities: [75, 85]
-  }
+    qualities: [75, 85],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 2592000,
+  },
+  async headers() {
+    return [
+      {
+        source: '/photo/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 const finalConfig = withNextIntl(nextConfig);
