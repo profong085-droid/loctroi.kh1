@@ -111,6 +111,7 @@ export function AgriVideos() {
                   frameBorder="0" 
                   allowFullScreen={true} 
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 ></iframe>
                 
                 {/* Loader Placeholder */}

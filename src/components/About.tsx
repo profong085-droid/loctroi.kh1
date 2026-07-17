@@ -25,8 +25,8 @@ export const About = () => {
                   src="/photo/Loc Troi Icypro.jpg" 
                   alt="About Loc Troi" 
                   fill 
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover" 
-                  unoptimized
                 />
               </div>
               

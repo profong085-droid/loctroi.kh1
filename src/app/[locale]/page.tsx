@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import { HomeHero } from "@/components/HomeHero";
-import { Products } from "@/components/Products";
-import { VideoSongs } from "@/components/VideoSongs";
-import { AgriVideos } from "@/components/AgriVideos";
-import { Partners } from "@/components/Partners";
-import { About } from "@/components/About";
+import dynamic from "next/dynamic";
+
+const Partners = dynamic(() => import("@/components/Partners").then(mod => mod.Partners));
+const About = dynamic(() => import("@/components/About").then(mod => mod.About));
+const Products = dynamic(() => import("@/components/Products").then(mod => mod.Products));
+const VideoSongs = dynamic(() => import("@/components/VideoSongs").then(mod => mod.VideoSongs));
+const AgriVideos = dynamic(() => import("@/components/AgriVideos").then(mod => mod.AgriVideos));
 
 import { setRequestLocale } from 'next-intl/server';
 

@@ -62,19 +62,22 @@ export async function POST(req: NextRequest) {
           }
 
           // 2. Fetch Khmer Font (Suwannaphum)
-          let fontData: ArrayBuffer | null = null;
-          try {
-            const cssRes = await fetch('https://fonts.googleapis.com/css2?family=Suwannaphum:wght@400', {
-              headers: { 'User-Agent': 'Mozilla/5.0' }
-            });
-            const css = await cssRes.text();
-            const match = css.match(/url\((https:\/\/[^)]+\.ttf)\)/);
-            if (match) {
-              const fontRes = await fetch(match[1]);
-              fontData = await fontRes.arrayBuffer();
+          let fontData: ArrayBuffer | null = (globalThis as unknown as { __cachedFontData?: ArrayBuffer }).__cachedFontData || null;
+          if (!fontData) {
+            try {
+              const cssRes = await fetch('https://fonts.googleapis.com/css2?family=Suwannaphum:wght@400', {
+                headers: { 'User-Agent': 'Mozilla/5.0' }
+              });
+              const css = await cssRes.text();
+              const match = css.match(/url\((https:\/\/[^)]+\.ttf)\)/);
+              if (match) {
+                const fontRes = await fetch(match[1]);
+                fontData = await fontRes.arrayBuffer();
+                (globalThis as unknown as { __cachedFontData?: ArrayBuffer }).__cachedFontData = fontData;
+              }
+            } catch (e) {
+              console.error("Failed to load Khmer font", e);
             }
-          } catch (e) {
-            console.error("Failed to load Khmer font", e);
           }
 
           // 3. Generate Receipt Image (POS Style)

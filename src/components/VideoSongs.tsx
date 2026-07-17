@@ -81,7 +81,7 @@ export function VideoSongs() {
           <video 
             key={activeVideo.src}
             controls 
-            autoPlay
+            preload="metadata"
             poster={activeVideo.poster}
             className="w-full h-full object-cover"
           >
