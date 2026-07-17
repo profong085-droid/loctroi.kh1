@@ -115,6 +115,7 @@ export const Navbar = () => {
               alt="Logo"
               fill
               sizes="48px"
+              priority
               className="object-contain"
             />
           </div>

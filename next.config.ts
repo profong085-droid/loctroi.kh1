@@ -20,6 +20,9 @@ const nextConfig: NextConfig = {
     resolveAlias: {
       'next-intl/config': './src/i18n.ts'
     }
+  },
+  images: {
+    qualities: [75, 85]
   }
 };
 
