@@ -12,6 +12,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
+
 const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
   const locale = useLocale();
   const router = useRouter();
@@ -356,6 +357,9 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href={`/${locale}/branches`} className="text-slate-300 hover:text-accent-500 transition-colors">{t("branchesLink")}</Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/quiz`} className="text-accent-400 hover:text-accent-300 transition-colors font-semibold">{t("quizLink")}</Link>
               </li>
             </ul>
           </motion.div>
