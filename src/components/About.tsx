@@ -36,7 +36,7 @@ export const About = () => {
                     10+
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-800">{t("experience")}</h4>
+                    <div className="font-bold text-slate-800">{t("experience")}</div>
                     <p className="text-sm text-slate-500">{t("experienceDesc")}</p>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export const About = () => {
                     <feature.icon className="text-primary-600 drop-shadow-sm w-[24px] h-[24px] md:w-[32px] md:h-[32px]" />
                   </div>
                   <div className="flex flex-col justify-center">
-                    <h4 className="font-bold text-slate-800 mb-0.5 sm:mb-1 text-sm sm:text-base">{feature.title}</h4>
+                    <h3 className="font-bold text-slate-800 mb-0.5 sm:mb-1 text-sm sm:text-base">{feature.title}</h3>
                     <p className="text-xs sm:text-sm text-slate-500">{feature.desc}</p>
                   </div>
                 </motion.div>

@@ -19,9 +19,9 @@ export const Partners = () => {
   return (
     <section className="py-12 bg-white border-y border-slate-100 overflow-hidden">
       <div className="container mx-auto px-6 mb-6">
-        <h3 className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest">
+        <h2 className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest">
           {t("title")}
-        </h3>
+        </h2>
       </div>
       
       {/* Infinite Scrolling Marquee */}
@@ -46,9 +46,9 @@ export const Partners = () => {
               key={idx} 
               className="flex items-center justify-center grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
             >
-              <h4 className="text-2xl md:text-3xl font-black text-slate-800 font-sans tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-black text-slate-800 font-sans tracking-tight">
                 {partner.name}
-              </h4>
+              </h3>
             </div>
           ))}
         </motion.div>

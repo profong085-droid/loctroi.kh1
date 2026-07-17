@@ -85,8 +85,8 @@ export const Testimonials = () => {
                   {testi.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-800 text-sm">{testi.name}</h4>
-                  <p className="text-xs text-slate-400">{testi.role}</p>
+                  <h3 className="font-bold text-slate-800 text-sm">{testi.name}</h3>
+                  <p className="text-xs text-primary-600 font-semibold">{testi.role}</p>
                 </div>
               </div>
             </motion.div>

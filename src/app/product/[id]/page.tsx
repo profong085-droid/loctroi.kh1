@@ -124,10 +124,10 @@ export default async function ProductPage({ params }: Props) {
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
               {product.ingredients && (
                 <div className="bg-primary-50/50 p-4 sm:p-6 rounded-2xl border border-primary-100">
-                  <h4 className="font-bold text-primary-900 mb-2 sm:mb-3 flex items-center gap-2 text-base sm:text-lg md:text-xl">
+                  <h2 className="font-bold text-primary-900 mb-2 sm:mb-3 flex items-center gap-2 text-base sm:text-lg md:text-xl">
                     <FlaskConical size={20} className="text-primary-600 sm:w-[24px] sm:h-[24px]" />
                     ធាតុកម្មសកម្ម (Active Ingredients)
-                  </h4>
+                  </h2>
                   <p className="text-primary-800 font-semibold text-sm sm:text-base md:text-lg ml-4 sm:ml-8 mb-4 border-l-4 border-primary-300 pl-4 py-1">
                     {productIngredients}
                   </p>
@@ -135,10 +135,10 @@ export default async function ProductPage({ params }: Props) {
                   {/* Detailed Information based on Active Ingredient */}
                   {product.ingredientDetails && (
                     <div className="ml-4 sm:ml-8 bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-primary-100">
-                      <h5 className="font-bold text-primary-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+                      <h3 className="font-bold text-primary-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
                         <Microscope size={18} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
                         ព័ត៌មានលម្អិតនៃធាតុកម្ម៖
-                      </h5>
+                      </h3>
                       <div className="text-slate-600 leading-relaxed text-sm sm:text-base space-y-2">
                         {productIngredientDetails.split('\n').map((line: string, i: number) => (
                           <p key={i}>{line}</p>
@@ -151,10 +151,10 @@ export default async function ProductPage({ params }: Props) {
 
               {product.benefits && product.benefits.length > 0 && (
                 <div className="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100">
-                  <h4 className="font-bold text-slate-800 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
+                  <h2 className="font-bold text-slate-800 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
                     <Leaf size={18} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
                     អត្ថប្រយោជន៍ (Benefits)
-                  </h4>
+                  </h2>
                   <ul className="space-y-2 sm:space-y-3 ml-1">
                     {product.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-2 sm:gap-3">
@@ -167,10 +167,10 @@ export default async function ProductPage({ params }: Props) {
               )}
 
               <div className="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100">
-                <h4 className="font-bold text-slate-800 mb-2 sm:mb-3 flex items-center gap-2 text-base sm:text-lg">
+                <h2 className="font-bold text-slate-800 mb-2 sm:mb-3 flex items-center gap-2 text-base sm:text-lg">
                   <Tag size={18} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
                   របៀបប្រើប្រាស់ (Usage)
-                </h4>
+                </h2>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base md:text-lg ml-4 sm:ml-7">
                   {productUsage}
                 </p>

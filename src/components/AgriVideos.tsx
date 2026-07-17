@@ -103,6 +103,7 @@ export function AgriVideos() {
                 )}
                 
                 <iframe 
+                  title="Agricultural Video"
                   src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(link)}&show_text=false&width=auto`} 
                   style={{ border: "none", overflow: "hidden" }}
                   className="w-full h-full absolute inset-0 z-10 pointer-events-auto"

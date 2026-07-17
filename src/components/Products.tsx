@@ -150,6 +150,7 @@ export const Products = () => {
           {/* Navigation Controls */}
           <div className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-50">
             <button 
+              aria-label="Previous banner"
               onClick={handlePrevBanner}
               className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
             >
@@ -166,6 +167,7 @@ export const Products = () => {
             </div>
 
             <button 
+              aria-label="Next banner"
               onClick={handleNextBanner}
               className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
             >
@@ -446,7 +448,7 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
           style={{ transform: "translateZ(20px)" }}
           className="p-2 sm:p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20"
         >
-          <h4 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{getLocalizedText(product.name, locale)}</h4>
+          <h3 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{getLocalizedText(product.name, locale)}</h3>
           <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{categoryData?.name || product.categoryKh}</p>
         </div>
       </motion.div>

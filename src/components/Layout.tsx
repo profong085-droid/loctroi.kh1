@@ -195,6 +195,7 @@ export const Navbar = () => {
         
         {/* Mobile Toggle */}
         <button
+          aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
           className={`md:hidden p-2 rounded-lg ${
             scrolled ? "text-slate-800" : "text-white"
           }`}
@@ -333,10 +334,10 @@ export const Footer = () => {
             }}
             className="flex flex-col items-center md:items-start"
           >
-            <div className="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6">
-              <Image src="/photo/logo loctroi 6.png" alt="Logo" width={128} height={128} className="object-contain" />
+            <div className="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6 relative">
+              <Image src="/photo/logo loctroi 6.png" alt="Logo" fill className="object-contain" sizes="(max-width: 768px) 96px, 128px" />
             </div>
-            <h3 className="font-black text-xl text-white mb-2">LỘC TRỜI CAMBODIA</h3>
+            <h2 className="font-black text-xl text-white mb-2">LỘC TRỜI CAMBODIA</h2>
             <p className="text-white/50 mb-6 max-w-xs text-sm md:text-base">{t("desc")}</p>
           </motion.div>
           
@@ -347,7 +348,7 @@ export const Footer = () => {
             }}
             className="flex flex-col items-center md:items-start"
           >
-            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("linksTitle")}</h4>
+            <h3 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("linksTitle")}</h3>
             <ul className="space-y-4 text-sm md:text-base">
               <li>
                 <Link href={`/${locale}/about`} className="text-slate-300 hover:text-accent-500 transition-colors">{t("aboutLink")}</Link>
@@ -372,7 +373,7 @@ export const Footer = () => {
             className="flex flex-col items-center md:items-start"
           >
             <div className="flex items-center gap-3 mb-6">
-              <h4 className="font-bold text-white uppercase tracking-wider text-sm md:text-base">{t("contactTitle")}</h4>
+              <h3 className="font-bold text-white uppercase tracking-wider text-sm md:text-base">{t("contactTitle")}</h3>
               <Image src="https://flagcdn.com/w40/kh.png" alt="Cambodia Flag" width={40} height={27} unoptimized className="h-4 w-auto rounded-sm object-cover shadow-sm" />
             </div>
             <ul className="space-y-4 text-sm md:text-base">
@@ -398,15 +399,15 @@ export const Footer = () => {
             }}
             className="flex flex-col items-center md:items-start"
           >
-            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("socialTitle")}</h4>
+            <h3 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("socialTitle")}</h3>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+              <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaFacebookF size={18} className="md:w-[20px] md:h-[20px]" />
               </a>
-              <a href="https://www.tiktok.com/@ifong168" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+              <a href="https://www.tiktok.com/@ifong168" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaTiktok size={18} className="md:w-[20px] md:h-[20px]" />
               </a>
-              <a href="https://t.me/Phochaifong" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+              <a href="https://t.me/Phochaifong" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaTelegram size={20} className="md:w-[22px] md:h-[22px] -ml-0.5" />
               </a>
             </div>

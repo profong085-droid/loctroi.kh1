@@ -99,7 +99,7 @@ export const DealerLocator = () => {
                         <Store size={16} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-slate-800 text-sm md:text-base mb-0.5">{dealer.name}</h4>
+                        <h3 className="font-bold text-slate-800 text-sm md:text-base mb-0.5">{dealer.name}</h3>
                         <div className="flex items-start gap-1 text-slate-500 text-[11px] md:text-xs mb-1">
                           <MapPin size={12} className="shrink-0 mt-0.5 text-primary-500" />
                           <p className="line-clamp-2">{dealer.address}</p>
@@ -126,6 +126,7 @@ export const DealerLocator = () => {
           {/* Right Panel - Map */}
           <div className="w-full lg:w-3/5 h-[300px] md:h-[350px] lg:h-[450px] bg-slate-200 relative">
             <iframe 
+              title="Dealer Location Map"
               src={selectedDealer.mapUrl}
               width="100%" 
               height="100%" 

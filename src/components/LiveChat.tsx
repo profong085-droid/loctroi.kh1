@@ -64,6 +64,7 @@ export const LiveChat = () => {
         replyElement = (
           <div className="mt-2 w-full h-40 rounded-xl overflow-hidden border border-slate-200">
             <iframe 
+              title="Location Map"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25790.199768790324!2d105.34840979170943!3d11.525199472629579!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310bf34142364f9d%3A0x4002af3861b79ed3!2z4Z6K4Z-B4Z6U4Z-J4Z684Z6G4Z624Z6Z4Z6V4Z6b4Z-S4Z6b4Z62IOGem-GegOGfi-GeguGfkuGemuGev-GehOGen-GfhuGejuGehOGfiw!5e0!3m2!1sen!2skh!4v1783980451265!5m2!1sen!2skh" 
               width="100%" 
               height="100%" 
@@ -95,6 +96,7 @@ export const LiveChat = () => {
     <>
       {/* Floating Button */}
       <motion.button
+        aria-label="Open chat"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
@@ -129,6 +131,7 @@ export const LiveChat = () => {
                 </div>
               </div>
               <button 
+                aria-label="Close chat"
                 onClick={() => setIsOpen(false)}
                 className="w-8 h-8 flex items-center justify-center hover:bg-white/20 rounded-full transition-colors"
               >
@@ -173,6 +176,7 @@ export const LiveChat = () => {
                 className="flex-1 bg-slate-100 px-4 py-3 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all"
               />
               <button 
+                aria-label="Send message"
                 onClick={handleSend}
                 disabled={!input.trim()}
                 className="w-11 h-11 bg-primary-500 text-white rounded-full flex items-center justify-center hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shrink-0"
