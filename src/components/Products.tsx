@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo, ElementType, useRef, useEffect } from "react";
+import { useState, useMemo, ElementType, useEffect } from "react";
 import Image from "next/image";
 import { Search, ChevronDown, ZoomIn, ChevronLeft, ChevronRight, X } from "lucide-react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { productsData, categories, getLocalizedText } from "@/data/products";
 import { useTranslations, useLocale } from "next-intl";
@@ -289,38 +289,6 @@ export const Products = () => {
 // 3D Tilt Product Card
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => {
-  const ref = useRef<HTMLDivElement>(null);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
-  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["0%", "100%"]);
-  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["0%", "100%"]);
-  const glareOpacity = useTransform(mouseYSpring, [-0.5, 0.5], [0.1, 0.5]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
     <motion.div
       layout
@@ -328,51 +296,25 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
-      style={{ perspective: 1000 }}
       className="group"
     >
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
+      <div
         onClick={onClick}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        className="relative bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[400px] transition-shadow duration-500 border border-slate-50 overflow-hidden"
+        className="relative bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[400px] transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
       >
-        {/* Glare Effect */}
-        <motion.div
-          className="absolute inset-0 z-30 pointer-events-none rounded-2xl md:rounded-4xl mix-blend-overlay"
-          style={{
-            background: `radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%)`,
-            left: glareX,
-            top: glareY,
-            opacity: glareOpacity,
-            transform: "translate(-50%, -50%)",
-            width: "200%",
-            height: "200%",
-          }}
-        />
-
         <div className="relative h-32 sm:h-40 md:h-56 lg:h-64 p-2 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
           <div 
-            style={{ transform: "translateZ(30px)" }}
             className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
           >
             <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-[12px] md:h-[12px]" />
             {categoryData?.name || product.categoryKh}
           </div>
           <div 
-            style={{ transform: "translateZ(40px)" }}
             className="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg"
           >
             <ZoomIn size={16} className="md:w-[18px] md:h-[18px]" />
           </div>
-          <motion.div 
-            style={{ transform: "translateZ(60px)" }}
+          <div 
             className="relative w-full h-full group-hover:scale-110 transition-transform duration-700"
           >
             <Image
@@ -383,17 +325,16 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
               className="object-contain drop-shadow-2xl pointer-events-none"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
             />
-          </motion.div>
+          </div>
         </div>
         
         <div 
-          style={{ transform: "translateZ(20px)" }}
           className="p-2 sm:p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20"
         >
           <h3 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{getLocalizedText(product.name, locale)}</h3>
           <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{categoryData?.name || product.categoryKh}</p>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

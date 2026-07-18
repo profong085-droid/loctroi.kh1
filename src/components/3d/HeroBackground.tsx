@@ -25,7 +25,7 @@ export default function HeroBackground() {
         loop 
         muted 
         playsInline
-        className="object-cover w-full h-full opacity-70 absolute inset-0"
+        className="hidden md:block object-cover w-full h-full opacity-70 absolute inset-0"
       />
       
       {/* Subtle overlay gradient to make text readable */}

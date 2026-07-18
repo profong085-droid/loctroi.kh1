@@ -9,11 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@napi-rs/canvas": "^0.1.53",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^2.0.0",
-    "canvas": "^3.2.3",
     "dotenv": "^17.4.2",
     "firebase": "^12.16.0",
     "framer-motion": "^12.42.2",

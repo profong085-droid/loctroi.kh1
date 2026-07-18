@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 
 const partners = [
   { name: "Lộc Trời Group", id: 1 },
@@ -14,7 +13,6 @@ const partners = [
 ];
 
 export const Partners = () => {
-  const t = useTranslations("Partners");
   
   return (
     <section className="py-12 bg-white border-y border-slate-100 overflow-hidden">
