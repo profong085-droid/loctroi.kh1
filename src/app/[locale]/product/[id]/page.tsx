@@ -162,7 +162,7 @@ export default async function ProductPage({ params }: Props) {
           />
         </div>
         
-        <div className="bg-white rounded-3xl md:rounded-4xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
           <div className="w-full md:w-1/2 p-2 sm:p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[160px] sm:min-h-[220px] md:min-h-[400px]">
             <div className="relative w-full h-[160px] sm:h-[220px] md:h-[500px]">
               <Image 
@@ -188,7 +188,7 @@ export default async function ProductPage({ params }: Props) {
             
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
               {productIngredients && (
-                <div className="bg-primary-50/50 p-4 sm:p-6 rounded-2xl border border-primary-100">
+                <div className="bg-primary-50/50 p-4 sm:p-6 rounded-xl border border-primary-100">
                   <h2 className="font-bold text-primary-900 mb-2 sm:mb-3 flex items-center gap-2 text-base sm:text-lg md:text-xl">
                     <FlaskConical size={20} className="text-primary-600 sm:w-[24px] sm:h-[24px]" />
                     {t("ingredients")}
@@ -199,7 +199,7 @@ export default async function ProductPage({ params }: Props) {
                   
                   {/* Detailed Information based on Active Ingredient */}
                   {productIngredientDetails && (
-                    <div className="ml-4 sm:ml-8 bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-primary-100">
+                    <div className="ml-4 sm:ml-8 bg-white p-4 sm:p-5 rounded-lg shadow-sm border border-primary-100">
                       <h3 className="font-bold text-primary-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
                         <Microscope size={18} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
                         {t("ingredientDetails")}
@@ -215,7 +215,7 @@ export default async function ProductPage({ params }: Props) {
               )}
 
               {productBenefits.length > 0 && (
-                <div className="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100">
+                <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
                   <h2 className="font-bold text-slate-800 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
                     <Leaf size={18} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
                     {t("benefits")}
@@ -231,7 +231,7 @@ export default async function ProductPage({ params }: Props) {
                 </div>
               )}
 
-              <div className="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100">
+              <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
                 <h2 className="font-bold text-slate-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base md:text-lg">
                   <Tag size={16} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
                   {t("usage")}
@@ -244,7 +244,7 @@ export default async function ProductPage({ params }: Props) {
             
             <Link 
               href={`/${locale}#contact`}
-              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-xl w-full text-base sm:text-lg"
+              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-xl w-full text-base sm:text-lg"
             >
               {t("inquire")}
             </Link>

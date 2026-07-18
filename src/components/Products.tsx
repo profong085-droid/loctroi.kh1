@@ -2,10 +2,10 @@
 
 import { useState, useMemo, ElementType, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Search, Tag, X, ChevronDown, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, ChevronDown, ZoomIn, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
-import Link from "next/link";
-import { productsData, categories, Product, getLocalizedText } from "@/data/products";
+import { useRouter } from "next/navigation";
+import { productsData, categories, getLocalizedText } from "@/data/products";
 import { useTranslations, useLocale } from "next-intl";
 
 import { 
@@ -41,7 +41,7 @@ export const Products = () => {
   const [activeCat, setActiveCat] = useState("all");
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(12);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const router = useRouter();
 
   const baseBanners = [
     { src: "/banner តាសុខ/តាសុខខ្លាំង.jpg", alt: "ថ្នាំកសិកម្ម តាសុខខ្លាំង លេខមួយពីក្រុមហ៊ុន Lộc Trời Cambodia ជួយការពារនិងកម្ចាត់រោគសត្វល្អិត" },
@@ -74,26 +74,6 @@ export const Products = () => {
   }, [activeCat, search, locale]);
 
   const displayedProducts = filteredProducts.slice(0, visibleCount);
-
-  const handleInquireProduct = async (product: Product) => {
-    setSelectedProduct(null);
-    
-    try {
-      await fetch("/api/send-telegram", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "product-inquiry",
-          productName: getLocalizedText(product.name, locale),
-          productCategory: product.categoryKh,
-          productUsage: getLocalizedText(product.usage, locale),
-          productImage: product.image,
-        }),
-      });
-    } catch (error) {
-      console.error("Failed to send product inquiry", error);
-    }
-  };
 
   return (
     <section id="products" className="py-6 md:py-16 bg-slate-50 relative">
@@ -279,7 +259,7 @@ export const Products = () => {
                     key={product.id} 
                     product={product} 
                     categoryData={categoryData} 
-                    onClick={() => setSelectedProduct(product)} 
+                    onClick={() => router.push(`/${locale}/product/${product.id}`)} 
                     index={i}
                     locale={locale}
                   />
@@ -302,71 +282,6 @@ export const Products = () => {
           </div>
         )}
       </div>
-
-      {/* Product Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" 
-              onClick={() => setSelectedProduct(null)} 
-            />
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative bg-white rounded-2xl md:rounded-4xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row"
-            >
-              <button 
-                onClick={() => setSelectedProduct(null)}
-                className="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 bg-slate-100/80 backdrop-blur hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center transition-colors z-50"
-              >
-                <X size={18} className="md:w-[20px] md:h-[20px]" />
-              </button>
-              
-              <ModalImage3D image={selectedProduct.image} alt={getLocalizedText(selectedProduct.name, locale)} />
-              
-              <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-12 flex flex-col justify-center">
-                <div className="inline-block px-3 py-1 md:px-4 md:py-1.5 bg-primary-100 text-primary-800 text-[10px] md:text-xs font-black rounded-full uppercase tracking-wider mb-2 sm:mb-4 md:mb-6 w-max">
-                  {t(`category_${selectedProduct.category}` as Parameters<typeof t>[0])}
-                </div>
-                <h3 className="text-lg sm:text-xl md:text-4xl font-black text-slate-800 mb-2 sm:mb-4 md:mb-6 leading-tight">
-                  {getLocalizedText(selectedProduct.name, locale)}
-                </h3>
-                
-                <div className="bg-slate-50 p-3 sm:p-4 md:p-6 rounded-2xl border border-slate-100">
-                  <h4 className="font-bold text-slate-800 mb-1.5 sm:mb-2 md:mb-3 flex items-center gap-1.5 md:gap-2 text-sm md:text-base">
-                    <Tag size={16} className="text-accent-500 md:w-[18px] md:h-[18px]" />
-                    {t("details")}
-                  </h4>
-                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-lg">
-                    {getLocalizedText(selectedProduct.usage, locale)}
-                  </p>
-                </div>
-                
-                <div className="flex flex-col gap-2 md:gap-3 mt-4 sm:mt-6 md:mt-8">
-                  <button 
-                    className="px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-full font-bold transition-all shadow-md md:shadow-lg hover:shadow-xl w-full text-sm md:text-base"
-                    onClick={() => handleInquireProduct(selectedProduct)}
-                  >
-                    {t("inquire")}
-                  </button>
-                  <Link 
-                    href={`/${locale}/product/${selectedProduct.id}`}
-                    className="px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-white border-2 border-primary-800 text-primary-800 hover:bg-primary-50 rounded-full font-bold transition-all w-full text-center text-sm md:text-base"
-                    onClick={() => setSelectedProduct(null)}
-                  >
-                    {t("viewFullPage")}
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
@@ -480,82 +395,5 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
         </div>
       </motion.div>
     </motion.div>
-  );
-};
-
-// 3D Tilt Modal Image
-const ModalImage3D = ({ image, alt }: { image: string, alt: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["0%", "100%"]);
-  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["0%", "100%"]);
-  const glareOpacity = useTransform(mouseYSpring, [-0.5, 0.5], [0, 0.3]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[140px] sm:min-h-[200px] md:min-h-[300px]" style={{ perspective: 1000 }}>
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        className="relative w-full h-[140px] sm:h-[200px] md:h-[400px] rounded-2xl group cursor-crosshair"
-      >
-        {/* Glare Effect */}
-        <motion.div
-          className="absolute inset-0 z-30 pointer-events-none mix-blend-overlay"
-          style={{
-            background: `radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%)`,
-            left: glareX,
-            top: glareY,
-            opacity: glareOpacity,
-            transform: "translate(-50%, -50%)",
-            width: "200%",
-            height: "200%",
-          }}
-        />
-        <motion.div 
-          style={{ transform: "translateZ(50px)" }}
-          className="relative w-full h-full group-hover:scale-105 transition-transform duration-500"
-        >
-          <Image 
-            src={`/${image}`} 
-            alt={alt} 
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain drop-shadow-2xl pointer-events-none" 
-          />
-        </motion.div>
-      </motion.div>
-    </div>
   );
 };
