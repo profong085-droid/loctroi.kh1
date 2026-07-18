@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const agriVideos = [
   "https://web.facebook.com/reel/989128403824307",
@@ -13,6 +14,7 @@ const agriVideos = [
 export function AgriVideos() {
   const t = useTranslations("AgriVideos");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [playingState, setPlayingState] = useState<Record<number, boolean>>({});
 
   const handleNext = () => setActiveIndex((prev) => (prev + 1) % agriVideos.length);
   const handlePrev = () => setActiveIndex((prev) => (prev - 1 + agriVideos.length) % agriVideos.length);
@@ -102,20 +104,44 @@ export function AgriVideos() {
                   <div className="absolute inset-0 z-20 bg-transparent" />
                 )}
                 
-                <iframe 
-                  title="Agricultural Video"
-                  src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(link)}&show_text=false&width=auto`} 
-                  style={{ border: "none", overflow: "hidden" }}
-                  className="w-full h-full absolute inset-0 z-10 pointer-events-auto"
-                  scrolling="no" 
-                  frameBorder="0" 
-                  allowFullScreen={true} 
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                ></iframe>
+                {playingState[index] ? (
+                  <iframe 
+                    title="Agricultural Video"
+                    src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(link)}&show_text=false&width=auto&autoplay=1`} 
+                    style={{ border: "none", overflow: "hidden" }}
+                    className="w-full h-full absolute inset-0 z-10 pointer-events-auto"
+                    scrolling="no" 
+                    frameBorder="0" 
+                    allowFullScreen={true} 
+                    referrerPolicy="no-referrer"
+                  ></iframe>
+                ) : (
+                  <div 
+                    className="absolute inset-0 w-full h-full z-10 cursor-pointer flex flex-col items-center justify-center bg-black/50 hover:bg-black/40 transition group"
+                    onClick={(e) => {
+                      if (position === "center") {
+                        e.stopPropagation();
+                        setPlayingState(prev => ({...prev, [index]: true}));
+                      }
+                    }}
+                  >
+                    {/* Facade image using the video schemas thumbnail */}
+                    <Image 
+                      src={videoSchemas[index]?.thumbnailUrl?.[0] || "/photo/banner1.jpg"} 
+                      alt="Thumbnail" 
+                      fill
+                      unoptimized
+                      className="object-cover -z-10 opacity-70"
+                    />
+                    {/* Play Button Icon */}
+                    <div className="w-16 h-16 rounded-full bg-accent-500/90 flex items-center justify-center text-primary-950 shadow-[0_0_20px_rgba(245,158,11,0.6)] group-hover:scale-110 group-hover:bg-accent-400 transition-all">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                  </div>
+                )}
                 
-                {/* Loader Placeholder */}
-                <div className="absolute inset-0 bg-[#111] flex flex-col items-center justify-center gap-4 -z-10">
+                {/* Loader Placeholder (below facade/iframe) */}
+                <div className="absolute inset-0 bg-[#111] flex flex-col items-center justify-center gap-4 -z-20">
                   <div className="w-10 h-10 border-4 border-accent-500 border-t-transparent rounded-full animate-spin"></div>
                 </div>
               </div>
