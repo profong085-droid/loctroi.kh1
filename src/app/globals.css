@@ -46,8 +46,13 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: #059669;
-  border-radius: 4px;
+  border-radius: 0px; /* modified */
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #047857;
+}
+
+/* Force all corners to be square */
+* {
+  border-radius: 0 !important;
 }

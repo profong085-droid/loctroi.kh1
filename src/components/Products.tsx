@@ -199,8 +199,7 @@ export const Products = () => {
         </div>
 
         <div className="text-center mb-8 md:mb-12 mt-16 md:mt-20">
-          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-6 tracking-wide leading-relaxed">{t("title")}</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-lg">{t("subtitle")}</p>
+          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 tracking-wide leading-relaxed">{t("title")}</h2>
         </div>
 
         {/* Toolbar */}

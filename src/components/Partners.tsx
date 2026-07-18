@@ -18,11 +18,7 @@ export const Partners = () => {
   
   return (
     <section className="py-12 bg-white border-y border-slate-100 overflow-hidden">
-      <div className="container mx-auto px-6 mb-6">
-        <h2 className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest">
-          {t("title")}
-        </h2>
-      </div>
+
       
       {/* Infinite Scrolling Marquee */}
       <div className="relative flex max-w-7xl mx-auto overflow-hidden">
