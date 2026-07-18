@@ -97,6 +97,28 @@ export const Products = () => {
 
   return (
     <section id="products" className="py-6 md:py-16 bg-slate-50 relative">
+      {/* កូដ SEO ពិសេស (Schema Markup) ដើម្បីប្រាប់ Google ពី Banner ទាំង ៥ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Loc Troi Cambodia - Ta Sok Banners",
+            "description": "បណ្តុំរូបភាព Banner តាសុខ គុណភាពខ្ពស់ពីក្រុមហ៊ុន ឡុកត្រយ កម្ពុជា (Loc Troi Cambodia)",
+            "itemListElement": baseBanners.map((banner, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": `https://loctroi.online${encodeURI(banner.src)}`,
+                "description": banner.alt,
+                "name": banner.alt
+              }
+            }))
+          })
+        }}
+      />
       <div className="container mx-auto px-4 md:px-6">
         {/* Banner 3D Carousel */}
         <div className="mb-12 md:mb-16 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
