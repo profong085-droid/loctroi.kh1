@@ -20,7 +20,6 @@ export default function HeroBackground() {
       {/* Background Video Banner */}
       <video 
         src="/photo/banner1.mp4" 
-        poster="/photo/banner1.jpg"
         autoPlay 
         loop 
         muted 
