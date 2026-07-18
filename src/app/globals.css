@@ -46,13 +46,8 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: #059669;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #047857;
-}
-
-/* Not too square, not too round */
-* {
-  border-radius: 12px !important;
 }
