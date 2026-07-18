@@ -141,7 +141,6 @@ export const Products = () => {
                       fill
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw, 35vw"
                       className="object-cover"
-                      priority={index === currentBanner}
                     />
                   )}
                 </div>
@@ -325,7 +324,7 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
               title={`${getLocalizedText(product.name, locale)} - Loc Troi Cambodia`}
               fill
               className="object-contain drop-shadow-2xl pointer-events-none"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           </div>
         </div>
