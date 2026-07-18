@@ -130,10 +130,10 @@ export function RelatedProducts({
             return (
               <div 
                 key={product.id}
-                className="min-w-[200px] md:min-w-[280px] snap-start flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden group hover:-translate-y-1"
+                className="min-w-[150px] sm:min-w-[200px] md:min-w-[280px] snap-start flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden group hover:-translate-y-1"
               >
                 <Link href={`/${locale}/product/${product.id}`} className="flex-1 flex flex-col">
-                  <div className="relative h-40 sm:h-56 p-4 md:p-6 bg-linear-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden border-b border-slate-50">
+                  <div className="relative h-32 sm:h-40 md:h-56 p-3 md:p-6 bg-linear-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden border-b border-slate-50">
                     <div className="absolute top-3 left-3 px-2 py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[10px] font-black rounded-full uppercase tracking-wider z-10">
                       {getCatName(product.category) || product.categoryKh}
                     </div>
@@ -148,12 +148,12 @@ export function RelatedProducts({
                     </div>
                   </div>
                   
-                  <div className="p-4 md:p-5 flex-1 flex flex-col text-center items-center justify-center">
-                    <h3 className="font-black text-slate-800 text-sm md:text-lg line-clamp-2 mb-3 md:mb-4 group-hover:text-primary-700 transition-colors">
+                  <div className="p-3 md:p-5 flex-1 flex flex-col text-center items-center justify-center">
+                    <h3 className="font-black text-slate-800 text-[13px] md:text-lg line-clamp-2 mb-2 md:mb-4 group-hover:text-primary-700 transition-colors leading-tight">
                       {getLocalizedText(product.name, locale)}
                     </h3>
                     <div className="mt-auto pt-2 w-full">
-                      <div className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-2 bg-primary-700 text-white rounded-full font-bold text-xs md:text-sm shadow-md group-hover:bg-primary-900 group-hover:shadow-lg transition-all w-full justify-center">
+                      <div className="inline-flex items-center gap-1 md:gap-2 px-3 py-1.5 md:px-6 md:py-2 bg-primary-700 text-white rounded-full font-bold text-[11px] md:text-sm shadow-md group-hover:bg-primary-900 group-hover:shadow-lg transition-all w-full justify-center">
                         <Eye size={16} /> {viewText}
                       </div>
                     </div>

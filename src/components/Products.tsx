@@ -323,41 +323,41 @@ export const Products = () => {
             >
               <button 
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 w-10 h-10 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center transition-colors z-10"
+                className="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 bg-slate-100/80 backdrop-blur hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center transition-colors z-50"
               >
-                <X size={20} />
+                <X size={18} className="md:w-[20px] md:h-[20px]" />
               </button>
               
               <ModalImage3D image={selectedProduct.image} alt={getLocalizedText(selectedProduct.name, locale)} />
               
-              <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
-                <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-xs font-black rounded-full uppercase tracking-wider mb-6 w-max">
+              <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-12 flex flex-col justify-center">
+                <div className="inline-block px-3 py-1 md:px-4 md:py-1.5 bg-primary-100 text-primary-800 text-[10px] md:text-xs font-black rounded-full uppercase tracking-wider mb-2 sm:mb-4 md:mb-6 w-max">
                   {t(`category_${selectedProduct.category}` as Parameters<typeof t>[0])}
                 </div>
-                <h3 className="text-2xl md:text-4xl font-black text-slate-800 mb-4 md:mb-6 leading-tight">
+                <h3 className="text-lg sm:text-xl md:text-4xl font-black text-slate-800 mb-2 sm:mb-4 md:mb-6 leading-tight">
                   {getLocalizedText(selectedProduct.name, locale)}
                 </h3>
                 
-                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                  <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
-                    <Tag size={18} className="text-accent-500" />
+                <div className="bg-slate-50 p-3 sm:p-4 md:p-6 rounded-2xl border border-slate-100">
+                  <h4 className="font-bold text-slate-800 mb-1.5 sm:mb-2 md:mb-3 flex items-center gap-1.5 md:gap-2 text-sm md:text-base">
+                    <Tag size={16} className="text-accent-500 md:w-[18px] md:h-[18px]" />
                     {t("details")}
                   </h4>
-                  <p className="text-slate-600 leading-relaxed text-base md:text-lg">
+                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-lg">
                     {getLocalizedText(selectedProduct.usage, locale)}
                   </p>
                 </div>
                 
-                <div className="flex flex-col gap-3 mt-8">
+                <div className="flex flex-col gap-2 md:gap-3 mt-4 sm:mt-6 md:mt-8">
                   <button 
-                    className="px-8 py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-xl w-full"
+                    className="px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-full font-bold transition-all shadow-md md:shadow-lg hover:shadow-xl w-full text-sm md:text-base"
                     onClick={() => handleInquireProduct(selectedProduct)}
                   >
                     {t("inquire")}
                   </button>
                   <Link 
                     href={`/${locale}/product/${selectedProduct.id}`}
-                    className="px-6 md:px-8 py-3 md:py-4 bg-white border-2 border-primary-800 text-primary-800 hover:bg-primary-50 rounded-full font-bold transition-all w-full text-center"
+                    className="px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-white border-2 border-primary-800 text-primary-800 hover:bg-primary-50 rounded-full font-bold transition-all w-full text-center text-sm md:text-base"
                     onClick={() => setSelectedProduct(null)}
                   >
                     {t("viewFullPage")}
@@ -519,7 +519,7 @@ const ModalImage3D = ({ image, alt }: { image: string, alt: string }) => {
   };
 
   return (
-    <div className="w-full md:w-1/2 p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[200px] md:min-h-[300px]" style={{ perspective: 1000 }}>
+    <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[140px] sm:min-h-[200px] md:min-h-[300px]" style={{ perspective: 1000 }}>
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}
@@ -529,7 +529,7 @@ const ModalImage3D = ({ image, alt }: { image: string, alt: string }) => {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-full h-[200px] md:h-[400px] rounded-2xl group cursor-crosshair"
+        className="relative w-full h-[140px] sm:h-[200px] md:h-[400px] rounded-2xl group cursor-crosshair"
       >
         {/* Glare Effect */}
         <motion.div

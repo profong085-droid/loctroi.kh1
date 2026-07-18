@@ -163,8 +163,8 @@ export default async function ProductPage({ params }: Props) {
         </div>
         
         <div className="bg-white rounded-3xl md:rounded-4xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
-          <div className="w-full md:w-1/2 p-4 sm:p-8 md:p-12 bg-slate-50 flex items-center justify-center min-h-[220px] md:min-h-[400px]">
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[500px]">
+          <div className="w-full md:w-1/2 p-2 sm:p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[160px] sm:min-h-[220px] md:min-h-[400px]">
+            <div className="relative w-full h-[160px] sm:h-[220px] md:h-[500px]">
               <Image 
                 src={`/${product.image}`} 
                 alt={`${productName} | Loc Troi Cambodia`} 
@@ -177,12 +177,12 @@ export default async function ProductPage({ params }: Props) {
             </div>
           </div>
           
-          <div className="w-full md:w-1/2 p-5 sm:p-8 md:p-14 flex flex-col justify-center">
-            <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 bg-primary-100 text-primary-800 text-[11px] sm:text-xs md:text-sm font-black rounded-full uppercase tracking-wider mb-3 sm:mb-6 w-max">
+          <div className="w-full md:w-1/2 p-4 sm:p-8 md:p-14 flex flex-col justify-center">
+            <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 bg-primary-100 text-primary-800 text-[10px] sm:text-xs md:text-sm font-black rounded-full uppercase tracking-wider mb-2 sm:mb-6 w-max">
               {tCat(`category_${product.category}` as Parameters<typeof tCat>[0])}
             </div>
             
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-800 mb-3 sm:mb-6 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-5xl font-black text-slate-800 mb-2 sm:mb-6 leading-tight">
               {productName}
             </h1>
             
