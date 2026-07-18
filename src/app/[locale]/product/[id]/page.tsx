@@ -6,6 +6,7 @@ import { ArrowLeft, Tag, FlaskConical, CheckCircle2, Leaf, Microscope } from "lu
 import { Metadata } from "next";
 import { ShareButton } from "@/components/ShareButton";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { RelatedProducts } from "@/components/RelatedProducts";
 
 type Props = {
   params: Promise<{ id: string, locale: string }>;
@@ -170,6 +171,7 @@ export default async function ProductPage({ params }: Props) {
                 title={`${productName} - Loc Troi Cambodia`}
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain drop-shadow-2xl" 
               />
             </div>
@@ -248,6 +250,8 @@ export default async function ProductPage({ params }: Props) {
             </Link>
           </div>
         </div>
+
+        <RelatedProducts currentProductId={product.id} category={product.category} locale={locale} />
       </div>
     </main>
   );

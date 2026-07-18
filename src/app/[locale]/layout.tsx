@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Kantumruy_Pro, Koulen } from "next/font/google";
 import "../globals.css";
 import { Navbar, Footer } from "@/components/Layout";
-import dynamic from "next/dynamic";
 import { FloatingComponents } from "@/components/FloatingComponents";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
