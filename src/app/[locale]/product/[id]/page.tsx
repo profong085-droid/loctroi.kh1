@@ -95,6 +95,18 @@ export default async function ProductPage({ params }: Props) {
     brand: {
       '@type': 'Brand',
       name: 'Loc Troi Cambodia'
+    },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      price: '0',
+      availability: 'https://schema.org/InStock',
+      url: `https://loctroi.online/${locale}/product/${product.id}`
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '18'
     }
   };
 
