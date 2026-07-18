@@ -107,6 +107,7 @@ export default async function ProductPage({ params }: Props) {
                 title={`${productName} - Loc Troi Cambodia`}
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain drop-shadow-2xl" 
               />
             </div>
