@@ -305,13 +305,13 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
       >
         <div className="relative h-32 sm:h-40 md:h-56 lg:h-64 p-2 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
           <div 
-            className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
+            className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/90 text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
           >
             <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-[12px] md:h-[12px]" />
             {categoryData?.name || product.categoryKh}
           </div>
           <div 
-            className="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg"
+            className="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 bg-white/95 rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg"
           >
             <ZoomIn size={16} className="md:w-[18px] md:h-[18px]" />
           </div>
@@ -323,7 +323,7 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
               alt={`${getLocalizedText(product.name, locale)} | Loc Troi Cambodia`}
               title={`${getLocalizedText(product.name, locale)} - Loc Troi Cambodia`}
               fill
-              className="object-contain drop-shadow-2xl pointer-events-none"
+              className="object-contain pointer-events-none"
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           </div>
