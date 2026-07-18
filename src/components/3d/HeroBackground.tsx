@@ -24,6 +24,7 @@ export default function HeroBackground() {
         alt="Loc Troi Cambodia Banner"
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         quality={85}
         className="object-cover opacity-70 absolute inset-0"

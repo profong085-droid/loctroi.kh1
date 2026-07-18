@@ -70,8 +70,11 @@ export function VideoSongs() {
 
   return (
     <section id="songs" className="py-4 md:py-6 bg-primary-950 flex justify-center px-4 relative overflow-hidden">
-      {/* Background glow to make the small card look natural in the center */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-500/10 blur-[100px] rounded-full pointer-events-none" />
+      {/* Background glow (Optimized for iOS WebKit) */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none" 
+        style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)' }}
+      />
 
       {/* The Small Contained Box */}
       <div className="w-full max-w-3xl bg-white/5 border border-white/10 p-3 md:p-4 rounded-4xl backdrop-blur-xl shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 items-center relative z-10 hover:border-white/20 transition-colors">
@@ -81,7 +84,7 @@ export function VideoSongs() {
           <video 
             key={activeVideo.src}
             controls 
-            preload="metadata"
+            preload="none"
             poster={activeVideo.poster}
             className="w-full h-full object-cover"
           >

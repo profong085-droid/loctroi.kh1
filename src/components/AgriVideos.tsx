@@ -62,8 +62,11 @@ export function AgriVideos() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchemas) }}
       />
 
-      {/* Cinematic Glow Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-500/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* Cinematic Glow Background (Optimized for iOS WebKit) */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" 
+        style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)' }}
+      />
 
       <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
         
