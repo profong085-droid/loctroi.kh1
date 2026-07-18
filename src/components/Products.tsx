@@ -136,16 +136,16 @@ export const Products = () => {
                   key={index}
                   className={`absolute w-[50%] sm:w-[45%] md:w-[40%] lg:w-[35%] aspect-3/2 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out flex items-center justify-center ring-2 ring-black/5 ${
                     position === "center"
-                      ? "translate-x-0 scale-100 z-50 opacity-100 ring-primary-500 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                      ? "translate-x-0 scale-100 z-30 opacity-100 ring-primary-500 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
                       : position === "left1"
-                      ? "translate-x-[-50%] sm:translate-x-[-60%] md:translate-x-[-70%] lg:translate-x-[-80%] scale-[0.75] z-40 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
+                      ? "translate-x-[-50%] sm:translate-x-[-60%] md:translate-x-[-70%] lg:translate-x-[-80%] scale-[0.75] z-20 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
                       : position === "right1"
-                      ? "translate-x-[50%] sm:translate-x-[60%] md:translate-x-[70%] lg:translate-x-[80%] scale-[0.75] z-40 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
+                      ? "translate-x-[50%] sm:translate-x-[60%] md:translate-x-[70%] lg:translate-x-[80%] scale-[0.75] z-20 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
                       : position === "left2"
-                      ? "translate-x-[-90%] sm:translate-x-[-110%] md:translate-x-[-125%] lg:translate-x-[-140%] scale-[0.55] z-30 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
+                      ? "translate-x-[-90%] sm:translate-x-[-110%] md:translate-x-[-125%] lg:translate-x-[-140%] scale-[0.55] z-10 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
                       : position === "right2"
-                      ? "translate-x-[90%] sm:translate-x-[110%] md:translate-x-[125%] lg:translate-x-[140%] scale-[0.55] z-30 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
-                      : "opacity-0 z-10 pointer-events-none scale-[0.4]"
+                      ? "translate-x-[90%] sm:translate-x-[110%] md:translate-x-[125%] lg:translate-x-[140%] scale-[0.55] z-10 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
+                      : "opacity-0 z-0 pointer-events-none scale-[0.4]"
                   }`}
                   onClick={() => {
                     if (position !== "center" && position !== "hidden") {
@@ -170,7 +170,7 @@ export const Products = () => {
 
 
           {/* Navigation Controls */}
-          <div className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-50">
+          <div className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-40">
             <button 
               aria-label="Previous banner"
               onClick={handlePrevBanner}
@@ -228,21 +228,27 @@ export const Products = () => {
           </div>
 
           {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 px-2">
             {categories.map((cat) => (
               <motion.button
                 key={cat.id}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => { setActiveCat(cat.id); setVisibleCount(12); }}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                className={`flex items-center gap-2.5 px-4 py-2 md:px-6 md:py-2.5 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 border ${
                   activeCat === cat.id
-                    ? "bg-primary-800 text-white shadow-lg shadow-primary-800/30"
-                    : "bg-white border border-slate-200 text-slate-600 hover:border-primary-300 hover:bg-primary-50"
+                    ? "bg-primary-700 border-primary-700 text-white shadow-lg shadow-primary-700/30"
+                    : "bg-white border-slate-200/80 text-slate-600 hover:border-primary-300 hover:bg-primary-50/50 hover:text-primary-700 shadow-sm hover:shadow-md"
                 }`}
               >
-                <Icon name={cat.icon} size={16} />
-                {cat.id === "all" ? t("categoryAll") : t(`category_${cat.id}` as Parameters<typeof t>[0])}
+                <div className={`flex items-center justify-center rounded-full p-1.5 transition-colors ${
+                  activeCat === cat.id ? "bg-white/20 text-white" : "bg-primary-50 text-primary-600"
+                }`}>
+                  <Icon name={cat.icon} size={14} className="md:w-[16px] md:h-[16px]" />
+                </div>
+                <span className="whitespace-nowrap">
+                  {cat.id === "all" ? t("categoryAll") : t(`category_${cat.id}` as Parameters<typeof t>[0])}
+                </span>
               </motion.button>
             ))}
           </div>
@@ -546,6 +552,7 @@ const ModalImage3D = ({ image, alt }: { image: string, alt: string }) => {
             src={`/${image}`} 
             alt={alt} 
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain drop-shadow-2xl pointer-events-none" 
           />
         </motion.div>

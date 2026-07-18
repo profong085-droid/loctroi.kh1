@@ -73,6 +73,11 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, loading } = useAuth();
   const t = useTranslations("Navbar");
+  const pathname = usePathname();
+  const locale = useLocale();
+
+  const isHomePage = pathname === '/' || /^\/[a-z]{2}$/.test(pathname);
+  const isNavSolid = scrolled || !isHomePage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,11 +109,11 @@ export const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-white/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
+        isNavSolid ? "bg-white/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-3 group">
+        <Link href={`/${locale}/#hero`} className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 transition-transform group-hover:scale-105">
             <Image
               src="/photo/logo loctroi 6.png"
@@ -122,20 +127,20 @@ export const Navbar = () => {
           <div className="flex flex-col">
             <span
               className={`font-black text-xl leading-tight transition-colors ${
-                scrolled ? "text-primary-950" : "text-white"
+                isNavSolid ? "text-primary-950" : "text-white"
               }`}
             >
               LỘC TRỜI
             </span>
             <span
               className={`font-semibold text-xs tracking-[0.2em] uppercase transition-colors ${
-                scrolled ? "text-primary-600" : "text-accent-400"
+                isNavSolid ? "text-primary-600" : "text-accent-400"
               }`}
             >
               Cambodia
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
@@ -144,15 +149,15 @@ export const Navbar = () => {
             { id: "about", label: t("about") },
             { id: "products", label: t("products") },
           ].map((item) => (
-            <a
+            <Link
               key={item.id}
-              href={`#${item.id}`}
+              href={`/${locale}/#${item.id}`}
               className={`text-sm font-bold tracking-wide transition-colors hover:text-accent-500 ${
-                scrolled ? "text-slate-700" : "text-white/90"
+                isNavSolid ? "text-slate-700" : "text-white/90"
               }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           
           {loading ? (
@@ -168,14 +173,14 @@ export const Navbar = () => {
                   unoptimized
                   className="w-7 h-7 rounded-full object-cover"
                 />
-                <span className={`text-sm font-semibold hidden lg:block ${scrolled ? "text-slate-800" : "text-white"}`}>
+                <span className={`text-sm font-semibold hidden lg:block ${isNavSolid ? "text-slate-800" : "text-white"}`}>
                   {user.displayName}
                 </span>
               </div>
               <button
                 onClick={() => signOut(auth)}
                 className={`text-sm font-bold px-4 py-2 rounded-full border transition-colors ${
-                  scrolled ? "border-slate-200 text-slate-600 hover:bg-slate-50" : "border-white/30 text-white hover:bg-white/10"
+                  isNavSolid ? "border-slate-200 text-slate-600 hover:bg-slate-50" : "border-white/30 text-white hover:bg-white/10"
                 }`}
               >
                 {t("logout")}
@@ -191,14 +196,14 @@ export const Navbar = () => {
             </button>
           )}
           
-          <LanguageSwitcher scrolled={scrolled} />
+          <LanguageSwitcher scrolled={isNavSolid} />
         </div>
         
         {/* Mobile Toggle */}
         <button
           aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
           className={`md:hidden p-2 rounded-lg ${
-            scrolled ? "text-slate-800" : "text-white"
+            isNavSolid ? "text-slate-800" : "text-white"
           }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -221,15 +226,15 @@ export const Navbar = () => {
                 { id: "about", label: t("about") },
                 { id: "products", label: t("products") },
               ].map((item) => (
-                <a
+                <Link
                   key={item.id}
-                  href={`#${item.id}`}
+                  href={`/${locale}/#${item.id}`}
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-4 text-slate-800 font-bold border-b border-slate-50 flex items-center justify-between group"
                 >
                   {item.label}
                   <ArrowRight size={16} className="text-slate-300 group-hover:text-primary-500 transition-colors" />
-                </a>
+                </Link>
               ))}
               
               {/* Mobile Authentication */}
