@@ -77,7 +77,7 @@ export function VideoSongs() {
       />
 
       {/* The Small Contained Box */}
-      <div className="w-full max-w-3xl bg-white/5 border border-white/10 p-3 md:p-4 rounded-4xl backdrop-blur-xl shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 items-center relative z-10 hover:border-white/20 transition-colors">
+      <div className="w-full max-w-3xl bg-white/5 border border-white/10 p-3 md:p-4 rounded-4xl shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 items-center relative z-10 hover:border-white/20 transition-colors">
         
         {/* Compact Video Player */}
         <div className="w-[80%] md:w-[40%] mx-auto shrink-0 aspect-square bg-black rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
