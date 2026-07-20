@@ -256,7 +256,7 @@ export const Products = () => {
           </motion.div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
-              {displayedProducts.map((product, i) => {
+              {displayedProducts.map((product) => {
                 const categoryData = categories.find(c => c.id === product.category);
                 return (
                   <ProductCard 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Kantumruy_Pro, Koulen } from "next/font/google";
 import "../globals.css";
 import { Navbar, Footer } from "@/components/Layout";
@@ -21,6 +21,13 @@ const koulen = Koulen({
   subsets: ["khmer"],
   variable: "--font-koulen"
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
