@@ -3,7 +3,7 @@
 import { useState, useMemo, ElementType, useEffect } from "react";
 import Image from "next/image";
 import { Search, ChevronDown, ZoomIn, ChevronLeft, ChevronRight, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { productsData, categories, getLocalizedText } from "@/data/products";
 import { useTranslations, useLocale } from "next-intl";
@@ -35,7 +35,7 @@ const Icon = ({ name, size = 20, className = "" }: { name: string; size?: number
 };
 
 // Banner Carousel Component
-const BannerCarousel = ({ baseBanners, bannerImages }: { baseBanners: any[], bannerImages: any[] }) => {
+const BannerCarousel = ({ baseBanners, bannerImages }: { baseBanners: { src: string; alt: string }[], bannerImages: { src: string; alt: string }[] }) => {
   const [currentBanner, setCurrentBanner] = useState(0);
 
   const handleNextBanner = () => setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
@@ -256,7 +256,6 @@ export const Products = () => {
           </motion.div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
-            <AnimatePresence>
               {displayedProducts.map((product, i) => {
                 const categoryData = categories.find(c => c.id === product.category);
                 return (
@@ -265,12 +264,10 @@ export const Products = () => {
                     product={product} 
                     categoryData={categoryData} 
                     onClick={() => router.push(`/${locale}/product/${product.id}`)} 
-                    index={i}
                     locale={locale}
                   />
                 );
               })}
-            </AnimatePresence>
           </div>
         )}
 
@@ -293,15 +290,9 @@ export const Products = () => {
 
 // 3D Tilt Product Card
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => {
+const ProductCard = ({ product, categoryData, onClick, locale }: any) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
-      className="group"
-    >
+    <div className="group">
       <div
         onClick={onClick}
         className="relative bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[400px] transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
@@ -339,6 +330,6 @@ const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => 
           <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{categoryData?.name || product.categoryKh}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
