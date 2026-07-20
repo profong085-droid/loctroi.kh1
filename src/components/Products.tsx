@@ -34,6 +34,98 @@ const Icon = ({ name, size = 20, className = "" }: { name: string; size?: number
   return <IconComponent size={size} className={className} />;
 };
 
+// Banner Carousel Component
+const BannerCarousel = ({ baseBanners, bannerImages }: { baseBanners: any[], bannerImages: any[] }) => {
+  const [currentBanner, setCurrentBanner] = useState(0);
+
+  const handleNextBanner = () => setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
+  const handlePrevBanner = () => setCurrentBanner((prev) => (prev - 1 + bannerImages.length) % bannerImages.length);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [bannerImages.length]);
+
+  return (
+    <div className="mb-12 md:mb-16 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
+      <div className="relative w-full h-full flex items-center justify-center overflow-visible">
+        {bannerImages.map((banner, index) => {
+          let position = "hidden";
+          if (index === currentBanner) position = "center";
+          else if (index === (currentBanner - 1 + bannerImages.length) % bannerImages.length) position = "left1";
+          else if (index === (currentBanner + 1) % bannerImages.length) position = "right1";
+          else if (index === (currentBanner - 2 + bannerImages.length) % bannerImages.length) position = "left2";
+          else if (index === (currentBanner + 2) % bannerImages.length) position = "right2";
+
+          return (
+            <div
+              key={index}
+              className={`absolute w-[50%] sm:w-[45%] md:w-[40%] lg:w-[35%] aspect-3/2 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out flex items-center justify-center ring-2 ring-black/5 ${
+                position === "center"
+                  ? "translate-x-0 scale-100 z-30 opacity-100 ring-primary-500 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                  : position === "left1"
+                  ? "translate-x-[-50%] sm:translate-x-[-60%] md:translate-x-[-70%] lg:translate-x-[-80%] scale-[0.75] z-20 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
+                  : position === "right1"
+                  ? "translate-x-[50%] sm:translate-x-[60%] md:translate-x-[70%] lg:translate-x-[80%] scale-[0.75] z-20 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
+                  : position === "left2"
+                  ? "translate-x-[-90%] sm:translate-x-[-110%] md:translate-x-[-125%] lg:translate-x-[-140%] scale-[0.55] z-10 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
+                  : position === "right2"
+                  ? "translate-x-[90%] sm:translate-x-[110%] md:translate-x-[125%] lg:translate-x-[140%] scale-[0.55] z-10 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
+                  : "opacity-0 z-0 pointer-events-none scale-[0.4]"
+              }`}
+              onClick={() => {
+                if (position !== "center" && position !== "hidden") {
+                  setCurrentBanner(index);
+                }
+              }}
+            >
+              {position !== "hidden" && (
+                <Image
+                  src={banner.src}
+                  alt={banner.alt}
+                  title={banner.alt}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw, 35vw"
+                  className="object-cover"
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-40">
+        <button 
+          aria-label="Previous banner"
+          onClick={handlePrevBanner}
+          className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
+        >
+          <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+        </button>
+        
+        <div className="hidden sm:flex gap-2">
+          {baseBanners.map((_, idx) => (
+            <div 
+              key={idx} 
+              className={`h-2 rounded-full transition-all duration-500 ${idx === (currentBanner % baseBanners.length) ? "w-8 bg-primary-600" : "w-2 bg-slate-300"}`}
+            />
+          ))}
+        </div>
+
+        <button 
+          aria-label="Next banner"
+          onClick={handleNextBanner}
+          className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
+        >
+          <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export const Products = () => {
   const t = useTranslations("Products");
   const locale = useLocale() as "kh" | "en" | "vi";
@@ -51,17 +143,7 @@ export const Products = () => {
     { src: "/banner តាសុខ/តាសុខបំប៉ន.jpg", alt: "តាសុខបំប៉ន ជីបំប៉នដំណាំឲ្យលូតលាស់លឿន ដើមថ្លោស ទទួលបានទិន្នផលខ្ពស់" }
   ];
   const bannerImages = [...baseBanners, ...baseBanners];
-  const [currentBanner, setCurrentBanner] = useState(0);
 
-  const handleNextBanner = () => setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
-  const handlePrevBanner = () => setCurrentBanner((prev) => (prev - 1 + bannerImages.length) % bannerImages.length);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [bannerImages.length]);
 
   const filteredProducts = useMemo(() => {
     return productsData.filter((p) => {
@@ -100,84 +182,7 @@ export const Products = () => {
         }}
       />
       <div className="container mx-auto px-4 md:px-6">
-        {/* Banner 3D Carousel */}
-        <div className="mb-12 md:mb-16 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
-          <div className="relative w-full h-full flex items-center justify-center overflow-visible">
-            {bannerImages.map((banner, index) => {
-              let position = "hidden";
-              if (index === currentBanner) position = "center";
-              else if (index === (currentBanner - 1 + bannerImages.length) % bannerImages.length) position = "left1";
-              else if (index === (currentBanner + 1) % bannerImages.length) position = "right1";
-              else if (index === (currentBanner - 2 + bannerImages.length) % bannerImages.length) position = "left2";
-              else if (index === (currentBanner + 2) % bannerImages.length) position = "right2";
-
-              return (
-                <div
-                  key={index}
-                  className={`absolute w-[50%] sm:w-[45%] md:w-[40%] lg:w-[35%] aspect-3/2 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out flex items-center justify-center ring-2 ring-black/5 ${
-                    position === "center"
-                      ? "translate-x-0 scale-100 z-30 opacity-100 ring-primary-500 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-                      : position === "left1"
-                      ? "translate-x-[-50%] sm:translate-x-[-60%] md:translate-x-[-70%] lg:translate-x-[-80%] scale-[0.75] z-20 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
-                      : position === "right1"
-                      ? "translate-x-[50%] sm:translate-x-[60%] md:translate-x-[70%] lg:translate-x-[80%] scale-[0.75] z-20 opacity-80 cursor-pointer hover:opacity-100 shadow-lg"
-                      : position === "left2"
-                      ? "translate-x-[-90%] sm:translate-x-[-110%] md:translate-x-[-125%] lg:translate-x-[-140%] scale-[0.55] z-10 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
-                      : position === "right2"
-                      ? "translate-x-[90%] sm:translate-x-[110%] md:translate-x-[125%] lg:translate-x-[140%] scale-[0.55] z-10 opacity-60 cursor-pointer hover:opacity-90 shadow-md"
-                      : "opacity-0 z-0 pointer-events-none scale-[0.4]"
-                  }`}
-                  onClick={() => {
-                    if (position !== "center" && position !== "hidden") {
-                      setCurrentBanner(index);
-                    }
-                  }}
-                >
-                  {position !== "hidden" && (
-                    <Image
-                      src={banner.src}
-                      alt={banner.alt}
-                      title={banner.alt}
-                      fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw, 35vw"
-                      className="object-cover"
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-
-
-          {/* Navigation Controls */}
-          <div className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 md:gap-8 z-40">
-            <button 
-              aria-label="Previous banner"
-              onClick={handlePrevBanner}
-              className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
-            >
-              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
-            </button>
-            
-            <div className="hidden sm:flex gap-2">
-              {baseBanners.map((_, idx) => (
-                <div 
-                  key={idx} 
-                  className={`h-2 rounded-full transition-all duration-500 ${idx === (currentBanner % baseBanners.length) ? "w-8 bg-primary-600" : "w-2 bg-slate-300"}`}
-                />
-              ))}
-            </div>
-
-            <button 
-              aria-label="Next banner"
-              onClick={handleNextBanner}
-              className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-50 hover:text-primary-800 hover:scale-110 transition-all duration-300 shadow-md group"
-            >
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
-        </div>
+        <BannerCarousel baseBanners={baseBanners} bannerImages={bannerImages} />
 
         <div className="text-center mb-8 md:mb-12 mt-16 md:mt-20">
           <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 tracking-wide leading-relaxed">{t("title")}</h2>
