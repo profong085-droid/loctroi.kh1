@@ -295,7 +295,7 @@ const ProductCard = ({ product, categoryData, onClick, locale }: any) => {
     <div className="group">
       <div
         onClick={onClick}
-        className="relative bg-white rounded-2xl md:rounded-4xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[400px] transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
+        className="relative bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[400px] transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
       >
         <div className="relative h-32 sm:h-40 md:h-56 lg:h-64 p-2 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
           <div 
@@ -305,9 +305,9 @@ const ProductCard = ({ product, categoryData, onClick, locale }: any) => {
             {categoryData?.name || product.categoryKh}
           </div>
           <div 
-            className="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 bg-white/95 rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-10 shadow-lg"
+            className="absolute top-2 right-2 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 z-10"
           >
-            <ZoomIn size={16} className="md:w-[18px] md:h-[18px]" />
+            <Image src="/photo/logo%20loctroi%205.png" alt="Loc Troi" width={40} height={40} className="w-[36px] h-[36px] md:w-[48px] md:h-[48px] object-contain drop-shadow-md" />
           </div>
           <div 
             className="relative w-full h-full group-hover:scale-110 transition-transform duration-700"

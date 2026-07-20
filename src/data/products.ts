@@ -1635,7 +1635,7 @@ export const productsData: Product[] = [
   },
   { 
     id: "npk-20-10-10", 
-    name: { kh: "NPK AMINO 20-10-10+TE (ជីអិន ភី កា 20-10-10+TE)", en: "NPK AMINO 20-10-10+TE", vi: "NPK AMINO 20-10-10+TE", ar: "NPK أمينو 20-10-10+TE", hi: "NPK अमीनो 20-10-10+TE", ja: "NPK アミノ 20-10-10+TE", ko: "NPK 아미노 20-10-10+TE", zh: "NPK AMINO 20-10-10+TE" }, 
+    name: { kh: "NPK AMINO 20-10-10+TE (ជីអិន ប៉េ កា 20-10-10+TE)", en: "NPK AMINO 20-10-10+TE", vi: "NPK AMINO 20-10-10+TE", ar: "NPK أمينو 20-10-10+TE", hi: "NPK अमीनो 20-10-10+TE", ja: "NPK アミノ 20-10-10+TE", ko: "NPK 아미노 20-10-10+TE", zh: "NPK AMINO 20-10-10+TE" }, 
     image: "photo/NPK -20-10-10.png", 
     category: "fertilizer", 
     categoryKh: "ជីសរីរាង្គជីវសាស្រ្ត និងជីសរីរាង្គ", 
