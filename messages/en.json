@@ -7,7 +7,9 @@
     "videos": "Videos",
     "contact": "Contact",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "farmer_meetings": "Farmer Meetings",
+    "farmer_meetings_desc": "Farmer meeting activities across provinces to share agricultural knowledge and new techniques from Lộc Trời Cambodia. Our technical team regularly visits local communities to guide farmers on the proper use of fertilizers and crop protection products, helping them reduce costs and achieve higher yields."
   },
   "Hero": {
     "title1": "Future of Agriculture",

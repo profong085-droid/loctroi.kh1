@@ -317,6 +317,7 @@ export const Navbar = () => {
 
 export const Footer = () => {
   const t = useTranslations("Footer");
+  const tNav = useTranslations("Navbar");
   const locale = useLocale();
   
   return (
@@ -364,6 +365,9 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href={`/${locale}/branches`} className="text-slate-300 hover:text-accent-500 transition-colors">{t("branchesLink")}</Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/farmer-meetings`} className="text-slate-300 hover:text-accent-500 transition-colors">{tNav("farmer_meetings")}</Link>
               </li>
               <li>
                 <Link href={`/${locale}/quiz`} className="text-accent-400 hover:text-accent-300 transition-colors font-semibold">{t("quizLink")}</Link>

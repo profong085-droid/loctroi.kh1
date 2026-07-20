@@ -7,7 +7,9 @@
     "videos": "Video",
     "contact": "Liên Hệ",
     "login": "Đăng Nhập",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "farmer_meetings": "Họp mặt Nông dân (Farmer Meetings)",
+    "farmer_meetings_desc": "Hoạt động họp mặt nông dân trên các tỉnh thành để chia sẻ kiến thức nông nghiệp và kỹ thuật mới từ Lộc Trời Cambodia. Đội ngũ kỹ thuật của chúng tôi thường xuyên đến thăm các cộng đồng địa phương để hướng dẫn nông dân cách sử dụng đúng các loại phân bón và thuốc bảo vệ thực vật, giúp họ giảm chi phí và đạt năng suất cao hơn."
   },
   "Hero": {
     "title1": "Tương Lai Nông Nghiệp",

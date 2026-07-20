@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, Kantumruy_Pro, Koulen } from "next/font/google";
 import "../globals.css";
 import { Navbar, Footer } from "@/components/Layout";
@@ -96,7 +97,8 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
-        <script
+        <Script
+          id="gesture-handler"
           dangerouslySetInnerHTML={{
             __html: `
               document.addEventListener('gesturestart', function (e) {

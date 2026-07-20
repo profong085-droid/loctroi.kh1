@@ -7,7 +7,9 @@
     "videos": "動画",
     "contact": "お問い合わせ",
     "login": "ログイン",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "farmer_meetings": "農家会議 (Farmer Meetings)",
+    "farmer_meetings_desc": "Lộc Trời Cambodiaの農業知識と新技術を共有するための各州での農家会議活動。当社の技術チームは定期的に地域コミュニティを訪問し、肥料や作物保護製品の適切な使用方法について農家を指導し、コスト削減と高収量の達成を支援しています。"
   },
   "Hero": {
     "title1": "農業の未来",

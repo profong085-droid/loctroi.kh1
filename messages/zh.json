@@ -7,7 +7,9 @@
     "videos": "视频",
     "contact": "联系我们",
     "login": "登录",
-    "logout": "退出登录"
+    "logout": "退出登录",
+    "farmer_meetings": "农民会议 (Farmer Meetings)",
+    "farmer_meetings_desc": "Lộc Trời Cambodia 在各省开展农民会议活动，分享农业知识和新技术。我们的技术团队定期走访当地社区，指导农民正确使用肥料和植保产品，帮助他们降低成本并实现高产。"
   },
   "Hero": {
     "title1": "农业的未来",
