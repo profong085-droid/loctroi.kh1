@@ -82,13 +82,12 @@ export function VideoSongs() {
         {/* Compact Video Player */}
         <div className="w-[80%] md:w-[40%] mx-auto shrink-0 aspect-square bg-black rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
           <video 
-            key={activeVideo.src}
             controls 
             preload="none"
             poster={activeVideo.poster}
             className="w-full h-full object-cover"
+            src={activeVideo.src}
           >
-            <source src={activeVideo.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

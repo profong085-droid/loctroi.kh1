@@ -239,20 +239,19 @@ export const Products = () => {
         </div>
 
         {/* Grid */}
-        <AnimatePresence mode="popLayout">
-          {filteredProducts.length === 0 ? (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="text-center py-24 bg-white rounded-3xl border border-slate-100"
-            >
-              <div className="flex justify-center mb-6 text-slate-300"><Search size={64} /></div>
-              <h3 className="text-2xl font-bold text-slate-700 mb-2">{t("noResults")}</h3>
-              <p className="text-slate-500">{t("noResultsDesc")}</p>
-            </motion.div>
-          ) : (
-            <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
+        {filteredProducts.length === 0 ? (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center py-24 bg-white rounded-3xl border border-slate-100"
+          >
+            <div className="flex justify-center mb-6 text-slate-300"><Search size={64} /></div>
+            <h3 className="text-2xl font-bold text-slate-700 mb-2">{t("noResults")}</h3>
+            <p className="text-slate-500">{t("noResultsDesc")}</p>
+          </motion.div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
+            <AnimatePresence>
               {displayedProducts.map((product, i) => {
                 const categoryData = categories.find(c => c.id === product.category);
                 return (
@@ -266,9 +265,9 @@ export const Products = () => {
                   />
                 );
               })}
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </AnimatePresence>
+          </div>
+        )}
 
         {/* Load More Button */}
         {visibleCount < filteredProducts.length && (
@@ -292,7 +291,6 @@ export const Products = () => {
 const ProductCard = ({ product, categoryData, onClick, index, locale }: any) => {
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9 }}
