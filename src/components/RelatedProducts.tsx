@@ -130,7 +130,7 @@ export function RelatedProducts({
             return (
               <div 
                 key={product.id}
-                className="min-w-[150px] sm:min-w-[200px] md:min-w-[280px] snap-start flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden group hover:-translate-y-1"
+                className="min-w-37.5 sm:min-w-50 md:min-w-70 snap-start flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden group hover:-translate-y-1"
               >
                 <Link href={`/${locale}/product/${product.id}`} className="flex-1 flex flex-col">
                   <div className="relative h-32 sm:h-40 md:h-56 p-3 md:p-6 bg-linear-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden border-b border-slate-50">

@@ -73,7 +73,7 @@ export default async function AboutPage({ params }: Props) {
           </div>
 
           <div className="w-full lg:w-1/2">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[400px] md:h-[600px]">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-100 md:h-150">
               <Image 
                 src="/banner តាសុខ/តាសុខ.jpg" 
                 alt="About Loc Troi Cambodia"

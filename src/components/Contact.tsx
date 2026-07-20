@@ -74,7 +74,7 @@ export const Contact = () => {
               className="flex flex-col items-center justify-center py-12 text-center"
             >
               <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-4 md:mb-6">
-                <CheckCircle2 size={32} className="md:w-[40px] md:h-[40px]" />
+                <CheckCircle2 size={32} className="md:w-10 md:h-10" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">{t("successTitle")}</h3>
               <p className="text-slate-500 text-sm md:text-base">{t("successDesc")}</p>
@@ -84,7 +84,7 @@ export const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="relative group">
                   <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-                    <User size={18} className="md:w-[20px] md:h-[20px]" />
+                    <User size={18} className="md:w-5 md:h-5" />
                   </div>
                   <input
                     type="text"
@@ -100,7 +100,7 @@ export const Contact = () => {
                 
                 <div className="relative group">
                   <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-                    <Phone size={18} className="md:w-[20px] md:h-[20px]" />
+                    <Phone size={18} className="md:w-5 md:h-5" />
                   </div>
                   <input
                     type="tel"
@@ -117,7 +117,7 @@ export const Contact = () => {
               
               <div className="relative group">
                 <div className="absolute left-4 md:left-5 top-4 md:top-5 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-                  <MessageSquare size={18} className="md:w-[20px] md:h-[20px]" />
+                  <MessageSquare size={18} className="md:w-5 md:h-5" />
                 </div>
                 <textarea
                   name="message"
@@ -143,7 +143,7 @@ export const Contact = () => {
                   </span>
                 ) : (
                   <>
-                    <Send size={18} className="md:w-[20px] md:h-[20px]" />
+                    <Send size={18} className="md:w-5 md:h-5" />
                     {t("btnSend")}
                   </>
                 )}

@@ -198,8 +198,8 @@ export default async function ProductPage({ params }: Props) {
         </div>
         
         <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
-          <div className="w-full md:w-1/2 p-2 sm:p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-[160px] sm:min-h-[220px] md:min-h-[400px]">
-            <div className="relative w-full h-[160px] sm:h-[220px] md:h-[500px]">
+          <div className="w-full md:w-1/2 p-2 sm:p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-40 sm:min-h-55 md:min-h-100">
+            <div className="relative w-full h-40 sm:h-55 md:h-125">
               <Image 
                 src={`/${product.image}`} 
                 alt={`${productName} | Loc Troi Cambodia`} 
@@ -225,7 +225,7 @@ export default async function ProductPage({ params }: Props) {
               {productIngredients && (
                 <div className="bg-primary-50/50 p-4 sm:p-6 rounded-xl border border-primary-100">
                   <h2 className="font-bold text-primary-900 mb-2 sm:mb-3 flex items-center gap-2 text-base sm:text-lg md:text-xl">
-                    <FlaskConical size={20} className="text-primary-600 sm:w-[24px] sm:h-[24px]" />
+                    <FlaskConical size={20} className="text-primary-600 sm:w-6 sm:h-6" />
                     {t("ingredients")}
                   </h2>
                   <p className="text-primary-800 font-semibold text-sm sm:text-base md:text-lg ml-4 sm:ml-8 mb-4 border-l-4 border-primary-300 pl-4 py-1">
@@ -236,7 +236,7 @@ export default async function ProductPage({ params }: Props) {
                   {productIngredientDetails && (
                     <div className="ml-4 sm:ml-8 bg-white p-4 sm:p-5 rounded-lg shadow-sm border border-primary-100">
                       <h3 className="font-bold text-primary-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
-                        <Microscope size={18} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
+                        <Microscope size={18} className="text-accent-500 sm:w-5 sm:h-5" />
                         {t("ingredientDetails")}
                       </h3>
                       <div className="text-slate-600 leading-relaxed text-sm sm:text-base space-y-2">
@@ -252,13 +252,13 @@ export default async function ProductPage({ params }: Props) {
               {productBenefits.length > 0 && (
                 <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
                   <h2 className="font-bold text-slate-800 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
-                    <Leaf size={18} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
+                    <Leaf size={18} className="text-accent-500 sm:w-5 sm:h-5" />
                     {t("benefits")}
                   </h2>
                   <ul className="space-y-2 sm:space-y-3 ml-1">
                     {productBenefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-2 sm:gap-3">
-                        <CheckCircle2 size={18} className="text-green-500 shrink-0 mt-0.5 sm:w-[20px] sm:h-[20px]" />
+                        <CheckCircle2 size={18} className="text-green-500 shrink-0 mt-0.5 sm:w-5 sm:h-5" />
                         <span className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">{benefit}</span>
                       </li>
                     ))}
@@ -268,7 +268,7 @@ export default async function ProductPage({ params }: Props) {
 
               <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
                 <h2 className="font-bold text-slate-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base md:text-lg">
-                  <Tag size={16} className="text-accent-500 sm:w-[20px] sm:h-[20px]" />
+                  <Tag size={16} className="text-accent-500 sm:w-5 sm:h-5" />
                   {t("usage")}
                 </h2>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base md:text-lg ml-4 sm:ml-7">

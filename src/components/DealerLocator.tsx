@@ -55,7 +55,7 @@ export const DealerLocator = () => {
         <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col lg:flex-row max-w-5xl mx-auto">
           
           {/* Left Panel - Dealer List */}
-          <div className="w-full lg:w-2/5 flex flex-col border-b lg:border-b-0 lg:border-r border-slate-100 h-[250px] md:h-[350px] lg:h-[450px]">
+          <div className="w-full lg:w-2/5 flex flex-col border-b lg:border-b-0 lg:border-r border-slate-100 h-62.5 md:h-87.5 lg:h-112.5">
             {/* Filter */}
             <div className="p-3 md:p-4 border-b border-slate-100 bg-slate-50/50 shrink-0">
               <div className="relative">
@@ -124,7 +124,7 @@ export const DealerLocator = () => {
           </div>
 
           {/* Right Panel - Map */}
-          <div className="w-full lg:w-3/5 h-[300px] md:h-[350px] lg:h-[450px] bg-slate-200 relative">
+          <div className="w-full lg:w-3/5 h-75 md:h-87.5 lg:h-112.5 bg-slate-200 relative">
             <iframe 
               title="Dealer Location Map"
               src={selectedDealer.mapUrl}

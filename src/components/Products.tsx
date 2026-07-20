@@ -38,7 +38,7 @@ const BannerCarousel = ({ baseBanners, bannerImages }: { baseBanners: { src: str
   }, [bannerImages.length]);
 
   return (
-    <div className="mb-12 md:mb-16 relative w-full max-w-7xl mx-auto h-[140px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-center">
+    <div className="mb-12 md:mb-16 relative w-full max-w-7xl mx-auto h-35 sm:h-75 md:h-100 flex flex-col items-center justify-center">
       <div className="relative w-full h-full flex items-center justify-center overflow-visible">
         {bannerImages.map((banner, index) => {
           let position = "hidden";
@@ -182,7 +182,7 @@ export const Products = () => {
           {/* Search */}
           <div className="relative max-w-xl mx-auto w-full group">
             <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors">
-              <Search size={20} className="md:w-[22px] md:h-[22px]" />
+              <Search size={20} className="md:w-5.5 md:h-5.5" />
             </div>
             <input
               type="text"
@@ -196,7 +196,7 @@ export const Products = () => {
                 onClick={() => setSearch("")}
                 className="absolute right-4 md:right-5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
               >
-                <X size={18} className="md:w-[20px] md:h-[20px]" />
+                <X size={18} className="md:w-5 md:h-5" />
               </button>
             )}
           </div>
@@ -218,7 +218,7 @@ export const Products = () => {
                 <div className={`flex items-center justify-center rounded-full p-1.5 transition-colors ${
                   activeCat === cat.id ? "bg-white/20 text-white" : "bg-primary-50 text-primary-600"
                 }`}>
-                  <Icon name={cat.icon} size={14} className="md:w-[16px] md:h-[16px]" />
+                  <Icon name={cat.icon} size={14} className="md:w-4 md:h-4" />
                 </div>
                 <span className="whitespace-nowrap">
                   {cat.id === "all" ? t("categoryAll") : t(`category_${cat.id}` as Parameters<typeof t>[0])}
@@ -284,19 +284,19 @@ const ProductCard = ({ product, categoryData, onClick, locale }: any) => {
     <div className="group">
       <div
         onClick={onClick}
-        className="relative bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[400px] transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
+        className="relative bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-50 sm:min-h-62.5 md:min-h-87.5 lg:min-h-100 transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
       >
         <div className="relative h-32 sm:h-40 md:h-56 lg:h-64 p-2 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
           <div 
             className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/90 text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
           >
-            <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-[12px] md:h-[12px]" />
+            <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-3 md:h-3" />
             {categoryData?.name || product.categoryKh}
           </div>
           <div 
             className="absolute top-2 right-2 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 z-10"
           >
-            <Image src="/photo/logo%20loctroi%205.png" alt="Loc Troi" width={40} height={40} className="w-[36px] h-[36px] md:w-[48px] md:h-[48px] object-contain drop-shadow-md" />
+            <Image src="/photo/logo%20loctroi%205.png" alt="Loc Troi" width={40} height={40} className="w-9 h-9 md:w-12 md:h-12 object-contain drop-shadow-md" />
           </div>
           <div 
             className="relative w-full h-full group-hover:scale-110 transition-transform duration-700"

@@ -78,7 +78,7 @@ export default async function CategoryPage({ params }: Props) {
               <Link 
                 href={`/${locale}/product/${product.id}`}
                 key={product.id}
-                className="group relative bg-white rounded-2xl md:rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-50 overflow-hidden flex flex-col h-full min-h-[250px] md:min-h-[350px]"
+                className="group relative bg-white rounded-2xl md:rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-50 overflow-hidden flex flex-col h-full min-h-62.5 md:min-h-87.5"
               >
                 <div className="relative h-40 md:h-56 p-4 flex items-center justify-center bg-slate-50 overflow-hidden">
                   <div className="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary-800 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all z-10 shadow-sm">

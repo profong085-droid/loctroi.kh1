@@ -24,7 +24,7 @@ export function HomeHero() {
   };
 
   return (
-    <section id="hero" className="relative h-screen min-h-[600px] flex items-center pt-20 overflow-hidden">
+    <section id="hero" className="relative h-screen min-h-150 flex items-center pt-20 overflow-hidden">
       <HeroBackground />
       <div className="container mx-auto px-6 relative z-20">
         <motion.div 

@@ -93,7 +93,7 @@ export const About = () => {
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="w-12 h-12 md:w-14 md:h-14 bg-primary-50 rounded-full flex items-center justify-center shrink-0 shadow-sm border border-primary-100 transition-colors hover:bg-primary-100 hover:border-primary-200 cursor-pointer">
-                    <feature.icon className="text-primary-600 drop-shadow-sm w-[24px] h-[24px] md:w-[32px] md:h-[32px]" />
+                    <feature.icon className="text-primary-600 drop-shadow-sm w-6 h-6 md:w-8 md:h-8" />
                   </div>
                   <div className="flex flex-col justify-center">
                     <h3 className="font-bold text-slate-800 mb-0.5 sm:mb-1 text-sm sm:text-base">{feature.title}</h3>

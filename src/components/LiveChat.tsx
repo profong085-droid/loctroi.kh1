@@ -114,7 +114,7 @@ export const LiveChat = () => {
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="fixed bottom-6 right-6 w-[90vw] md:w-[380px] h-[550px] max-h-[85vh] bg-white rounded-3xl shadow-2xl flex flex-col z-50 overflow-hidden border border-slate-100"
+            className="fixed bottom-6 right-6 w-[90vw] md:w-95 h-137.5 max-h-[85vh] bg-white rounded-3xl shadow-2xl flex flex-col z-50 overflow-hidden border border-slate-100"
           >
             {/* Header */}
             <div className="bg-primary-500 p-4 flex items-center justify-between text-white">

@@ -17,7 +17,7 @@ export default async function QuizPage({ params }: { params: Promise<{ locale: s
   return (
     <div className="min-h-screen bg-primary-50 pb-20 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 left-0 w-full h-[400px] bg-primary-900 rounded-b-[20%] z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-100 bg-primary-900 rounded-b-[20%] z-0"></div>
       
       <div className="w-full max-w-4xl mx-auto z-10 flex flex-col pt-28 px-4 relative">
         <div className="w-full flex justify-start mb-6">

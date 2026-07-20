@@ -64,7 +64,7 @@ export function AgriVideos() {
 
       {/* Cinematic Glow Background (Optimized for iOS WebKit) */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full pointer-events-none" 
         style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)' }}
       />
 
@@ -78,7 +78,7 @@ export function AgriVideos() {
         </div>
 
         {/* 3D Carousel Coverflow */}
-        <div className="relative w-full max-w-5xl h-[220px] sm:h-[350px] md:h-[450px] lg:h-[500px] mx-auto flex items-center justify-center mt-2 md:mt-4">
+        <div className="relative w-full max-w-5xl h-55 sm:h-87.5 md:h-112.5 lg:h-125 mx-auto flex items-center justify-center mt-2 md:mt-4">
           {agriVideos.map((link, index) => {
             let position = "hidden";
             if (index === activeIndex) position = "center";

@@ -122,7 +122,7 @@ export function VideoSongs() {
             </button>
           </div>
           
-          <div className="flex flex-col gap-1.5 md:gap-2 max-h-[140px] md:max-h-[180px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
+          <div className="flex flex-col gap-1.5 md:gap-2 max-h-35 md:max-h-45 overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
             {videos.map((video, index) => {
               const isActive = activeVideo.src === video.src;
               return (

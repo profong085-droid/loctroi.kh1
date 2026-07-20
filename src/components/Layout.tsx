@@ -39,7 +39,7 @@ const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
           src={locale === 'kh' ? "https://flagcdn.com/w40/kh.png" : locale === 'en' ? "https://flagcdn.com/w40/gb.png" : locale === 'zh' ? "https://flagcdn.com/w40/cn.png" : locale === 'hi' ? "https://flagcdn.com/w40/in.png" : locale === 'ja' ? "https://flagcdn.com/w40/jp.png" : locale === 'ko' ? "https://flagcdn.com/w40/kr.png" : locale === 'ar' ? "https://flagcdn.com/w40/ae.png" : "https://flagcdn.com/w40/vn.png"} 
           alt={locale} 
           width={24} height={16} unoptimized 
-          className="rounded-sm object-cover shadow-sm w-[24px] h-[16px]"
+          className="rounded-sm object-cover shadow-sm w-6 h-4"
         />
         <span className="text-sm font-bold uppercase">{locale}</span>
       </div>
@@ -59,7 +59,7 @@ const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
             onClick={() => switchLanguage(lang.code)}
             className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition-colors"
           >
-            <Image src={lang.flag} alt={lang.name} width={24} height={16} unoptimized className="rounded-sm object-cover shadow-sm w-[24px] h-[16px]" />
+            <Image src={lang.flag} alt={lang.name} width={24} height={16} unoptimized className="rounded-sm object-cover shadow-sm w-6 h-4" />
             <span className="text-sm font-semibold text-slate-700">{lang.name}</span>
           </div>
         ))}
@@ -301,7 +301,7 @@ export const Navbar = () => {
                       }}
                       className="flex flex-col items-center gap-1.5 p-2 rounded-lg border border-slate-100 bg-slate-50 hover:bg-slate-100 transition-colors"
                     >
-                      <Image src={lang.flag} alt={lang.name} width={24} height={16} unoptimized className="rounded-sm object-cover shadow-sm w-[24px] h-[16px]" />
+                      <Image src={lang.flag} alt={lang.name} width={24} height={16} unoptimized className="rounded-sm object-cover shadow-sm w-6 h-4" />
                       <span className="text-[10px] font-bold text-slate-600">{lang.name}</span>
                     </button>
                   ))}
@@ -412,13 +412,13 @@ export const Footer = () => {
             <h3 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("socialTitle")}</h3>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
-                <FaFacebookF size={18} className="md:w-[20px] md:h-[20px]" />
+                <FaFacebookF size={18} className="md:w-5 md:h-5" />
               </a>
               <a href="https://www.tiktok.com/@ifong168" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
-                <FaTiktok size={18} className="md:w-[20px] md:h-[20px]" />
+                <FaTiktok size={18} className="md:w-5 md:h-5" />
               </a>
               <a href="https://t.me/Phochaifong" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
-                <FaTelegram size={20} className="md:w-[22px] md:h-[22px] -ml-0.5" />
+                <FaTelegram size={20} className="md:w-5.5 md:h-5.5 -ml-0.5" />
               </a>
             </div>
           </motion.div>
