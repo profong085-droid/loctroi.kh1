@@ -2,35 +2,24 @@
 
 import { useState, useMemo, ElementType, useEffect } from "react";
 import Image from "next/image";
-import { Search, ChevronDown, ZoomIn, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Search, ChevronDown, ChevronLeft, ChevronRight, X, LayoutGrid, Snail, Leaf, Bug, ShieldAlert, Sprout, Wheat, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { productsData, categories, getLocalizedText } from "@/data/products";
 import { useTranslations, useLocale } from "next-intl";
 
-import { 
-  PiSquaresFourDuotone, 
-  PiBugBeetleDuotone, 
-  PiLeafDuotone, 
-  PiShieldWarningDuotone, 
-  PiBugDuotone, 
-  PiFlaskDuotone, 
-  PiPlantDuotone, 
-  PiStarDuotone 
-} from "react-icons/pi";
-
 const Icon = ({ name, size = 20, className = "" }: { name: string; size?: number; className?: string }) => {
   const iconMap: Record<string, ElementType> = {
-    'layout-grid': PiSquaresFourDuotone,
-    'bug': PiBugBeetleDuotone,
-    'leaf': PiLeafDuotone,
-    'shield-alert': PiShieldWarningDuotone,
-    'snail': PiBugDuotone, // Using bug duotone as fallback for snail
-    'flask-conical': PiFlaskDuotone,
-    'wheat': PiPlantDuotone,
-    'star': PiStarDuotone
+    'layout-grid': LayoutGrid,
+    'bug': Bug,
+    'leaf': Leaf,
+    'shield-alert': ShieldAlert,
+    'snail': Snail,
+    'flask-conical': Sprout,
+    'wheat': Wheat,
+    'star': Sparkles
   };
-  const IconComponent = iconMap[name] || PiSquaresFourDuotone;
+  const IconComponent = iconMap[name] || LayoutGrid;
   return <IconComponent size={size} className={className} />;
 };
 

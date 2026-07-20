@@ -1881,7 +1881,7 @@ export const categories: Category[] = [
   { id: "herbicide", name: "ថ្នាំកម្ចាត់ស្មៅ", icon: "leaf" },
   { id: "insecticide", name: "ថ្នាំកម្ចាត់សត្វល្អិត", icon: "bug" },
   { id: "fungicide", name: "ថ្នាំកម្ចាត់ជំងឺ", icon: "shield-alert" },
-  { id: "fertilizer", name: "ជីសរីរាង្គជីវសាស្រ្ត និងជីសរីរាង្គ", icon: "flask-conical" },
+  { id: "fertilizer", name: "ជី", icon: "flask-conical" },
   { id: "seed", name: "គ្រាប់ពូជ", icon: "wheat" },
-  { id: "special", name: "ផលិតផលពិសេស", icon: "star" },
+  { id: "special", name: "ផ្សេងៗ", icon: "star" },
 ];
