@@ -95,7 +95,21 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className="scroll-smooth" data-scroll-behavior="smooth">
-      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('gesturestart', function (e) {
+                e.preventDefault();
+              });
+              document.addEventListener('touchmove', function(event) {
+                if (event.scale !== 1) { event.preventDefault(); }
+              }, { passive: false });
+            `,
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden touch-manipulation`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -114,3 +128,4 @@ export default async function RootLayout({
     </html>
   );
 }
+
