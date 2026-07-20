@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ៣. ទំព័រសំខាន់ៗ (Corporate Pages)
   const corporateRoutes: MetadataRoute.Sitemap = [];
-  const corpPages = ['about', 'contact', 'branches'];
+  const corpPages = ['about', 'contact', 'branches', 'farmer-meetings', 'quiz'];
   corpPages.forEach(page => {
     locales.forEach(locale => {
       corporateRoutes.push({

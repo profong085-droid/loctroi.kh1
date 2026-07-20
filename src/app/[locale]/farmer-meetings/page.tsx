@@ -14,9 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tNav = await getTranslations({ locale, namespace: "Navbar" });
   
   const title = `${tNav("farmer_meetings")} | Loc Troi Cambodia`;
-  const description = locale === "kh" 
-    ? "សកម្មភាពការប្រជុំកសិករនៅតាមបណ្តាខេត្តនានា ជាមួយ Lộc Trời Cambodia។ ចែករំលែកចំណេះដឹង បច្ចេកទេសកសិកម្ម របៀបប្រើប្រាស់ជី និងថ្នាំកសិកម្មឲ្យទទួលបានទិន្នផលខ្ពស់។"
-    : "Farmer meeting activities across provinces with Lộc Trời Cambodia. Sharing agricultural knowledge, farming techniques, and proper usage of fertilizers and pesticides for high yields.";
+  const description = tNav("farmer_meetings_desc");
     
   return {
     title,
