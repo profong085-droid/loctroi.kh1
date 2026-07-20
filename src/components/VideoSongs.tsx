@@ -77,10 +77,10 @@ export function VideoSongs() {
       />
 
       {/* The Small Contained Box */}
-      <div className="w-full max-w-3xl bg-white/5 border border-white/10 p-3 md:p-4 rounded-4xl shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 items-center relative z-10 hover:border-white/20 transition-colors">
+      <div className="w-full max-w-3xl bg-white/5 border border-white/10 p-2 md:p-4 rounded-3xl md:rounded-4xl shadow-2xl flex flex-col md:flex-row gap-3 md:gap-6 items-center relative z-10 hover:border-white/20 transition-colors">
         
         {/* Compact Video Player */}
-        <div className="w-[80%] md:w-[40%] mx-auto shrink-0 aspect-square bg-black rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div className="w-[60%] md:w-[40%] mx-auto shrink-0 aspect-square bg-black rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
           <video 
             controls 
             preload="none"
@@ -122,14 +122,14 @@ export function VideoSongs() {
             </button>
           </div>
           
-          <div className="flex flex-col gap-2 max-h-[180px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
+          <div className="flex flex-col gap-1.5 md:gap-2 max-h-[140px] md:max-h-[180px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
             {videos.map((video, index) => {
               const isActive = activeVideo.src === video.src;
               return (
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-full text-left px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-between group ${
+                  className={`w-full text-left px-3 py-2 md:px-4 md:py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-between group ${
                     isActive 
                       ? 'bg-accent-500 text-primary-950 shadow-[0_4px_15px_rgba(245,158,11,0.3)] scale-[1.02]' 
                       : 'bg-white/5 text-white/70 hover:bg-white/15 hover:text-white hover:scale-[1.01]'
