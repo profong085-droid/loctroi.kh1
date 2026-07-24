@@ -1,14 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import os from "os";
 
-const filePath = path.join(process.cwd(), "data", "push-subscriptions.json");
-const historyPath = path.join(process.cwd(), "data", "notification-history.json");
+// Use OS tmpdir for Vercel/Serverless read-only filesystem compatibility
+const filePath = path.join(os.tmpdir(), "loctroi-push-subscriptions.json");
+const historyPath = path.join(os.tmpdir(), "loctroi-notification-history.json");
 
-function ensureDirectoryExistence(filePath: string) {
-  const dirname = path.dirname(filePath);
-  if (!fs.existsSync(dirname)) {
-    fs.mkdirSync(dirname, { recursive: true });
+function safeWriteFile(targetPath: string, data: string) {
+  try {
+    const dirname = path.dirname(targetPath);
+    if (!fs.existsSync(dirname)) {
+      fs.mkdirSync(dirname, { recursive: true });
+    }
+    fs.writeFileSync(targetPath, data);
+  } catch (err) {
+    console.warn("File write warning (serverless environment):", err);
   }
 }
 
@@ -61,8 +68,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Save Notification to history
-    ensureDirectoryExistence(historyPath);
+    // Save Notification to history safely
     let history: unknown[] = [];
     if (fs.existsSync(historyPath)) {
       try {
@@ -83,7 +89,7 @@ export async function POST(req: NextRequest) {
     };
 
     history.unshift(newRecord);
-    fs.writeFileSync(historyPath, JSON.stringify(history.slice(0, 50), null, 2));
+    safeWriteFile(historyPath, JSON.stringify(history.slice(0, 50), null, 2));
 
     return NextResponse.json({
       success: true,
