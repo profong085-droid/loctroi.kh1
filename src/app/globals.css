@@ -35,6 +35,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-khmer), var(--font-sans), sans-serif;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile & Android Touch & Performance Optimizations */
+button, a, input, select, textarea {
+  touch-action: manipulation;
 }
 
 /* Custom Scrollbar */
@@ -51,3 +57,11 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #047857;
 }
+
+@layer utilities {
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+

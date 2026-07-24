@@ -84,6 +84,7 @@ export function VideoSongs() {
           <video 
             controls 
             preload="none"
+            playsInline
             poster={activeVideo.poster}
             className="w-full h-full object-cover"
             src={activeVideo.src}
