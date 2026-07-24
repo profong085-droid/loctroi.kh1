@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, Phone, MapPin, Mail, ArrowRight } from "lucide-react";
-import { FaFacebookF, FaTiktok, FaTelegram, FaGoogle } from "react-icons/fa6";
+import { Menu, X, Phone, MapPin, Mail, ArrowRight, Download } from "lucide-react";
+import { FaFacebookF, FaTiktok, FaTelegram, FaGoogle, FaAndroid, FaApple } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
 import { signInWithPopup, signOut } from "firebase/auth";
@@ -11,6 +11,7 @@ import { auth, googleProvider } from "@/lib/firebase";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { AppInstallerModal } from "@/components/AppInstallerModal";
 
 
 const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
@@ -319,6 +320,7 @@ export const Footer = () => {
   const t = useTranslations("Footer");
   const tNav = useTranslations("Navbar");
   const locale = useLocale();
+  const [isInstallerOpen, setIsInstallerOpen] = useState(false);
   
   return (
     <footer id="footer-info" className="bg-primary-950 text-white/70 pt-8 pb-12 md:pt-10 md:pb-16 text-sm border-t border-white/10 relative overflow-hidden">
@@ -410,7 +412,7 @@ export const Footer = () => {
             className="flex flex-col items-center md:items-start"
           >
             <h3 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("socialTitle")}</h3>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-6">
               <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaFacebookF size={18} className="md:w-5 md:h-5" />
               </a>
@@ -420,6 +422,27 @@ export const Footer = () => {
               <a href="https://t.me/Phochaifong" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaTelegram size={20} className="md:w-5.5 md:h-5.5 -ml-0.5" />
               </a>
+            </div>
+
+            {/* Mobile App Download Section (Android & iOS) */}
+            <div className="flex flex-col items-center md:items-start gap-2 w-full max-w-xs">
+              <span className="text-[11px] font-bold text-white/50 uppercase tracking-widest">កម្មវិធីទូរសព្ទ (Android & iOS)</span>
+              <button 
+                onClick={() => setIsInstallerOpen(true)}
+                className="w-full inline-flex items-center justify-between gap-3 px-5 py-3 bg-linear-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-500 text-white rounded-2xl font-bold shadow-xl shadow-green-950/50 transition-all duration-300 transform hover:-translate-y-1 border border-emerald-400/40 group text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1 bg-white/15 px-2 py-1.5 rounded-xl border border-white/20 group-hover:scale-105 transition-transform">
+                    <FaAndroid size={20} className="text-green-300 animate-pulse" />
+                    <FaApple size={20} className="text-white" />
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-200 leading-none">ទាញយកកម្មវិធី</span>
+                    <span className="font-extrabold text-sm leading-tight text-white mt-0.5">Android & iOS App</span>
+                  </div>
+                </div>
+                <Download size={18} className="text-emerald-200 group-hover:translate-y-0.5 transition-transform shrink-0" />
+              </button>
             </div>
           </motion.div>
         </motion.div>
@@ -435,6 +458,8 @@ export const Footer = () => {
           <p>PHOCHAIFONG</p>
         </motion.div>
       </div>
+
+      <AppInstallerModal isOpen={isInstallerOpen} onClose={() => setIsInstallerOpen(false)} />
     </footer>
   );
 };

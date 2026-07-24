@@ -27,16 +27,21 @@ export async function POST(req: NextRequest) {
         let fontData: ArrayBuffer | null = null;
         try {
           const cssRes = await fetch('https://fonts.googleapis.com/css2?family=Suwannaphum:wght@400', {
-            headers: { 'User-Agent': 'Mozilla/5.0' }
+            headers: { 'User-Agent': 'Mozilla/5.0' },
+            signal: AbortSignal.timeout(3000),
           });
-          const css = await cssRes.text();
-          const match = css.match(/url\((https:\/\/[^)]+\.ttf)\)/);
-          if (match) {
-            const fontRes = await fetch(match[1]);
-            fontData = await fontRes.arrayBuffer();
+          if (cssRes.ok) {
+            const css = await cssRes.text();
+            const match = css.match(/url\((https:\/\/[^)]+\.ttf)\)/);
+            if (match) {
+              const fontRes = await fetch(match[1], { signal: AbortSignal.timeout(3000) });
+              if (fontRes.ok) {
+                fontData = await fontRes.arrayBuffer();
+              }
+            }
           }
         } catch (e) {
-          console.error("Failed to load Khmer font", e);
+          console.warn("Failed to load Google font, using system font fallback", e);
         }
 
         const now = new Date();
