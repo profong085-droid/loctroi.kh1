@@ -12,10 +12,20 @@ type Props = {
   params: Promise<{ id: string, locale: string }>;
 };
 
+export async function generateStaticParams() {
+  const locales = ['kh', 'en', 'vi'];
+  return locales.flatMap((locale) =>
+    productsData.map((product) => ({
+      locale,
+      id: product.id,
+    }))
+  );
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-  const product = productsData.find((p) => p.id === resolvedParams.id);
+  const product = productsData.find((p) => p.id.toLowerCase() === resolvedParams.id.toLowerCase());
   
   if (!product) {
     return {
@@ -66,7 +76,7 @@ export default async function ProductPage({ params }: Props) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
   setRequestLocale(locale);
-  const product = productsData.find((p) => p.id === resolvedParams.id);
+  const product = productsData.find((p) => p.id.toLowerCase() === resolvedParams.id.toLowerCase());
 
   if (!product) {
     notFound();
