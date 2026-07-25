@@ -26,8 +26,7 @@ const koulen = Koulen({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  viewportFit: 'cover',
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -105,14 +104,11 @@ export default async function RootLayout({
               document.addEventListener('gesturestart', function (e) {
                 e.preventDefault();
               });
-              document.addEventListener('touchmove', function(event) {
-                if (event.scale !== 1) { event.preventDefault(); }
-              }, { passive: false });
             `,
           }}
         />
       </head>
-      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden touch-manipulation`}>
+      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
