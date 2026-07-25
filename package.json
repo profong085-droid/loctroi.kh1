@@ -6,7 +6,8 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "copy-apk": "node copy-apk.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^8.4.2",

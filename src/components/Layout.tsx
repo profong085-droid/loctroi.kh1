@@ -425,23 +425,23 @@ export const Footer = () => {
             </div>
 
             {/* Mobile App Download Section (Android & iOS) */}
-            <div className="flex flex-col items-center md:items-start gap-2 w-full max-w-xs">
-              <span className="text-[11px] font-bold text-white/50 uppercase tracking-widest">កម្មវិធីទូរសព្ទ (Android & iOS)</span>
+            <div className="flex flex-col items-center md:items-start gap-1.5 w-full max-w-[240px]">
+              <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">កម្មវិធីទូរសព្ទ (App)</span>
               <button 
                 onClick={() => setIsInstallerOpen(true)}
-                className="w-full inline-flex items-center justify-between gap-3 px-5 py-3 bg-linear-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-500 text-white rounded-2xl font-bold shadow-xl shadow-green-950/50 transition-all duration-300 transform hover:-translate-y-1 border border-emerald-400/40 group text-left"
+                className="w-full inline-flex items-center justify-between gap-2.5 px-3.5 py-2 bg-emerald-600/90 hover:bg-emerald-500 text-white rounded-xl font-bold shadow-md shadow-emerald-950/40 transition-all duration-200 border border-emerald-400/30 group text-left cursor-pointer active:scale-98"
               >
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 bg-white/15 px-2 py-1.5 rounded-xl border border-white/20 group-hover:scale-105 transition-transform">
-                    <FaAndroid size={20} className="text-green-300 animate-pulse" />
-                    <FaApple size={20} className="text-white" />
+                <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-1 bg-white/15 px-1.5 py-1 rounded-lg border border-white/20">
+                    <FaAndroid size={15} className="text-emerald-300" />
+                    <FaApple size={15} className="text-white" />
                   </div>
                   <div className="flex flex-col text-left">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-200 leading-none">ទាញយកកម្មវិធី</span>
-                    <span className="font-extrabold text-sm leading-tight text-white mt-0.5">Android & iOS App</span>
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-200 leading-none">ទាញយក App</span>
+                    <span className="font-bold text-xs leading-tight text-white mt-0.5">Android & iOS</span>
                   </div>
                 </div>
-                <Download size={18} className="text-emerald-200 group-hover:translate-y-0.5 transition-transform shrink-0" />
+                <Download size={15} className="text-emerald-200 group-hover:translate-y-0.5 transition-transform shrink-0" />
               </button>
             </div>
           </motion.div>

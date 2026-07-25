@@ -5,8 +5,7 @@ const config: CapacitorConfig = {
   appName: 'Loc Troi',
   webDir: 'public',
   server: {
-    // Local Testing on Android Emulator:
-    url: 'http://10.0.2.2:3000',
+    url: 'https://loctroi.online',
     cleartext: true
   }
 };

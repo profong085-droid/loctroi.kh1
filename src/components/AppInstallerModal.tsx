@@ -70,113 +70,106 @@ export function AppInstallerModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-2xl transition-all">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md transition-all">
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ scale: 0.95, opacity: 0, y: 15 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            exit={{ scale: 0.95, opacity: 0, y: 15 }}
             transition={{ type: "spring", damping: 25, stiffness: 350 }}
-            className="relative w-full max-w-lg bg-linear-to-b from-slate-900 via-primary-950 to-slate-950 text-white rounded-3xl p-6 sm:p-8 shadow-[0_30px_70px_-15px_rgba(16,185,129,0.35)] border border-emerald-500/30 overflow-hidden"
+            className="relative w-full max-w-sm bg-slate-900/95 text-white rounded-2xl p-4 sm:p-5 shadow-2xl border border-emerald-500/20 overflow-hidden"
           >
-            {/* Ambient Lighting */}
-            <div className="absolute -top-24 -right-24 w-60 h-60 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
-            <div className="absolute -bottom-24 -left-24 w-60 h-60 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
+            {/* Background Glow */}
+            <div className="absolute -top-16 -right-16 w-36 h-36 bg-emerald-500/15 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-36 h-36 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
 
             {/* Close Button */}
             <button
               onClick={onClose}
               aria-label="Close modal"
-              className="absolute top-4 right-4 sm:top-5 sm:right-5 w-9 h-9 flex items-center justify-center text-slate-400 hover:text-white rounded-full bg-white/5 hover:bg-white/15 border border-white/10 transition-colors z-20 cursor-pointer"
+              className="absolute top-3.5 right-3.5 w-7 h-7 flex items-center justify-center text-slate-400 hover:text-white rounded-full bg-white/5 hover:bg-white/15 transition-colors z-20 cursor-pointer"
             >
-              <X size={18} />
+              <X size={15} />
             </button>
 
             {/* App Header Card */}
-            <div className="flex items-center gap-4 mb-6 relative z-10 bg-white/5 p-3.5 sm:p-4 rounded-2xl border border-white/10 backdrop-blur-md">
-              <div className="relative w-14 h-14 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-emerald-400/40 p-1 bg-slate-900 flex items-center justify-center">
+            <div className="flex items-center gap-3 mb-4 relative z-10 pr-6">
+              <div className="relative w-10 h-10 shrink-0 rounded-xl overflow-hidden border border-emerald-500/30 p-0.5 bg-slate-950 flex items-center justify-center shadow-md">
                 <Image
                   src="/photo/logo loctroi 6.png"
                   alt="Loc Troi Logo"
-                  width={56}
-                  height={56}
+                  width={40}
+                  height={40}
                   className="object-contain w-full h-full"
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 text-emerald-400 text-[11px] font-extrabold uppercase tracking-widest mb-0.5">
-                  <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
+                <div className="flex items-center gap-1 text-emerald-400 text-[10px] font-bold uppercase tracking-wider mb-0.5">
+                  <ShieldCheck size={12} className="text-emerald-400 shrink-0" />
                   <span>ក្រុមហ៊ុនផ្លូវការ • OFFICIAL APP</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-black text-white truncate leading-tight">
+                <h3 className="text-sm font-bold text-white truncate leading-tight">
                   Loc Troi Cambodia App
                 </h3>
-                <p className="text-xs text-slate-400 truncate">ក្រុមហ៊ុន ឡុក ត្រើយ កម្ពុជា</p>
               </div>
             </div>
 
             {/* Platform Selector Tabs */}
-            <div className="flex bg-slate-900/90 p-1.5 rounded-2xl mb-6 border border-white/10 relative z-10">
+            <div className="flex bg-slate-950/70 p-1 rounded-xl mb-4 border border-white/10 relative z-10">
               <button
                 onClick={() => setActiveTab("android")}
-                className={`flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer ${
+                className={`flex-1 py-1.5 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer ${
                   activeTab === "android"
-                    ? "bg-linear-to-r from-emerald-500 via-green-500 to-emerald-600 text-slate-950 font-black shadow-lg shadow-emerald-500/25 scale-[1.02]"
+                    ? "bg-emerald-500 text-slate-950 shadow-md font-extrabold"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                <FaAndroid size={18} className={activeTab === "android" ? "text-slate-950" : "text-emerald-400"} />
+                <FaAndroid size={14} className={activeTab === "android" ? "text-slate-950" : "text-emerald-400"} />
                 <span>Android (APK)</span>
               </button>
               <button
                 onClick={() => setActiveTab("ios")}
-                className={`flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer ${
+                className={`flex-1 py-1.5 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer ${
                   activeTab === "ios"
-                    ? "bg-linear-to-r from-slate-100 via-white to-slate-200 text-slate-950 font-black shadow-lg shadow-white/20 scale-[1.02]"
+                    ? "bg-white text-slate-950 shadow-md font-extrabold"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                <FaApple size={18} className={activeTab === "ios" ? "text-slate-950" : "text-slate-200"} />
-                <span>iOS (iPhone/iPad)</span>
+                <FaApple size={14} className={activeTab === "ios" ? "text-slate-950" : "text-slate-200"} />
+                <span>iOS (iPhone)</span>
               </button>
             </div>
 
             {/* Content for Android */}
             {activeTab === "android" && (
               <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.15 }}
                 className="relative z-10"
               >
-                {/* Features List with Vector Icons */}
-                <div className="space-y-3 mb-6 bg-emerald-950/40 p-4 sm:p-5 rounded-2xl border border-emerald-500/20 text-xs sm:text-sm">
-                  <div className="flex items-center gap-3 text-slate-200">
-                    <div className="w-7 h-7 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-400/30">
-                      <Zap size={15} className="text-emerald-400" />
-                    </div>
-                    <span className="font-medium">ដំណើរការលឿន រលូន មិនស្ទះ និងស៊ី Memory តិច</span>
+                {/* Features List */}
+                <div className="space-y-2 mb-4 bg-slate-950/40 p-3 rounded-xl border border-white/5 text-xs">
+                  <div className="flex items-center gap-2.5 text-slate-300">
+                    <Zap size={13} className="text-emerald-400 shrink-0" />
+                    <span className="truncate">ដំណើរការលឿន រលូន មិនស្ទះ ស៊ី RAM តិច</span>
                   </div>
-                  <div className="flex items-center gap-3 text-slate-200">
-                    <div className="w-7 h-7 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-400/30">
-                      <Search size={15} className="text-emerald-400" />
-                    </div>
-                    <span className="font-medium">ស្វែងរកផលិតផល ថ្នាំ និងជីកសិកម្មបានគ្រប់ពេល</span>
+                  <div className="flex items-center gap-2.5 text-slate-300">
+                    <Search size={13} className="text-emerald-400 shrink-0" />
+                    <span className="truncate">ស្វែងរក ថ្នាំ និងជីកសិកម្មគ្រប់ពេល</span>
                   </div>
-                  <div className="flex items-center gap-3 text-slate-200">
-                    <div className="w-7 h-7 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-400/30">
-                      <MapPin size={15} className="text-emerald-400" />
-                    </div>
-                    <span className="font-medium">តភ្ជាប់ជាមួយទីតាំងដេប៉ូ 25 ខេត្តក្រុង និង Live Chat</span>
+                  <div className="flex items-center gap-2.5 text-slate-300">
+                    <MapPin size={13} className="text-emerald-400 shrink-0" />
+                    <span className="truncate">ដេប៉ូ ២៥ ខេត្តក្រុង & Live Chat ផ្ទាល់</span>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2">
                   <button
                     onClick={handleInstallPWA}
-                    className="w-full py-4 px-6 bg-linear-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-400 hover:to-green-400 text-slate-950 rounded-2xl font-black flex items-center justify-center gap-3 shadow-xl shadow-emerald-500/30 transition-all duration-300 transform hover:-translate-y-0.5 text-sm sm:text-base cursor-pointer"
+                    className="w-full py-2.5 px-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all text-xs cursor-pointer active:scale-[0.98]"
                   >
-                    <Smartphone size={20} className="text-slate-950" />
+                    <Smartphone size={16} />
                     <span>
                       {isInstalled ? "App ត្រូវបានដំឡើងរួចរាល់" : "ដំឡើង App លើទូរសព្ទ (Install App)"}
                     </span>
@@ -185,9 +178,9 @@ export function AppInstallerModal({
                   <a
                     href="/loctroi.apk"
                     download="loctroi-cambodia.apk"
-                    className="w-full py-3.5 px-6 bg-white/10 hover:bg-white/15 text-white rounded-2xl font-bold flex items-center justify-center gap-2 border border-white/15 transition-all text-xs sm:text-sm text-center"
+                    className="w-full py-2 px-4 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white rounded-xl font-medium flex items-center justify-center gap-2 border border-white/10 transition-all text-xs text-center cursor-pointer"
                   >
-                    <FileDown size={17} className="text-emerald-400" />
+                    <FileDown size={14} className="text-emerald-400" />
                     <span>ទាញយកជា File APK ផ្ទាល់ (Direct APK)</span>
                   </a>
                 </div>
@@ -197,51 +190,45 @@ export function AppInstallerModal({
             {/* Content for iOS (iPhone/iPad) */}
             {activeTab === "ios" && (
               <motion.div
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.15 }}
                 className="relative z-10"
               >
-                <div className="bg-slate-900/90 p-4 sm:p-5 rounded-2xl border border-white/10 mb-6 text-xs sm:text-sm space-y-3.5">
-                  <div className="flex items-center gap-2 text-emerald-400 font-extrabold text-sm mb-1">
-                    <FaApple size={18} className="text-white" />
-                    <span>របៀបដំឡើង App លើ iPhone / iPad ៖</span>
+                <div className="bg-slate-950/50 p-3 rounded-xl border border-white/5 mb-4 text-xs space-y-2">
+                  <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-xs mb-1">
+                    <FaApple size={14} className="text-white" />
+                    <span>របៀបដំឡើង App លើ iPhone ៖</span>
                   </div>
 
-                  <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                    <div className="w-7 h-7 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 font-black text-xs border border-sky-500/30">
-                      1
-                    </div>
-                    <p className="text-slate-200">
-                      បើក <strong>Safari Browser</strong> រួចចុចប៊ូតុង <strong>Share <Share size={14} className="inline mx-1 text-sky-400" /></strong> ខាងក្រោម
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <span className="w-4 h-4 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 font-bold text-[10px]">1</span>
+                    <p className="truncate">
+                      បើក <strong>Safari</strong> រួចចុច <strong>Share <Share size={12} className="inline text-sky-400" /></strong>
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                    <div className="w-7 h-7 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 font-black text-xs border border-emerald-500/30">
-                      2
-                    </div>
-                    <p className="text-slate-200">
-                      អូសចុះក្រោម រួចជ្រើសរើស <strong>&quot;Add to Home Screen <PlusSquare size={14} className="inline mx-1 text-emerald-400" />&quot;</strong>
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 font-bold text-[10px]">2</span>
+                    <p className="truncate">
+                      ជ្រើសរើស <strong>&quot;Add to Home Screen <PlusSquare size={12} className="inline text-emerald-400" />&quot;</strong>
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                    <div className="w-7 h-7 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 font-black text-xs border border-amber-500/30">
-                      3
-                    </div>
-                    <p className="text-slate-200">
-                      ចុច <strong>&quot;Add&quot;</strong> នោះ App នឹងលេចឡើងលើ Home Screen iPhone ភ្លាមៗ!
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <span className="w-4 h-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 font-bold text-[10px]">3</span>
+                    <p className="truncate">
+                      ចុច <strong>&quot;Add&quot;</strong> ដើម្បីបន្ថែម App លើ Home Screen
                     </p>
                   </div>
                 </div>
 
                 <button
                   onClick={onClose}
-                  className="w-full py-4 px-6 bg-linear-to-r from-slate-100 via-white to-slate-200 text-slate-950 rounded-2xl font-black flex items-center justify-center gap-2 shadow-xl shadow-white/10 transition-transform transform hover:-translate-y-0.5 text-sm sm:text-base cursor-pointer"
+                  className="w-full py-2.5 px-4 bg-white hover:bg-slate-100 text-slate-950 rounded-xl font-bold flex items-center justify-center gap-1.5 shadow-md transition-all text-xs cursor-pointer active:scale-[0.98]"
                 >
-                  <CheckCircle2 size={18} className="text-emerald-600" />
-                  <span>យល់ព្រម / យល់ហើយ (Got it)</span>
+                  <CheckCircle2 size={15} className="text-emerald-600" />
+                  <span>យល់ព្រម / Got it</span>
                 </button>
               </motion.div>
             )}
