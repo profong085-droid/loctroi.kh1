@@ -185,6 +185,7 @@ export const Products = () => {
               <Search size={20} className="md:w-5.5 md:h-5.5" />
             </div>
             <input
+              suppressHydrationWarning
               type="text"
               placeholder={t("searchPlaceholder")}
               value={search}

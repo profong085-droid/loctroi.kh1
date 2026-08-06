@@ -70,23 +70,13 @@ const LanguageSwitcher = ({ scrolled }: { scrolled: boolean }) => {
 };
 
 export const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, loading } = useAuth();
   const t = useTranslations("Navbar");
   const pathname = usePathname();
   const locale = useLocale();
 
-  const isHomePage = pathname === '/' || /^\/[a-z]{2}$/.test(pathname);
-  const isNavSolid = scrolled || !isHomePage;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const isNavSolid = true; // Always solid now
 
   const handleLogin = async () => {
     try {
@@ -109,9 +99,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isNavSolid ? "bg-white/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
-      }`}
+      className="sticky top-0 z-50 transition-all duration-500 bg-white shadow-md py-3"
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href={`/${locale}/#hero`} className="flex items-center gap-3 group">
@@ -425,7 +413,7 @@ export const Footer = () => {
             </div>
 
             {/* Mobile App Download Section (Android & iOS) */}
-            <div className="flex flex-col items-center md:items-start gap-1.5 w-full max-w-[240px]">
+            <div className="flex flex-col items-center md:items-start gap-1.5 w-full max-w-60">
               <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">កម្មវិធីទូរសព្ទ (App)</span>
               <button 
                 onClick={() => setIsInstallerOpen(true)}

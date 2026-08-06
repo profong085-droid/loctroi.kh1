@@ -24,9 +24,9 @@ export function HomeHero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="hero" className="relative w-full aspect-video md:aspect-21/9 lg:aspect-2.5/1 xl:aspect-3/1 flex items-center overflow-hidden bg-black">
       <HeroBackground />
-      <div className="container mx-auto px-6 relative z-20">
+      <div className="container mx-auto px-6 relative z-20 hidden">
         <motion.div 
           variants={containerVariants}
           initial="hidden"

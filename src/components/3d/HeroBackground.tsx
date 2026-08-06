@@ -3,48 +3,59 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+const banners = [
+  "/banner/banner APROPO 200SE.jpg",
+  "/banner/banner insuran ធូរេន.jpg",
+  "/banner/banner insuran.jpg",
+  "/banner/banner saltare.jpg",
+];
+
 export default function HeroBackground() {
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Only load the heavy video if the screen is large enough (Desktop/Tablet)
-    const timeoutId = setTimeout(() => {
-      if (window.innerWidth >= 768) {
-        setIsDesktop(true);
-      }
-    }, 50);
-    return () => clearTimeout(timeoutId);
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % banners.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-primary-950">
-      {/* LCP Optimized Background Image - Always loads immediately */}
-      <Image
-        src="/photo/banner1.jpg"
-        alt="Loc Troi Cambodia Banner"
-        fill
-        priority
-        fetchPriority="high"
-        sizes="100vw"
-        quality={85}
-        className="object-cover opacity-70 absolute inset-0"
-      />
-
-      {/* Background Video Banner - Only mounts on Desktop to save Mobile bandwidth */}
-      {isDesktop && (
-        <video 
-          src="/photo/banner1.mp4" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="object-cover w-full h-full opacity-70 absolute inset-0 transition-opacity duration-1000"
-        />
-      )}
-      
-      {/* Subtle overlay gradient to make text readable */}
-      <div className="absolute inset-0 bg-linear-to-t from-primary-950 via-primary-900/60 to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-linear-to-r from-primary-950/80 via-primary-950/30 to-transparent z-10 pointer-events-none" />
+    <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+      {banners.map((banner, index) => (
+        <div 
+          key={banner} 
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === currentImageIndex ? "opacity-100" : "opacity-0 z-0 pointer-events-none"
+          }`}
+        >
+          {/* Blurred Background Layer (fills the container) */}
+          <div className="absolute inset-0 z-0 scale-110">
+            <Image
+              src={banner}
+              alt="Background"
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              quality={30}
+              className="object-cover blur-2xl opacity-50"
+            />
+          </div>
+          
+          {/* Clear Foreground Layer (contains the whole image) */}
+          <Image
+            src={banner}
+            alt={`Loc Troi Cambodia Banner ${index + 1}`}
+            fill
+            priority={index === 0}
+            fetchPriority={index === 0 ? "high" : "auto"}
+            sizes="100vw"
+            quality={90}
+            className="object-contain z-10 drop-shadow-2xl"
+          />
+        </div>
+      ))}
     </div>
   );
 }
