@@ -15,7 +15,7 @@ const partners = [
 export const Partners = () => {
   
   return (
-    <section className="py-12 bg-white border-y border-slate-100 overflow-hidden">
+    <section className="py-4 md:py-8 lg:py-12 bg-white border-y border-slate-100 overflow-hidden">
 
       
       {/* Infinite Scrolling Marquee */}
