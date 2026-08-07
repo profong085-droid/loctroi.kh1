@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "分享此产品",
     "copied": "链接已复制",
-    "share": "分享"
+    "share": "分享",
+    "shareTo": "分享至",
+    "copyLink": "复制链接"
   },
   "LiveChat": {
     "welcome": "您好！感谢您访问柬埔寨 Lộc Trời。今天我能为您提供什么帮助？",
@@ -182,15 +184,41 @@
     "dealerPrefix": "Lộc Trời 仓库 - 分店",
     "provincePrefix": "省会城市",
     "country": "柬埔寨",
-    "PhnomPenh": "金边", "Kandal": "干丹", "Takeo": "茶胶", "KampongCham": "磅湛", "TboungKhmum": "特本克蒙",
-    "PreyVeng": "波萝勉", "SvayRieng": "柴桢", "KampongSpeu": "磅士卑", "Kampot": "贡布", "Kep": "白马",
-    "Sihanoukville": "西哈努克", "KohKong": "国公", "Battambang": "马德望", "BanteayMeanchey": "班迭棉吉", "Pailin": "拜林",
-    "Pursat": "菩萨", "KampongChhnang": "磅清扬", "KampongThom": "磅同", "SiemReap": "暹粒", "OddarMeanchey": "奥多棉吉",
-    "PreahVihear": "柏威夏", "Kratie": "桔井", "StungTreng": "上丁", "Ratanakiri": "腊塔纳基里", "Mondulkiri": "蒙多基里"
+    "PhnomPenh": "金边",
+    "Kandal": "干丹",
+    "Takeo": "茶胶",
+    "KampongCham": "磅湛",
+    "TboungKhmum": "特本克蒙",
+    "PreyVeng": "波萝勉",
+    "SvayRieng": "柴桢",
+    "KampongSpeu": "磅士卑",
+    "Kampot": "贡布",
+    "Kep": "白马",
+    "Sihanoukville": "西哈努克",
+    "KohKong": "国公",
+    "Battambang": "马德望",
+    "BanteayMeanchey": "班迭棉吉",
+    "Pailin": "拜林",
+    "Pursat": "菩萨",
+    "KampongChhnang": "磅清扬",
+    "KampongThom": "磅同",
+    "SiemReap": "暹粒",
+    "OddarMeanchey": "奥多棉吉",
+    "PreahVihear": "柏威夏",
+    "Kratie": "桔井",
+    "StungTreng": "上丁",
+    "Ratanakiri": "腊塔纳基里",
+    "Mondulkiri": "蒙多基里"
   },
   "Metadata": {
     "title": "柬埔寨 Loc Troi",
     "description": "柬埔寨 Loc Troi 提供高品质的农产品、农药、肥料和种子，以支持柬埔寨农民。",
     "keywords": "Ta Sok, Ta Sok Agrochemicals, 农药, 肥料, 种子, 柬埔寨农业, 柬埔寨 Loc Troi, Lộc Trời, 高品质农业, loc troi"
+  },
+  "QuizPage": {
+    "title": "知识问答 | Loc Troi",
+    "back": "返回",
+    "heading": "知识问答游戏",
+    "description": "参与娱乐并测试您对农业及 Lộc Trời 产品的知识"
   }
 }

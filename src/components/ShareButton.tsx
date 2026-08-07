@@ -94,7 +94,7 @@ export function ShareButton({ title, text, url }: ShareButtonProps) {
             className="absolute right-0 top-full mt-2 p-4 bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-slate-100 z-50 w-70"
           >
             <div className="flex items-center justify-between mb-4 px-1">
-              <h4 className="font-bold text-slate-800">ចែករំលែកទៅកាន់</h4>
+              <h4 className="font-bold text-slate-800">{t("shareTo")}</h4>
               <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 p-1 rounded-full transition-colors">
                 <X size={16} />
               </button>
@@ -131,7 +131,7 @@ export function ShareButton({ title, text, url }: ShareButtonProps) {
             >
               <span className="flex items-center gap-3">
                 <Link2 size={18} className="text-slate-400 group-hover:text-slate-600 transition-colors" />
-                ចម្លងតំណ (Copy Link)
+                {t("copyLink")}
               </span>
               {copied && <Check size={18} className="text-green-500" />}
             </button>

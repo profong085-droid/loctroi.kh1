@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "Chia sẻ sản phẩm này",
     "copied": "Đã sao chép",
-    "share": "Chia sẻ"
+    "share": "Chia sẻ",
+    "shareTo": "Chia sẻ tới",
+    "copyLink": "Sao chép liên kết"
   },
   "LiveChat": {
     "welcome": "Xin chào! Cảm ơn bạn đã ghé thăm Lộc Trời Cambodia. Hôm nay tôi có thể giúp gì cho bạn?",
@@ -182,15 +184,41 @@
     "dealerPrefix": "Đại lý Lộc Trời - Chi nhánh",
     "provincePrefix": "Tỉnh lị",
     "country": "Campuchia",
-    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
-    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
-    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
-    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
-    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+    "PhnomPenh": "Phnom Penh",
+    "Kandal": "Kandal",
+    "Takeo": "Takeo",
+    "KampongCham": "Kampong Cham",
+    "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng",
+    "SvayRieng": "Svay Rieng",
+    "KampongSpeu": "Kampong Speu",
+    "Kampot": "Kampot",
+    "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville",
+    "KohKong": "Koh Kong",
+    "Battambang": "Battambang",
+    "BanteayMeanchey": "Banteay Meanchey",
+    "Pailin": "Pailin",
+    "Pursat": "Pursat",
+    "KampongChhnang": "Kampong Chhnang",
+    "KampongThom": "Kampong Thom",
+    "SiemReap": "Siem Reap",
+    "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear",
+    "Kratie": "Kratie",
+    "StungTreng": "Stung Treng",
+    "Ratanakiri": "Ratanakiri",
+    "Mondulkiri": "Mondulkiri"
   },
   "Metadata": {
     "title": "Lộc Trời Campuchia",
     "description": "Lộc Trời Campuchia cung cấp các sản phẩm nông nghiệp, thuốc bảo vệ thực vật, phân bón và hạt giống chất lượng cao nhằm hỗ trợ nông dân Campuchia.",
     "keywords": "Ta Sok, Thuốc bảo vệ thực vật Ta Sok, Nông nghiệp, Phân bón, Hạt giống, Nông nghiệp Campuchia, Loc Troi Cambodia, Lộc Trời, Thuốc trừ sâu, Nông sản chất lượng cao, loc troi"
+  },
+  "QuizPage": {
+    "title": "Trắc nghiệm kiến thức | Loc Troi",
+    "back": "Quay lại",
+    "heading": "Trò chơi Trắc nghiệm Kiến thức",
+    "description": "Tham gia giải trí và kiểm tra kiến thức của bạn về nông nghiệp và các sản phẩm của Lộc Trời"
   }
 }

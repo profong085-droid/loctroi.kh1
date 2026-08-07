@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "이 제품 공유하기",
     "copied": "링크가 복사되었습니다",
-    "share": "공유하기"
+    "share": "공유하기",
+    "shareTo": "공유하기",
+    "copyLink": "링크 복사"
   },
   "LiveChat": {
     "welcome": "안녕하세요! Loc Troi 캄보디아에 오신 것을 환영합니다. 오늘 무엇을 도와드릴까요?",
@@ -182,15 +184,41 @@
     "dealerPrefix": "Lộc Trời 창고 - 지점",
     "provincePrefix": "주도",
     "country": "캄보디아",
-    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
-    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
-    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
-    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
-    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+    "PhnomPenh": "Phnom Penh",
+    "Kandal": "Kandal",
+    "Takeo": "Takeo",
+    "KampongCham": "Kampong Cham",
+    "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng",
+    "SvayRieng": "Svay Rieng",
+    "KampongSpeu": "Kampong Speu",
+    "Kampot": "Kampot",
+    "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville",
+    "KohKong": "Koh Kong",
+    "Battambang": "Battambang",
+    "BanteayMeanchey": "Banteay Meanchey",
+    "Pailin": "Pailin",
+    "Pursat": "Pursat",
+    "KampongChhnang": "Kampong Chhnang",
+    "KampongThom": "Kampong Thom",
+    "SiemReap": "Siem Reap",
+    "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear",
+    "Kratie": "Kratie",
+    "StungTreng": "Stung Treng",
+    "Ratanakiri": "Ratanakiri",
+    "Mondulkiri": "Mondulkiri"
   },
   "Metadata": {
     "title": "Loc Troi 캄보디아",
     "description": "Loc Troi 캄보디아는 농부들을 지원하기 위해 고품질 농산물, 농약, 비료, 종자를 제공합니다.",
     "keywords": "Ta Sok, Ta Sok Agrochemicals, 농약, 비료, 종자, 캄보디아 농업, Loc Troi 캄보디아, Lộc Trời, 살충제, 고품질 농업, loc troi"
+  },
+  "QuizPage": {
+    "title": "지식 퀴즈 | Loc Troi",
+    "back": "뒤로 가기",
+    "heading": "지식 퀴즈 게임",
+    "description": "즐거움에 동참하여 농업 및 Lộc Trời 제품에 대한 지식을 테스트해보세요"
   }
 }

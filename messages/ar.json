@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "مشاركة هذا المنتج",
     "copied": "تم نسخ الرابط",
-    "share": "مشاركة"
+    "share": "مشاركة",
+    "shareTo": "مشاركة إلى",
+    "copyLink": "نسخ الرابط"
   },
   "LiveChat": {
     "welcome": "مرحبًا! شكرًا لزيارتك Loc Troi كمبوديا. كيف يمكنني مساعدتك اليوم؟",
@@ -182,15 +184,41 @@
     "dealerPrefix": "Lộc Trời مستودع - فرع",
     "provincePrefix": "عاصمة المقاطعة",
     "country": "كمبوديا",
-    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
-    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
-    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
-    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
-    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+    "PhnomPenh": "Phnom Penh",
+    "Kandal": "Kandal",
+    "Takeo": "Takeo",
+    "KampongCham": "Kampong Cham",
+    "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng",
+    "SvayRieng": "Svay Rieng",
+    "KampongSpeu": "Kampong Speu",
+    "Kampot": "Kampot",
+    "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville",
+    "KohKong": "Koh Kong",
+    "Battambang": "Battambang",
+    "BanteayMeanchey": "Banteay Meanchey",
+    "Pailin": "Pailin",
+    "Pursat": "Pursat",
+    "KampongChhnang": "Kampong Chhnang",
+    "KampongThom": "Kampong Thom",
+    "SiemReap": "Siem Reap",
+    "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear",
+    "Kratie": "Kratie",
+    "StungTreng": "Stung Treng",
+    "Ratanakiri": "Ratanakiri",
+    "Mondulkiri": "Mondulkiri"
   },
   "Metadata": {
     "title": "Loc Troi كمبوديا",
     "description": "تقدم Loc Troi Cambodia منتجات زراعية وكيماويات وأسمدة وبذور عالية الجودة لدعم المزارعين.",
     "keywords": "Ta Sok, Ta Sok Agrochemicals, كيماويات زراعية, أسمدة, بذور, زراعة كمبوديا, Loc Troi كمبوديا, Lộc Trời, مبيدات حشرية, زراعة عالية الجودة, loc troi"
+  },
+  "QuizPage": {
+    "title": "اختبار المعرفة | Loc Troi",
+    "back": "عودة",
+    "heading": "لعبة اختبار المعرفة",
+    "description": "انضم للمتعة واختبر معرفتك بالزراعة ومنتجات Lộc Trời"
   }
 }

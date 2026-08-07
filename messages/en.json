@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "Share this product",
     "copied": "Link copied",
-    "share": "Share"
+    "share": "Share",
+    "shareTo": "Share to",
+    "copyLink": "Copy Link"
   },
   "LiveChat": {
     "welcome": "Hello! Thank you for visiting Loc Troi Cambodia. How can I help you today?",
@@ -182,15 +184,41 @@
     "dealerPrefix": "Lộc Trời Depot - Branch",
     "provincePrefix": "Provincial town of",
     "country": "Cambodia",
-    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
-    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
-    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
-    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
-    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+    "PhnomPenh": "Phnom Penh",
+    "Kandal": "Kandal",
+    "Takeo": "Takeo",
+    "KampongCham": "Kampong Cham",
+    "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng",
+    "SvayRieng": "Svay Rieng",
+    "KampongSpeu": "Kampong Speu",
+    "Kampot": "Kampot",
+    "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville",
+    "KohKong": "Koh Kong",
+    "Battambang": "Battambang",
+    "BanteayMeanchey": "Banteay Meanchey",
+    "Pailin": "Pailin",
+    "Pursat": "Pursat",
+    "KampongChhnang": "Kampong Chhnang",
+    "KampongThom": "Kampong Thom",
+    "SiemReap": "Siem Reap",
+    "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear",
+    "Kratie": "Kratie",
+    "StungTreng": "Stung Treng",
+    "Ratanakiri": "Ratanakiri",
+    "Mondulkiri": "Mondulkiri"
   },
   "Metadata": {
     "title": "Loc Troi Cambodia",
     "description": "Loc Troi Cambodia offers high-quality agricultural products, agrochemicals, fertilizers, and seeds to support Cambodian farmers.",
     "keywords": "Ta Sok, Ta Sok Agrochemicals, Agrochemicals, Fertilizers, Seeds, Cambodian Agriculture, Loc Troi Cambodia, Lộc Trời, Pesticides, High-quality Agriculture, loc troi"
+  },
+  "QuizPage": {
+    "title": "Knowledge Quiz | Loc Troi",
+    "back": "Go Back",
+    "heading": "Knowledge Quiz Game",
+    "description": "Join the fun and test your knowledge about agriculture and Lộc Trời products"
   }
 }

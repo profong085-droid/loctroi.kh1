@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "この製品をシェアする",
     "copied": "リンクをコピーしました",
-    "share": "シェア"
+    "share": "シェア",
+    "shareTo": "共有先",
+    "copyLink": "リンクをコピー"
   },
   "LiveChat": {
     "welcome": "こんにちは！Loc Troiカンボジアへようこそ。今日はどのようにお手伝いしましょうか？",
@@ -182,15 +184,41 @@
     "dealerPrefix": "Lộc Trời デポ - 支店",
     "provincePrefix": "州都",
     "country": "カンボジア",
-    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
-    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
-    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
-    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
-    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+    "PhnomPenh": "Phnom Penh",
+    "Kandal": "Kandal",
+    "Takeo": "Takeo",
+    "KampongCham": "Kampong Cham",
+    "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng",
+    "SvayRieng": "Svay Rieng",
+    "KampongSpeu": "Kampong Speu",
+    "Kampot": "Kampot",
+    "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville",
+    "KohKong": "Koh Kong",
+    "Battambang": "Battambang",
+    "BanteayMeanchey": "Banteay Meanchey",
+    "Pailin": "Pailin",
+    "Pursat": "Pursat",
+    "KampongChhnang": "Kampong Chhnang",
+    "KampongThom": "Kampong Thom",
+    "SiemReap": "Siem Reap",
+    "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear",
+    "Kratie": "Kratie",
+    "StungTreng": "Stung Treng",
+    "Ratanakiri": "Ratanakiri",
+    "Mondulkiri": "Mondulkiri"
   },
   "Metadata": {
     "title": "Loc Troi カンボジア",
     "description": "Loc Troi カンボジアは、農家を支援するために高品質の農産物、農薬、肥料、種子を提供しています。",
     "keywords": "Ta Sok, Ta Sok Agrochemicals, 農薬, 肥料, 種子, カンボジア農業, Loc Troi カンボジア, Lộc Trời, 殺虫剤, 高品質農業, loc troi"
+  },
+  "QuizPage": {
+    "title": "知識クイズ | Loc Troi",
+    "back": "戻る",
+    "heading": "知識クイズゲーム",
+    "description": "楽しみに参加して、農業とLộc Trời製品に関する知識をテストしてください"
   }
 }

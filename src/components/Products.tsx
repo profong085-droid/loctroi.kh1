@@ -203,7 +203,7 @@ export const Products = () => {
           </div>
 
           {/* Categories */}
-          <div className="flex overflow-x-auto md:flex-wrap md:justify-center gap-2 md:gap-3 px-4 md:px-2 pb-4 md:pb-0 -mx-4 md:mx-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x">
+          <div className="flex overflow-x-auto md:flex-wrap md:justify-center gap-2 md:gap-3 px-4 md:px-2 pb-4 md:pb-0 -mx-4 md:mx-0 scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x">
             {categories.map((cat) => (
               <motion.button
                 key={cat.id}

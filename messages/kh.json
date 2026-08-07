@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "ចែករំលែកផលិតផលនេះ (Share)",
     "copied": "បានចម្លងលីង",
-    "share": "ចែករំលែក"
+    "share": "ចែករំលែក",
+    "shareTo": "ចែករំលែកទៅកាន់",
+    "copyLink": "ចម្លងតំណ (Copy Link)"
   },
   "LiveChat": {
     "welcome": "សួស្តី! អរគុណដែលបានមកកាន់វេបសាយ Loc Troi Cambodia។ តើមានអ្វីឲ្យខ្ញុំជួយអ្នកទេថ្ងៃនេះ?",
@@ -182,15 +184,41 @@
     "dealerPrefix": "ដេប៉ូកសិកម្ម Lộc Trời - សាខា",
     "provincePrefix": "ទីរួមខេត្ត",
     "country": "ប្រទេសកម្ពុជា",
-    "PhnomPenh": "ភ្នំពេញ", "Kandal": "កណ្តាល", "Takeo": "តាកែវ", "KampongCham": "កំពង់ចាម", "TboungKhmum": "ត្បូងឃ្មុំ",
-    "PreyVeng": "ព្រៃវែង", "SvayRieng": "ស្វាយរៀង", "KampongSpeu": "កំពង់ស្ពឺ", "Kampot": "កំពត", "Kep": "កែប",
-    "Sihanoukville": "ព្រះសីហនុ", "KohKong": "កោះកុង", "Battambang": "បាត់ដំបង", "BanteayMeanchey": "បន្ទាយមានជ័យ", "Pailin": "ប៉ៃលិន",
-    "Pursat": "ពោធិ៍សាត់", "KampongChhnang": "កំពង់ឆ្នាំង", "KampongThom": "កំពង់ធំ", "SiemReap": "សៀមរាប", "OddarMeanchey": "ឧត្តរមានជ័យ",
-    "PreahVihear": "ព្រះវិហារ", "Kratie": "ក្រចេះ", "StungTreng": "ស្ទឹងត្រែង", "Ratanakiri": "រតនគិរី", "Mondulkiri": "មណ្ឌលគិរី"
+    "PhnomPenh": "ភ្នំពេញ",
+    "Kandal": "កណ្តាល",
+    "Takeo": "តាកែវ",
+    "KampongCham": "កំពង់ចាម",
+    "TboungKhmum": "ត្បូងឃ្មុំ",
+    "PreyVeng": "ព្រៃវែង",
+    "SvayRieng": "ស្វាយរៀង",
+    "KampongSpeu": "កំពង់ស្ពឺ",
+    "Kampot": "កំពត",
+    "Kep": "កែប",
+    "Sihanoukville": "ព្រះសីហនុ",
+    "KohKong": "កោះកុង",
+    "Battambang": "បាត់ដំបង",
+    "BanteayMeanchey": "បន្ទាយមានជ័យ",
+    "Pailin": "ប៉ៃលិន",
+    "Pursat": "ពោធិ៍សាត់",
+    "KampongChhnang": "កំពង់ឆ្នាំង",
+    "KampongThom": "កំពង់ធំ",
+    "SiemReap": "សៀមរាប",
+    "OddarMeanchey": "ឧត្តរមានជ័យ",
+    "PreahVihear": "ព្រះវិហារ",
+    "Kratie": "ក្រចេះ",
+    "StungTreng": "ស្ទឹងត្រែង",
+    "Ratanakiri": "រតនគិរី",
+    "Mondulkiri": "មណ្ឌលគិរី"
   },
   "Metadata": {
     "title": "Loc Troi Cambodia",
     "description": "ក្រុមហ៊ុន Loc Troi Cambodia ផ្តល់ជូននូវកសិផលគុណភាពខ្ពស់ ថ្នាំកសិកម្ម ជី និងពូជស្រូវ ដើម្បីជួយកសិករកម្ពុជា។ Loc Troi is your best agricultural partner.",
     "keywords": "តាសុខ, ថ្នាំកសិកម្មតាសុខ, ថ្នាំកសិកម្ម, ជីកសិកម្ម, ពូជស្រូវ, កសិកម្មកម្ពុជា, Loc Troi Cambodia, Lộc Trời, ថ្នាំសម្លាប់សត្វល្អិត, ជីបំប៉ន, កសិផលគុណភាពខ្ពស់, loc troi"
+  },
+  "QuizPage": {
+    "title": "សាកល្បងចំណេះដឹង | Loc Troi",
+    "back": "ត្រឡប់ទៅក្រោយ",
+    "heading": "ហ្គេមសាកល្បងចំណេះដឹង",
+    "description": "ចូលរួមលេងកម្សាន្ត និងសាកល្បងចំណេះដឹងរបស់អ្នកអំពីវិស័យកសិកម្ម និងផលិតផលរបស់ Lộc Trời"
   }
 }

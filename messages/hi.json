@@ -126,7 +126,9 @@
   "ShareButton": {
     "title": "इस उत्पाद को शेयर करें",
     "copied": "लिंक कॉपी किया गया",
-    "share": "शेयर करें"
+    "share": "शेयर करें",
+    "shareTo": "को शेयर करें",
+    "copyLink": "लिंक कॉपी करें"
   },
   "LiveChat": {
     "welcome": "नमस्ते! Loc Troi कंबोडिया आने के लिए धन्यवाद। आज मैं आपकी कैसे मदद कर सकता हूँ?",
@@ -182,15 +184,41 @@
     "dealerPrefix": "Lộc Trời डिपो - शाखा",
     "provincePrefix": "प्रांतीय शहर",
     "country": "कंबोडिया",
-    "PhnomPenh": "Phnom Penh", "Kandal": "Kandal", "Takeo": "Takeo", "KampongCham": "Kampong Cham", "TboungKhmum": "Tboung Khmum",
-    "PreyVeng": "Prey Veng", "SvayRieng": "Svay Rieng", "KampongSpeu": "Kampong Speu", "Kampot": "Kampot", "Kep": "Kep",
-    "Sihanoukville": "Sihanoukville", "KohKong": "Koh Kong", "Battambang": "Battambang", "BanteayMeanchey": "Banteay Meanchey", "Pailin": "Pailin",
-    "Pursat": "Pursat", "KampongChhnang": "Kampong Chhnang", "KampongThom": "Kampong Thom", "SiemReap": "Siem Reap", "OddarMeanchey": "Oddar Meanchey",
-    "PreahVihear": "Preah Vihear", "Kratie": "Kratie", "StungTreng": "Stung Treng", "Ratanakiri": "Ratanakiri", "Mondulkiri": "Mondulkiri"
+    "PhnomPenh": "Phnom Penh",
+    "Kandal": "Kandal",
+    "Takeo": "Takeo",
+    "KampongCham": "Kampong Cham",
+    "TboungKhmum": "Tboung Khmum",
+    "PreyVeng": "Prey Veng",
+    "SvayRieng": "Svay Rieng",
+    "KampongSpeu": "Kampong Speu",
+    "Kampot": "Kampot",
+    "Kep": "Kep",
+    "Sihanoukville": "Sihanoukville",
+    "KohKong": "Koh Kong",
+    "Battambang": "Battambang",
+    "BanteayMeanchey": "Banteay Meanchey",
+    "Pailin": "Pailin",
+    "Pursat": "Pursat",
+    "KampongChhnang": "Kampong Chhnang",
+    "KampongThom": "Kampong Thom",
+    "SiemReap": "Siem Reap",
+    "OddarMeanchey": "Oddar Meanchey",
+    "PreahVihear": "Preah Vihear",
+    "Kratie": "Kratie",
+    "StungTreng": "Stung Treng",
+    "Ratanakiri": "Ratanakiri",
+    "Mondulkiri": "Mondulkiri"
   },
   "Metadata": {
     "title": "Loc Troi कंबोडिया",
     "description": "Loc Troi कंबोडिया किसानों का समर्थन करने के लिए उच्च गुणवत्ता वाले कृषि उत्पाद, एग्रोकेमिकल्स, उर्वरक और बीज प्रदान करता है।",
     "keywords": "Ta Sok, Ta Sok Agrochemicals, एग्रोकेमिकल्स, उर्वरक, बीज, कंबोडियाई कृषि, Loc Troi कंबोडिया, Lộc Trời, कीटनाशक, उच्च गुणवत्ता वाली कृषि, loc troi"
+  },
+  "QuizPage": {
+    "title": "ज्ञान प्रश्नोत्तरी | Loc Troi",
+    "back": "वापस जाएं",
+    "heading": "ज्ञान प्रश्नोत्तरी खेल",
+    "description": "मज़े में शामिल हों और कृषि और Lộc Trời उत्पादों के बारे में अपने ज्ञान का परीक्षण करें"
   }
 }
