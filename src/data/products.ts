@@ -12,6 +12,7 @@ export interface Product {
   ingredients?: LocaleText;
   ingredientDetails?: LocaleText;
   benefits?: LocaleText[];
+  relatedImages?: string[];
 }
 
 export function getLocalizedText(text: LocaleText | undefined, locale: string): string {
@@ -43,7 +44,13 @@ export const productsData: Product[] = [
       { kh: "ងាយស្រួលប្រើប្រាស់ដោយបាច", en: "Easy to use by broadcasting", vi: "Dễ sử dụng bằng cách rải", ar: "سهل الاستخدام عن طريق النثر", hi: "प्रसारण द्वारा उपयोग में आसान", ja: "散布で簡単に使用可能", ko: "살포를 통해 쉽게 사용 가능", zh: "通过撒播易于使用" },
       { kh: "សម្លាប់ខ្យងមាសបានលឿន និងមានប្រសិទ្ធភាព", en: "Kills golden apple snails quickly and effectively", vi: "Tiêu diệt ốc bươu vàng nhanh chóng và hiệu quả", ar: "يقتل حلزون التفاح الذهبي بسرعة وفعالية", hi: "गोल्डन एप्पल स्नेल को जल्दी और प्रभावी ढंग से मारता है", ja: "スクミリンゴガイを迅速かつ効果的に駆除", ko: "황금사과달팽이를 빠르고 효과적으로 제거", zh: "快速有效地杀死福寿螺" },
       { kh: "មិនមានផលប៉ះពាល់ដល់គ្រាប់ពូជនិងពន្លកស្រូវ", en: "No adverse effect on seeds and rice shoots", vi: "Không ảnh hưởng đến hạt giống và mầm lúa", ar: "ليس له تأثير سلبي على البذور وبراعم الأرز", hi: "बीज और चावल की टहनियों पर कोई प्रतिकूल प्रभाव नहीं", ja: "種子や稲の苗に悪影響を与えない", ko: "종자 및 벼 새싹에 악영향 없음", zh: "对种子和稻苗没有不良影响" }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
 
   // II. ថ្នាំកម្ចាត់ស្មៅ (Herbicides)
@@ -75,7 +82,13 @@ export const productsData: Product[] = [
         ko: "MECO 60 EC는 피 및 기타 잡초를 효과적으로 방제합니다.", 
         zh: "MECO 60 EC有效控制千金子、稗草、莎草和其他杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "ricebeaux", 
@@ -105,7 +118,13 @@ export const productsData: Product[] = [
         ko: "사초과 잡초 및 광엽 잡초를 효과적으로 방제합니다.", 
         zh: "有效控制小莎草、大莎草、千金子和阔叶杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "ankill-a", 
@@ -135,7 +154,13 @@ export const productsData: Product[] = [
         ko: "논의 사초과, 화본과, 광엽 잡초를 방제하는 데 사용됩니다.", 
         zh: "用于防除稻田中的小莎草、大莎草、千金子和阔叶杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "saltare", 
@@ -165,7 +190,13 @@ export const productsData: Product[] = [
         ko: "살타레는 화본과, 사초과 및 광엽 잡초를 방제하는 데 매우 효과적인 혼합 제초제입니다。", 
         zh: "SALTARE是一种混合除草剂，在防除杂草、莎草和阔叶杂草方面非常有效。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "savant", 
@@ -195,7 +226,13 @@ export const productsData: Product[] = [
         ko: "사반트는 사초과, 화본과 및 광엽 잡초를 방제하는 데 사용됩니다.", 
         zh: "SAVANT用于控制小莎草、大莎草、千金子和阔叶杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "anco-600sl", 
@@ -225,7 +262,15 @@ export const productsData: Product[] = [
         ko: "안코 600 SL은 논과 밭에서 자라는 광엽 잡초와 사초과 잡초를 방제하는 데 사용됩니다.", 
         zh: "ANCO 600 SL用于控制稻田和农田中的阔叶杂草和莎草。" 
       }
-    ] 
+    ],
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "photo/photo_2026-03-18_17-22-46 (2).png",
+      "photo/photo_2026-03-18_17-22-47.png"
+    ]
   },
   { 
     id: "anco-720sl", 
@@ -255,7 +300,13 @@ export const productsData: Product[] = [
         ko: "안코 720 SL은 고무 농장 및 논의 광엽 잡초와 사초과 잡초를 방제하는 데 사용됩니다.", 
         zh: "ANCO 720 SL用于控制橡胶园和稻田中的阔叶杂草和莎草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "glyphosan-480-sl", 
@@ -285,7 +336,13 @@ export const productsData: Product[] = [
         ko: "글리포산 480 SL은 고무 농장 및 과수원에서 자라는 일년생 및 다년생 잡초를 방제하는 데 사용됩니다.", 
         zh: "GLYPHOSAN 480 SL用于控制橡胶园和果园中生长的单子叶和多年生杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "glyphosan-757sg", 
@@ -315,7 +372,13 @@ export const productsData: Product[] = [
         ko: "글리포산 757 SG는 고무 농장 및 과수원에서 자라는 일년생 및 다년생 잡초를 방제하는 데 사용됩니다.", 
         zh: "GLYPHOSAN 757 SG用于控制橡胶园和果园中生长的单子叶和多年生杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "facinate", 
@@ -345,7 +408,13 @@ export const productsData: Product[] = [
         ko: "파시네이트 150 SL은 고무, 커피, 과수원 및 공터의 세엽 및 광엽 잡초, 새로 자라거나 개화 중이거나 오래된 잡초를 방제하는 데 사용됩니다.", 
         zh: "FASCINATE 150 SL用于控制橡胶、咖啡、果园和空地上的窄叶和阔叶杂草，新长出的、开花的或老杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "facinate-4-5l", 
@@ -375,7 +444,13 @@ export const productsData: Product[] = [
         ko: "파시네이트 150 SL은 고무, 커피, 과수원 및 공터의 세엽 및 광엽 잡초, 새로 자라거나 개화 중이거나 오래된 잡초를 방제하는 데 사용됩니다.", 
         zh: "FASCINATE 150 SL用于控制橡胶、咖啡、果园和空地上的窄叶和阔叶杂草，新长出的、开花的或老杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "metazin-67sc", 
@@ -405,7 +480,13 @@ export const productsData: Product[] = [
         ko: "메타진 67 SC는 옥수수밭에서 자라는 세엽 잡초(화본과) 및 광엽 잡초를 방제하는 데 사용됩니다.", 
         zh: "METAZIN 67 SC用于控制玉米田中生长的窄叶杂草（禾本科）和阔叶杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "ag-fop-10-ec", 
@@ -435,7 +516,13 @@ export const productsData: Product[] = [
         ko: "AG-FOP 10 EC는 녹두 및 대두밭에서 자라는 세엽 잡초를 죽이는 데 매우 효과적인 제초제입니다.", 
         zh: "AG-FOP 10 EC是一种高效除草剂，有助于杀死绿豆和大豆田中生长的窄叶杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "ag-fen-25-sl", 
@@ -465,7 +552,13 @@ export const productsData: Product[] = [
         ko: "AG-FEN 25 SL은 녹두 및 대두밭에서 자라는 광엽 잡초를 죽이는 데 매우 효과적인 제초제입니다.", 
         zh: "AG-FEN 25 SL是一种高效除草剂，有助于杀死绿豆和大豆田中生长的阔叶杂草。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
 
   // III. ថ្នាំកម្ចាត់សត្វល្អិត (Insecticides)
@@ -497,7 +590,13 @@ export const productsData: Product[] = [
         ko: "디아잔 50 EC는 벼, 옥수수, 대두, 양배추, 후추 및 커피를 손상시키는 잎말이나방, 잎을 먹는 애벌레 및 기타 곤충을 효과적으로 방제합니다。", 
         zh: "DIAZAN 50 EC有效控制卷叶虫、食叶毛虫和其他危害水稻、玉米、大豆、卷心菜、胡椒和咖啡的昆虫。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "cyperan-100-ec", 
@@ -527,7 +626,13 @@ export const productsData: Product[] = [
         ko: "시페란 100 EC는 벼, 대두 및 캐슈넛 작물에 피해를 주는 잎말이나방, 잎을 먹는 애벌레, 과일 천공충 및 노린재를 효과적으로 방제합니다。", 
         zh: "CYPERAN 100 EC有效控制危害水稻、大豆和腰果作物的卷叶虫、食叶毛虫、蛀果虫和蝽。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "jetan", 
@@ -557,7 +662,13 @@ export const productsData: Product[] = [
         ko: "제탄 50 EC는 벼, 과수, 커피 및 캐슈넛을 손상시키는 벼멸구, 가루이, 깍지벌레 및 매미충을 효과적으로 방제하는 살충제입니다。", 
         zh: "JETAN 50 EC是一种有效的杀虫剂，可控制危害水稻、果树、咖啡和腰果的褐飞虱、粉虱、粉蚧和叶蝉。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "anboom-40-ec", 
@@ -587,7 +698,13 @@ export const productsData: Product[] = [
         ko: "안붐 40 EC는 과수, 뿌리 작물, 커피에 피해를 주는 벼멸구, 흰개미, 깍지벌레, 진딧물 및 콩에 피해를 주는 멸강나방을 효과적으로 방제하는 특수 살충제입니다。", 
         zh: "ANBOOM 40 EC是一种特殊的杀虫剂，能有效控制危害果树、块根作物、咖啡的褐飞虱、白蚁、粉蚧和蚜虫，以及危害豆类的粘虫。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "kinalux", 
@@ -617,7 +734,13 @@ export const productsData: Product[] = [
         ko: "키날룩스 25 EC는 혹명나방, 잎말이나방, 이삭을 손상시키는 응애, 벼를 손상시키는 혹파리, 땅콩의 꼬투리 천공충, 대두를 손상시키는 멸강나방(과일 및 꽃 천공), 캐슈넛을 손상시키는 뿌리 먹는 애벌레 등 다양한 곤충을 방제합니다。", 
         zh: "KINALUX 25 EC控制多种昆虫，如筒水螟、稻纵卷叶螟、危害穗的蜘蛛螨、危害水稻的瘿蚊、花生上的荚斑螟、危害大豆的粘虫（蛀果和花），以及危害腰果的食根毛虫。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "aceta-5ec", 
@@ -647,7 +770,13 @@ export const productsData: Product[] = [
         ko: "아세타 5 EC는 수박, 오이, 호박에 피해를 주는 가루이, 총채벌레, 진딧물, 멸강나방; 망고, 캐슈넛에 피해를 주는 총채벌레, 진딧물; 벼, 옥수수에 피해를 주는 잎말이나방, 벼멸구 등 다양한 종류의 곤충을 방제할 수 있습니다。", 
         zh: "ACETA 5 EC可以控制许多类型的昆虫，例如：破坏西瓜、黄瓜、南瓜的粉虱、蓟马、蚜虫、粘虫；破坏芒果、腰果的蓟马、蚜虫；破坏水稻、玉米的卷叶虫、褐飞虱。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "i-dol", 
@@ -677,7 +806,13 @@ export const productsData: Product[] = [
         ko: "아이돌 70 WDG는 망고와 캐슈넛에 피해를 주는 총채벌레, 장님노린재, 벼에 피해를 주는 총채벌레 등 다양한 종류의 곤충을 방제할 수 있습니다。", 
         zh: "I-DOL 70 WDG可以控制许多类型的昆虫，例如：破坏芒果、腰果的蓟马、盲蝽，以及破坏水稻的蓟马。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "pup-g-6ec", 
@@ -707,7 +842,13 @@ export const productsData: Product[] = [
         ko: "펍지 6 EC는 벼에 피해를 주는 잎말이나방과 옥수수에 피해를 주는 멸강나방 등 작물에 피해를 주는 곤충을 효과적으로 방제할 수 있습니다。", 
         zh: "PUB-G 6 EC可以有效控制破坏作物的昆虫，例如：破坏水稻的卷叶虫和破坏玉米的粘虫。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "lancer-gold", 
@@ -737,7 +878,13 @@ export const productsData: Product[] = [
         ko: "랜서 골드 55 WG는 캐슈넛, 망고에 피해를 주는 총채벌레, 진딧물, 꽃 먹는 애벌레; 벼에 피해를 주는 이화명나방, 잎말이나방, 벼멸구, 끝동매미충; 모든 종류의 채소에 피해를 주는 총채벌레, 진딧물, 점박이응애 등 다양한 종류의 곤충을 방제할 수 있습니다。", 
         zh: "LANCER GOLD 55 WG可以控制许多类型的昆虫，如破坏腰果、芒果的蓟马、蚜虫、食花毛虫；破坏水稻的二化螟、卷叶虫、褐飞虱、绿叶蝉；以及破坏各种蔬菜的蓟马、蚜虫、红蜘蛛螨。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "lt-thrip-250-wg", 
@@ -767,7 +914,13 @@ export const productsData: Product[] = [
         ko: "LT-THRIP 250 WG는 벼, 망고 및 캐슈넛에 피해를 주는 총채벌레에 매우 효과적입니다。", 
         zh: "LT-THRIP 250 WG对破坏水稻、芒果和腰果的蓟马非常有效。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "floram-500wp", 
@@ -797,7 +950,13 @@ export const productsData: Product[] = [
         ko: "플로람 500WP는 접촉 및 침투 이행성 작용을 하는 광범위 살충제입니다. 벼에 피해를 주는 벼멸구, 덩이줄기 작물에 피해를 주는 진딧물, 커피에 피해를 주는 깍지벌레 및 망고 매미충을 효과적으로 방제합니다。", 
         zh: "FLORAM 500WP是一种具有触杀和内吸作用的广谱杀虫剂。有效控制破坏水稻的褐飞虱、破坏块茎作物的蚜虫、破坏咖啡的粉蚧和芒果叶蝉。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "dongkov-36-ec", 
@@ -827,7 +986,13 @@ export const productsData: Product[] = [
         ko: "동코브 36 EC는 수박, 오이, 호박에 피해를 주는 가루이, 총채벌레, 진딧물, 멸강나방; 망고, 캐슈넛에 피해를 주는 총채벌레, 진딧물; 벼, 옥수수에 피해를 주는 잎말이나방, 왕우렁이 등 다양한 종류의 곤충을 방제할 수 있습니다。", 
         zh: "DONGKOV 36 EC可以控制许多类型的昆虫，例如：破坏西瓜、黄瓜、南瓜的粉虱、蓟马、蚜虫、粘虫；破坏芒果、腰果的蓟马、蚜虫；破坏水稻、玉米的卷叶虫、福寿螺。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "kla-khlang", 
@@ -857,7 +1022,13 @@ export const productsData: Product[] = [
         ko: "클라 클랑 333 SC는 벼에 피해를 주는 잎말이나방, 이화명나방; 콩과 채소에 피해를 주는 푸른 애벌레, 멸강나방; 과수에 피해를 주는 과일 뚫는 벌레를 특별히 방제합니다。", 
         zh: "KLA KHLANG 333 SC专门控制破坏水稻的卷叶虫、二化螟；破坏豆类和蔬菜的青虫、粘虫；破坏果树的蛀果虫。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
 
   // IV. ថ្នាំកម្ចាត់ជំងឺ (Fungicides)
@@ -889,7 +1060,13 @@ export const productsData: Product[] = [
         ko: "발리단 3 SL은 벼와 옥수수에 피해를 주는 잎집무늬마름병을 방제하는 데 사용됩니다。", 
         zh: "VALIDAN 3 SL用于控制破坏水稻和玉米的纹枯病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "validan-5sl", 
@@ -939,7 +1116,13 @@ export const productsData: Product[] = [
         ko: "수확량과 곡물 품질을 높이는 데 도움이 됩니다。", 
         zh: "有助于提高产量和谷物质量。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "fuan-40ec", 
@@ -969,7 +1152,13 @@ export const productsData: Product[] = [
         ko: "푸안 40 EC는 벼에 피해를 주는 도열병(잎 및 이삭목)을 방제하는 데 사용됩니다。", 
         zh: "FUAN 40 EC用于控制破坏水稻的稻瘟病（叶面和穗颈）。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "totan-200-wp", 
@@ -999,7 +1188,13 @@ export const productsData: Product[] = [
         ko: "토탄 200 WP는 벼에 피해를 주는 목도열병, 조기 잎 황화, 세균성 기부 썩음병 및 이삭마름병; 양배추에 피해를 주는 무름병; 채소에 피해를 주는 푸른 곰팡이병; 후추에 피해를 주는 기부 마름병 또는 낙엽병을 특별히 방제합니다。", 
         zh: "TOTAN 200 WP专门控制破坏水稻的穗颈瘟、过早叶片发黄、细菌性基腐病和穗枯病；破坏卷心菜的软腐病；破坏蔬菜的蓝霉病；破坏胡椒的基腐病或落叶病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "totan-c-o-21sl", 
@@ -1029,7 +1224,13 @@ export const productsData: Product[] = [
         ko: "토탄 C-O 21SL은 강력한 접촉 및 침투 이행성 작용을 하는 살균제입니다. 벼에 피해를 주는 목도열병, 잎 황화, 세균성 기부 썩음병 및 이삭마름병; 양배추에 피해를 주는 무름병; 채소에 피해를 주는 푸른 곰팡이병; 후추에 피해를 주는 기부 마름병 또는 낙엽병을 방제합니다。", 
         zh: "TOTAN C-O 21SL是一种具有强力触杀和内吸作用的杀菌剂。控制破坏水稻的穗颈瘟、叶片发黄、细菌性基腐病和穗枯病；破坏卷心菜的软腐病；破坏蔬菜的蓝霉病；破坏胡椒的基腐病或落叶病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
 
   { 
@@ -1060,7 +1261,13 @@ export const productsData: Product[] = [
         ko: "인수란 50 WG는 후추에 피해를 주는 기부 썩음병, 잎 황화 및 뿌리 썩음병; 토마토의 역병; 오이의 노균병; 옥수수의 노균병; 덩이줄기 작물, 카사바의 줄기 썩음 및 고무병; 고무나무의 껍질 마름병을 예방하고 방제합니다.", 
         zh: "INSURAN 50 WG可预防和控制破坏胡椒的基腐病、叶片发黄和根腐病；西红柿上的晚疫病；黄瓜上的霜霉病；玉米上的霜霉病；块茎作物、木薯上的茎腐病和流胶病；橡胶上的割面条溃疡病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "evitin-50-sc", 
@@ -1090,7 +1297,13 @@ export const productsData: Product[] = [
         ko: "에비틴 50 SC는 벼의 변색미, 잎 황화, 잎집무늬마름병; 옥수수의 잎집무늬마름병; 고무나무의 흰가루병 및 황색 낙엽병; 망고와 캐슈넛의 탄저병; 콩과 오이과의 모잘록병을 방제하고 예방합니다.", 
         zh: "EVITIN 50 SC可控制和预防变色米、叶片发黄、水稻纹枯病；玉米纹枯病；橡胶树白粉病和黄叶落叶病；芒果和腰果炭疽病；豆类和黄瓜科的猝倒病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "bipro-super-300-ec", 
@@ -1120,7 +1333,13 @@ export const productsData: Product[] = [
         ko: "비프로 슈퍼 300 EC는 벼의 변색미 및 잎집무늬마름병; 콩의 꼬투리 마름병 및 점무늬병; 고무나무의 껍질 갈라짐 및 고무병; 고무나무의 잎 황화(잎 갈라짐) 및 핑크병; 옥수수의 잎집무늬마름병을 방제합니다.", 
         zh: "BIPRO SUPER 300 EC控制水稻变色米和纹枯病；豆类的荚枯病和叶斑病；橡胶的树皮开裂和流胶病；橡胶的叶片发黄（叶片开裂）和红根病；玉米的纹枯病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "bistar-top-325-sc", 
@@ -1150,7 +1369,13 @@ export const productsData: Product[] = [
         ko: "비스타 탑 325 SC는 벼의 변색미, 잎집무늬마름병, 잎 황화 및 도열병; 옥수수의 점무늬병 및 줄기 썩음병; 콩의 모잘록병; 토마토의 잎마름병 및 겹무늬병; 망고의 탄저병; 고무나무의 흰가루병 및 황색 낙엽병을 방제합니다.", 
         zh: "BISTAR TOP 325 SC控制水稻变色米、纹枯病、叶片发黄和稻瘟病；玉米叶斑病和茎腐病；豆类猝倒病；西红柿叶枯病和早疫病；芒果炭疽病；橡胶白粉病和黄叶落叶病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "fila-super-525-se", 
@@ -1180,7 +1405,13 @@ export const productsData: Product[] = [
         ko: "필라 슈퍼 525 SE는 벼에 피해를 주는 잎도열병 및 목도열병(변색미)을 방제하는 데 사용됩니다.", 
         zh: "FILA SUPER 525 SE用于控制破坏水稻的叶瘟和穗颈瘟（变色米）。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "apropo-200se", 
@@ -1230,7 +1461,13 @@ export const productsData: Product[] = [
         ko: "망고와 두리안 과일의 탄저병을 방제합니다。", 
         zh: "控制芒果和榴莲果实上的炭疽病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "mastercop", 
@@ -1270,7 +1507,13 @@ export const productsData: Product[] = [
         ko: "후추에 피해를 주는 낙엽병 및 점무늬병을 방제합니다。", 
         zh: "控制破坏胡椒的落叶和叶斑病。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
 
   { 
@@ -1331,7 +1574,13 @@ export const productsData: Product[] = [
         ko: "벼, 옥수수, 수박, 토마토, 채소, 콩, 과일 작물 및 산업용 작물에 사용할 수 있습니다.", 
         zh: "可用于水稻、玉米、西瓜、西红柿、蔬菜、豆类、水果作物和经济作物。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "vitazyme-n", 
@@ -1391,7 +1640,13 @@ export const productsData: Product[] = [
         ko: "벼, 옥수수, 토마토, 파인애플, 감자, 땅콩, 후추, 커피, 용과 및 과일 작물에 사용할 수 있습니다.", 
         zh: "可用于水稻、玉米、西红柿、菠萝、土豆、花生、胡椒、咖啡、火龙果和水果作物。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "hi-boron-7-14", 
@@ -1451,7 +1706,13 @@ export const productsData: Product[] = [
         ko: "줄기를 튼튼하게 하고 농산물의 수확량과 품질을 높입니다.", 
         zh: "帮助茎干强壮，提高农产品的产量和质量。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "hi-potassium-c30", 
@@ -1511,7 +1772,13 @@ export const productsData: Product[] = [
         ko: "줄기, 과일 및 씨앗을 튼튼하게 하고 고르게 익으며 곡물을 빨리 채우는 데 도움이 됩니다.", 
         zh: "帮助茎干、果实和种子坚固，均匀成熟，并快速灌浆。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "brano-0-01sl", 
@@ -1571,7 +1838,13 @@ export const productsData: Product[] = [
         ko: "식물을 튼튼하게 하고 질병과 곤충을 줄이는 데 도움이 됩니다.", 
         zh: "帮助植物变得强壮，减少病虫害。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "dam-black-lt", 
@@ -1631,7 +1904,13 @@ export const productsData: Product[] = [
         ko: "토양을 풀고 공기를 통하게 하며 침식을 줄이고 뿌리 시스템이 잘 자라도록 돕습니다.", 
         zh: "有助于疏松土壤、通气、减少侵蚀，并帮助根系良好生长。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "npk-20-10-10", 
@@ -1691,7 +1970,13 @@ export const productsData: Product[] = [
         ko: "수확량, 농산물 품질 및 기후 변화에 대한 탄력성을 높입니다.", 
         zh: "提高产量、农产品质量和对气候变化的适应能力。" 
       }
-    ] 
+    ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "bao-urea-black", 
@@ -1701,7 +1986,13 @@ export const productsData: Product[] = [
     categoryKh: "ជីសរីរាង្គជីវសាស្រ្ត និងជីសរីរាង្គ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "vian-5-2-2", 
@@ -1711,7 +2002,13 @@ export const productsData: Product[] = [
     categoryKh: "ជីសរីរាង្គជីវសាស្រ្ត និងជីសរីរាង្គ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "vian-6-4-2", 
@@ -1721,7 +2018,13 @@ export const productsData: Product[] = [
     categoryKh: "ជីសរីរាង្គជីវសាស្រ្ត និងជីសរីរាង្គ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "silimax", 
@@ -1731,7 +2034,13 @@ export const productsData: Product[] = [
     categoryKh: "ជីសរីរាង្គជីវសាស្រ្ត និងជីសរីរាង្គ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
 
   // VI. គ្រាប់ពូជ (Seeds)
@@ -1743,7 +2052,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "ltc-nang-hoa-9", 
@@ -1753,7 +2068,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "ir50404-nc", 
@@ -1763,7 +2084,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "ir50404-xn1", 
@@ -1773,7 +2100,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "bap-nu-1kg", 
@@ -1783,7 +2116,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "bap-nu-20kg", 
@@ -1793,7 +2132,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "lt11", 
@@ -1803,7 +2148,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "lvn10-1kg", 
@@ -1813,7 +2164,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ رہا है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ رہا है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "lvn10-20kg", 
@@ -1823,7 +2180,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "om5451-nc", 
@@ -1833,7 +2196,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "om5451-xn1", 
@@ -1843,7 +2212,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "dx208-20kg", 
@@ -1853,7 +2228,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
   { 
     id: "dx208-1kg", 
@@ -1863,7 +2244,13 @@ export const productsData: Product[] = [
     categoryKh: "គ្រាប់ពូជ", 
     usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
-    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
   },
 
   // VII. ផ្សេងៗ (Special Products)

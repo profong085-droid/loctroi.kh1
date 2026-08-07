@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import { ShareButton } from "@/components/ShareButton";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { RelatedProducts } from "@/components/RelatedProducts";
+import { ImageGallery } from "@/components/ImageGallery";
 
 type Props = {
   params: Promise<{ id: string, locale: string }>;
@@ -208,18 +209,22 @@ export default async function ProductPage({ params }: Props) {
         </div>
         
         <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
-          <div className="w-full md:w-1/2 p-2 sm:p-6 md:p-12 bg-slate-50 flex items-center justify-center min-h-40 sm:min-h-55 md:min-h-100">
-            <div className="relative w-full h-40 sm:h-55 md:h-125">
-              <Image 
-                src={`/${product.image}`} 
-                alt={`${productName} | Loc Troi Cambodia`} 
-                title={`${productName} - Loc Troi Cambodia`}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain drop-shadow-xl md:drop-shadow-2xl" 
-              />
+          <div className="w-full md:w-1/2 bg-slate-50 flex flex-col justify-between min-h-40 sm:min-h-55 md:min-h-100">
+            <div className="flex-1 p-2 sm:p-6 md:p-12 flex flex-col items-center justify-center">
+              <div className="relative w-full h-[280px] sm:h-[360px] md:h-100 lg:h-125">
+                <Image 
+                  src={`/${product.image}`} 
+                  alt={`${productName} | Loc Troi Cambodia`} 
+                  title={`${productName} - Loc Troi Cambodia`}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain drop-shadow-xl md:drop-shadow-2xl" 
+                />
+              </div>
             </div>
+
+            <ImageGallery images={product.relatedImages || []} />
           </div>
           
           <div className="w-full md:w-1/2 p-4 sm:p-8 md:p-14 flex flex-col justify-center">

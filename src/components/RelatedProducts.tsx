@@ -92,10 +92,11 @@ export function RelatedProducts({
         </h2>
         
         {relatedProducts.length > 2 && (
-          <div className="flex gap-2">
+          <div className="flex gap-2" suppressHydrationWarning>
             <button 
               onClick={scrollLeft}
               disabled={!canScrollLeft}
+              suppressHydrationWarning
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${canScrollLeft ? 'bg-white border border-primary-600 text-primary-700 hover:bg-primary-600 hover:text-white shadow-sm' : 'bg-slate-50 border-slate-200 text-slate-300 cursor-not-allowed'}`}
               aria-label="Previous"
             >
@@ -104,6 +105,7 @@ export function RelatedProducts({
             <button 
               onClick={scrollRight}
               disabled={!canScrollRight}
+              suppressHydrationWarning
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${canScrollRight ? 'bg-white border border-primary-600 text-primary-700 hover:bg-primary-600 hover:text-white shadow-sm' : 'bg-slate-50 border-slate-200 text-slate-300 cursor-not-allowed'}`}
               aria-label="Next"
             >
