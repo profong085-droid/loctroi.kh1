@@ -155,7 +155,7 @@
     "contactTitle": "お問い合わせ",
     "addressLabel": "プノンペン、カンボジア",
     "socialTitle": "ソーシャルメディア",
-    "copyright": "Loc Troi Cambodia. PCF がすべての権利を保有",
+    "copyright": "Loc Troi Cambodia. All rights reserved {year}",
     "loginRequiredTitle": "まずログインしてください！",
     "loginRequiredDesc": "ソーシャルメディアを表示するには、まずウェブサイトにログインする必要があります！",
     "loginRequiredBtn": "OK"

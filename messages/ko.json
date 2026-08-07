@@ -155,7 +155,7 @@
     "contactTitle": "연락처",
     "addressLabel": "프놈펜, 캄보디아",
     "socialTitle": "소셜 미디어",
-    "copyright": "Loc Troi Cambodia. PCF의 모든 권리 보유",
+    "copyright": "Loc Troi Cambodia. All rights reserved {year}",
     "loginRequiredTitle": "먼저 로그인 해주세요!",
     "loginRequiredDesc": "소셜 미디어를 보려면 먼저 웹사이트에 로그인해야 합니다!",
     "loginRequiredBtn": "확인 (OK)"

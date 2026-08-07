@@ -474,8 +474,8 @@ export const Footer = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="mt-16 pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500"
         >
-          <p>{t("copyright").replace("{year}", new Date().getFullYear().toString())}</p>
-          <p>PCF</p>
+          <p>{t("copyright", { year: new Date().getFullYear() })}</p>
+          <p>PHO CHAIFUNG</p>
         </motion.div>
       </div>
 
