@@ -18,7 +18,7 @@ export function ImageGallery({ images }: { images: string[] }) {
               return (
                 <div 
                   key={idx} 
-                  className="relative aspect-3/2 w-[55%] sm:w-[45%] md:w-full flex-shrink-0 snap-center bg-slate-100 rounded-lg shadow-sm border border-slate-200 flex flex-col items-center justify-center text-slate-400 overflow-hidden"
+                  className="relative aspect-3/2 w-[55%] sm:w-[45%] md:w-full shrink-0 snap-center bg-slate-100 rounded-lg shadow-sm border border-slate-200 flex flex-col items-center justify-center text-slate-400 overflow-hidden"
                 >
                   <ImageIcon className="opacity-50 w-6 h-6 md:w-8 md:h-8" />
                   <span className="text-xs md:text-sm font-medium mt-1 md:mt-2">ឆាប់ៗនេះ</span>
@@ -28,7 +28,7 @@ export function ImageGallery({ images }: { images: string[] }) {
             return (
               <div 
                 key={idx} 
-                className="relative aspect-3/2 w-[55%] sm:w-[45%] md:w-full flex-shrink-0 snap-center bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden group cursor-pointer"
+                className="relative aspect-3/2 w-[55%] sm:w-[45%] md:w-full shrink-0 snap-center bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden group cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               >
                 <Image 
