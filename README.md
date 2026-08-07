@@ -12,7 +12,10 @@
 <br />
 
 <div align="center">
-  <img src="public/screenshot.png" alt="Website Screenshot" width="800" onerror="this.src='public/banner/banner%20saltare%20v2.jpg'" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
+  <img src="public/screenshot1.png" alt="Website Hero" width="48%" style="border-radius: 8px; margin: 1%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  <img src="public/screenshot2.png" alt="Product Categories" width="48%" style="border-radius: 8px; margin: 1%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  <img src="public/screenshot3.png" alt="Products Grid" width="48%" style="border-radius: 8px; margin: 1%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  <img src="public/screenshot4.png" alt="Website Footer" width="48%" style="border-radius: 8px; margin: 1%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 </div>
 
 ## ✨ Features
