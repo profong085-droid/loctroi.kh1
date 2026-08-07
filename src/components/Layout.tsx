@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, Phone, MapPin, Mail, ArrowRight, Download } from "lucide-react";
+import { Menu, X, Phone, MapPin, Mail, ArrowRight, Download, AlertCircle } from "lucide-react";
 import { FaFacebookF, FaTiktok, FaTelegram, FaGoogle, FaAndroid, FaApple } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
@@ -309,6 +309,38 @@ export const Footer = () => {
   const tNav = useTranslations("Navbar");
   const locale = useLocale();
   const [isInstallerOpen, setIsInstallerOpen] = useState(false);
+  const [showLoginAlert, setShowLoginAlert] = useState(false);
+  const { user } = useAuth();
+  
+  const handleSocialClick = async (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault();
+    if (user) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } else {
+      try {
+        const result = await signInWithPopup(auth, googleProvider);
+        const loggedInUser = result.user;
+        
+        await fetch("/api/send-telegram", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            type: "login",
+            name: loggedInUser.displayName || "Unknown",
+            message: loggedInUser.email || "Unknown",
+          }),
+        });
+        
+        // Use location.href instead of window.open to prevent popup blocker after async await
+        window.location.href = url;
+      } catch (error: any) {
+        if (error?.code !== 'auth/popup-closed-by-user' && error?.code !== 'auth/cancelled-popup-request') {
+          console.error("Login failed", error);
+        }
+        setShowLoginAlert(true);
+      }
+    }
+  };
   
   return (
     <footer id="footer-info" className="bg-primary-950 text-white/70 pt-8 pb-12 md:pt-10 md:pb-16 text-sm border-t border-white/10 relative overflow-hidden">
@@ -383,11 +415,11 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-slate-300">
                 <Phone size={20} className="text-primary-500" />
-                <span>097 945 0831 | 071 777 3554</span>
+                <span>0316315666 / 012469686</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-accent-500 shrink-0" size={18} />
-                <span>Profong085@gmail.com</span>
+                <span>support@loctroi.vn</span>
               </li>
             </ul>
           </motion.div>
@@ -401,13 +433,13 @@ export const Footer = () => {
           >
             <h3 className="font-bold text-white mb-6 uppercase tracking-wider text-sm md:text-base">{t("socialTitle")}</h3>
             <div className="flex gap-4 mb-6">
-              <a href="https://www.facebook.com/Phochaifong007/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+              <a href="https://www.facebook.com/Phochaifong007/" onClick={(e) => handleSocialClick(e, "https://www.facebook.com/Phochaifong007/")} aria-label="Facebook" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaFacebookF size={18} className="md:w-5 md:h-5" />
               </a>
-              <a href="https://www.tiktok.com/@ifong168" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+              <a href="https://www.tiktok.com/@ifong168" onClick={(e) => handleSocialClick(e, "https://www.tiktok.com/@ifong168")} aria-label="TikTok" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaTiktok size={18} className="md:w-5 md:h-5" />
               </a>
-              <a href="https://t.me/Phochaifong" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
+              <a href="https://t.me/Phochaifong" onClick={(e) => handleSocialClick(e, "https://t.me/Phochaifong")} aria-label="Telegram" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#229ED9] hover:text-white transition-colors duration-300 shadow-sm border border-white/5">
                 <FaTelegram size={20} className="md:w-5.5 md:h-5.5 -ml-0.5" />
               </a>
             </div>
@@ -443,11 +475,45 @@ export const Footer = () => {
           className="mt-16 pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500"
         >
           <p>{t("copyright").replace("{year}", new Date().getFullYear().toString())}</p>
-          <p>PHOCHAIFONG</p>
+          <p>PCF</p>
         </motion.div>
       </div>
 
       <AppInstallerModal isOpen={isInstallerOpen} onClose={() => setIsInstallerOpen(false)} />
+
+      <AnimatePresence>
+        {showLoginAlert && (
+          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-primary-950/60 backdrop-blur-sm"
+              onClick={() => setShowLoginAlert(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-sm bg-primary-900 rounded-3xl shadow-2xl p-8 text-center border border-white/10"
+            >
+              <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-500/20">
+                <AlertCircle className="w-10 h-10 text-red-400" />
+              </div>
+              <h3 className="text-2xl font-black text-white mb-3 tracking-tight">សូម Login សិន!</h3>
+              <p className="text-primary-200/80 mb-8 text-sm leading-relaxed">
+                អ្នកតម្រូវអោយ Login ចូលគេហទំព័រសិន មុននឹងអាចចូលមើលបណ្តាញសង្គមបាន!
+              </p>
+              <button
+                onClick={() => setShowLoginAlert(false)}
+                className="w-full py-3.5 bg-accent-500 hover:bg-accent-400 text-primary-950 rounded-2xl font-bold transition-all shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] hover:-translate-y-1"
+              >
+                យល់ព្រម (OK)
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 };
