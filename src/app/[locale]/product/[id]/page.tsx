@@ -211,7 +211,7 @@ export default async function ProductPage({ params }: Props) {
         <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
           <div className="w-full md:w-1/2 bg-slate-50 flex flex-col justify-between min-h-40 sm:min-h-55 md:min-h-100">
             <div className="flex-1 p-4 sm:p-6 md:p-12 flex flex-col items-center justify-center">
-              <div className="relative w-[65%] sm:w-full h-48 sm:h-90 md:h-100 lg:h-125">
+              <div className="relative w-[65%] sm:w-full h-60 sm:h-90 md:h-100 lg:h-125">
                 <Image 
                   src={`/${product.image}`} 
                   alt={`${productName} | Loc Troi Cambodia`} 

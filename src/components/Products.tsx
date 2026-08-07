@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, ChevronDown, ChevronLeft, ChevronRight, X, LayoutGrid, Snail, Leaf, Bug, ShieldAlert, Sprout, Wheat, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { productsData, categories, getLocalizedText } from "@/data/products";
 import { useTranslations, useLocale } from "next-intl";
 
@@ -123,7 +122,6 @@ export const Products = () => {
   const [activeCat, setActiveCat] = useState("all");
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(12);
-  const router = useRouter();
 
   const baseBanners = [
     { src: "/banner តាសុខ/តាសុខខ្លាំង.jpg", alt: "ថ្នាំកសិកម្ម តាសុខខ្លាំង លេខមួយពីក្រុមហ៊ុន Lộc Trời Cambodia ជួយការពារនិងកម្ចាត់រោគសត្វល្អិត" },
@@ -287,7 +285,7 @@ const ProductCard = ({ product, categoryData, locale }: any) => {
         href={`/${locale}/product/${product.id}`}
         className="relative bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-full min-h-50 sm:min-h-62.5 md:min-h-87.5 lg:min-h-100 transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
       >
-        <div className="relative h-32 sm:h-40 md:h-56 lg:h-64 p-2 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
+        <div className="relative flex-1 min-h-30 sm:min-h-40 md:min-h-56 p-3 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
           <div 
             className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/90 text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
           >
@@ -314,7 +312,7 @@ const ProductCard = ({ product, categoryData, locale }: any) => {
         </div>
         
         <div 
-          className="p-2 sm:p-3 md:p-6 flex-1 flex flex-col justify-end text-center bg-white z-20"
+          className="p-2 sm:p-3 md:p-6 flex-none flex flex-col justify-center text-center bg-white z-20"
         >
           <h3 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{getLocalizedText(product.name, locale)}</h3>
           <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{categoryData?.name || product.categoryKh}</p>
