@@ -500,15 +500,15 @@ export const Footer = () => {
               <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-500/20">
                 <AlertCircle className="w-10 h-10 text-red-400" />
               </div>
-              <h3 className="text-2xl font-black text-white mb-3 tracking-tight">សូម Login សិន!</h3>
+              <h3 className="text-2xl font-black text-white mb-3 tracking-tight">{t("loginRequiredTitle")}</h3>
               <p className="text-primary-200/80 mb-8 text-sm leading-relaxed">
-                អ្នកតម្រូវអោយ Login ចូលគេហទំព័រសិន មុននឹងអាចចូលមើលបណ្តាញសង្គមបាន!
+                {t("loginRequiredDesc")}
               </p>
               <button
                 onClick={() => setShowLoginAlert(false)}
                 className="w-full py-3.5 bg-accent-500 hover:bg-accent-400 text-primary-950 rounded-2xl font-bold transition-all shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] hover:-translate-y-1"
               >
-                យល់ព្រម (OK)
+                {t("loginRequiredBtn")}
               </button>
             </motion.div>
           </div>

@@ -155,7 +155,10 @@
     "contactTitle": "ទំនាក់ទំនង",
     "addressLabel": "ភ្នំពេញ, ប្រទេសកម្ពុជា",
     "socialTitle": "បណ្តាញសង្គម",
-    "copyright": "Loc Troi Cambodia. រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ PCF"
+    "copyright": "Loc Troi Cambodia. រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ PCF",
+    "loginRequiredTitle": "សូម Login សិន!",
+    "loginRequiredDesc": "អ្នកតម្រូវអោយ Login ចូលគេហទំព័រសិន មុននឹងអាចចូលមើលបណ្តាញសង្គមបាន!",
+    "loginRequiredBtn": "យល់ព្រម (OK)"
   },
   "FAQ": {
     "badge": "FAQ",

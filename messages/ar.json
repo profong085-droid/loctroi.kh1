@@ -155,7 +155,10 @@
     "contactTitle": "اتصل بنا",
     "addressLabel": "بنوم بنه، كمبوديا",
     "socialTitle": "وسائل التواصل الاجتماعي",
-    "copyright": "Loc Troi Cambodia. جميع الحقوق محفوظة لـ PCF"
+    "copyright": "Loc Troi Cambodia. جميع الحقوق محفوظة لـ PCF",
+    "loginRequiredTitle": "الرجاء تسجيل الدخول أولاً!",
+    "loginRequiredDesc": "يجب عليك تسجيل الدخول إلى الموقع قبل أن تتمكن من عرض وسائل التواصل الاجتماعي الخاصة بنا!",
+    "loginRequiredBtn": "حسناً (OK)"
   },
   "FAQ": {
     "badge": "أسئلة مكررة",

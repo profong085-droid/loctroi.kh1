@@ -155,7 +155,10 @@
     "contactTitle": "Contact",
     "addressLabel": "Phnom Penh, Cambodia",
     "socialTitle": "Social Media",
-    "copyright": "Loc Troi Cambodia. All rights reserved by PCF"
+    "copyright": "Loc Troi Cambodia. All rights reserved by PCF",
+    "loginRequiredTitle": "Please Login First!",
+    "loginRequiredDesc": "You are required to login to the website before you can view our social media!",
+    "loginRequiredBtn": "OK"
   },
   "FAQ": {
     "badge": "FAQ",
