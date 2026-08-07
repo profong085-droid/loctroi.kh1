@@ -11,9 +11,9 @@
 
 <br />
 
-> 📸 **Screenshot Placeholder**: *(Add a screenshot of your beautiful website here and name it `screenshot.png` in the `public` folder, then update this link!)*
-> 
-> <img src="public/screenshot.png" alt="Website Screenshot" width="800" onerror="this.src='public/banner/banner%20saltare%20v2.jpg'" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
+<div align="center">
+  <img src="public/screenshot.png" alt="Website Screenshot" width="800" onerror="this.src='public/banner/banner%20saltare%20v2.jpg'" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
+</div>
 
 ## ✨ Features
 
