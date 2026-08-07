@@ -91,7 +91,7 @@ export function ShareButton({ title, text, url }: ShareButtonProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 top-full mt-2 p-4 bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-slate-100 z-50 w-[280px]"
+            className="absolute right-0 top-full mt-2 p-4 bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-slate-100 z-50 w-70"
           >
             <div className="flex items-center justify-between mb-4 px-1">
               <h4 className="font-bold text-slate-800">ចែករំលែកទៅកាន់</h4>

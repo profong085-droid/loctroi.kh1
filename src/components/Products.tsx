@@ -203,23 +203,23 @@ export const Products = () => {
           </div>
 
           {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 px-2">
+          <div className="flex overflow-x-auto md:flex-wrap md:justify-center gap-2 md:gap-3 px-4 md:px-2 pb-4 md:pb-0 -mx-4 md:mx-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x">
             {categories.map((cat) => (
               <motion.button
                 key={cat.id}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => { setActiveCat(cat.id); setVisibleCount(12); }}
-                className={`flex items-center gap-2.5 px-4 py-2 md:px-6 md:py-2.5 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 border ${
+                className={`snap-start shrink-0 flex items-center gap-1.5 md:gap-2.5 px-3 py-1.5 md:px-6 md:py-2.5 rounded-full text-[12px] md:text-sm font-bold transition-all duration-300 border ${
                   activeCat === cat.id
                     ? "bg-primary-700 border-primary-700 text-white shadow-lg shadow-primary-700/30"
                     : "bg-white border-slate-200/80 text-slate-600 hover:border-primary-300 hover:bg-primary-50/50 hover:text-primary-700 shadow-sm hover:shadow-md"
                 }`}
               >
-                <div className={`flex items-center justify-center rounded-full p-1.5 transition-colors ${
+                <div className={`flex items-center justify-center rounded-full p-1 md:p-1.5 transition-colors ${
                   activeCat === cat.id ? "bg-white/20 text-white" : "bg-primary-50 text-primary-600"
                 }`}>
-                  <Icon name={cat.icon} size={14} className="md:w-4 md:h-4" />
+                  <Icon name={cat.icon} size={12} className="w-3 h-3 md:w-4 md:h-4" />
                 </div>
                 <span className="whitespace-nowrap">
                   {cat.id === "all" ? t("categoryAll") : t(`category_${cat.id}` as Parameters<typeof t>[0])}
