@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Menu, X, Phone, MapPin, Mail, ArrowRight, Download, AlertCircle } from "lucide-react";
 import { FaFacebookF, FaTiktok, FaTelegram, FaGoogle, FaAndroid, FaApple } from "react-icons/fa6";
@@ -73,7 +73,6 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, loading } = useAuth();
   const t = useTranslations("Navbar");
-  const pathname = usePathname();
   const locale = useLocale();
 
   const isNavSolid = true; // Always solid now
@@ -333,8 +332,9 @@ export const Footer = () => {
         
         // Use location.href instead of window.open to prevent popup blocker after async await
         window.location.href = url;
-      } catch (error: any) {
-        if (error?.code !== 'auth/popup-closed-by-user' && error?.code !== 'auth/cancelled-popup-request') {
+      } catch (error: unknown) {
+        const err = error as { code?: string };
+        if (err?.code !== 'auth/popup-closed-by-user' && err?.code !== 'auth/cancelled-popup-request') {
           console.error("Login failed", error);
         }
         setShowLoginAlert(true);
