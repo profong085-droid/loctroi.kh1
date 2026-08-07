@@ -2,6 +2,7 @@
 
 import { useState, useMemo, ElementType, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Search, ChevronDown, ChevronLeft, ChevronRight, X, LayoutGrid, Snail, Leaf, Bug, ShieldAlert, Sprout, Wheat, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -253,7 +254,6 @@ export const Products = () => {
                     key={product.id} 
                     product={product} 
                     categoryData={categoryData} 
-                    onClick={() => router.push(`/${locale}/product/${product.id}`)} 
                     locale={locale}
                   />
                 );
@@ -280,12 +280,12 @@ export const Products = () => {
 
 // 3D Tilt Product Card
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ProductCard = ({ product, categoryData, onClick, locale }: any) => {
+const ProductCard = ({ product, categoryData, locale }: any) => {
   return (
-    <div className="group">
-      <div
-        onClick={onClick}
-        className="relative bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-auto min-h-50 sm:min-h-62.5 md:min-h-87.5 lg:min-h-100 transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
+    <div className="group h-full">
+      <Link
+        href={`/${locale}/product/${product.id}`}
+        className="relative bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-full min-h-50 sm:min-h-62.5 md:min-h-87.5 lg:min-h-100 transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
       >
         <div className="relative h-32 sm:h-40 md:h-56 lg:h-64 p-2 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
           <div 
@@ -319,7 +319,7 @@ const ProductCard = ({ product, categoryData, onClick, locale }: any) => {
           <h3 className="font-black text-slate-800 text-xs sm:text-sm md:text-xl truncate mb-0.5 md:mb-1">{getLocalizedText(product.name, locale)}</h3>
           <p className="text-accent-500 text-[9px] sm:text-[10px] md:text-sm font-bold">{categoryData?.name || product.categoryKh}</p>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

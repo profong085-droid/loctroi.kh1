@@ -192,8 +192,8 @@ export default async function ProductPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <div className="container mx-auto px-6 max-w-5xl">
-        <div className="flex items-center justify-between mb-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-8 md:py-12">
+        <div className="px-2 sm:px-0 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 md:mb-8 gap-4">
           <Link 
             href={`/${locale}#products`} 
             className="inline-flex items-center gap-2 text-slate-500 hover:text-primary-600 transition-colors font-medium"
@@ -210,8 +210,8 @@ export default async function ProductPage({ params }: Props) {
         
         <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
           <div className="w-full md:w-1/2 bg-slate-50 flex flex-col justify-between min-h-40 sm:min-h-55 md:min-h-100">
-            <div className="flex-1 p-2 sm:p-6 md:p-12 flex flex-col items-center justify-center">
-              <div className="relative w-full h-70 sm:h-90 md:h-100 lg:h-125">
+            <div className="flex-1 p-4 sm:p-6 md:p-12 flex flex-col items-center justify-center">
+              <div className="relative w-[65%] sm:w-full h-48 sm:h-90 md:h-100 lg:h-125">
                 <Image 
                   src={`/${product.image}`} 
                   alt={`${productName} | Loc Troi Cambodia`} 
