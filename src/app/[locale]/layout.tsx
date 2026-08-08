@@ -97,7 +97,7 @@ export default async function RootLayout({
   ];
 
   return (
-    <html lang={locale} className="scroll-smooth" data-scroll-behavior="smooth">
+    <html lang={locale} className="scroll-smooth overflow-x-hidden w-full" data-scroll-behavior="smooth">
       <head>
         <Script
           id="gesture-handler"
@@ -110,16 +110,18 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden`}>
+      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            <div className="flex flex-col min-h-screen w-full max-w-[100vw] overflow-x-hidden">
+              <Navbar />
+              <main className="flex-grow w-full">{children}</main>
+              <Footer />
+            </div>
             <FloatingComponents />
             <CookieBanner />
             <Analytics />
