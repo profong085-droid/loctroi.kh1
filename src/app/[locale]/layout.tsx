@@ -119,7 +119,7 @@ export default async function RootLayout({
           <AuthProvider>
             <div className="flex flex-col min-h-screen w-full max-w-[100vw] overflow-x-hidden">
               <Navbar />
-              <main className="flex-grow w-full">{children}</main>
+              <main className="grow w-full">{children}</main>
               <Footer />
             </div>
             <FloatingComponents />
