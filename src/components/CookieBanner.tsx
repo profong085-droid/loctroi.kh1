@@ -44,7 +44,7 @@ export default function CookieBanner() {
 
           // Attempt to get Firebase FCM Token (for future backend usage)
           if (messaging) {
-            getToken(messaging)
+            getToken(messaging, { vapidKey: "BNtF9TLWxL77W7nG4BkdXqJ-VA9JYL-vGTevU_bPlhV-rdjLdJGowcpX9rSWBJHKtm1ECcGtR6S-xM0aEY9bnWM" })
               .then((currentToken) => {
                 if (currentToken) {
                   console.log("FCM Token:", currentToken);
