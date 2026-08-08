@@ -36,6 +36,48 @@ export default function CookieBanner() {
       import("firebase/messaging").then(({ onMessage }) => {
         onMessage(messaging, (payload) => {
           console.log("Foreground message:", payload);
+          
+          // Play loud notification sound
+          try {
+            const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+            const ctx = new AudioContext();
+            
+            // First loud beep
+            const osc = ctx.createOscillator();
+            const gainNode = ctx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(ctx.destination);
+            
+            osc.type = "square";
+            osc.frequency.setValueAtTime(800, ctx.currentTime); 
+            osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
+            
+            gainNode.gain.setValueAtTime(0, ctx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(1, ctx.currentTime + 0.05);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+            
+            osc.start(ctx.currentTime);
+            osc.stop(ctx.currentTime + 0.5);
+            
+            // Second loud beep
+            setTimeout(() => {
+              const osc2 = ctx.createOscillator();
+              const gainNode2 = ctx.createGain();
+              osc2.connect(gainNode2);
+              gainNode2.connect(ctx.destination);
+              
+              osc2.type = "square";
+              osc2.frequency.setValueAtTime(1200, ctx.currentTime);
+              gainNode2.gain.setValueAtTime(1, ctx.currentTime);
+              gainNode2.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+              
+              osc2.start(ctx.currentTime);
+              osc2.stop(ctx.currentTime + 0.5);
+            }, 200);
+          } catch (e) {
+            console.log("Audio play error", e);
+          }
+
           if (Notification.permission === "granted") {
             new Notification(payload.notification?.title || "សារថ្មី", {
               body: payload.notification?.body,
