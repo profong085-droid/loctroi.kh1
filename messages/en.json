@@ -223,5 +223,11 @@
     "back": "Go Back",
     "heading": "Knowledge Quiz Game",
     "description": "Join the fun and test your knowledge about agriculture and Lộc Trời products"
+  },
+  "CookieBanner": {
+    "title": "Cookie Policy",
+    "description": "We use cookies to ensure you get the best experience on our website. By continuing to use this site, you consent to our use of cookies.",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

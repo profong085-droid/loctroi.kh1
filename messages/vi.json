@@ -223,5 +223,11 @@
     "back": "Quay lại",
     "heading": "Trò chơi Trắc nghiệm Kiến thức",
     "description": "Tham gia giải trí và kiểm tra kiến thức của bạn về nông nghiệp và các sản phẩm của Lộc Trời"
+  },
+  "CookieBanner": {
+    "title": "Chính sách Cookie",
+    "description": "Chúng tôi sử dụng cookie để đảm bảo bạn có trải nghiệm tốt nhất trên trang web của chúng tôi. Bằng cách tiếp tục sử dụng trang web này, bạn đồng ý với việc sử dụng cookie của chúng tôi.",
+    "accept": "Đồng ý",
+    "decline": "Từ chối"
   }
 }

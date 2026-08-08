@@ -223,5 +223,11 @@
     "back": "戻る",
     "heading": "知識クイズゲーム",
     "description": "楽しみに参加して、農業とLộc Trời製品に関する知識をテストしてください"
+  },
+  "CookieBanner": {
+    "title": "Cookie ポリシー",
+    "description": "当ウェブサイトでは、最高のユーザー体験を提供するためにCookieを使用しています。本サイトの継続的な利用をもって、Cookieの使用に同意したものとみなされます。",
+    "accept": "同意する",
+    "decline": "拒否する"
   }
 }
