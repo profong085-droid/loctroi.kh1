@@ -20,6 +20,30 @@ export default function CookieBanner() {
         setShowBanner(true);
       }, 1000);
       return () => clearTimeout(timer);
+    } else {
+      // If already consented and permission granted, ensure Firebase is registered and listen for foreground messages
+      if ("Notification" in window && Notification.permission === "granted" && messaging) {
+        getToken(messaging, { vapidKey: "BNtF9TLWxL77W7nG4BkdXqJ-VA9JYL-vGTevU_bPlhV-rdjLdJGowcpX9rSWBJHKtm1ECcGtR6S-xM0aEY9bnWM" })
+          .then((currentToken) => console.log("FCM Token exists:", !!currentToken))
+          .catch((err) => console.log("FCM Error:", err));
+      }
+    }
+  }, []);
+
+  // Listen for foreground messages
+  useEffect(() => {
+    if (messaging) {
+      import("firebase/messaging").then(({ onMessage }) => {
+        onMessage(messaging, (payload) => {
+          console.log("Foreground message:", payload);
+          if (Notification.permission === "granted") {
+            new Notification(payload.notification?.title || "សារថ្មី", {
+              body: payload.notification?.body,
+              icon: "/favicon.ico",
+            });
+          }
+        });
+      });
     }
   }, []);
 
