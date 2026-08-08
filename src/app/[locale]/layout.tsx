@@ -10,6 +10,7 @@ import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server
 import { AuthProvider } from "@/context/AuthContext";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const kantumruyPro = Kantumruy_Pro({ 
@@ -122,6 +123,7 @@ export default async function RootLayout({
             <Analytics />
             <SpeedInsights />
           </AuthProvider>
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
         </NextIntlClientProvider>
       </body>
     </html>
