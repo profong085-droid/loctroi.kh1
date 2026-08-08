@@ -3,10 +3,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { messaging } from "@/lib/firebase";
+import { getToken } from "firebase/messaging";
 
 export default function CookieBanner() {
   const t = useTranslations("CookieBanner");
   const [showBanner, setShowBanner] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     // Check if the user has already consented
@@ -20,9 +23,40 @@ export default function CookieBanner() {
     }
   }, []);
 
-  const acceptCookies = () => {
+  const acceptCookies = async () => {
     localStorage.setItem("cookie_consent", "true");
     setShowBanner(false);
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3500);
+
+    // Request Native Push Notification Permission
+    if ("Notification" in window) {
+      try {
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+          // Show a test notification immediately
+          new Notification("អរគុណសម្រាប់ការយល់ព្រម!", {
+            body: "អ្នកនឹងទទួលបានព័ត៌មានកសិកម្មថ្មីៗពី Lộc Trời Cambodia",
+            icon: "/favicon.ico",
+          });
+
+          // Attempt to get Firebase FCM Token (for future backend usage)
+          if (messaging) {
+            getToken(messaging)
+              .then((currentToken) => {
+                if (currentToken) {
+                  console.log("FCM Token:", currentToken);
+                }
+              })
+              .catch((err) => console.log("FCM Token Error:", err));
+          }
+        }
+      } catch (error) {
+        console.error("Error requesting notification permission:", error);
+      }
+    }
   };
 
   const declineCookies = () => {
@@ -31,8 +65,26 @@ export default function CookieBanner() {
   };
 
   return (
-    <AnimatePresence>
-      {showBanner && (
+    <>
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-9999 bg-gray-900/95 backdrop-blur text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2 whitespace-nowrap font-khmer text-xs md:text-sm border border-gray-700"
+          >
+            <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+              ✓
+            </div>
+            អរគុណសម្រាប់ការយល់ព្រម!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showBanner && (
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -68,5 +120,6 @@ export default function CookieBanner() {
         </motion.div>
       )}
     </AnimatePresence>
+    </>
   );
 }
