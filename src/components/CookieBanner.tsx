@@ -32,13 +32,15 @@ export default function CookieBanner() {
 
   // Listen for foreground messages
   useEffect(() => {
-    if (messaging) {
+    const fcm = messaging;
+    if (fcm) {
       import("firebase/messaging").then(({ onMessage }) => {
-        onMessage(messaging, (payload) => {
+        onMessage(fcm, (payload) => {
           console.log("Foreground message:", payload);
           
           // Play loud notification sound
           try {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
             const ctx = new AudioContext();
             
