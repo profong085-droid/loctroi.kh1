@@ -228,9 +228,7 @@ export const Products = () => {
           </div>
         </div>
 
-        <div className="text-sm text-slate-500 mb-8 font-medium text-center">
-          {t("showing")} {displayedProducts.length} {t("of")} {filteredProducts.length} {t("productsCount")}
-        </div>
+
 
         {/* Grid */}
         {filteredProducts.length === 0 ? (

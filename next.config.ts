@@ -16,11 +16,13 @@ try {
 const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
 const nextConfig: NextConfig = {
+  distDir: '.next2',
   turbopack: {
     resolveAlias: {
       'next-intl/config': './src/i18n.ts'
     }
   },
+
   images: {
     qualities: [30, 75, 85, 90],
     formats: ['image/avif', 'image/webp'],

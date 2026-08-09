@@ -183,7 +183,7 @@ export default async function ProductPage({ params }: Props) {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 pt-20 sm:pt-24 pb-20">
+    <main className="min-h-screen bg-slate-50 pt-4 pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -192,7 +192,7 @@ export default async function ProductPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-0 sm:pt-8 pb-4 md:py-12">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-2 pb-4 md:pt-4 md:pb-8">
         <div className="px-2 sm:px-0 flex flex-row justify-between items-center mb-4 md:mb-8 gap-2">
           <Link 
             href={`/${locale}#products`} 

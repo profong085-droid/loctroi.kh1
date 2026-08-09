@@ -85,7 +85,7 @@ export function RelatedProducts({
   };
 
   return (
-    <div className="mt-16 md:mt-24 border-t border-slate-200 pt-12 pb-12">
+    <div className="mt-8 md:mt-12 border-t border-slate-200 pt-8 pb-4">
       <div className="flex items-center justify-between mb-8 relative">
         <h2 className="text-2xl md:text-3xl font-black text-primary-900 border-l-4 border-accent-500 pl-4">
           {relatedTitle}
