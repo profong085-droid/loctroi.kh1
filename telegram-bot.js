@@ -3,8 +3,57 @@ const TelegramBotModule = require('node-telegram-bot-api');
 const TelegramBot = TelegramBotModule.default || TelegramBotModule;
 const { createCanvas, loadImage } = require('@napi-rs/canvas');
 require('dotenv').config({ path: '.env.local' });
-
 const token = process.env.TELEGRAM_BOT_TOKEN;
+const { initializeApp, cert } = require('firebase-admin/app');
+const { getFirestore } = require('firebase-admin/firestore');
+const { getMessaging } = require('firebase-admin/messaging');
+const cron = require('node-cron');
+
+// Initialize Firebase Admin and Cron Job
+try {
+  const serviceAccount = require('./fong-ab522-firebase-adminsdk-fbsvc-9081724feb.json');
+  initializeApp({
+    credential: cert(serviceAccount)
+  });
+  console.log("✅ Firebase Admin (សម្រាប់ Notification អូតូ) ភ្ជាប់ជោគជ័យ!");
+  
+  // Schedule the cron job to run every day at 8:00 AM (Cambodia Time)
+  cron.schedule('0 8 * * *', async () => {
+    console.log("⏳ កំពុងដំណើរការការផ្ញើសារអូតូប្រចាំថ្ងៃ...");
+    try {
+      const db = getFirestore();
+      const snapshot = await db.collection('fcm_tokens').get();
+      
+      const tokens = [];
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        if (data.token) tokens.push(data.token);
+      });
+      
+      if (tokens.length > 0) {
+        const message = {
+          notification: {
+            title: "អរុណសួស្តីពី Lộc Trời!",
+            body: "មានព័ត៌មានកសិកម្មថ្មីៗសម្រាប់អ្នកនៅថ្ងៃនេះ។ ចូលអានឥឡូវនេះ!"
+          },
+          tokens: tokens
+        };
+        
+        const response = await getMessaging().sendEachForMulticast(message);
+        console.log(`✅ បានផ្ញើសារជោគជ័យចំនួន ${response.successCount} users.`);
+      } else {
+        console.log("⚠️ មិនមាន User ណាដែលបាន Allow Notification ទេ។");
+      }
+    } catch (error) {
+      console.error("❌ បញ្ហាក្នុងការផ្ញើសារអូតូ:", error);
+    }
+  }, {
+    timezone: "Asia/Phnom_Penh"
+  });
+} catch (error) {
+  console.log("⚠️ មិនទាន់មាន File សម្រាប់រត់ Notification ទេ!", error.message);
+}
+
 const bot = new TelegramBot(token, { polling: false });
 
 bot.deleteWebHook().then(() => {

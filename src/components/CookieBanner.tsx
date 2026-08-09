@@ -3,13 +3,28 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { messaging } from "@/lib/firebase";
+import { messaging, db } from "@/lib/firebase";
 import { getToken } from "firebase/messaging";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 export default function CookieBanner() {
   const t = useTranslations("CookieBanner");
   const [showBanner, setShowBanner] = useState(false);
   const [showToast, setShowToast] = useState(false);
+
+  const saveTokenToFirestore = async (token: string) => {
+    if (!db) return;
+    try {
+      const tokenRef = doc(db, 'fcm_tokens', token);
+      await setDoc(tokenRef, {
+        token: token,
+        updatedAt: serverTimestamp(),
+        platform: navigator.userAgent
+      }, { merge: true });
+    } catch (error) {
+      console.error("Error saving token to Firestore", error);
+    }
+  };
 
   useEffect(() => {
     // Check if the user has already consented
@@ -22,10 +37,20 @@ export default function CookieBanner() {
       return () => clearTimeout(timer);
     } else {
       // If already consented and permission granted, ensure Firebase is registered and listen for foreground messages
-      if ("Notification" in window && Notification.permission === "granted" && messaging) {
-        getToken(messaging, { vapidKey: "BNtF9TLWxL77W7nG4BkdXqJ-VA9JYL-vGTevU_bPlhV-rdjLdJGowcpX9rSWBJHKtm1ECcGtR6S-xM0aEY9bnWM" })
-          .then((currentToken) => console.log("FCM Token exists:", !!currentToken))
-          .catch((err) => console.log("FCM Error:", err));
+      if ("Notification" in window && Notification.permission === "granted" && "serviceWorker" in navigator && messaging) {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
+          getToken(messaging!, { 
+            vapidKey: "BNtF9TLWxL77W7nG4BkdXqJ-VA9JYL-vGTevU_bPlhV-rdjLdJGowcpX9rSWBJHKtm1ECcGtR6S-xM0aEY9bnWM",
+            serviceWorkerRegistration: registration
+          })
+            .then((currentToken) => {
+              if (currentToken) {
+                console.log("FCM Token exists");
+                saveTokenToFirestore(currentToken);
+              }
+            })
+            .catch((err) => console.log("FCM Error:", err));
+        }).catch(err => console.error("SW registration failed", err));
       }
     }
   }, []);
@@ -81,10 +106,19 @@ export default function CookieBanner() {
           }
 
           if (Notification.permission === "granted") {
-            new Notification(payload.notification?.title || "សារថ្មី", {
-              body: payload.notification?.body,
-              icon: "/favicon.ico",
-            });
+            if ("serviceWorker" in navigator) {
+              navigator.serviceWorker.ready.then((registration) => {
+                registration.showNotification(payload.notification?.title || "សារថ្មី", {
+                  body: payload.notification?.body,
+                  icon: "/favicon.ico",
+                });
+              });
+            } else {
+              new Notification(payload.notification?.title || "សារថ្មី", {
+                body: payload.notification?.body,
+                icon: "/favicon.ico",
+              });
+            }
           }
         });
       });
@@ -105,20 +139,35 @@ export default function CookieBanner() {
         const permission = await Notification.requestPermission();
         if (permission === "granted") {
           // Show a test notification immediately
-          new Notification("អរគុណសម្រាប់ការយល់ព្រម!", {
-            body: "អ្នកនឹងទទួលបានព័ត៌មានកសិកម្មថ្មីៗពី Lộc Trời Cambodia",
-            icon: "/favicon.ico",
-          });
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
+              // We must wait for the service worker to become active before showing a notification
+              navigator.serviceWorker.ready.then((readyRegistration) => {
+                readyRegistration.showNotification("អរគុណសម្រាប់ការយល់ព្រម!", {
+                  body: "អ្នកនឹងទទួលបានព័ត៌មានកសិកម្មថ្មីៗពី Lộc Trời Cambodia",
+                  icon: "/favicon.ico",
+                });
+              });
 
-          // Attempt to get Firebase FCM Token (for future backend usage)
-          if (messaging) {
-            getToken(messaging, { vapidKey: "BNtF9TLWxL77W7nG4BkdXqJ-VA9JYL-vGTevU_bPlhV-rdjLdJGowcpX9rSWBJHKtm1ECcGtR6S-xM0aEY9bnWM" })
-              .then((currentToken) => {
-                if (currentToken) {
-                  console.log("FCM Token:", currentToken);
-                }
-              })
-              .catch((err) => console.log("FCM Token Error:", err));
+              if (messaging) {
+                getToken(messaging!, { 
+                  vapidKey: "BNtF9TLWxL77W7nG4BkdXqJ-VA9JYL-vGTevU_bPlhV-rdjLdJGowcpX9rSWBJHKtm1ECcGtR6S-xM0aEY9bnWM",
+                  serviceWorkerRegistration: registration
+                })
+                  .then((currentToken) => {
+                    if (currentToken) {
+                      console.log("FCM Token exists");
+                      saveTokenToFirestore(currentToken);
+                    }
+                  })
+                  .catch((err) => console.log("FCM Token Error:", err));
+              }
+            });
+          } else {
+            new Notification("អរគុណសម្រាប់ការយល់ព្រម!", {
+              body: "អ្នកនឹងទទួលបានព័ត៌មានកសិកម្មថ្មីៗពី Lộc Trời Cambodia",
+              icon: "/favicon.ico",
+            });
           }
         }
       } catch (error) {

@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getMessaging, isSupported } from "firebase/messaging";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBDvGtP2Bhxir1qWVyzqtBk5_tS12fA0Ps",
@@ -16,6 +17,7 @@ const firebaseConfig = {
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
 // Initialize Messaging only in the browser (it uses window/navigator)
 let messaging: ReturnType<typeof getMessaging> | null = null;
@@ -27,4 +29,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-export { app, auth, googleProvider, messaging };
+export { app, auth, googleProvider, messaging, db };
