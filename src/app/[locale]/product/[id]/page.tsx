@@ -247,20 +247,20 @@ export default async function ProductPage({ params }: Props) {
             
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
               {productIngredients && (
-                <div className="bg-primary-50/50 p-4 sm:p-6 rounded-xl border border-primary-100">
-                  <h2 className="font-bold text-primary-900 mb-2 sm:mb-3 flex items-center gap-2 text-base sm:text-lg md:text-xl">
-                    <FlaskConical size={20} className="text-primary-600 sm:w-6 sm:h-6" />
+                <div className="bg-primary-50/50 p-3 sm:p-6 rounded-xl border border-primary-100">
+                  <h2 className="font-bold text-primary-900 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-lg md:text-xl">
+                    <FlaskConical size={18} className="text-primary-600 sm:w-6 sm:h-6" />
                     {t("ingredients")}
                   </h2>
-                  <p className="text-primary-800 font-semibold text-sm sm:text-base md:text-lg ml-4 sm:ml-8 mb-4 border-l-4 border-primary-300 pl-4 py-1">
+                  <p className="text-primary-800 font-semibold text-sm md:text-lg ml-2 sm:ml-8 mb-3 sm:mb-4 border-l-2 sm:border-l-4 border-primary-300 pl-3 sm:pl-4 py-1">
                     {productIngredients}
                   </p>
                   
                   {/* Detailed Information based on Active Ingredient */}
                   {productIngredientDetails && (
-                    <div className="ml-4 sm:ml-8 bg-white p-4 sm:p-5 rounded-lg shadow-sm border border-primary-100">
-                      <h3 className="font-bold text-primary-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
-                        <Microscope size={18} className="text-accent-500 sm:w-5 sm:h-5" />
+                    <div className="ml-2 sm:ml-8 bg-white p-3 sm:p-5 rounded-lg shadow-sm border border-primary-100">
+                      <h3 className="font-bold text-primary-800 mb-2 sm:mb-3 flex items-center gap-2 text-xs sm:text-base">
+                        <Microscope size={16} className="text-accent-500 sm:w-5 sm:h-5" />
                         {t("ingredientDetails")}
                       </h3>
                       <div className="text-slate-600 leading-relaxed text-sm sm:text-base space-y-2">
@@ -274,12 +274,12 @@ export default async function ProductPage({ params }: Props) {
               )}
 
               {productBenefits.length > 0 && (
-                <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
-                  <h2 className="font-bold text-slate-800 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
-                    <Leaf size={18} className="text-accent-500 sm:w-5 sm:h-5" />
+                <div className="bg-slate-50 p-3 sm:p-6 rounded-xl border border-slate-100">
+                  <h2 className="font-bold text-slate-800 mb-2 sm:mb-4 flex items-center gap-2 text-sm sm:text-lg">
+                    <Leaf size={16} className="text-accent-500 sm:w-5 sm:h-5" />
                     {t("benefits")}
                   </h2>
-                  <ul className="space-y-2 sm:space-y-3 ml-1">
+                  <ul className="space-y-1.5 sm:space-y-3 ml-0 sm:ml-1">
                     {productBenefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-2 sm:gap-3">
                         <CheckCircle2 size={18} className="text-green-500 shrink-0 mt-0.5 sm:w-5 sm:h-5" />
@@ -290,12 +290,12 @@ export default async function ProductPage({ params }: Props) {
                 </div>
               )}
 
-              <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
+              <div className="bg-slate-50 p-3 sm:p-6 rounded-xl border border-slate-100">
                 <h2 className="font-bold text-slate-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base md:text-lg">
                   <Tag size={16} className="text-accent-500 sm:w-5 sm:h-5" />
                   {t("usage")}
                 </h2>
-                <p className="text-slate-600 leading-relaxed text-sm sm:text-base md:text-lg ml-4 sm:ml-7">
+                <p className="text-slate-600 leading-relaxed text-sm md:text-lg ml-2 sm:ml-7">
                   {productUsage}
                 </p>
               </div>
@@ -303,7 +303,7 @@ export default async function ProductPage({ params }: Props) {
             
             <Link 
               href={`/${locale}#contact`}
-              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-xl w-full text-base sm:text-lg"
+              className="inline-flex items-center justify-center px-4 py-2 sm:px-8 sm:py-4 bg-primary-800 hover:bg-primary-900 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-xl w-full text-sm sm:text-lg"
             >
               {t("inquire")}
             </Link>

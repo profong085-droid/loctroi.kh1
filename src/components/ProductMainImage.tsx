@@ -60,22 +60,22 @@ export function ProductMainImage({ image, productName }: Props) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
           onClick={() => setIsOpen(false)}
         >
-          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center gap-3 z-50">
+          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center gap-2 sm:gap-3 z-50">
             <button 
-              className="flex items-center gap-2 text-white bg-primary-600 hover:bg-primary-700 shadow-lg shadow-primary-600/30 rounded-full px-5 py-2.5 transition-all active:scale-95 font-medium"
+              className="flex items-center gap-1.5 sm:gap-2 text-white bg-primary-600 hover:bg-primary-700 shadow-lg shadow-primary-600/30 rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 transition-all active:scale-95 font-medium text-xs sm:text-base"
               onClick={handleDownload}
             >
-              <Download size={20} />
+              <Download size={16} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">ទាញយករូបភាព</span>
             </button>
             <button 
-              className="text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5 transition-all"
+              className="text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-1.5 sm:p-2.5 transition-all"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsOpen(false);
               }}
             >
-              <X size={24} />
+              <X size={20} className="sm:w-6 sm:h-6" />
             </button>
           </div>
           
