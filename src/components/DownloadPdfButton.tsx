@@ -74,7 +74,7 @@ export function DownloadPdfButton({ product }: Props) {
       <button
         onClick={handleDownloadPdf}
         disabled={isGenerating}
-        className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full font-medium transition-colors disabled:opacity-50"
+        className="inline-flex items-center justify-center w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2 gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full font-medium transition-colors disabled:opacity-50"
         title="Download as PDF"
       >
         <Download size={18} />

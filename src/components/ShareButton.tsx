@@ -77,11 +77,11 @@ export function ShareButton({ title, text, url }: ShareButtonProps) {
     <div className="relative inline-block" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full font-medium transition-colors border border-slate-200 shadow-sm"
+        className="inline-flex items-center justify-center w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2 gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full font-medium transition-colors border border-slate-200 shadow-sm"
         title={t("title")}
       >
         <Share2 size={18} />
-        <span>{t("share")}</span>
+        <span className="hidden sm:inline">{t("share")}</span>
       </button>
 
       <AnimatePresence>
