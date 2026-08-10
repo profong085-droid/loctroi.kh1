@@ -8,6 +8,8 @@ import { ShareButton } from "@/components/ShareButton";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { RelatedProducts } from "@/components/RelatedProducts";
 import { ImageGallery } from "@/components/ImageGallery";
+import { ProductMainImage } from "@/components/ProductMainImage";
+import { DownloadPdfButton } from "@/components/DownloadPdfButton";
 
 type Props = {
   params: Promise<{ id: string, locale: string }>;
@@ -92,11 +94,26 @@ export default async function ProductPage({ params }: Props) {
   const productIngredients = getLocalizedText(product.ingredients, locale);
   const productIngredientDetails = getLocalizedText(product.ingredientDetails, locale);
   
-  // Benefits might be an array of LocaleText
   let productBenefits: string[] = [];
   if (product.benefits && product.benefits.length > 0) {
     productBenefits = product.benefits.map(b => getLocalizedText(b, locale));
   }
+
+  const productDataForPdf = {
+    name: productName,
+    category: tCat(`category_${product.category}` as Parameters<typeof tCat>[0]),
+    image: product.image,
+    ingredients: productIngredients || '',
+    ingredientDetails: productIngredientDetails || '',
+    benefits: productBenefits || [],
+    usage: productUsage || '',
+    labels: {
+      ingredients: t("ingredients"),
+      ingredientDetails: t("ingredientDetails"),
+      benefits: t("benefits"),
+      usage: t("usage"),
+    }
+  };
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -201,27 +218,20 @@ export default async function ProductPage({ params }: Props) {
             <ArrowLeft size={20} />
             {t("back")}
           </Link>
-          <ShareButton 
-            title={`${productName} | Loc Troi Cambodia`}
-            text={`ផលិតផល ${productName} របស់ក្រុមហ៊ុន ឡុក ត្រើយ`}
-            url={`https://loctroi.online/${locale}/product/${product.id}`}
-          />
+          <div className="flex gap-2">
+            <DownloadPdfButton product={productDataForPdf} />
+            <ShareButton 
+              title={`${productName} | Loc Troi Cambodia`}
+              text={`ផលិតផល ${productName} របស់ក្រុមហ៊ុន ឡុក ត្រើយ`}
+              url={`https://loctroi.online/${locale}/product/${product.id}`}
+            />
+          </div>
         </div>
         
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
+        <div id="product-details-pdf" className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
           <div className="w-full md:w-1/2 bg-slate-50 flex flex-col justify-between min-h-40 sm:min-h-55 md:min-h-100">
             <div className="flex-1 p-4 sm:p-6 md:p-12 flex flex-col items-center justify-center">
-              <div className="relative w-[65%] sm:w-full h-60 sm:h-90 md:h-100 lg:h-125">
-                <Image 
-                  src={`/${product.image}`} 
-                  alt={`${productName} | Loc Troi Cambodia`} 
-                  title={`${productName} - Loc Troi Cambodia`}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain drop-shadow-xl md:drop-shadow-2xl" 
-                />
-              </div>
+              <ProductMainImage image={product.image} productName={productName} />
             </div>
 
             <ImageGallery images={product.relatedImages || []} />

@@ -16,7 +16,7 @@ try {
 const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
 const nextConfig: NextConfig = {
-  distDir: '.next2',
+  distDir: '.next3',
   turbopack: {
     resolveAlias: {
       'next-intl/config': './src/i18n.ts'
