@@ -87,7 +87,7 @@ export function RelatedProducts({
   return (
     <div className="mt-8 md:mt-12 border-t border-slate-200 pt-8 pb-4">
       <div className="flex items-center justify-between mb-8 relative">
-        <h2 className="text-2xl md:text-3xl font-black text-primary-900 border-l-4 border-accent-500 pl-4">
+        <h2 className="text-lg sm:text-xl md:text-3xl font-black text-primary-900 border-l-3 md:border-l-4 border-accent-500 pl-3 md:pl-4">
           {relatedTitle}
         </h2>
         
@@ -132,11 +132,11 @@ export function RelatedProducts({
             return (
               <div 
                 key={product.id}
-                className="min-w-37.5 sm:min-w-50 md:min-w-70 snap-start flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden group hover:-translate-y-1"
+                className="min-w-32 sm:min-w-50 md:min-w-70 snap-start flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden group hover:-translate-y-1"
               >
                 <Link href={`/${locale}/product/${product.id}`} className="flex-1 flex flex-col">
-                  <div className="relative h-32 sm:h-40 md:h-56 p-3 md:p-6 bg-linear-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden border-b border-slate-50">
-                    <div className="absolute top-3 left-3 px-2 py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[10px] font-black rounded-full uppercase tracking-wider z-10">
+                  <div className="relative h-28 sm:h-40 md:h-56 p-2 sm:p-3 md:p-6 bg-linear-to-b from-slate-50 to-white flex items-center justify-center overflow-hidden border-b border-slate-50">
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-1.5 sm:px-2 py-0.5 sm:py-1 bg-primary-100/80 backdrop-blur text-primary-800 text-[8px] sm:text-[10px] font-black rounded-full uppercase tracking-wider z-10">
                       {getCatName(product.category) || product.categoryKh}
                     </div>
                     <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-500">
@@ -150,13 +150,13 @@ export function RelatedProducts({
                     </div>
                   </div>
                   
-                  <div className="p-3 md:p-5 flex-1 flex flex-col text-center items-center justify-center">
-                    <h3 className="font-black text-slate-800 text-[13px] md:text-lg line-clamp-2 mb-2 md:mb-4 group-hover:text-primary-700 transition-colors leading-tight">
+                  <div className="p-2 sm:p-3 md:p-5 flex-1 flex flex-col text-center items-center justify-center">
+                    <h3 className="font-black text-slate-800 text-[11px] sm:text-[13px] md:text-lg line-clamp-2 mb-1.5 sm:mb-2 md:mb-4 group-hover:text-primary-700 transition-colors leading-tight">
                       {getLocalizedText(product.name, locale)}
                     </h3>
-                    <div className="mt-auto pt-2 w-full">
-                      <div className="inline-flex items-center gap-1 md:gap-2 px-3 py-1.5 md:px-6 md:py-2 bg-primary-700 text-white rounded-full font-bold text-[11px] md:text-sm shadow-md group-hover:bg-primary-900 group-hover:shadow-lg transition-all w-full justify-center">
-                        <Eye size={16} /> {viewText}
+                    <div className="mt-auto pt-1.5 sm:pt-2 w-full">
+                      <div className="inline-flex items-center gap-1 md:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 md:px-6 md:py-2 bg-primary-700 text-white rounded-full font-bold text-[9px] sm:text-[11px] md:text-sm shadow-md group-hover:bg-primary-900 group-hover:shadow-lg transition-all w-full justify-center">
+                        <Eye size={14} className="md:w-5 md:h-5" /> {viewText}
                       </div>
                     </div>
                   </div>
