@@ -15,18 +15,56 @@ export function ProductMainImage({ image, productName }: Props) {
   const handleDownload = async (e: React.MouseEvent) => {
     e.stopPropagation();
     try {
-      const response = await fetch(`/${image}`);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      // Extract extension if possible, default to jpg
-      const ext = image.split('.').pop() || 'jpg';
-      a.download = `${productName.replace(/[^a-zA-Z0-9]/g, '_')}.${ext}`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
+      const img = new window.Image();
+      img.crossOrigin = "Anonymous";
+      img.src = `/${image}`;
+      
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      // Add padding (make canvas 1.4x larger than image)
+      const paddingFactor = 1.4;
+      // Max canvas size to prevent extremely large downloads
+      const MAX_CANVAS_SIZE = 1200;
+      
+      let canvasWidth = img.width * paddingFactor;
+      let canvasHeight = img.height * paddingFactor;
+      
+      let scale = 1;
+      if (canvasWidth > MAX_CANVAS_SIZE || canvasHeight > MAX_CANVAS_SIZE) {
+        scale = Math.min(MAX_CANVAS_SIZE / canvasWidth, MAX_CANVAS_SIZE / canvasHeight);
+        canvasWidth *= scale;
+        canvasHeight *= scale;
+      }
+      
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+      
+      // Draw image centered
+      const drawWidth = img.width * scale;
+      const drawHeight = img.height * scale;
+      const x = (canvasWidth - drawWidth) / 2;
+      const y = (canvasHeight - drawHeight) / 2;
+      
+      ctx.drawImage(img, x, y, drawWidth, drawHeight);
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${productName.replace(/[^a-zA-Z0-9]/g, '_')}.png`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }, "image/png");
     } catch (error) {
       console.error("Error downloading image:", error);
     }
@@ -87,7 +125,8 @@ export function ProductMainImage({ image, productName }: Props) {
               src={`/${image}`} 
               alt={productName} 
               fill 
-              className="object-contain drop-shadow-2xl" 
+              unoptimized
+              className="object-contain drop-shadow-2xl p-6 sm:p-12 md:p-16" 
             />
           </div>
         </div>

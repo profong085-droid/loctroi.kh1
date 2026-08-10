@@ -71,7 +71,8 @@ export function ImageGallery({ images }: { images: string[] }) {
               src={`/${selectedImage}`} 
               alt="Enlarged image" 
               fill 
-              className="object-contain" 
+              unoptimized
+              className="object-contain drop-shadow-2xl p-6 sm:p-12 md:p-16" 
             />
           </div>
         </div>

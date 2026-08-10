@@ -284,11 +284,18 @@ const ProductCard = ({ product, categoryData, locale }: any) => {
         className="relative bg-white rounded-xl md:rounded-2xl shadow-sm hover:shadow-2xl cursor-pointer flex flex-col h-full min-h-50 sm:min-h-62.5 md:min-h-87.5 lg:min-h-100 transition-all duration-300 hover:-translate-y-2 border border-slate-50 overflow-hidden"
       >
         <div className="relative flex-1 min-h-30 sm:min-h-40 md:min-h-56 p-3 sm:p-4 md:p-8 flex items-center justify-center overflow-hidden bg-linear-to-b from-transparent to-slate-50/50">
-          <div 
-            className="absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/90 text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider z-10 flex items-center gap-1.5"
-          >
-            <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-3 md:h-3" />
-            {categoryData?.name || product.categoryKh}
+          <div className="absolute top-2 left-2 md:top-4 md:left-4 flex flex-col gap-1 md:gap-2 z-10 items-start">
+            <div 
+              className="px-2 md:px-4 py-0.5 md:py-1 bg-primary-100/90 text-primary-800 text-[8px] sm:text-[9px] md:text-xs font-black rounded-full uppercase tracking-wider flex items-center gap-1.5"
+            >
+              <Icon name={categoryData?.icon || "tag"} size={10} className="md:w-3 md:h-3" />
+              {categoryData?.name || product.categoryKh}
+            </div>
+            {product.isNew && (
+              <div className="px-2 md:px-3 py-0.5 md:py-1 bg-red-500 text-white text-[9px] md:text-[11px] font-black rounded-full uppercase tracking-wider shadow-md shadow-red-500/20 animate-[pulse_2s_ease-in-out_infinite]">
+                NEW
+              </div>
+            )}
           </div>
           <div 
             className="absolute top-2 right-2 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 z-10"

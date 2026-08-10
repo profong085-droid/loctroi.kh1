@@ -13,6 +13,7 @@ export interface Product {
   ingredientDetails?: LocaleText;
   benefits?: LocaleText[];
   relatedImages?: string[];
+  isNew?: boolean;
 }
 
 export function getLocalizedText(text: LocaleText | undefined, locale: string): string {
@@ -337,6 +338,23 @@ export const productsData: Product[] = [
         zh: "GLYPHOSAN 480 SL用于控制橡胶园和果园中生长的单子叶和多年生杂草。" 
       }
     ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
+  },
+  { 
+    id: "ches-smao-super-200-sl", 
+    name: { kh: "ឆេះស្មៅស៊ុបពែរ 200 SL", en: "Super Grass Burner 200 SL", vi: "Super Grass Burner 200 SL", ar: "سوبر غراس بيرنر 200 SL", hi: "सुपर ग्रास बर्नर 200 SL", ja: "スーパーグラスバーナー 200 SL", ko: "슈퍼 그래스 버너 200 SL", zh: "超级燃烧杂草 200 SL" }, 
+    image: "photo/ឆេះស្មៅស៊ុបពែរ 200 SL.png", 
+    category: "herbicide", 
+    categoryKh: "ថ្នាំកម្ចាត់ស្មៅ",
+    isNew: true,
+    usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
+    ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
+    benefits: [ { kh: "ជាប្រភេទថ្នាំស្មៅបាញ់ក្នុងចំការ", en: "Herbicide for plantations", vi: "Thuốc trừ cỏ cho trang trại", ar: "مبيد أعشاب للمزارع", hi: "वृक्षारोपण के लिए शाकनाशी", ja: "農園用除草剤", ko: "농장용 제초제", zh: "种植园除草剂" } ] ,
     relatedImages: [
       "coming_soon",
       "coming_soon",
@@ -1239,6 +1257,7 @@ export const productsData: Product[] = [
     image: "photo/Insuran-N.png", 
     category: "fungicide", 
     categoryKh: "ថ្នាំកម្ចាត់ជំងឺ", 
+    isNew: true,
     usage: {
       kh: "របៀបប្រើប្រាស់: ម្រេច លាយ ១.៥ ក្រាម/១លីត្រទឹក។ ប៉េងប៉ោះ ត្រសក់ ពោត លាយ ៥០ ក្រាម/ធុង ២៥ លីត្រ។ ដំណាំមានមើម ដំឡូង កៅស៊ូ លាយ ៥០-៧៥ ក្រាម/ធុង ២៥ លីត្រ ឬលាយ ៦-៨ ក្រាម/១ លីត្រទឹក ដើម្បីលាបលើស្នាមជំងឺ។ (បរិមាណទឹក ៥០០-៦០០ លីត្រ/ហិចតា)។",
       en: "Usage: Pepper: Mix 1.5 grams/1 liter of water. Tomato, cucumber, corn: Mix 50 grams/25-liter tank. Tuber crops, cassava, rubber: Mix 50-75 grams/25-liter tank or mix 6-8 grams/1 liter of water to apply on the diseased mark. (Water volume: 500-600 liters/hectare).",
@@ -1262,6 +1281,23 @@ export const productsData: Product[] = [
         zh: "INSURAN 50 WG可预防和控制破坏胡椒的基腐病、叶片发黄和根腐病；西红柿上的晚疫病；黄瓜上的霜霉病；玉米上的霜霉病；块茎作物、木薯上的茎腐病和流胶病；橡胶上的割面条溃疡病。" 
       }
     ] ,
+    relatedImages: [
+      "coming_soon",
+      "coming_soon",
+      "coming_soon",
+      "coming_soon"
+    ]
+  },
+  { 
+    id: "icypro-600-wp", 
+    name: { kh: "ICYPRO 600 WP (អាយស៊ីប្រូ 600 WP)", en: "ICYPRO 600 WP", vi: "ICYPRO 600 WP", ar: "آيسيبرو 600 WP", hi: "आइसीप्रो 600 WP", ja: "アイシプロ 600 WP", ko: "아이시프로 600 WP", zh: "ICYPRO 600 WP" }, 
+    image: "photo/ICYPRO 600 WP.png", 
+    category: "fungicide", 
+    categoryKh: "ថ្នាំកម្ចាត់ជំងឺ",
+    isNew: true,
+    usage: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
+    ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
+    benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
     relatedImages: [
       "coming_soon",
       "coming_soon",
@@ -2246,7 +2282,6 @@ export const productsData: Product[] = [
     ingredients: { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" }, 
     benefits: [ { kh: "ឆាប់ៗនេះ", en: "Coming soon", vi: "Sắp ra mắt", ar: "قريباً", hi: "जल्द आ रहा है", ja: "近日公開", ko: "곧 출시 예정", zh: "即将推出" } ] ,
     relatedImages: [
-      "coming_soon",
       "coming_soon",
       "coming_soon",
       "coming_soon"
