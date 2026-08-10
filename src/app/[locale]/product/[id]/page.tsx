@@ -38,9 +38,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const productName = getLocalizedText(product.name, locale);
   const productUsage = getLocalizedText(product.usage, locale);
 
+  const productKeywords = product.id === 'om5451-nc' 
+    ? ["om5451", "om5451 nc", "ពូជស្រូវ om5451", "ពូជស្រូវ", "ស្រូវ om5451", "គ្រាប់ពូជស្រូវ", "គ្រាប់ពូជ", "loc troi", "តាសុខ"]
+    : [productName, product.categoryKh];
+
   return {
     title: `${productName} | Loc Troi Cambodia`,
     description: `ផលិតផល ${productName} - ${product.categoryKh}។ ${productUsage}`,
+    keywords: productKeywords,
     alternates: {
       canonical: `/${locale}/product/${product.id}`,
       languages: {
@@ -236,7 +241,7 @@ export default async function ProductPage({ params }: Props) {
             <ImageGallery images={product.relatedImages || []} />
           </div>
           
-          <div className="w-full md:w-1/2 p-4 sm:p-8 md:p-14 flex flex-col justify-center">
+          <div className="w-full md:w-1/2 p-4 sm:p-8 md:p-14 flex flex-col justify-start">
             <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 bg-primary-100 text-primary-800 text-[10px] sm:text-xs md:text-sm font-black rounded-full uppercase tracking-wider mb-2 sm:mb-6 w-max">
               {tCat(`category_${product.category}` as Parameters<typeof tCat>[0])}
             </div>
@@ -246,7 +251,7 @@ export default async function ProductPage({ params }: Props) {
             </h1>
             
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-              {productIngredients && (
+              {productIngredients && product.category !== "seed" && (
                 <div className="bg-primary-50/50 p-3 sm:p-6 rounded-xl border border-primary-100">
                   <h2 className="font-bold text-primary-900 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-lg md:text-xl">
                     <FlaskConical size={18} className="text-primary-600 sm:w-6 sm:h-6" />

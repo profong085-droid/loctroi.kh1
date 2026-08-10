@@ -35,8 +35,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       productRoutes.push({
         url: `${baseUrl}/${locale}/product/${product.id}`,
         lastModified: currentDate,
-        changeFrequency: 'weekly',
-        priority: 0.8,
+        changeFrequency: product.id === 'om5451-nc' ? 'daily' : 'weekly',
+        priority: product.id === 'om5451-nc' ? 1.0 : 0.8,
         alternates: getAlternates(`/product/${product.id}`),
       });
     });
