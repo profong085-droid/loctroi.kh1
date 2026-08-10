@@ -1,6 +1,5 @@
 import { productsData, getLocalizedText } from "@/data/products";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Tag, FlaskConical, CheckCircle2, Leaf, Microscope } from "lucide-react";
 import { Metadata } from "next";
