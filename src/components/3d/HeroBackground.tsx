@@ -8,6 +8,7 @@ const banners = [
   "/banner/banner insuran ធូរេន.jpg",
   "/banner/banner insuran.jpg",
   "/banner/banner saltare v2.jpg",
+  "/banner/banner គីណាលុច 25 EC.jpg",
 ];
 
 export default function HeroBackground() {
