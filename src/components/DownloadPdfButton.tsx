@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Download, FlaskConical, Leaf, Tag, CheckCircle2 } from "lucide-react";
 import * as htmlToImage from "html-to-image";
 import jsPDF from "jspdf";
@@ -27,6 +27,33 @@ type Props = {
 
 export function DownloadPdfButton({ product }: Props) {
   const [isGenerating, setIsGenerating] = useState(false);
+  const [base64Images, setBase64Images] = useState({ 
+    logo: "/photo/logo loctroi 6.png", 
+    product: `/${product.image}` 
+  });
+
+  useEffect(() => {
+    const fetchAsBase64 = async (url: string) => {
+      try {
+        const res = await fetch(url);
+        const blob = await res.blob();
+        return new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.readAsDataURL(blob);
+        });
+      } catch (e) {
+        return url;
+      }
+    };
+
+    Promise.all([
+      fetchAsBase64("/photo/logo loctroi 6.png"),
+      fetchAsBase64(`/${product.image}`)
+    ]).then(([logo, prod]) => {
+      setBase64Images({ logo, product: prod });
+    });
+  }, [product.image]);
 
   const handleDownloadPdf = async () => {
     const element = document.getElementById("pdf-template-content");
@@ -91,7 +118,7 @@ export function DownloadPdfButton({ product }: Props) {
           <div className="px-14 pt-14 pb-8 flex justify-between items-end border-b-2 border-primary-600">
             <div className="flex items-center gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/photo/logo loctroi 6.png" alt="Loc Troi" className="h-14 object-contain" />
+              <img src={base64Images.logo} alt="Loc Troi" className="h-14 object-contain" />
               <div className="flex flex-col">
                 <span className="font-black text-3xl text-primary-800 tracking-tight leading-none">LỘC TRỜI</span>
                 <span className="text-slate-500 text-sm font-bold uppercase tracking-[0.2em] mt-1">Cambodia</span>
@@ -121,7 +148,7 @@ export function DownloadPdfButton({ product }: Props) {
               <div className="w-[45%] flex flex-col items-center justify-start pt-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
-                  src={`/${product.image}`} 
+                  src={base64Images.product} 
                   alt={product.name} 
                   className="w-full h-auto max-h-150 object-contain drop-shadow-xl"
                 />
