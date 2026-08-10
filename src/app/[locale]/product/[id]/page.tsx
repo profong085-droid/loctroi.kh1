@@ -213,10 +213,10 @@ export default async function ProductPage({ params }: Props) {
         <div className="px-2 sm:px-0 flex flex-row justify-between items-center mb-4 md:mb-8 gap-2">
           <Link 
             href={`/${locale}#products`} 
-            className="inline-flex items-center gap-2 text-slate-500 hover:text-primary-600 transition-colors font-medium"
+            className="inline-flex items-center gap-1 sm:gap-2 text-slate-500 hover:text-primary-600 transition-colors font-medium text-sm sm:text-base"
           >
-            <ArrowLeft size={20} />
-            {t("back")}
+            <ArrowLeft size={20} className="w-5 h-5" />
+            <span className="hidden sm:inline">{t("back")}</span>
           </Link>
           <div className="flex gap-2">
             <DownloadPdfButton product={productDataForPdf} />

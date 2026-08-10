@@ -35,7 +35,7 @@ export function ProductMainImage({ image, productName }: Props) {
   return (
     <>
       <div 
-        className="relative w-[65%] sm:w-full h-60 sm:h-90 md:h-100 lg:h-125 group cursor-pointer"
+        className="relative w-[50%] sm:w-full h-48 sm:h-80 md:h-100 lg:h-125 group cursor-pointer"
         onClick={() => setIsOpen(true)}
       >
         <Image 
