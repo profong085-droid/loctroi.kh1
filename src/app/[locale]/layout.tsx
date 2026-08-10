@@ -56,10 +56,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale: locale === 'kh' ? 'km_KH' : locale === 'vi' ? 'vi_VN' : 'en_US',
       type: "website",
     },
-    icons: {
-      icon: "/photo/logo%20loctroi%206.png?v=6",
-      apple: "/photo/logo%20loctroi%206.png?v=6",
-    },
     manifest: "/manifest.json",
     verification: {
       google: "uemO56pZRbhi7Fe_74xIzAmZ_K5bKYMvwOfN2ppAMiw",
