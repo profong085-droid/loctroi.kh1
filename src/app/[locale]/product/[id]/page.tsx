@@ -107,7 +107,7 @@ export default async function ProductPage({ params }: Props) {
     name: productName,
     category: tCat(`category_${product.category}` as Parameters<typeof tCat>[0]),
     image: product.image,
-    ingredients: productIngredients || '',
+    ingredients: product.category === 'seed' ? '' : (productIngredients || ''),
     ingredientDetails: productIngredientDetails || '',
     benefits: productBenefits || [],
     usage: productUsage || '',
