@@ -2226,7 +2226,7 @@ export const productsData: Product[] = [
   },
   { 
     id: "om5451-nc", 
-    name: { kh: "OM5451 NC", en: "OM5451 NC", vi: "OM5451 NC", ar: "OM5451 NC", hi: "OM5451 NC", ja: "OM5451 NC", ko: "OM5451 NC", zh: "OM5451 NC" }, 
+    name: { kh: "OM5451", en: "OM5451", vi: "OM5451", ar: "OM5451", hi: "OM5451", ja: "OM5451", ko: "OM5451", zh: "OM5451" }, 
     image: "photo/3D - OM5451 NC.png", 
     category: "seed", 
     categoryKh: "គ្រាប់ពូជ", 
