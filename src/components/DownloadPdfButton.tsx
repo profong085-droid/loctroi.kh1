@@ -42,7 +42,7 @@ export function DownloadPdfButton({ product }: Props) {
           reader.onloadend = () => resolve(reader.result as string);
           reader.readAsDataURL(blob);
         });
-      } catch (e) {
+      } catch {
         return url;
       }
     };
