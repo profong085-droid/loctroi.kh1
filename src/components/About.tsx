@@ -1,12 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { PiCheckCircleDuotone, PiShieldCheckDuotone, PiLeafDuotone, PiUsersDuotone } from "react-icons/pi";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+
+const posters = [
+  "/photo/Loc Troi Icypro 1.jpg",
+  "/photo/loctroi man.jpg"
+];
 
 export const About = () => {
   const t = useTranslations("About");
+  const [currentPoster, setCurrentPoster] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentPoster((prev) => (prev + 1) % posters.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="about" className="py-12 md:py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -20,14 +35,25 @@ export const About = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-primary-100 rounded-[3rem] transform -rotate-3 scale-105 z-0"></div>
-              <div className="relative rounded-[3rem] overflow-hidden shadow-2xl z-10 border-4 border-white aspect-4/3">
-                <Image 
-                  src="/photo/Loc Troi Icypro 1.jpg" 
-                  alt="About Loc Troi" 
-                  fill 
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover" 
-                />
+              <div className="relative rounded-[3rem] overflow-hidden shadow-2xl z-10 border-4 border-white aspect-square">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentPoster}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0"
+                  >
+                    <Image 
+                      src={posters[currentPoster]} 
+                      alt="About Loc Troi" 
+                      fill 
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover" 
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
               
               <div className="absolute -bottom-10 -right-10 bg-white p-6 rounded-4xl shadow-xl z-20 hidden md:block">
