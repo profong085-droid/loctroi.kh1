@@ -28,15 +28,18 @@ type Props = {
 
 const fetchAsBase64 = async (url: string) => {
   try {
-    const res = await fetch(url);
+    const encodedUrl = encodeURI(url);
+    const res = await fetch(encodedUrl);
+    if (!res.ok) throw new Error("Network response was not ok");
     const blob = await res.blob();
     return new Promise<string>((resolve) => {
       const reader = new FileReader();
       reader.onloadend = () => resolve(reader.result as string);
       reader.readAsDataURL(blob);
     });
-  } catch {
-    return url;
+  } catch (err) {
+    console.error("Failed to fetch image as base64:", url, err);
+    return encodeURI(url);
   }
 };
 
