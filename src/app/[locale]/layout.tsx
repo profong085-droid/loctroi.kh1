@@ -15,7 +15,7 @@ import CookieBanner from "@/components/CookieBanner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const nokora = Nokora({ 
-  weight: ['100', '300', '400', '700', '900'],
+  weight: ['400', '700', '900'],
   subsets: ["khmer"],
   variable: "--font-khmer"
 });
