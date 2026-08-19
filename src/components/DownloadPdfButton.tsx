@@ -159,7 +159,7 @@ export function DownloadPdfButton({ product, allProducts }: Props) {
 
   const renderPdfTemplate = (prod: ProductPdfData, images: {logo: string, product: string}, id: string) => (
     <div className="fixed top-0 left-0 w-0 h-0 overflow-hidden pointer-events-none opacity-0 z-[-9999]" aria-hidden="true">
-      <div id={id} style={{ width: '794px', height: '1123px' }} className="bg-white text-slate-800 flex flex-col relative overflow-hidden font-sans">
+      <div id={id} style={{ width: '794px', height: '1123px' }} className="bg-white text-slate-800 flex flex-col relative overflow-hidden font-khmer">
         <div className="px-14 pt-14 pb-8 flex justify-between items-end border-b-2 border-primary-600">
           <div className="flex items-center gap-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
