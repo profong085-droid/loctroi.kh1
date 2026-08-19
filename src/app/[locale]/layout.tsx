@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter, Nokora, Koulen } from "next/font/google";
+import { Inter, Battambang, Koulen } from "next/font/google";
 import "../globals.css";
 import { Navbar, Footer } from "@/components/Layout";
 import { FloatingComponents } from "@/components/FloatingComponents";
@@ -14,7 +14,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import CookieBanner from "@/components/CookieBanner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const nokora = Nokora({ 
+const battambang = Battambang({ 
   weight: ['400', '700', '900'],
   subsets: ["khmer"],
   variable: "--font-khmer"
@@ -95,6 +95,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth overflow-x-hidden w-full" data-scroll-behavior="smooth">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700;900&family=Koulen&display=swap" rel="stylesheet" />
         <Script
           id="gesture-handler"
           dangerouslySetInnerHTML={{
@@ -106,7 +109,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${nokora.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`}>
+      <body className={`${inter.variable} ${battambang.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
