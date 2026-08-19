@@ -25,7 +25,7 @@
   --color-accent-400: #fbbf24;
   --color-accent-500: #f59e0b;
 
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-khmer), var(--font-inter), sans-serif;
   --font-khmer: var(--font-khmer);
   --font-koulen: var(--font-koulen);
 }
@@ -33,14 +33,15 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  font-family: var(--font-khmer), var(--font-inter), sans-serif;
 }
 
-body {
+body, button, input, select, textarea {
   min-height: 100vh;
   min-height: 100dvh;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-khmer), var(--font-sans), sans-serif;
+  font-family: var(--font-khmer), var(--font-inter), sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
