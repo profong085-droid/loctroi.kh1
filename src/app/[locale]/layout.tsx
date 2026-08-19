@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter, Kantumruy_Pro, Koulen } from "next/font/google";
+import { Inter, Nokora, Koulen } from "next/font/google";
 import "../globals.css";
 import { Navbar, Footer } from "@/components/Layout";
 import { FloatingComponents } from "@/components/FloatingComponents";
@@ -14,8 +14,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import CookieBanner from "@/components/CookieBanner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const kantumruyPro = Kantumruy_Pro({ 
-  weight: ['300', '400', '500', '600', '700'],
+const nokora = Nokora({ 
+  weight: ['100', '300', '400', '700', '900'],
   subsets: ["khmer"],
   variable: "--font-khmer"
 });
@@ -106,7 +106,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${kantumruyPro.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`}>
+      <body className={`${inter.variable} ${nokora.variable} ${koulen.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
