@@ -100,7 +100,7 @@ export function VideoSongs() {
               <div className="w-6 h-6 rounded-full bg-accent-500/20 flex items-center justify-center">
                 <Play className="w-3 h-3 text-accent-500 fill-current" />
               </div>
-              <h2 className="text-xl font-bold text-white font-koulen tracking-wide">
+              <h2 className="text-xl font-bold text-white font-black tracking-wide">
                 {t("title")} <span className="text-accent-500">LTC</span>
               </h2>
             </div>

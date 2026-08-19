@@ -62,7 +62,7 @@ export default async function CategoryPage({ params }: Props) {
         </div>
         
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-5xl font-koulen text-primary-950 mb-4">{catName}</h1>
+          <h1 className="text-3xl md:text-5xl font-khmer font-black text-primary-950 mb-4">{catName}</h1>
           <p className="text-slate-500">
             {t("showing")} {filteredProducts.length} {t("productsCount")}
           </p>

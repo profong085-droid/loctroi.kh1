@@ -57,7 +57,7 @@ export const Contact = () => {
     <section id="contact" className="py-12 md:py-24 bg-white relative">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 mb-3 md:mb-4 tracking-wide leading-relaxed">{t("title1")} {t("title2")}</h2>
+          <h2 className="text-2xl md:text-5xl font-black text-primary-950 mb-3 md:mb-4 tracking-wide leading-relaxed">{t("title1")} {t("title2")}</h2>
           <p className="text-slate-500 text-sm md:text-lg">{t("subtitle")}</p>
         </div>
 

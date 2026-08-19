@@ -35,7 +35,7 @@ export function HomeHero() {
         >
           <motion.h1 
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-koulen font-black text-white leading-[1.1] mb-2 drop-shadow-2xl"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black font-black text-white leading-[1.1] mb-2 drop-shadow-2xl"
           >
             <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-300 to-accent-500">
               Loc Troi

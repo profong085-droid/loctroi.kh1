@@ -21,7 +21,7 @@ export const FAQ = () => {
           <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-sm font-black rounded-full uppercase tracking-widest mb-6">
             {t("badge")}
           </div>
-          <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-6 tracking-wide leading-relaxed">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-800 mb-6 tracking-wide leading-relaxed">
             {t("title1")}<span className="text-primary-600 ml-2">{t("title2")}</span>
           </h2>
           <p className="text-slate-500 text-lg">

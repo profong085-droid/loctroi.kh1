@@ -45,7 +45,7 @@ export default async function AboutPage({ params }: Props) {
             <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-sm font-bold rounded-full mb-6">
               {t("badge")}
             </div>
-            <h1 className="text-4xl md:text-5xl font-koulen text-primary-950 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-khmer font-black text-primary-950 mb-6 leading-tight">
               {t("title1")} <span className="text-accent-500">{t("title2")}</span>
             </h1>
             <p className="text-slate-600 text-lg mb-8 leading-relaxed">

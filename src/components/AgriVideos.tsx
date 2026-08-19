@@ -72,7 +72,7 @@ export function AgriVideos() {
         
         {/* Header */}
         <div className="text-center mb-4 md:mb-8">
-          <h2 className="text-2xl md:text-5xl font-bold font-koulen text-white mb-2 tracking-wide drop-shadow-lg">
+          <h2 className="text-2xl md:text-5xl font-bold font-black text-white mb-2 tracking-wide drop-shadow-lg">
             {t("title1")} <span className="text-accent-500">{t("title2")}</span>
           </h2>
         </div>

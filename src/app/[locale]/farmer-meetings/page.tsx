@@ -61,7 +61,7 @@ export default async function FarmerMeetingsPage({ params }: Props) {
           <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 text-sm font-bold rounded-full mb-6">
             Lộc Trời Cambodia
           </div>
-          <h1 className="text-4xl md:text-5xl font-koulen text-primary-950 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-khmer font-black text-primary-950 mb-6 leading-tight">
             {tNav("farmer_meetings")}
           </h1>
           <p className="text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed">

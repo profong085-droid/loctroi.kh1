@@ -80,7 +80,7 @@ export const About = () => {
             <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 bg-primary-100 text-primary-800 text-xs sm:text-sm font-black rounded-full uppercase tracking-widest mb-4 sm:mb-6">
               {t("badge")}
             </div>
-            <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-4 sm:mb-6 leading-[1.4] sm:leading-[1.6] tracking-wide">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-800 mb-4 sm:mb-6 leading-[1.4] sm:leading-[1.6] tracking-wide">
               {t("title1")} <br />
               <span className="text-primary-600">{t("title2")}</span>
             </h2>

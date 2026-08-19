@@ -173,7 +173,7 @@ export const Products = () => {
         <BannerCarousel baseBanners={baseBanners} bannerImages={bannerImages} />
 
         <div className="text-center mb-8 md:mb-12 mt-16 md:mt-20">
-          <h2 className="text-2xl md:text-5xl font-koulen text-primary-950 tracking-wide leading-relaxed">{t("title")}</h2>
+          <h2 className="text-2xl md:text-5xl font-black text-primary-950 tracking-wide leading-relaxed">{t("title")}</h2>
         </div>
 
         {/* Toolbar */}

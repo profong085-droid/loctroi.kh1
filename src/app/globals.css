@@ -25,23 +25,26 @@
   --color-accent-400: #fbbf24;
   --color-accent-500: #f59e0b;
 
-  --font-sans: 'Battambang', var(--font-khmer), var(--font-inter), sans-serif;
-  --font-khmer: 'Battambang', var(--font-khmer), sans-serif;
-  --font-koulen: 'Koulen', var(--font-koulen), sans-serif;
+  --font-sans: 'Nokora', var(--font-nokora), var(--font-inter), sans-serif;
+  --font-khmer: 'Nokora', var(--font-nokora), sans-serif;
+  --font-koulen: 'Nokora', var(--font-nokora-bold), sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  font-family: 'Battambang', var(--font-khmer), var(--font-inter), sans-serif;
+  font-family: 'Nokora', var(--font-nokora), var(--font-inter), sans-serif;
 }
 
-body, button, input, select, textarea {
+body {
   min-height: 100vh;
   min-height: 100dvh;
+}
+
+body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Battambang', var(--font-khmer), var(--font-inter), sans-serif;
+  font-family: 'Nokora', var(--font-nokora), var(--font-inter), sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 

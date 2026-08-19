@@ -44,7 +44,7 @@ export const DealerLocator = () => {
     <section id="dealers" className="py-24 bg-slate-50 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-koulen text-slate-800 mb-6 tracking-wide leading-relaxed">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-800 mb-6 tracking-wide leading-relaxed">
             {t("title1")} <span className="text-primary-600">{t("title2")}</span>
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg">
