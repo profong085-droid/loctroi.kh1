@@ -268,7 +268,7 @@ export function DownloadPdfButton({ product, allProducts }: Props) {
       </div>
 
       {showMenu && !isGenerating && !isGeneratingBook && (
-        <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden z-50">
+        <div className="absolute right-[-45px] sm:right-0 mt-2 w-64 sm:w-72 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden z-[9999]">
           <div className="p-1.5">
             <button
               onClick={handleDownloadPdf}
