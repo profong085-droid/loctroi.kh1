@@ -119,6 +119,30 @@ export default async function ProductPage({ params }: Props) {
     }
   };
 
+  const allProductsDataForPdf = productsData.map(p => {
+    const pName = getLocalizedText(p.name, locale);
+    const pUsage = getLocalizedText(p.usage, locale);
+    const pIngredients = getLocalizedText(p.ingredients, locale);
+    const pIngredientDetails = getLocalizedText(p.ingredientDetails, locale);
+    const pBenefits = p.benefits && p.benefits.length > 0 ? p.benefits.map(b => getLocalizedText(b, locale)) : [];
+
+    return {
+      name: pName,
+      category: tCat(`category_${p.category}` as Parameters<typeof tCat>[0]),
+      image: p.image,
+      ingredients: p.category === 'seed' ? '' : (pIngredients || ''),
+      ingredientDetails: pIngredientDetails || '',
+      benefits: pBenefits || [],
+      usage: pUsage || '',
+      labels: {
+        ingredients: t("ingredients"),
+        ingredientDetails: t("ingredientDetails"),
+        benefits: t("benefits"),
+        usage: t("usage"),
+      }
+    };
+  });
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -223,7 +247,7 @@ export default async function ProductPage({ params }: Props) {
             <span className="hidden sm:inline">{t("back")}</span>
           </Link>
           <div className="flex gap-2">
-            <DownloadPdfButton product={productDataForPdf} />
+            <DownloadPdfButton product={productDataForPdf} allProducts={allProductsDataForPdf} />
             <ShareButton 
               title={`${productName} | Loc Troi Cambodia`}
               text={`ផលិតផល ${productName} របស់ក្រុមហ៊ុន ឡុក ត្រើយ`}
