@@ -12,6 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import CookieBanner from "@/components/CookieBanner";
+import VisitorTracker from "@/components/VisitorTracker";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const nokora = Nokora({ 
@@ -108,6 +109,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${nokora.variable} ${nokoraBold.variable} font-khmer bg-slate-50 text-slate-900 antialiased overflow-x-hidden w-full max-w-[100vw]`}>
+        <VisitorTracker />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
